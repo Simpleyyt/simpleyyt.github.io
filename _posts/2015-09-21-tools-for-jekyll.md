@@ -1,11 +1,12 @@
 ---
-published: false
+published: true
 layout: post
 title: 写 Jekyll 博客的正确姿势
 category: jekyll
 tags: 
   - jekyll
 ---
+
 
 用 Jekyll 写博客有个麻烦的地方，就是你可能需要把博客`git pull`下来，修改完成`commit`后，再`push`上 GitHub；或者使用 GitHub 的在线编辑器编辑，无论哪种都非常麻烦。幸好找到了几个第三方的写博客和图床工具。
 
