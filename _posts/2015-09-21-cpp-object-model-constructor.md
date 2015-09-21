@@ -9,6 +9,7 @@ tags:
 
 
 
+
 看看以下这段代码：
 
 ```cpp
@@ -23,7 +24,7 @@ void foo_bar()
 }
 ```
 
-上述程序并不会合成出一个 default constructor，什么时候会合成出 default constructor 呢，下面分4种情况。
+上述程序并不会合成出一个 default constructor。什么时候会合成出 default constructor 呢，下面分4种情况。
 
 <!--more-->
 
@@ -87,8 +88,8 @@ Bar::Bar()
 
 以下两种情况，也需要合成出 default constructor：
 
- 1. class 声明（或继承）一个 virtual function。
- 2. class 派生自一个继承串链，其中有一个或更多的 virtual base classes。
+ > 1. class 声明（或继承）一个 virtual function。
+ > 2. class 派生自一个继承串链，其中有一个或更多的 virtual base classes。
  
  举个例子：
  
@@ -115,11 +116,17 @@ void foo()
 
 编译期间发生两个扩张：
 
- 1. virtual function table
- 2. pointer member （也就是 vptr ）
- 
+ > 1. virtual function table
+ > 2. pointer member （也就是 vptr ）
+
+`flip` 函数可能被改写如下：
+
 ```cpp
 ( *widget.vptr[1] )( &widget )
 ```
 
 为了让这个机制发挥功效，编译器必须为每一个 Widget（或其派生类）object 的 vptr 设置初值，放置适当的 virtual table 地址。对于 class 所定义的每一个 constructor，编译器会安插一些代码来做这样的事情，如果没有 construcotr，则合成一个。
+
+## 带有一个 Virtual Base Class 的 Class
+
+例如以下代码：
