@@ -153,3 +153,40 @@ tinysou_search:     ## http://tinysou.com/
 
 gems:
  - jemoji
+
+prose:
+  rooturl: '_posts'
+  siteurl: 'http://simpleyyt.github.io/'
+  relativeLinks: 'http://simpleyyt.github.io/links.jsonp'
+  ignore:
+    - index.md
+    - _config.yml
+    - /_layouts
+    - /_includes
+    - /archives
+    - /tags
+    - /categories
+    - /search
+  metadata:
+    _posts:
+      - name: "layout"
+        field:
+          label: "Layout"
+          element: "hidden"
+          value: "post"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          placeholder: "title"
+      - name: "category"
+        field:
+          element: "text"
+          label: "Category"
+          placeholder: "category"
+      - name: "tags"
+        field:
+          element: "multiselect"
+          label: "Add Tags"
+          placeholder: "tag"
+          alterable: true
