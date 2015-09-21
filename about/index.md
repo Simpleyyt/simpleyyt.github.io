@@ -3,11 +3,11 @@ layout: page
 title: About me
 ---
 
-## Name
+### Name
 
-姚奕涛 （半技术宅）
+**姚奕涛**
 
-## Contact
+### Contact
 
  > * **Email:** [simpleyyt@gmail.com](mailto:simpleyyt@gmail.com)
  > * **WeiBo:** [摇一摇SimpleLife](http://www.weibo.com/u/1836017133)
