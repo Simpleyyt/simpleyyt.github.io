@@ -151,5 +151,5 @@ tinysou_search:     ## http://tinysou.com/
   enable: false
   id:  ## e.g. "4ac092ad8d749fdc6293" for your tiny search id
 
-gem:
+gems:
  - jemoji
