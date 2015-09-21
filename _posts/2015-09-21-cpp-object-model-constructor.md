@@ -8,6 +8,7 @@ tags:
 ---
 
 
+
 看看以下这段代码：
 
 ```cpp
@@ -44,6 +45,8 @@ void foo_bar()
 }
 ```
 
+![对象关系](http://simpleyyt.qiniudn.com/15-9-22/65375122.jpg)
+
 编译器会为`class Bar`合成一个 default constructor 来处理 `Bar::foo`，但它并不初始化`Bar::str`。
 
 合成的 default constructor 可能像这样：
@@ -73,3 +76,50 @@ Bar::Bar()
 ```
 
 如果有多个 class member objects 都要求 constructor 初始化操作，C++ 语言将以 **member objects 在 class 中的声明顺序**来调用各个 constructors。
+
+## 带有 Default Constructor 的 Base Class
+
+将会合成 Default Constructor，会根据 base class 声明的顺序调用 base class 的 default constructor。
+
+如果有多个 constructors，编译器会扩张现有的每一个 constructors。
+
+## 带有一个 Virtual Function 的 Class
+
+以下两种情况，也需要合成出 default constructor：
+
+ 1. class 声明（或继承）一个 virtual function。
+ 2. class 派生自一个继承串链，其中有一个或更多的 virtual base classes。
+ 
+ 举个例子：
+ 
+```cpp
+class Widget {
+public:
+    virtual void flip() = 0;
+    // ...
+};
+
+void flip( const Widget＆ widget ) { widget.flip(); }
+
+void foo()
+{
+    Bell b;
+    Whistle w;
+    
+    flip(b);
+    flip(w);
+}
+```
+
+![类图](http://simpleyyt.qiniudn.com/15-9-22/58211208.jpg)
+
+编译期间发生两个扩张：
+
+ 1. virtual function table
+ 2. pointer member （也就是 vptr ）
+ 
+```cpp
+( *widget.vptr[1] )( &widget )
+```
+
+为了让这个机制发挥功效，编译器必须为每一个 Widget（或其派生类）object 的 vptr 设置初值，放置适当的 virtual table 地址。对于 class 所定义的每一个 constructor，编译器会安插一些代码来做这样的事情，如果没有 construcotr，则合成一个。
