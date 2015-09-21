@@ -172,7 +172,7 @@ prose:
       - name: "layout"
         field:
           label: "Layout"
-          element: "hidden"
+          placeholder: "layout"
           value: "post"
       - name: "title"
         field:
