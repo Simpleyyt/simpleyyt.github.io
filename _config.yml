@@ -5,11 +5,11 @@ permalink: /:categories/:year/:month/:day/:title
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 highlighter: pygments
 
-assets: /assets
-baseurl: 
+assets: http://simpleyyt.github.io/assets
+baseurl: http://simpleyyt.github.io
 
 # pagination
-paginate: 20
+paginate: 10
 
 # Markdown Processors
 markdown: redcarpet
@@ -24,8 +24,8 @@ redcarpet:
     - with_toc_data
     
 
-title : Jekyll Jacman
-tagline: A fresh looking and responsive theme for Jekyll
+title : Yitao's Blog
+tagline: A technology blog for myself.
 
 
 ##### Menu
@@ -45,7 +45,7 @@ widgets:
 - category
 - tag
 - links
-- douban
+- weibo
 - rss
 ## provide seven widgets:category,tag,rss,archive,tagcloud,links,weibo,douban
 
@@ -73,19 +73,19 @@ mathjax: false      #enable mathjax if true
 #### Author information
 author:
   name: yitao      ## e.g. wuchong Author name
-  intro_line1:  "Hello ,I'm Larry Page in Google."    ## your introduction on the bottom of the page
-  intro_line2:  "This is my blog,believe it or not."  ## the 2nd line
-  weibo:      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
-  weibo_verifier:  ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
-  tsina:      ## e.g. 2176287895  Your weibo ID,It will be used in share button.
+  intro_line1:  "Hello, I'm Yitao in SYSU."    ## your introduction on the bottom of the page
+  intro_line2:  "Too simple, sometimes naive."  ## the 2nd line
+  weibo: 1836017133      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
+  weibo_verifier: 8266a57e  ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
+  tsina: 1836017133      ## e.g. 2176287895  Your weibo ID,It will be used in share button.
   douban:     ## e.g. wuchong1014 or your id for https://www.douban.com/people/wuchong1014
-  zhihu:      ## e.g. jark  for http://www.zhihu.com/people/jark
-  email:      ## e.g. imjark@gmail.com
+  zhihu: yaoyit      ## e.g. jark  for http://www.zhihu.com/people/jark
+  email: simpleyyt@gmail.com      ## e.g. imjark@gmail.com
   twitter:    ## e.g. jarkwu for https://twitter.com/jarkwu
-  github:     ## e.g. wuchong for https://github.com/wuchong
+  github: simpleyyt     ## e.g. wuchong for https://github.com/wuchong
   facebook:   ## e.g. imjark for https://facebook.com/imjark
   linkedin:   ## e.g. wuchong1014 for https://www.linkedin.com/in/wuchong1014
-  google_plus:    ## e.g. "111190881341800841449" for https://plus.google.com/u/0/111190881341800841449, the "" is needed!
+  google_plus: "103860633659538888207"    ## e.g. "111190881341800841449" for https://plus.google.com/u/0/111190881341800841449, the "" is needed!
   stackoverflow:  ## e.g. 3222790 for http://stackoverflow.com/users/3222790/jark
 ## if you set them, the corresponding  share button will show on the footer
 
@@ -101,10 +101,10 @@ links:
   码农圈: https://coderq.com,一个面向程序员交流分享的新一代社区
   Jark's Blog: http://wuchong.me
 
-
+excerpt_separator: <!--more-->
 
 #### Comment
-duoshuo_shortname:    ## e.g. wuchong   your duoshuo short name.
+duoshuo_shortname: simpleyyt   ## e.g. wuchong   your duoshuo short name.
 disqus_shortname:     ## e.g. wuchong   your disqus short name.
 
 #### Share button
@@ -134,8 +134,8 @@ totop: true           ## if you want to scroll to top in every post set the valu
 
 #### Custom Search
 google_cse: 
-  enable: false
-  cx: 018294693190868310296:abnhpuysycw  ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.
+  enable: true
+  cx: 004255214185073801838:_icnlls8kds  ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.
 ## https://www.google.com/cse/ 
 ## To enable the custom search You must create a "search" folder in '/source' and a "index.md" file
 ## set the 'front-matter' as
@@ -150,3 +150,6 @@ baidu_search:     ## http://zn.baidu.com/
 tinysou_search:     ## http://tinysou.com/
   enable: false
   id:  ## e.g. "4ac092ad8d749fdc6293" for your tiny search id
+
+gem:
+ - jemoji

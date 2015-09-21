@@ -1,5 +1,9 @@
 # Jekyll-Jacman
 
+以前的博客主题已不再维护，如果需要请移步 [jekyll-simpleyyt](https://github.com/Simpleyyt/jekyll-simpleyyt)。
+
+Jacman 这主题是从 Hexo 版的 Jacman 主题移植过来的，个人比较喜欢。
+
 Jekyll-Jacman 是为 [Jekyll](http://jekyllrb.com) 设计的一款清新且具有响应式的主题，拥有更丰富的特性并支持了很多的国内服务。Jacman 始于 [Jacman](https://github.com/wuchong/jacman) 移植而来。
 
 [主题演示](http://simpleyyt.github.io/jekyll-jacman/) | [Yitao's Blog](http://simpleyyt.github.io)
