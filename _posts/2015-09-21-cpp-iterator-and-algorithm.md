@@ -1,7 +1,7 @@
 ---
 published: true
 title: C++ 之迭代器与算法
-category: c++/c
+category: program
 tags: 
   - c++
   - c
