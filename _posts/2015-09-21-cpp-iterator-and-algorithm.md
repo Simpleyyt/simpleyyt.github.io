@@ -3,7 +3,7 @@ published: true
 title: C++ 之迭代器与算法
 category: program
 tags: 
-  - c++
+  - cpp
   - c
 layout: post
 ---
