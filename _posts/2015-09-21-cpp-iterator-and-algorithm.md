@@ -5,6 +5,7 @@ category: c++/c
 tags: 
   - c++
   - c
+layout: post
 ---
 
 
