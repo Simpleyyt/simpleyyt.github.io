@@ -1,11 +1,12 @@
 ---
-published: false
+published: true
 layout: post
 title: C++ 对象模型之构造函数
 category: program
 tags: 
   - cpp
 ---
+
 
 看看以下这段代码：
 
