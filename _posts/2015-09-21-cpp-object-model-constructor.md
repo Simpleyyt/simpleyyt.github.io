@@ -97,7 +97,7 @@ public:
     // ...
 };
 
-void flip( const Widget＆ widget ) { widget.flip(); }
+void flip( const Widget& widget ) { widget.flip(); }
 
 void foo()
 {
