@@ -98,7 +98,7 @@ derived class object 的 virtual base class subobject 位置必须维护，bitwi
 
 举个例子：
 
-```
+```cpp
 class Raccon : public virtual ZooAnimal {
 public:
     Raccoon() { }
