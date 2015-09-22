@@ -10,6 +10,7 @@ tags:
 
 
 
+
 看看以下这段代码：
 
 ```cpp
@@ -130,3 +131,35 @@ void foo()
 ## 带有一个 Virtual Base Class 的 Class
 
 例如以下代码：
+
+```cpp
+class X { public: int i; };
+class A : public virtual X { public: int j; };
+class B : public virtual X { public: double d; };
+class C : public A, public B { public: int k; };
+
+void foo(const A* pa) { pa->i = 1024; }
+
+main()
+{
+    foo(new A);
+    foo(new C);
+}
+```
+`foo()`可能被改写如下：
+
+```cpp
+void foo(const A* pa) { pa->_vbcX-> = 1024; }
+```
+
+class 所定义的每一个 constructor，编译器会安插代码来初始化`_vbcX`，如果没有 constructors，编译器必须合成一个 default constructor。
+
+## 总结
+
+C++ 新手一般有两个常见的误解：
+
+ > 1. 任何 class 如果没有定义 default constructor，就会被合成出一个来。
+ > 2. 编译器合成出来的 default constructor 会显式设定 class 内每一个 data member 的默认值。
+ 
+如你所见，没有一个是真的。
+
