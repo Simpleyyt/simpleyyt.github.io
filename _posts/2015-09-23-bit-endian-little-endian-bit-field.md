@@ -1,6 +1,13 @@
 ---
-published: false
+published: true
+layout: post
+title: 位域的大小端问题
+category: program
+tags: 
+  - cpp
+  - c
 ---
+
 
 有如下位域结构体：
 
