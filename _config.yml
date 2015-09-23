@@ -118,7 +118,7 @@ jiathis:
 google_analytics:
   enable: true
   id: UA-67994495-1        ## e.g. UA-46321946-2 your google analytics ID.
-  site: simpleyyt.github.io      ## e.g. wuchong.me your google analytics site or set the value as auto.
+  site: auto      ## e.g. wuchong.me your google analytics site or set the value as auto.
 ## You MUST upgrade to Universal Analytics first!
 ## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN
 baidu_tongji:
