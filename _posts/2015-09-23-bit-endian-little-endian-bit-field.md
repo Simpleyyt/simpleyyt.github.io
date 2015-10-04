@@ -1,12 +1,20 @@
 ---
-published: true
-layout: post
-title: 位域的大小端问题
 category: program
-tags: 
+date: '2015-09-23'
+layout: post
+published: true
+sha: bb15df298c40e3c89533264bad4ce4665d06ab1a
+slug: bit-endian-little-endian-bit-field
+tags:
   - cpp
   - c
+title: 位域的大小端问题
+info: 
+comment: 
+categories: []
+
 ---
+
 
 
 有如下位域结构体：
@@ -57,5 +65,5 @@ C11 C10 C9 C8 C7 C6 C5 C4  B15 B14 B13 B12 C3 C2 C1 C0  B11 B10 B9 B8 B7 B6 B5 B
 ```
 
 ---
-
+test
 本文转自：<http://blog.sina.com.cn/s/blog_6f611c300102uznw.html>
