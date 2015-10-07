@@ -6,7 +6,7 @@ date: '2015-9-21'
 info: null
 layout: post
 published: true
-sha: a413019f800397ad67242e1be804f054205d02a6
+sha: 8af40f7f362a9f923dd56f479e72e4e4fa5f9874
 slug: new-blog-theme
 tags:
   - daily
