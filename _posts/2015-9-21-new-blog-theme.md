@@ -3,19 +3,20 @@ categories:
   - daily
 tags:
   - daily
-comment: 
-info: 
+comment: null
+info: null
 date: '2015-9-21'
 type: post
 layout: post
 published: true
-sha: 6c144ed91b009bbc8da47c148147890293a377fc
+sha: 7a84dee5cde2eb0fd03425714fbbb1621eaecde8
 slug: new-blog-theme
 title: 'Blog 新主题'
 
 ---
-最终把整个 Hexo 的 Jacman 几乎全部移植过来了:smile:，好多 Jekyll 后端不支持的东西都需要前端来解决。
 
+最终把整个 Hexo 的 Jacman 几乎全部移植过来了:smile:，好多 Jekyll 后端不支持的东西都需要前端来解决。
+test
 <!--more-->
 
 最近突然想写博客，以前都是用作业部落在记笔记，以后还准备写一个类似 stackeditor 的工具用来写 Jekyll 博客。
