@@ -1,18 +1,5 @@
 ---
-categories:
-  - daily
-comment: null
-date: '2015-9-21'
-info: null
-layout: post
-published: true
-sha: 6ca19c1a5af6655c6d16b919ffdc5d1f87e2d5a2
-slug: new-blog-theme
-tags:
-  - daily
-title: 'Blog 新主题'
-type: post
-
+{  }
 ---
 
 
