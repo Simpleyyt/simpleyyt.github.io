@@ -6,9 +6,6 @@ tags:
 category: daily
 
 ---
-
-
-
 最终把整个 Hexo 的 Jacman 几乎全部移植过来了:smile:，好多 Jekyll 后端不支持的东西都需要前端来解决。
 
 <!--more-->
