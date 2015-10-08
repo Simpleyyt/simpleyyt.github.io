@@ -2,7 +2,7 @@
 layout: post
 tags:
   - daily
-title: 'Blog 新主题'
+title: 'Blog 新主题1'
 category: daily
 ---
 
