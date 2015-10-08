@@ -1,7 +1,7 @@
 ---
+layout: post
 tags:
   - daily
-layout: post
 title: 'Blog 新主题'
 category: daily
 ---
