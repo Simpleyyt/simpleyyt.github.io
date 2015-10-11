@@ -1,9 +1,9 @@
 ---
+category: daily
 layout: post
 tags:
   - daily
 title: 'Jekyll Editor 使用入门'
-category: daily
 ---
 Jekyll Editor 专门为 Jekyll 博客定制的强大的 markdown 编辑器，它会自动从`<yourname>.github.io`仓库读取`_post`目录下的博客列表，并可以读取、创建、修改博客。
 
@@ -40,7 +40,7 @@ Jekyll Editor 专门为 Jekyll 博客定制的强大的 markdown 编辑器，它
 
 即博文的 yaml 格式数据，博文将会以文件名`<date>-<slug>.md`的格式更新。
 
-*注：当“发布”打勾时，才会真正地发布到主页上。*
+*注：当“发布”打勾时，才会真正地发布。*
 
 ## 已知 Bug
 
