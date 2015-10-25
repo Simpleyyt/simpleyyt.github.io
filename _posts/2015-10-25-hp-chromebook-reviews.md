@@ -5,7 +5,7 @@ layout: post
 title: 'HP Chromebook 11 折腾体验'
 category: daily
 ---
-前不久，在闲鱼网上600块淘了一台 Chromebook，hp chromebook 11，ARM 架构。外观挺新的，轻巧方便。1.1吋的屏幕，可以随身携带。只带 ChromeOS，开机快速，浏览网页也挺快，挺流畅的，基本不卡。
+前不久，在闲鱼网上600块淘了一台 Chromebook，hp chromebook 11，ARM 架构。外观挺新的，轻巧方便。11吋的屏幕，可以随身携带。只带 ChromeOS，开机快速，浏览网页也挺快，挺流畅的，基本不卡。
 
 <!--more-->
 
