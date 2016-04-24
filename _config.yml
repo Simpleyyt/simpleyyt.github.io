@@ -27,6 +27,13 @@ redcarpet:
 title : Yitao's Blog
 tagline: A technology blog for myself.
 
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      type: "post"
 
 ##### Menu
 menu:
