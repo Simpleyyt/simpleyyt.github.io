@@ -26,7 +26,7 @@ Shadowsocks elementaryOS/Ubuntu（也许可以） 客户端（指示器）。
 
 ## 安装
 
-首先必须先安装`shadowsocks-libev`与`gfwlist2pac`，`gfwlist2pac`可以通过`pip`安装：
+首先必须先安装`shadowsocks`与`gfwlist2pac`，可以通过`pip`安装：
 
 ```sh
 sudo pip install shadowsocks gfwlist2pac
