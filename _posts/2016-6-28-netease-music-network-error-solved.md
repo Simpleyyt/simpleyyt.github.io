@@ -2,7 +2,7 @@
 layout: post
 tags:
   - linux
-title: Linux版网易云音乐无限网络错误的解决
+title: 'Linux 版网易云音乐无限网络错误的解决'
 category: linux
 ---
 网易云音乐终于发布 Linux 版本了，但是在 elementaryOS 上播放音乐时出现了网络错误。
