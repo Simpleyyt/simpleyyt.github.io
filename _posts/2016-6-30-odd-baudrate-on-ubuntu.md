@@ -6,7 +6,7 @@ layout: post
 title: 'Ubuntu 上自定义特殊波特率'
 category: linux
 ---
-在做嵌入式开发时，经常会需要特殊的串口波特率，比如 esp8266 的 74880 波特率。Ubuntu 下的minicom 与 screen 都不支持这个波特率，可以使用`setserial`将特殊波特率映射到 38400。
+在做嵌入式开发时，经常会需要特殊的串口波特率，比如 esp8266 的 74880 波特率。Ubuntu 下的 minicom 与 screen 都不支持这个波特率，可以使用`setserial`将特殊波特率映射到 38400。
 
 <!--more-->
 
