@@ -82,7 +82,7 @@ index:
   excerpt_link: Read More  
 
 close_aside: true  #close sidebar in post page if true
-mathjax: true      #enable mathjax if true
+mathjax: false     #enable mathjax if true
 
 #### Author information
 author:
