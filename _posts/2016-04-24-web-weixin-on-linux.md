@@ -3,7 +3,7 @@ tags:
   - linux
 layout: post
 title: 'Linux 上 Web 版本微信发布'
-category: linux
+category: Linux
 ---
 elementaryOS 或 Ubuntu 上的 Web 版微信应用。添加了 AppIndicator 消息提醒及 Libnotify 消息提醒功能。
 

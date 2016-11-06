@@ -1,9 +1,9 @@
 ---
 layout: post
-category: vocore
+category: Embedded
 title: 入手VoCore
 tagline: by Snail
-tags: [vocore, embedded]
+tags: [vocore, openwrt, embedded]
 ---
 由于项目需要用到RT5350，一个廉价的WiFi片上芯片，在网上搜索相关资料之后，找到了VoCore这个国内的开源项目，一个带用WiFi的硬币大小的Linux计算机。如果感兴趣的话可以了解一下[作者的博客](http://vonger.cn/)和[相关介绍](https://www.indiegogo.com/projects/vocore-a-coin-sized-linux-computer-with-wifi)。
 

@@ -1,9 +1,9 @@
 ---
 layout: post
-category: vocore
+category: Embedded
 title: VoCore首次启动失败
 tagline: by Snail
-tags: [vocore, embedded]
+tags: [vocore, openwrt, embedded]
 ---
 本来以为首次启动应该顺顺利利的，但是，问题总是在遇到我的时候变得很复杂，问题总是以意思不到的形式出现，接上电源后，竞然搜不到ssid为VoCore的WiFi。
 

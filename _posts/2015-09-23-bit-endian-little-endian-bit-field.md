@@ -1,5 +1,5 @@
 ---
-category: program
+category: Program
 date: '2015-09-23'
 layout: post
 published: true

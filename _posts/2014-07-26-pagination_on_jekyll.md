@@ -1,6 +1,6 @@
 ---
 layout: post
-category: jekyll
+category: Jekyll
 title: 在Jekyll上使用分页
 tagline: by 天镶
 tags: [jekyll]

@@ -1,6 +1,6 @@
 ---
 layout: post
-category: linux
+category: Embedded
 title: Marvell88W8686的SPI主控接口
 tagline: by LoongEmbedded
 tags: [embedded, 88w8686, wifi]

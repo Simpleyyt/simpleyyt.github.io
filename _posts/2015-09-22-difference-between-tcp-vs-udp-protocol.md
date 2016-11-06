@@ -2,7 +2,7 @@
 published: true
 layout: post
 title: TCP 和 UDP 的区别
-category: network
+category: Network
 tags: 
   - tcp
   - udp

@@ -1,6 +1,6 @@
 ---
 layout: post
-category: openwrt
+category: Embedded
 title: 交叉编译OpenWrt上的Helloworld
 tagline: by Snail
 tags: [openwrt, embedded]

@@ -3,7 +3,7 @@ tags:
   - linux
 layout: post
 title: '如何上传 ppa'
-category: linux
+category: Linux
 ---
 简单记录一下 如何上传包到 launchpad 的 ppa上。
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-category: openwrt
+category: Embedded
 title: OpenWrt编译过程中出现的错误
 tagline: by Snail
 tags: [openwrt, embedded]

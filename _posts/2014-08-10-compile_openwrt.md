@@ -1,6 +1,6 @@
 ---
 layout: post
-category: openwrt
+category: Embedded
 title: OpenWrt的编译
 tagline: by Snail
 tags: [openwrt, embedded]

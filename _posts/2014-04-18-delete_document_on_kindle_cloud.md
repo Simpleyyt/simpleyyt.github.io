@@ -1,6 +1,6 @@
 ---
 layout: post
-category: daily
+category: Daily
 title: 批量删除Kindle云端的个人文档
 tagline: by Snail
 tags: [kindle]

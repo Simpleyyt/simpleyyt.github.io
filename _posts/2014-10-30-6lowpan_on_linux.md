@@ -1,6 +1,6 @@
 ---
 layout: post
-category: linux
+category: Embedded
 title: Linux-ZigBee项目：在Linux上运行6lowpan（一）
 tagline: by Snail
 tags: [linux, embedded]

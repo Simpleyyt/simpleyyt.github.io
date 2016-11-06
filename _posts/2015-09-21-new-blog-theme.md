@@ -1,5 +1,5 @@
 ---
-category: daily
+category: Daily
 layout: post
 tags:
   - daily

@@ -2,7 +2,7 @@
 published: true
 layout: post
 title: 写 Jekyll 博客的正确姿势
-category: jekyll
+category: Jekyll
 tags: 
   - jekyll
 ---
