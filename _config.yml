@@ -28,6 +28,9 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+#### Separator
+excerpt_separator: <!--more-->
       
 #### Pagination
 paginate: 10

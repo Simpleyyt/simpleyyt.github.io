@@ -11,7 +11,7 @@ tags: [openwrt, embedded]
 
 #编译OpenWrt SDK#
 
-编译OpenWrt的过程，可参考[OpenWrt的编译]({% post_url 2014-8-10-compile_openwrt %})。编译配置我勾选了`Advanced configuration option`、`Build the OpenWrt SDK`和`Build the OpenWrt based Toolchain`。
+编译OpenWrt的过程，可参考[OpenWrt的编译]({% post_url 2014-08-10-compile_openwrt %})。编译配置我勾选了`Advanced configuration option`、`Build the OpenWrt SDK`和`Build the OpenWrt based Toolchain`。
 
 编译完成之后，交叉编译工具链在类似`staging_dir/toolchain-architecture_gcc-compilerver_uClibc-libcver/bin/`目录。
 
