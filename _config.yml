@@ -38,8 +38,8 @@ paginate: 10
 #### Site
 title : Yitao's Blog
 tagline: A technology blog for myself.
-assets: http://simpleyyt.github.io/assets
-baseurl: http://simpleyyt.github.io
+assets: ://simpleyyt.github.io/assets
+baseurl: ://simpleyyt.github.io
 
 #### Language
 language: zh-CN    ## blog site languages: en, zh-CN, zh-TW
