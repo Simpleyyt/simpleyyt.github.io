@@ -63,7 +63,7 @@ namespace N
 	...
 	void test1()
 	{
-		func() {} //候选函数为函数2和3
+		func(); //候选函数为函数2和3
 	}
 	
 	void test2()
