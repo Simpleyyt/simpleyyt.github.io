@@ -1,10 +1,9 @@
 ---
-published: true
-layout: post
-title: 写 Jekyll 博客的正确姿势
 category: Jekyll
-tags: 
+layout: post
+tags:
   - jekyll
+title: '写 Jekyll 博客的正确姿势'
 ---
 
 
@@ -14,16 +13,16 @@ tags:
 
 ## 写博客工具
 
-有两个工具，分别是`jekyller`、`prose.io`。
+有两个工具，分别是`Jekyll Editor`、`prose.io`。
 
-### Jekyller
+### Jekyll Editor
 
-`jekyller`是 Chrome 上的应用，它可以管理你的所有博客，实时`markdown`渲染。
+![Jekyll Editor](http://simpleyyt.qiniudn.com/15-10-11/10214115.jpg)
 
-![Jekyller](http://simpleyyt.qiniudn.com/15-9-21/21644919.jpg)
+Jekyll Editor 专门为 Jekyll 博客定制的强大的 markdown 编辑器，它会自动从`<yourname>.github.io`仓库读取`_post`目录下的博客列表，并可以读取、创建、修改博客。
 
-但是它的 UI 比较难看，而且对`markdown`的支持也不是很好。
-
+ * **Chrome 商店**：https://chrome.google.com/webstore/detail/jekyll-editor/dfdkgbhjmllemfblfoohhehdigokocme
+ 
 ### Prose.io
 
 非常好的一个工具，它的编辑器非常强大，可以上传图片、文件等，可以在`_config.yml`文件中配置`prose.io`。
