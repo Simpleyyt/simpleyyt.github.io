@@ -5,7 +5,7 @@ tags:
   - cpp
 category: Program
 ---
-《C++ Primer》笔记整理关于函数重载与函数匹配的笔记。
+《C++ Primer》笔记，整理关于函数重载与函数匹配的笔记。
 
 <!--more-->
 
