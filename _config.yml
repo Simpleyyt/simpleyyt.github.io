@@ -49,7 +49,7 @@ menu:
   Home: /
   Archives: /archives
   About: /about
-## you can create `tags` and `categories` folders in `../source`.
+## you can create `tags` and `categories` folders (I had created them already).
 ## And create a `index.md` file in each of them.
 ## set `front-matter`as
 ## layout: tags (or categories)
@@ -64,7 +64,7 @@ widgets:
 - weibo
 - douban
 - rss
-## provide seven widgets:category,tag,rss,archive,tagcloud,links,weibo,douban
+## provide seven widgets:github-card,category,tag,rss,archive,tagcloud,links,weibo,douban
 
 
 #### RSS 
@@ -86,6 +86,7 @@ index:
 
 close_aside: true  #close sidebar in post page if true
 mathjax: false     #enable mathjax if true
+share_button: true #enable share buttons if true
 
 #### Author information
 author:
@@ -115,7 +116,7 @@ toc:
 
 #### Links
 links:
-  码农圈: https://coderq.com
+  CoolShell: http://coolshell.cn
   Jark's Blog: http://wuchong.me
 
 #excerpt_separator: <!--more-->
