@@ -1,9 +1,9 @@
 ---
-title: 'Hello World 的编译链接概述'
 layout: post
 tags:
   - cpp
   - compiler
+title: 'Hello World 的编译链接概述'
 category: Program
 ---
 
@@ -127,7 +127,7 @@ array[index] = (index + 4) * (2 + 6)
 
 **语法分析器（Grammar Parser）**将上述产生的记号进行语法分析，从而生成**语法树（Syntax Tree）**。
 
-有一个现在的工具叫 yacc（Yet Another Compiler Compiler）可以构建出语法树。
+有一个现有的工具叫 yacc（Yet Another Compiler Compiler）可以构建出语法树。
 
 
 ### 语义分析
