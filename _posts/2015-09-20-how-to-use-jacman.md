@@ -7,12 +7,12 @@ tags:
 categories: Jekyll
 description: Jacman 是一款扁平化，有着响应式设计的 Jekyll 主题。本站正式使用了 Jacman 主题。Jacman 基于 Jacman 的 Hexo 主题修改而来。你可以前往本站和 Demo 预览更多关于本主题的更多效果。如果你有任何问题或意见欢迎到 GitHub 发表 issue。
 ---
-##主题介绍
+## 主题介绍
 Jekyll-Jacman 是为 [Jekyll](http://jekyllrb.com) 设计的一款清新且具有响应式的主题，拥有更丰富的特性并支持了很多的国内服务。Jacman 始于 [Jacman](https://github.com/wuchong/jacman) 移植而来。
 
-<!--more-->
+<!-- more -->
 
-##配置指南
+## 配置指南
 
 Jacman 主题提供了丰富的配置属性，可以实现您对主题的自定义。配置文件`_config.yml`位于主题根目录下。本次更新对配置文件进行了较大调整，如您之前就使用了 Jacman，也需要您根据以下指南进行相应的修改。
 
@@ -24,14 +24,14 @@ menu:
   关于: /about
 
 #### 控件
-widgets: 
+widgets:
 - category
 - tag
 - links
 - rss
 
-#### RSS 
-rss: /atom.xml 
+#### RSS
+rss: /atom.xml
 
 #### 图片相关
 imglogo:
@@ -62,7 +62,7 @@ author:
   email:     
   twitter:   
   github:     
-  facebook: 
+  facebook:
   linkedin:   
   google_plus:   
   stackoverflow:  
@@ -77,17 +77,17 @@ toc:
 links:
   码农圈: https://coderq.com,一个面向程序员交流分享的新一代社区
   Jark's Blog: http://wuchong.me
-  
+
 #### 评论
-duoshuo_shortname: 
+duoshuo_shortname:
 disqus_shortname:  
 
 #### 分享按钮
 jiathis:
   enable: false   ## 默认使用主题内建分享
   id:    
-  tsina: 
-  
+  tsina:
+
 #### 网站统计
 google_analytics:
   enable: false
@@ -106,19 +106,19 @@ fancybox: true
 totop: true           
 
 #### 自定义搜索
-google_cse: 
+google_cse:
   enable: false
   cx:  
 baidu_search:    
   enable: false
   id:   
-  site: http://zhannei.baidu.com/cse/search 
+  site: http://zhannei.baidu.com/cse/search
 tinysou_search:     ## http://tinysou.com/
   enable: false
-  id: "4ac092ad8d749fdc6293" 
+  id: "4ac092ad8d749fdc6293"
 ```
 
-###属性功能
+### 属性功能
 - **菜单 menu**
 默认没有启用 `/tags` 和 `/categories`页面，如果需要启用请在博客目录下分别建立`tags` 和 `categories`文件夹每个文件夹中分别包含一个`index.md`文件。内容为：
 
@@ -135,7 +135,7 @@ title: tags (或categories)
 提供了7种小工具。包括标签、分类、RSS、友情链接、微博秀。
 
  **友情链接**：友情链接的网址添加可以在`links`属性下添加。
- 
+
  **微博秀**：需要注意的是，如果要启用微博秀，您必须填上`author`属性下`tsina`和`weibo_verifier`的值，前者是您微博ID，后者是您微博秀的验证码，访问 http://app.weibo.com/tool/weiboshow 在如下图位置，可以获得您的 verifier，如：我的是`b3593ceb`。
 ![](http://ww1.sinaimg.cn/large/81b78497jw1emegd6b0ytj209204pweu.jpg)
 
@@ -194,30 +194,37 @@ title: tags (或categories)
  `tiny_search`: 如果要开启[微搜索](http://tinysou.com/)，需要先注册一个帐号，配置一个Engine，将Engine的Key填入配置文件中的`id`即可。
 
 
-##常见问题
+## 常见问题
 - **Q：图片默认都是居左的，我怎么设置能让图片居中呢？**
->使用 `<img src="" style="display:block;margin:auto"/>`的HTML标签。
+
+    > 使用 `<img src="" style="display:block;margin:auto"/>`的HTML标签。
 
 - **Q：如何建立一篇图片类文章（Gallery Post）？**
-> 直接新建一个 Markdown 文件，将其`front-matter`修改为如下，即可看到主题为图片类文章提供的样式。
-```
----
-layout: photo
-title: Gallery Post
-photos:
-- http://i.minus.com/ibobbTlfxZgITW.jpg
-- http://i.minus.com/iedpg90Y0exFS.jpg
----
-```
+
+    > 直接新建一个 Markdown 文件，将其`front-matter`修改为如下，即可看到主题为图片类文章提供的样式。
+    >
+    > ```
+  ---
+  layout: photo
+  title: Gallery Post
+  photos:
+  - http://i.minus.com/ibobbTlfxZgITW.jpg
+  - http://i.minus.com/iedpg90Y0exFS.jpg
+  ---
+    > ```
 
 - **Q：我在配置文件中给某一项设置了值，但为什么总是看不到效果啊？**
->`_config.yml`文件中的每个属性值前面必须留一个空格，建议在 Sublime/Notepad++ 中开启显示所有空格模式。另每篇文章的 `front-matter` 也要注意这个问题。
+
+  > `_config.yml`文件中的每个属性值前面必须留一个空格，建议在 Sublime/Notepad++ 中开启显示所有空格模式。另每篇文章的 `front-matter` 也要注意这个问题。
 
 - **Q：怎么提意见和建议？**
->主题还在不断完善中，欢迎 [open issue](https://github.com/Simpleyyt/jekyll-jacman/issues) 来提建议，参与讨论。
 
-- **Q：为什么我修改了配置文件/发表了博文，解析出来的却是乱码呢？ **
-> 请将你的配置文件/markdown文件保存成 `UTF-8` 格式。
+  > 主题还在不断完善中，欢迎 [open issue](https://github.com/Simpleyyt/jekyll-jacman/issues) 来提建议，参与讨论。
 
-- **Q：为什么开启了微博秀后，显示是空白的，没有内容展示？ **
-> 每次修改参数都会这样，需要多刷新几次或者上传到服务器上就好了。
+- **Q：为什么我修改了配置文件/发表了博文，解析出来的却是乱码呢？**
+
+  > 请将你的配置文件/markdown文件保存成 `UTF-8` 格式。
+
+- **Q：为什么开启了微博秀后，显示是空白的，没有内容展示？**
+
+  > 每次修改参数都会这样，需要多刷新几次或者上传到服务器上就好了。

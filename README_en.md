@@ -8,7 +8,7 @@ Jacman is a fresh looking and responsive theme for [Jekyll](http://jekyllrb.com)
  * [Yitao's Blog](http://simpleyyt.github.io)
  * [如何使用 Jacman 主题](http://simpleyyt.github.io/jekyll-jacman/jekyll/2015/09/20/how-to-use-jacman)
 
-##Local Setup
+## Local Setup
 
 Check whether you have `Ruby 2.1.0` or higher installed:
 
@@ -31,7 +31,7 @@ cd jekyll-jacman
 
 You can change the `language` setting to `en` in `_config.yml`.
 
-You can also disable share buttons by setting `share_button` to `false`.
+You can also disable share buttons by setting `share_to` to `false`.
 
 Install Jekyll and other dependencies from the GitHub Pages gem:
 
@@ -47,7 +47,8 @@ bundle exec jekyll server
 
 More Details：[Setting up your GitHub Pages site locally with Jekyll](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/)
 
-##Features
+## Features
+
 - **menu**  
  Main navigation menu.
 - **widget**  
@@ -77,11 +78,6 @@ More Details：[Setting up your GitHub Pages site locally with Jekyll](https://h
 - **others**
  You can configure sidebar not show in post pages.
 
-##About kramdown  engine and rouge highlighter
+## License
 
-Redcarpet engine and pygments highlighter are currently unsupported on GitHub Pages. However, everythings seems normal except for the *Page build warning* mail. So I just ignore it.
-
-I also create a `kramdown` branch, which changes the markdown engine to kramdown and highlighter to rough.
-
-##License
 [MIT](/LICENSE)
