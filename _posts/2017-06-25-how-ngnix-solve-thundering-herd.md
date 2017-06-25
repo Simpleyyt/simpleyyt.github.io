@@ -14,7 +14,7 @@ Ngnix 的 master 进程在创建 socket，`bind`和`listen`之后，`fork`出多
 
 Ngnix 目前有几种方法解决惊群问题。
 
-## accept_mutex 
+## accept_mutex
 
 如果开启了 `accept_mutex` 锁，每个 worker 都会先去抢自旋锁，只有抢占成功了，才把 socket 加入到 epoll 中，accept 请求，然后释放锁。`accept_mutex`效率低下，特别是在长连接的时候，因此不建议使用，默认是关闭的。
 
@@ -27,6 +27,7 @@ Ngnix 目前有几种方法解决惊群问题。
 ## SO_REUSEPORT
 
 `SO_REUSEPORT` 是惊群最好的解决方法，Ngnix 在 1.9.1 中加入了这个选项，每个 worker 都有自己的 socket，这些 socket 都`bind`同一个端口。当新请求到来时，内核根据四元组信息进行负载均衡，非常高效。
+
 
 ---
 
