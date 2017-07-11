@@ -1,5 +1,5 @@
 #### Exclude
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude: [".rvmrc", ".rbenv-version", "README.md", "README_en.md", "Rakefile", "changelog.md"]
 
 #### Code Highlighter
 # 'pygments' is unsupported on GitHub Pages now.
@@ -34,10 +34,11 @@ paginate: 10
 title : Yitao's Blog
 tagline: A technology blog for myself.
 assets: /assets
+url:
 baseurl:
 
 #### Language
-language: zh-CN    ## blog site languages: en, zh-CN, zh-TW
+language: zh-CN    ## blog site languages: en, zh-CN, zh-TW, de
 
 #### Menu
 menu:
@@ -165,6 +166,9 @@ baidu_search:     ## http://zn.baidu.com/
 tinysou_search:     ## http://tinysou.com/
   enable: false
   id:  ## e.g. "4ac092ad8d749fdc6293" for your tiny search id
+simple_jekyll_search:
+  enable: true
+  fulltext: false
 
 gems:
  - jemoji
