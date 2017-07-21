@@ -1,8 +1,0 @@
----
-# Remember to set ur in your _config.yml file!
-title : Sitemap
----
-{% for page in site.pages %}
-{{site.ur}}{{site.baseurl}}{{ page.url }}{% endfor %}
-{% for post in site.posts %}
-{{site.url}}{{site.baseurl}}{{ post.url }}{% endfor %}
