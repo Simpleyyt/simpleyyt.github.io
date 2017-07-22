@@ -69,12 +69,14 @@ gems:
  - jekyll-sitemap
  - jekyll-feed
 
+alipay: http://p1.bpimg.com/567571/9a4a158daee8aa69.png
+
 # ---------------------------------------------------------------
 # Site Information Settings
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `assets/` directory.
-favicon: /assets/favicon.ico
+favicon: /assets/images/author.jpeg
 
 # Set default keywords (Use a comma to separate)
 keywords: "Jekyll, NexT, simpleyyt, yitao"
@@ -85,7 +87,7 @@ keywords: "Jekyll, NexT, simpleyyt, yitao"
 rss:
 
 # Specify the date when the site was setup
-#since: 2015
+since: 2015
 
 # icon between year and author @Footer
 authoricon: heart
@@ -213,7 +215,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   GitHub: https://github.com/simpleyyt
-  知乎: http://www.zhihu.com/people/your-user-name
+  知乎: http://www.zhihu.com/people/yaoyit
 
 
 # Social Links Icons
@@ -233,7 +235,7 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(assets/images): /images/avatar.jpg
 # in site  directory(assets/uploads): /uploads/avatar.jpg
-#avatar:
+avatar: /assets/images/author.jpeg
 
 
 # Table Of Contents in the Sidebar
@@ -373,7 +375,7 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+baidu_analytics: 70b7e141dfc0ea2b204682f94ab2e01a
 
 # Duoshuo ShortName
 #duoshuo_shortname:
@@ -381,7 +383,7 @@ han: false
 # Disqus
 disqus:
   enable: true
-  shortname: simpleyyyt-github-io
+  shortname: simpleyyt
   count: true
 
 # Hypercomments
@@ -412,7 +414,7 @@ changyan:
 ##  type: button
 
 # Share
-#jiathis:
+jiathis: true
 # Warning: JiaThis does not support https.
 #add_this_id:
 
@@ -421,10 +423,10 @@ changyan:
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-#google_site_verification:
+google_site_verification: hxyd6b4vb-uzYY6dVuzz4KXhScoVoEUjtiRWYSJVlrY
 
 # Google Analytics
-#google_analytics:
+google_analytics: UA-67994495-1
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
