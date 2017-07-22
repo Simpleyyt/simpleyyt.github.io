@@ -233,8 +233,7 @@ social_icons:
 
 
 # Sidebar Avatar
-# in theme directory(assets/images): /images/avatar.jpg
-# in site  directory(assets/uploads): /uploads/avatar.jpg
+# in directory: /assets/images/avatar.gif
 avatar: /assets/images/author.jpeg
 
 
