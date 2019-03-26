@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 差点把 Java 命名成了 Silk（丝绸）
-category: java
+categories: java
 tags: 
 	- java
 ---
