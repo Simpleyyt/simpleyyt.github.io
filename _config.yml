@@ -439,7 +439,7 @@ gitalk:
   clientSecret: f64f78aac63236a7a9cd25a16de2c3d91613914a
   repo: blog-comments
   owner: justdojava
-  admin: justdojava
+  admin: ityouknow
 
 # Baidu Share
 # Available value:
