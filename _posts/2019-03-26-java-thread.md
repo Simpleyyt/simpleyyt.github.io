@@ -9,6 +9,8 @@ tag:
 
 [我](https://mp.weixin.qq.com/s/feoOINGSyivBO8Z1gaQVOA)从事Java编程已经11年了，绝对是个老兵；但对于Java并发编程，[我](https://mp.weixin.qq.com/s/feoOINGSyivBO8Z1gaQVOA)只能算是个新兵蛋子。我说这话估计要遭到某些高手的冷嘲热讽，但我并不感到害怕。
 
+<!--more-->
+
 因为我知道，每年都会有很多很多的新人要加入Java编程的大军，他们对“并发”编程中遇到的问题也会有感到无助的时候。而我，非常乐意与他们一道，对使用Java线程进行并发程序开发的基础知识进行新一轮的学习。
 
 ### 01、我们为什么要学习并发？
