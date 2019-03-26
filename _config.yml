@@ -4,10 +4,10 @@
 # ---------------------------------------------------------------
 
 # Site
-title: Simpleyyt
-subtitle: Yitao's Blog
-description: Too simple, sometimes naive.
-author: Simpleyyt
+title:  Just Do Java
+subtitle: Java 's Blog
+description: 一群热爱 Java 技术的开发者
+author: Java Geek
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
