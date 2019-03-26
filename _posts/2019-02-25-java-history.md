@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 差点把 Java 命名成了 Silk（丝绸）
+title:  差点把 Java 命名成了 Silk（丝绸）
 categories: java
-tags: 
-	- java
+tag: 
+    - java
 ---
 
 Java 诞生的历史
