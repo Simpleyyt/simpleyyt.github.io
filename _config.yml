@@ -435,8 +435,8 @@ changyan:
 # Support for gitalk comments system.
 gitalk:
   enable: true
-  clientID:  a8a9e806ae8898126795
-  clientSecret:  f64f78aac63236a7a9cd25a16de2c3d91613914a
+  clientID: a8a9e806ae8898126795
+  clientSecret: f64f78aac63236a7a9cd25a16de2c3d91613914a
   repo: blog-comments
   owner: justdojava
   admin: justdojava
