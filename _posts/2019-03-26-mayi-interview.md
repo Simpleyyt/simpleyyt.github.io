@@ -139,7 +139,8 @@ published: true
 - LinkedList 底层是基于双向链表实现的，而 ArrayList 底层是基于动态数组实现的；
 - 查询的时候 LinkedList 的效率要低于 ArrayList，因为 LinkedList 需要遍历链表，而 ArrayList 底层数组根据下标直接获取数据。
 - 插入删除数据的时候，LinkedList 效率比ArrayList 效率高，因为 ArrayList 在数据多的情况下会进行数组扩容或移动数组。
-- 多进程与多线程在编程上面有什么需要注意的
+
+4、多进程与多线程在编程上面有什么需要注意的
 
 首先进程是资源分配的最小单元，线程是任务调度的最小单元
 
