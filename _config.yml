@@ -7,7 +7,7 @@
 title:  Just Do Java
 subtitle: Java 's Blog
 description: 一群热爱 Java 技术的技术人
-author: Java Geek
+author: Java Geek Tech
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
@@ -76,7 +76,7 @@ plugins:
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `assets/` directory.
-favicon: /assets/images/author.jpeg
+favicon: /assets/images/java.ico
 
 # Set default keywords (Use a comma to separate)
 keywords: "Jekyll, NexT, simpleyyt, yitao"
@@ -305,7 +305,7 @@ excerpt_description: true
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
   enable: true
-  length: 160
+  length: 16
 
 # Post meta display settings
 post_meta:
