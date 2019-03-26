@@ -6,7 +6,7 @@
 # Site
 title:  Just Do Java
 subtitle: Java 's Blog
-description: 一群热爱 Java 技术的开发者
+description: 一群热爱 Java 技术的技术人
 author: Java Geek
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
@@ -284,7 +284,8 @@ links_title: Links
 #links_layout: block
 #links_layout: inline
 links:
-  Title: http://ityouknow.com/
+  纯洁的微笑: http://ityouknow.com
+  沉默王二: https://blog.csdn.net/qing_gee
 
 
 # ---------------------------------------------------------------
@@ -434,7 +435,7 @@ changyan:
 
 # Support for gitalk comments system.
 gitalk:
-  enable: false
+  enable: true
   clientID: # 54730ddf7b9420460c03
   clientSecret: # c05684701b25ff1c19ea0c01ce4d80c125e0707d
   repo: # colingpt.github.io
@@ -458,10 +459,10 @@ gitalk:
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification: hxyd6b4vb-uzYY6dVuzz4KXhScoVoEUjtiRWYSJVlrY
+google_site_verification: 
 
 # Google Analytics
-google_analytics: UA-67994495-1
+google_analytics: U
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
@@ -604,7 +605,7 @@ exturl: false
 #! ---------------------------------------------------------------
 
 # Motion
-use_motion: true
+use_motion: false
 
 # Fancybox
 fancybox: true
