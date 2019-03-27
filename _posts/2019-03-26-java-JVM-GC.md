@@ -22,7 +22,7 @@ tag:
 而FullGC使用的是和MinorGC不一样的算法，它使用的是标记清除算法，听名字，挺好理解的，来波图示解析一波。
 深入了解JVM一书中的图示是这个样子的，
 
-![](assets/images/2019/java/image_yi/JVM1.jpg) 
+![](/assets/images/2019/java/image_yi/JVM1.jpg) 
 
 看名字的话是先标记，然后在删除。这也是也给最最基本的算法。
 这个算法就是分两个步骤
@@ -36,7 +36,7 @@ tag:
 
 就像这个样子
 
-![](assets/images/2019/java/image_yi/JVM2.jpg) 
+![](/assets/images/2019/java/image_yi/JVM2.jpg) 
 
 上图中的a,b,c,d,就是活着的对象，如果说存在这引用，比如说b引用的a，那么a他就是属于活着的对象。
 当我们老年代内存区中的有效的内存空间不够的时候，那么这时候整个世界都要安静下来了（stop the world），这时候就要开始准备进行垃圾回收了。
@@ -47,22 +47,22 @@ tag:
 流程图就想这个样子的
 初始下的老年代中的对象状态
 
-![](assets/images/2019/java/image_yi/JVM3.jpg)
+![](/assets/images/2019/java/image_yi/JVM3.jpg)
 
 这时候都是没有被标记的状态，接下来内存不够，GC线程停止，开始进行标记了
 
-![](assets/images/2019/java/image_yi/JVM4.jpg)
+![](/assets/images/2019/java/image_yi/JVM4.jpg)
 
 按照根节点开始遍历
 标记的abcdeh都是存活的对象，接下来开始标记。
 
-![](assets/images/2019/java/image_yi/JVM5.jpg)
+![](/assets/images/2019/java/image_yi/JVM5.jpg)
 接下来就是清除数据了，这个就更加的简单了
 
-![](assets/images/2019/java/image_yi/JVM6.jpg)
+![](/assets/images/2019/java/image_yi/JVM6.jpg)
 清楚完成之后还有就是把标记去除掉，可以下次进行标记清除的时候继续清除
 
-![](assets/images/2019/java/image_yi/JVM7.jpg)
+![](/assets/images/2019/java/image_yi/JVM7.jpg)
 这样标记清除就执行完毕了，剩下还有两个要说的地方，
 一是在进行标记清楚算法的时候为什么要让程序停止，（stop the world）。
 二是标记清除算法的优点和缺点又是什么？
@@ -81,7 +81,7 @@ tag:
  - 因为他会递归遍历Root，这样的话 Stop the World的时间就比较长了，这样一直让人等待的滋味可不是那么好受。
  - 第二个就是这种清除方式清除出来的内存空间是不连续的，你看这个图
 
-![](assets/images/2019/java/image_yi/JVM2.jpg)
+![](/assets/images/2019/java/image_yi/JVM2.jpg)
 
 死亡的上下分成了2部分，是不连续的，这样给JVM又造成了一种额外的负担，他需要去维持一个内存的空闲列表，如果说我们在这时候去new一个数组，你想想他去找这个连续的内存空间的话，是不是就要困难很多呢?
 
@@ -93,7 +93,7 @@ tag:
 
 ## 标记--整理算法
 而因为标记--清除算法会导致内存分配都出现了各种不均匀的空间，这时候就有了另外的一种算法，直接把那些存活的对象标记出来，然后给他怼到内存空间边界，然后剩下的直接全给他清除了。这方法图解看的一清二楚，剩下的都是和标记清除算法一样的，好像没啥解释的，直接上图。
-![](assets/images/2019/java/image_yi/JVM8.jpg)
+![](/assets/images/2019/java/image_yi/JVM8.jpg)
 书中你看就是把存活的都给怼到内存空间的上边，你也可以随便的理解成上下左右都ok。
 
 以上就是堆内存中的老年代的两种垃圾回收算法了，如果有不合适的，希望大佬可以指正，一起讨论一下。
