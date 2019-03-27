@@ -284,8 +284,9 @@ links_title: Links
 #links_layout: inline
 links:
   纯洁的微笑: http://ityouknow.com
-  沉默王二: https://blog.csdn.net/qing_gee
-
+  沉默王二: http://www.qingmiaokeji.cn
+  子悠: https://zxsilence.cn
+  迷恋着你微笑的人: https://www.guoyuchuan.com
 
 # ---------------------------------------------------------------
 # Post Settings
@@ -468,7 +469,7 @@ google_analytics: U
 #yandex_site_verification:
 
 # CNZZ count
-#cnzz_siteid:
+cnzz_siteid: 1276814721
 
 # Application Insights
 # See https://azure.microsoft.com/en-us/services/application-insights/
