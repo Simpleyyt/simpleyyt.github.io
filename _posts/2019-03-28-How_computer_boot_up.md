@@ -255,4 +255,4 @@ BIOS将硬盘主引导记录读入7C00处，并将控制权交给主引导程序
 
 至此，全部启动过程完成。
 
-![](/assets/images/img-csboot/All_Process.png)
+![](/assets/images/img-csboot/all_process.png)
