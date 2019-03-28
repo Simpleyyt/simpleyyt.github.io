@@ -1,3 +1,14 @@
+---
+layout:post
+category:operating system
+title: How computer boot up?
+tagline: by Adam
+tags:
+   - operating system
+   - 面试
+published:true
+---
+
 
 
 # 介绍
@@ -104,10 +115,10 @@ UEFI中文名为**统一可扩展固件界面**(英语：Unified Extensible Firm
   
 
 **BIOS**过程
-![](../assets/images/img-csboot/BIOS-process.png)
+![](/assets/images/img-csboot/BIOS-process.png)
 
 **UEFI**过程
-![](../assets/images/img-csboot/UEFI-process.png)
+![](/assets/images/img-csboot/UEFI-process.png)
 
 相对来说UEFI比BIOS少了一个硬件检测
 
@@ -217,7 +228,7 @@ BIOS将硬盘主引导记录读入7C00处，并将控制权交给主引导程序
 
 **补充：MBR和引导扇区的关系**
 
-![](../assets/images/img-csboot/MBR.png)
+![](/assets/images/img-csboot/MBR.png)
 
 
 
@@ -246,4 +257,4 @@ BIOS将硬盘主引导记录读入7C00处，并将控制权交给主引导程序
 
 至此，全部启动过程完成。
 
-![](../assets/images/img-csboot/All_Process.png)
+![](/assets/images/img-csboot/All_Process.png)
