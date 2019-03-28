@@ -1,10 +1,10 @@
 ---
 layout:post
 category:operating system
-title: How computer boot up?
-tagline: by Adam
+title: 计算机启动过程
+tagline: by AdamWong
 tags:
-   - operating system
+   - Operating system
    - 面试
 published:true
 ---
