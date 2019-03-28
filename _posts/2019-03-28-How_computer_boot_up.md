@@ -1,12 +1,10 @@
 ---
-layout:post
-category:operating system
-title: 计算机启动过程
-tagline: by AdamWong
-tags:
-   - Operating system
-   - 面试
-published:true
+layout: post
+title:  计算机启动过程
+tagline: by Adam Wong
+categories: Operating System
+tag: 
+    - Operating System
 ---
 
 
