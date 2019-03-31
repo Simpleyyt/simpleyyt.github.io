@@ -15,13 +15,13 @@ HashMap是在面试中经常会问的一点，很多时候我们仅仅只是知�
 
   HashMap最早出现在JDK1.2中，它的底层是基于的散列算法。允许键值对都是Null，并且是非线程安全的，我们先看看这个1.8版本的JDK中HashMap的数据结构把。
  
-  ##HashMap图解如下
+  ## HashMap图解如下
   
 ![](/assets/images/2019/java/image_yi/HashMap.jpg)
 
 我们都知道HashMap是数组+链表组成的，bucket数组是HashMap的主体，而链表是为了解决哈希冲突而存在的，但是很多人不知道其实HashMap是包含树结构的，但是得有一点
 注意事项，什么时候会出现红黑树这种红树结构的呢？我们就得看源码了，源码解释说默认链表长度大于8的时候会转换为树。我们看看源码说的
-####结构
+#### 结构
 
 ```
 /**
@@ -69,7 +69,7 @@ static class Node<K,V> implements Map.Entry<K,V> {
   }
 }
 ```
-####接下来就是树结构了
+#### 接下来就是树结构了
 TreeNode 是红黑树的数据结构。
 ```
      /**
@@ -97,7 +97,7 @@ TreeNode 是红黑树的数据结构。
          }
      }
 ```
-####我们在看一下类的定义
+#### 我们在看一下类的定义
 ```
 public class HashMap<K,V> extends AbstractMap<K,V>
     implements Map<K,V>, Cloneable, Serializable {
@@ -105,7 +105,8 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 继承了抽象的map，实现了Map接口，并且进行了序列化。
 
 在类里还有基础的变量
-####变量
+
+#### 变量
 ```
 /**
  * The default initial capacity - MUST be a power of two.
