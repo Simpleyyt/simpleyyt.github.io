@@ -13,17 +13,19 @@ HashMap是在面试中经常会问的一点，很多时候我们仅仅只是知�
 这样的话我们来研究一下这个源码。看看原因把。
 <!--more-->
 
-  HashMap最早出现在JDK1.2中，它的底层是基于的散列算法。允许键值对都是Null，并且是非线程安全的，我们先看看这个1.8版本的JDK中HashMap的数据结构把。
- 
-  ## HashMap图解如下
+HashMap最早出现在JDK1.2中，它的底层是基于的散列算法。允许键值对都是Null，并且是非线程安全的，我们先看看这个1.8版本的JDK中HashMap的数据结构把。
+
+## HashMap图解如下
   
 ![](/assets/images/2019/java/image_yi/HashMap.jpg)
 
 我们都知道HashMap是数组+链表组成的，bucket数组是HashMap的主体，而链表是为了解决哈希冲突而存在的，但是很多人不知道其实HashMap是包含树结构的，但是得有一点
 注意事项，什么时候会出现红黑树这种红树结构的呢？我们就得看源码了，源码解释说默认链表长度大于8的时候会转换为树。我们看看源码说的
+
 #### 结构
 
 ```
+
 /**
  * Basic hash bin node, used for most entries.  (See below for
  * TreeNode subclass, and in LinkedHashMap for its Entry subclass.)
@@ -68,9 +70,13 @@ static class Node<K,V> implements Map.Entry<K,V> {
       return false;
   }
 }
+
 ```
+
 #### 接下来就是树结构了
+
 TreeNode 是红黑树的数据结构。
+
 ```
      /**
      * Entry for Tree bins. Extends LinkedHashMap.Entry (which in turn
@@ -96,18 +102,26 @@ TreeNode 是红黑树的数据结构。
              r = p;
          }
      }
+     
 ```
+
 #### 我们在看一下类的定义
+
 ```
+
 public class HashMap<K,V> extends AbstractMap<K,V>
     implements Map<K,V>, Cloneable, Serializable {
+
 ```
+
 继承了抽象的map，实现了Map接口，并且进行了序列化。
 
 在类里还有基础的变量
 
 #### 变量
+
 ```
+
 /**
  * The default initial capacity - MUST be a power of two.
  *  默认初始容量 16 - 必须是2的幂
@@ -213,11 +227,15 @@ int threshold;
  * @serial
  */
 final float loadFactor;
+
 ```
+
 我们再看看构造方法
+
 #### 构造方法
 
 ```
+
 /**
  * Constructs an empty <tt>HashMap</tt> with the specified initial
  * capacity and the default load factor (0.75).
@@ -280,7 +298,9 @@ static final int tableSizeFor(int cap) {
     n |= n >>> 16;
     return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
 }
+
 ```
+
 在这源码中，loadFactor负载因子是一个非常重要的参数，因为他能够反映HashMap桶数组的使用情况，
 这样的话，HashMap的时间复杂度就会出现不同的改变。
 
@@ -294,9 +314,11 @@ static final int tableSizeFor(int cap) {
 一般情况下负载因子我们都不会去修改。都是默认的0.75。
 
 #### 扩容机制
+
 resize()这个方法就是重新计算容量的一个方法，我们看看源码：
 
 ```
+
 /**
  * Initializes or doubles table size.  If null, allocates in
  * accord with initial capacity target held in field threshold.
@@ -408,11 +430,15 @@ final Node<K,V>[] resize() {
     }
     return newTab;
 }
+
 ```
+
 
 所以说在经过resize这个方法之后，元素的位置要么就是在原来的位置，要么就是在原来的位置移动2次幂的位置上。
 源码上的注释也是可以翻译出来的
+
 ```
+
 /**
      * Initializes or doubles table size.  If null, allocates in
      * accord with initial capacity target held in field threshold.
@@ -428,9 +454,11 @@ final Node<K,V>[] resize() {
      
      */
     final Node<K,V>[] resize() .....
+    
 ```
 
 所以说他的扩容其实很有意思，就有了三种不同的扩容方式了，
+
 1. 在HashMap刚初始化的时候，使用默认的构造初始化，会返回一个空的table，并且
 thershold为0，因此第一次扩容的时候默认值就会是16.
 同时再去计算thershold = DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY = 16*0.75 = 12.
