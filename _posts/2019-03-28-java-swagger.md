@@ -16,6 +16,7 @@ published: true
 ### 加入依赖
 
 ```java
+
  <!--Swagger-ui配置-->
     <dependency>
         <groupId>io.springfox</groupId>
@@ -27,6 +28,7 @@ published: true
         <artifactId>springfox-swagger-ui</artifactId>
         <version>2.9.2</version>
     </dependency>
+
 ```
 
 
@@ -97,22 +99,30 @@ public class Swagger2Config {
     }
 
 }
+
 ```
 
 ### Controller 编写
+
 1. 类上面增加`@Api `注解
+
 ```
+
 @Api(value = "后台管理", tags = "Administrator - 后台主入口")
 public class MainController  {}
+
 ```
 
 2. 方法上增加`@ApiOperation`注解
+
 ```
+
  @ApiOperation(value = "用户登录——可用", httpMethod = "POST", response = ResultMsg.class)
     public ResultMsg login(@RequestBody LoginBean loginBean) throws Exception {}
 //value: 表示描述
 //httpMethod: 支持的请求方式
 // response: 返回的自定义的实体类
+
 ```
 
 3. 方法参数 Model 属性自定义设置
@@ -154,6 +164,7 @@ public class LoginBean {
         this.salt=salt;
     }
 }
+
 ```
 
 > @ApiModel注解用在 model 类上
@@ -171,16 +182,21 @@ public class LoginBean {
 ### 增加密码
 1. 接口文档我们往往需要让有权限的人查看，所以我们可以根据 Spring-Security增加账号密码管理。
 2. 增加依赖
+
 ```java
-    <!--Swagger-ui 密码配置配置-->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
+
+<!--Swagger-ui 密码配置配置-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+
 ```
+
 3. 配置文件中增加账号密码配置
 
 ```java
+
 Spring:
   security:
     basic:
@@ -195,6 +211,7 @@ Spring:
 #security.basic.enabled=true
 #security.user.name=admin
 #security.user.password=123456
+
 ```
 
 4. 增加了依赖和账号密码后重启项目，再次打开文档地址就要去输入账号和密码了
@@ -203,61 +220,74 @@ Spring:
 
 ### 小坑
 1. 如果在启动的时候出现如下错误，是因为新版的 Swagger2需要高版本的 guava
-    ```
-    ***************************
-    APPLICATION FAILED TO START
-    ***************************
 
-    Description:
+```
 
-    An attempt was made to call the method com.google.common.collect.FluentIterable.concat(Ljava/lang/Iterable;Ljava/lang/Iterable;)Lcom/google/common/collect/FluentIterable; but it does not exist. Its class, com.google.common.collect.FluentIterable, is available from the following locations:
+***************************
+APPLICATION FAILED TO START
+***************************
 
-        jar:file:/Users/silence/Work/maven-repo3/com/google/guava/guava/19.0/guava-19.0.jar!/com/google/common/collect/FluentIterable.class
+Description:
 
-    It was loaded from the following location:
+An attempt was made to call the method com.google.common.collect.FluentIterable.concat(Ljava/lang/Iterable;Ljava/lang/Iterable;)Lcom/google/common/collect/FluentIterable; but it does not exist. Its class, com.google.common.collect.FluentIterable, is available from the following locations:
 
-        file:/Users/silence/Work/maven-repo3/com/google/guava/guava/19.0/guava-19.0.jar
+    jar:file:/Users/silence/Work/maven-repo3/com/google/guava/guava/19.0/guava-19.0.jar!/com/google/common/collect/FluentIterable.class
 
-    Action:
+It was loaded from the following location:
 
-    Correct the classpath of your application so that it contains a single, compatible version of com.google.common.collect.FluentIterable
-    ```
+    file:/Users/silence/Work/maven-repo3/com/google/guava/guava/19.0/guava-19.0.jar
+
+Action:
+
+Correct the classpath of your application so that it contains a single, compatible version of com.google.common.collect.FluentIterable
+
+```
 
 2. 解决方案增加如下配置即可
-    ```
-    <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>20.0</version>
-    </dependency>
-    ```
+
+```
+
+<dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>20.0</version>
+</dependency>
+
+```
 
 3. Security 过滤特定路径
     1.  针对非文档路径的其他路径，我们需要进行过滤，采用如下方式。
 
-     ```
-    package com.ziyou.test.admin.config;
+ ```
 
-    import org.springframework.security.config.annotation.web.builders.WebSecurity;
-    import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-    import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+package com.ziyou.test.admin.config;
 
-    @EnableWebSecurity
-    public class SecurityConfig extends WebSecurityConfigurerAdapter {
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-        /**
-         * 取消 security 对接口的拦截，只在 swaggerui 进行拦截
-         *
-         * @param web
-         * @throws Exception
-         */
-        @Override
-        public void configure(WebSecurity web) throws Exception {
-            super.configure(web);
-            //这里填写需要过滤的路径
-            web.ignoring().antMatchers("/api/v1/admin/**");
-        }
+    /**
+     * 取消 security 对接口的拦截，只在 swaggerui 进行拦截
+     *
+     * @param web
+     * @throws Exception
+     */
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        super.configure(web);
+        //这里填写需要过滤的路径
+        web.ignoring().antMatchers("/api/v1/admin/**");
     }
+}
 
-    ```
+
+```
+
+### 小结
+Swagger2 让开发人员在编写代码的时候就完成了接口文档，方便快捷。而且随项目一起部署，不用担心丢失，需要的时候只要打开项目地址就可以了，十分方便。
+在使用 Swagger2写完接口文档后，还可以直接导出 JSON 文件，访问路径`http://ip:port/v2/api-docs`可以看到JSON 文档。生成的 JSON 文档可以配合 YAPI 或者 POSTMAN 使用都是可以的。
+
