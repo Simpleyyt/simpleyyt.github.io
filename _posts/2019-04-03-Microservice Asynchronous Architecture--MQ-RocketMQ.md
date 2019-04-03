@@ -83,7 +83,7 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **功能概览图**
 
-![功能简介](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/功能简介.png)
+![](/assets/images/2019/java/image_jsq/04_03/option.png)
 
 
 
@@ -93,7 +93,7 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **RocketMQ的物理结构**
 
-![Rocket MQ](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/Rocket MQ.png)
+![](/assets/images/2019/java/image_jsq/04_03/Rocket MQ.png)
 
 从这里可以看出，RocketMQ涉及到四大集群，producer，Name Server，Consumer，Broker。
 
@@ -111,7 +111,7 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **1，同步原理图**
 
-![同步](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/同步.png)
+![](/assets/images/2019/java/image_jsq/04_03/syn.png)
 
 
 
@@ -135,7 +135,7 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **2，异步原理图**
 
-![异步](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/异步.png)
+![](/assets/images/2019/java/image_jsq/04_03/asyn.png)
 
 **异步消息关键代码**
 
@@ -159,7 +159,7 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **3，单向（Oneway）发送原理图**
 
-![单向](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/单向.png)
+![](/assets/images/2019/java/image_jsq/04_03/oneway.png)
 
 单向只发送，不等待返回，所以速度最快，一般在微秒级，但可能丢失
 
@@ -252,7 +252,7 @@ e.printStackTrace();
 
 **发布消息原理图**
 
-![Java_SDK_Consumer](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/Java_SDK_Consumer.png)
+![](/assets/images/2019/java/image_jsq/04_03/Java_SDK_Consumer.png)
 
 **三，事务消息**
 
@@ -264,9 +264,9 @@ RocketMQ提供类似X/Open XA的分布式事务功能来确保业务发送方和
 
 **原理图**
 
+![](/assets/images/2019/java/image_jsq/04_03/message.png)
 
 
-![事务消息图片](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/事务消息图片.png)
 
 其中：
 
@@ -377,7 +377,7 @@ e.printStackTrace();
 
 **所有消息发布原理图**
 
-![Java_SDK_Producer](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/Java_SDK_Producer.png)
+![](/assets/images/2019/java/image_jsq/04_03/Java_SDK_Producer.png)
 
 producer完全无状态，可以集群部署。
 
@@ -458,21 +458,21 @@ consumer.start();
 
 **消息收发模型**
 
+![pub-sub model](/assets/images/2019/java/image_jsq/04_03/pub-sub model.png)
 
 
-![pub-sub model](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/pub-sub model.png)
 
 **主子账号创建**
 
 创建主子账号的原因是权限问题。下面是主账号创建流程图
 
-![2018-10-19_17-13-12](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/2018-10-19_17-13-12.png)
+![](/assets/images/2019/java/image_jsq/04_03/main_process.png)
 
 详细操作地址：https://help.aliyun.com/document_detail/34411.html?spm=a2c4g.11186623.6.555.38c57f91JXUK7o
 
 子账号流程图
 
-![quickstart-process-ram-subaccount](/Users/JiaSiqian/Desktop/SSwork/公众号/2019.04.03/quickstart-process-ram-subaccount.png)
+![](/assets/images/2019/java/image_jsq/04_03/quickstart-process-ram-subaccount.png)
 
 详细操作地址：https://help.aliyun.com/document_detail/96402.html?spm=a2c4g.11186623.6.556.60194fedfSkxIB
 
