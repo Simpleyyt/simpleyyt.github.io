@@ -1,5 +1,6 @@
 ---
 layout: page
+title:  Java 极客技术
 type: about
 ---
 
