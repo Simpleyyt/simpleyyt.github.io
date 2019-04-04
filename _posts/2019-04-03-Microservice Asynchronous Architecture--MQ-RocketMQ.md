@@ -11,9 +11,9 @@ tag:
 
 <!--more-->
 
-### 1
+## 1
 
-### 什么是MQ？MQ的原理是什么？
+## 什么是MQ？MQ的原理是什么？
 
 ------
 
@@ -57,11 +57,11 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 
 
-### 2
+## 2
 
-### 现在市面上有什么MQ，
+## 现在市面上有什么MQ，
 
-### 重点介绍RocketMQ
+## 重点介绍RocketMQ
 
 
 
@@ -117,24 +117,21 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **同步消息关键代码**
 
-    '''java
-    
-    1. 
-    2. `try {`
-    3. `SendResult sendResult = producer.send(msg);`
-    4. `// 同步发送消息，只要不抛异常就是成功`
-    5. `if (sendResult != null) {`
-    6. `System.out.println(new Date() + " Send mq message success. Topic is:" + msg.getTopic() + " msgId is: " + sendResult.getMessageId());`
-    7. `}`
-    8. `}`
-    9. `catch (Exception e) {`
-    10. 
-    11. `System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());`
-    12. `e.printStackTrace();`
-    13. `}`
-    14. `}`
-    15. 
-        '''
+``` java
+try {
+        SendResult sendResult = producer.send(msg);
+        // 同步发送消息，只要不抛异常就是成功`
+        if (sendResult != null) {
+        System.out.println(new Date() + " Send mq message success. Topic is:" + msg.getTopic() + " msgId is: " + sendResult.getMessageId());
+
+    }
+    catch (Exception e) {
+
+        System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
+        e.printStackTrace();
+    }
+}
+```
 
 **2，异步原理图**
 
