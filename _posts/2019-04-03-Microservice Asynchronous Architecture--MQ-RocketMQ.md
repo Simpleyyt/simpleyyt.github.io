@@ -23,7 +23,7 @@ MQ就是消息队列，是Message Queue的缩写。消息队列是一种通信�
 
 
 
-**1，解耦：**
+#### 1，解耦：
 
 MQ的消息生产者和消费者互相不关心对方是否存在，通过MQ这个中间件的存在，使整个系统达到解耦的作用。
 
@@ -37,13 +37,13 @@ MQ的消息生产者和消费者互相不关心对方是否存在，通过MQ这�
 
 
 
-**2，并发**
+#### 2，并发
 
 MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他们都是并行的。从而大大提升响应速度。
 
 
 
-**3，削峰**
+#### 3，削峰
 
 因为MQ能存储的消息量很大，所以他可以把大量的消息请求先存下了，然后再并发的方式慢慢处理。
 
@@ -83,7 +83,7 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **功能概览图**
 
-![](/assets/images/2019/java/image_jsq/04_03/option.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/option.png)
 
 
 
@@ -93,13 +93,13 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **RocketMQ的物理结构**
 
-![](/assets/images/2019/java/image_jsq/04_03/Rocket MQ.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/RocketMQ.png)
 
 从这里可以看出，RocketMQ涉及到四大集群，producer，Name Server，Consumer，Broker。
 
 
 
-**Producer集群：**
+### Producer集群：
 
 
 
@@ -107,11 +107,11 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
  
 
-**一，普通消息**
+#### 一，普通消息
 
 **1，同步原理图**
 
-![](/assets/images/2019/java/image_jsq/04_03/syn.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/syn.png)
 
 
 
@@ -135,32 +135,36 @@ try {
 
 **2，异步原理图**
 
-![](/assets/images/2019/java/image_jsq/04_03/asyn.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/asyn.png)
 
 **异步消息关键代码**
 
-    '''java
-    1. `producer.sendAsync(msg, new SendCallback() {`
-    2. `@Override`
-    3. `public void onSuccess(final SendResult sendResult) {`
-    4. `// 消费发送成功`
-    5. `System.out.println("send message success. topic=" + sendResult.getTopic() + ", msgId=" + sendResult.getMessageId());`
-    6. `}`
-    7. 
-    8. `@Override`
-    9. `public void onException(OnExceptionContext context) {`
-    10. 
-    11. `System.out.println("send message failed. topic=" + context.getTopic() + ", msgId=" + context.getMessageId());`
-    12. `}`
-    13. `});`
-    14. 
-    15. 
-        '''
+``` java
+1. `producer.sendAsync(msg, new SendCallback() {`
+
+2. `@Override`
+3. `public void onSuccess(final SendResult sendResult) {`
+
+4.       `// 消费发送成功`
+5.      `System.out.println("send message success. topic=" + sendResult.getTopic() + ", msgId=" + sendResult.getMessageId());`
+
+6. `}`
+7. 
+8. `@Override`
+9. `public void onException(OnExceptionContext context) {` 
+
+11.     `System.out.println("send message failed. topic=" + context.getTopic() + ", msgId=" + context.getMessageId());`
+
+12. `}`
+13. `});`
+14. 
+15. 
+```
 
 
 **3，单向（Oneway）发送原理图**
 
-![](/assets/images/2019/java/image_jsq/04_03/oneway.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/oneway.png)
 
 单向只发送，不等待返回，所以速度最快，一般在微秒级，但可能丢失
 
@@ -168,20 +172,18 @@ try {
 
 **单向（Oneway）发送消息关键代码**
 
-    '''java
-    1. 
-    2. `producer.sendOneway(msg);`
-    3. 
+``` java
+1. 
+2. `producer.sendOneway(msg);`
+3. 
+```
 
-
-    ''' 
 
 
 三种发送消息具体代码请参考文档：https://help.aliyun.com/document_detail/29547.html?spm=a2c4g.11186623.6.566.7e49793fuueSlB
 
 
-
-**二，定时消息和延时消息**
+#### 二，定时消息和延时消息
 
 
 
@@ -189,60 +191,55 @@ try {
 
 
 
-    '''java
-    
-    ```
-    try {
-    ```
-    
-    // 定时消息，单位毫秒（ms），在指定时间戳（当前时间之后）进行投递，例如 2016-03-07 16:21:00 投递。如果被设置成当前时间戳之前的某个时刻，消息将立刻投递给消费者。
-    
+``` java
+try {
+
+     // 定时消息，单位毫秒（ms），在指定时间戳（当前时间之后）进行投递，例如 2016-03-07 16:21:00 投递。如果被设置成当前时间戳之前的某个时刻，消息将立刻投递给消费者。
     `long timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2016-03-07 16:21:00").getTime();`msg.setStartDeliverTime(timeStamp);
-    
-    ```
+
     // 发送消息，只要不抛异常就是成功
     SendResult sendResult = producer.send(msg);
     System.out.println("MessageId:"+sendResult.getMessageId());
-    }
-    catch (Exception e) {
+
+}
+catch (Exception e) {
+
     // 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
     System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
-    ```
-    
+
     e.printStackTrace();
+
+1. `}`
     
-    1. `}`
-    
-       ''' 
+```      
 
 
 **发送延时消息关键代码**
 
 
-    '''java
-    
-    ```
-    try {
+``` java
+try {
+   
     // 延时消息，单位毫秒（ms），在指定延迟时间（当前时间之后）进行投递，例如消息在 3 秒后投递
     long delayTime = System.currentTimeMillis() + 3000;
-    ```
-    
+
     `// 设置消息需要被投递的时间`msg.setStartDeliverTime(delayTime);
-    
-    ```
-    SendResult sendResult = producer.send(msg);
-    // 同步发送消息，只要不抛异常就是成功
-    if (sendResult != null) {
-    System.out.println(new Date() + " Send mq message success. Topic is:" + msg.getTopic() + " msgId is: " + sendResult.getMessageId());
-    }
-    } catch (Exception e) {
-    // 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
+     SendResult sendResult = producer.send(msg);
+     // 同步发送消息，只要不抛异常就是成功
+     if (sendResult != null) {
+        System.out.println(new Date() + " Send mq message success. Topic is:" + msg.getTopic() + " msgId is: " + sendResult.getMessageId());
+      }
+      
+} catch (Exception e) {
+   
+   // 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
     System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
-    ```
-     ''' 
-e.printStackTrace();
+
+    e.printStackTrace();
 
 1. `}`
+    
+```
 
 **注意事项**
 
@@ -260,9 +257,9 @@ e.printStackTrace();
 
 **发布消息原理图**
 
-![](/assets/images/2019/java/image_jsq/04_03/Java_SDK_Consumer.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/Java_SDK_Consumer.png)
 
-**三，事务消息**
+#### 三，事务消息
 
 
 
@@ -272,7 +269,7 @@ RocketMQ提供类似X/Open XA的分布式事务功能来确保业务发送方和
 
 **原理图**
 
-![](/assets/images/2019/java/image_jsq/04_03/message.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/message.png)
 
 
 
@@ -284,7 +281,7 @@ RocketMQ提供类似X/Open XA的分布式事务功能来确保业务发送方和
 
 ​          3，发送方开始执行本地事务逻辑。
 
-​        4，发送方根据本地事务执行结果向服务端提交二次确认（Commit 或是 Rollback），服务端收到 Commit 状态则将半消息标记为可投递，订阅方最终将收到该消息；服务端收到 Rollback 状态则删除半消息，订阅方将不会接受该消息。
+​          4，发送方根据本地事务执行结果向服务端提交二次确认（Commit 或是 Rollback），服务端收到 Commit 状态则将半消息标记为可投递，订阅方最终将收到该消息；服务端收到 Rollback 状态则删除半消息，订阅方将不会接受该消息。
 
 ​          5，在断网或者是应用重启的特殊情况下，上述步骤 4 提交的二次确认最终未到达服务端，经过固定时间后服务端将对该消息发起消息回查。
 
@@ -311,75 +308,70 @@ RocketMQ提供类似X/Open XA的分布式事务功能来确保业务发送方和
 **final BusinessService businessService = new BusinessService(); // 本地业务**
 
 
-    '''java
+``` java
+TransactionProducer producer = ONSFactory.createTransactionProducer(properties,
+new LocalTransactionCheckerImpl());
+
+producer.start();
+
+Message msg = new Message("Topic", "TagA", "Hello MQ transaction===".getBytes());
+
+try {
     
-    ```
-    TransactionProducer producer = ONSFactory.createTransactionProducer(properties,
-    new LocalTransactionCheckerImpl());
-    ```
-    
-    producer.start();
-    
-    ```
-    Message msg = new Message("Topic", "TagA", "Hello MQ transaction===".getBytes());
-    try {
     SendResult sendResult = producer.send(msg, new LocalTransactionExecuter() {
+    
     @Override
     public TransactionStatus execute(Message msg, Object arg) {
-    // 消息 ID（有可能消息体一样，但消息 ID 不一样，当前消息 ID 在控制台无法查询）
-    String msgId = msg.getMsgID();
-    // 消息体内容进行 crc32，也可以使用其它的如 MD5
-    long crc32Id = HashUtil.crc32Code(msg.getBody());
-    // 消息 ID 和 crc32id 主要是用来防止消息重复
-    // 如果业务本身是幂等的，可以忽略，否则需要利用 msgId 或 crc32Id 来做幂等
-    // 如果要求消息绝对不重复，推荐做法是对消息体 body 使用 crc32 或 MD5 来防止重复消息
-    Object businessServiceArgs = new Object();
-    TransactionStatus transactionStatus =TransactionStatus.Unknow;
-    try {
-    ```
     
-    `boolean isCommit =`businessService.execbusinessService(businessServiceArgs);
-    
-    ```
-    if (isCommit) {
-    ```
-    
-    `// 本地事务成功则提交消息`transactionStatus = TransactionStatus.CommitTransaction;
-    
-    ```
-    } else {
-    ```
-    
-    `// 本地事务失败则回滚消息`transactionStatus = TransactionStatus.RollbackTransaction;
-    
-    ```
-    }
-    ```
-    
-    `} catch (Exception e) {`log.error("Message Id:{}", msgId, e);
-    
-    ```
-    }
-    ```
-    
-    `System.out.println(msg.getMsgID());`log.warn("Message Id:{}transactionStatus:{}", msgId, transactionStatus.name());
-    
-    ```
-    return transactionStatus;
+        // 消息 ID（有可能消息体一样，但消息 ID 不一样，当前消息 ID 在控制台无法查询）
+        String msgId = msg.getMsgID();
+        
+        // 消息体内容进行 crc32，也可以使用其它的如 MD5
+        long crc32Id = HashUtil.crc32Code(msg.getBody());
+       
+        // 消息 ID 和 crc32id 主要是用来防止消息重复
+        // 如果业务本身是幂等的，可以忽略，否则需要利用 msgId 或 crc32Id 来做幂等
+        // 如果要求消息绝对不重复，推荐做法是对消息体 body 使用 crc32 或 MD5 来防止重复消息
+        Object businessServiceArgs = new Object();
+        
+        TransactionStatus transactionStatus =TransactionStatus.Unknow;
+        
+        try {
+        
+        `boolean isCommit =`businessService.execbusinessService(businessServiceArgs);
+        
+        if (isCommit) {
+        
+        `// 本地事务成功则提交消息`transactionStatus = TransactionStatus.CommitTransaction;
+        
+        } else {
+        
+        `// 本地事务失败则回滚消息`transactionStatus = TransactionStatus.RollbackTransaction;
+        
+        }
+        
+        `} catch (Exception e) {`log.error("Message Id:{}", msgId, e);
+        
+        }
+        
+        `System.out.println(msg.getMsgID());`log.warn("Message Id:{}transactionStatus:{}", msgId, transactionStatus.name());
+         
+         return transactionStatus;
     }
     }, null);
     }
-    catch (Exception e) {
-    // 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
-    System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
-    ```
+
+catch (Exception e) {
+  
+  // 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
+   System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
+
+   e.printStackTrace();
+
+}
     
-    e.printStackTrace();
-    
-    ```
-    }
-    ```
-       '''   
+``` 
+       
 
 
 
@@ -387,13 +379,13 @@ RocketMQ提供类似X/Open XA的分布式事务功能来确保业务发送方和
 
 **所有消息发布原理图**
 
-![](/assets/images/2019/java/image_jsq/04_03/Java_SDK_Producer.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/Java_SDK_Producer.png)
 
 producer完全无状态，可以集群部署。
 
 
 
-**Name Server集群：**
+### Name Server集群：
 
 NameServer是一个几乎无状态的节点，可集群部署，节点之间无任何信息同步，NameServer很像注册中心的功能。
 
@@ -403,7 +395,7 @@ NameServer其实就是一个路由表，他管理Producer和Comsumer之间的发
 
 
 
-**Broker集群：**
+### Broker集群：
 
 Broker部署相对复杂，Broker分为Master与Slave，一个Master可以对应多个Slaver，但是一个Slaver只能对应一个Master，Master与Slaver的对应关系通过指定相同的BrokerName。
 
@@ -411,102 +403,92 @@ Broker部署相对复杂，Broker分为Master与Slave，一个Master可以对应
 
 
 
-**Consumer集群：**
+### Consumer集群：
 
-**订阅方式**
+#### 订阅方式
 
 消息队列 RocketMQ 支持以下两种订阅方式：
 
 **集群订阅：**同一个 Group ID 所标识的所有 Consumer 平均分摊消费消息。 例如某个 Topic 有 9 条消息，一个 Group ID 有 3 个 Consumer 实例，那么在集群消费模式下每个实例平均分摊，只消费其中的 3 条消息。
 
+``` java
 
-     '''java
-     
-     ```
-     // 集群订阅方式设置（不设置的情况下，默认为集群订阅方式）
-     ```
-     
-     properties.put(PropertyKeyConst.MessageModel, PropertyValueConst.CLUSTERING);
+// 集群订阅方式设置（不设置的情况下，默认为集群订阅方式）
+properties.put(PropertyKeyConst.MessageModel, PropertyValueConst.CLUSTERING);
 
+```
 
-     '''
 
 **广播订阅：**同一个 Group ID 所标识的所有 Consumer 都会各自消费某条消息一次。 例如某个 Topic 有 9 条消息，一个 Group ID 有 3 个 Consumer 实例，那么在广播消费模式下每个实例都会各自消费 9 条消息。
 
+``` java
+
+// 广播订阅方式设置
+properties.put(PropertyKeyConst.MessageModel, PropertyValueConst.BROADCASTING);
+``` 
 
 
-    '''java
-    
-    ```
-    // 广播订阅方式设置
-    ```
-    
-    properties.put(PropertyKeyConst.MessageModel, PropertyValueConst.BROADCASTING);
-
-
-​       
-       '''  
 **订阅消息关键代码：**
 
 
-    '''java
-    
-    `Consumer consumer = ONSFactory.createConsumer(properties);`consumer.subscribe("TopicTestMQ", "TagA||TagB", **new** MessageListener() { //订阅多个 Tag
-    
-    ```
-    public Action consume(Message message, ConsumeContext context) {
-    System.out.println("Receive: " + message);
-    return Action.CommitMessage;
-    }
-    });
-    //订阅另外一个 Topic
-    ```
-    
-    consumer.subscribe("TopicTestMQ-Other", "*", **new** MessageListener() { //订阅全部 Tag
-    
-    ```
-    public Action consume(Message message, ConsumeContext context) {
-    System.out.println("Receive: " + message);
-    return Action.CommitMessage;
-    }
-    });
-    ```
-    
-    consumer.start();
-    
-    '''   
+``` java
 
-**注意事项：**
+`Consumer consumer = ONSFactory.createConsumer(properties);`consumer.subscribe("TopicTestMQ", "TagA||TagB", **new** MessageListener() { //订阅多个 Tag
+
+public Action consume(Message message, ConsumeContext context) {
+
+   System.out.println("Receive: " + message);
+   return Action.CommitMessage;
+}
+});
+
+
+//订阅另外一个 Topic
+
+consumer.subscribe("TopicTestMQ-Other", "*", **new** MessageListener() { //订阅全部 Tag
+
+public Action consume(Message message, ConsumeContext context) {
+
+    System.out.println("Receive: " + message);
+    return Action.CommitMessage;
+}
+});
+
+consumer.start();
+    
+```   
+
+#### 注意事项：
 
 消费端要做幂等处理，所有MQ基本上都不会做幂等处理，需要业务端处理，原因是如果在MQ端做幂等处理会带来MQ的复杂度，而且严重影响MQ的性能。
 
 **消息收发模型**
 
-![pub-sub model](/assets/images/2019/java/image_jsq/04_03/pub-sub model.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/pub-submodel.png)
 
 
 
-**主子账号创建**
+### 主子账号创建
 
 创建主子账号的原因是权限问题。下面是主账号创建流程图
 
-![](/assets/images/2019/java/image_jsq/04_03/main_process.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/main_process.png)
 
 详细操作地址：https://help.aliyun.com/document_detail/34411.html?spm=a2c4g.11186623.6.555.38c57f91JXUK7o
 
 子账号流程图
 
-![](/assets/images/2019/java/image_jsq/04_03/quickstart-process-ram-subaccount.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_jsq/04_03/quickstart-process-ram-subaccount.png)
 
 详细操作地址：https://help.aliyun.com/document_detail/96402.html?spm=a2c4g.11186623.6.556.60194fedfSkxIB
 
 
 
-### 3
+## 3
 
-### MQ是微服务架构
+## MQ是微服务架构
 
-### 非常重要的部分
+## 非常重要的部分
 
 
 
