@@ -11,9 +11,9 @@ tag:
 
 <!--more-->
 
-1
+### 1
 
-**什么是MQ？MQ的原理是什么？**
+### 什么是MQ？MQ的原理是什么？
 
 ------
 
@@ -57,11 +57,11 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 
 
-2
+### 2
 
-**现在市面上有什么MQ，**
+### 现在市面上有什么MQ，
 
-**重点介绍RocketMQ**
+### 重点介绍RocketMQ
 
 
 
@@ -117,21 +117,24 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **同步消息关键代码**
 
-1. 
-2. `try {`
-3. `SendResult sendResult = producer.send(msg);`
-4. `// 同步发送消息，只要不抛异常就是成功`
-5. `if (sendResult != null) {`
-6. `System.out.println(new Date() + " Send mq message success. Topic is:" + msg.getTopic() + " msgId is: " + sendResult.getMessageId());`
-7. `}`
-8. `}`
-9. `catch (Exception e) {`
-10. 
-11. `System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());`
-12. `e.printStackTrace();`
-13. `}`
-14. `}`
-15. 
+    '''java
+    
+    1. 
+    2. `try {`
+    3. `SendResult sendResult = producer.send(msg);`
+    4. `// 同步发送消息，只要不抛异常就是成功`
+    5. `if (sendResult != null) {`
+    6. `System.out.println(new Date() + " Send mq message success. Topic is:" + msg.getTopic() + " msgId is: " + sendResult.getMessageId());`
+    7. `}`
+    8. `}`
+    9. `catch (Exception e) {`
+    10. 
+    11. `System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());`
+    12. `e.printStackTrace();`
+    13. `}`
+    14. `}`
+    15. 
+        '''
 
 **2，异步原理图**
 
@@ -139,22 +142,23 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **异步消息关键代码**
 
-1. `producer.sendAsync(msg, new SendCallback() {`
-2. `@Override`
-3. `public void onSuccess(final SendResult sendResult) {`
-4. `// 消费发送成功`
-5. `System.out.println("send message success. topic=" + sendResult.getTopic() + ", msgId=" + sendResult.getMessageId());`
-6. `}`
-7. 
-8. `@Override`
-9. `public void onException(OnExceptionContext context) {`
-10. 
-11. `System.out.println("send message failed. topic=" + context.getTopic() + ", msgId=" + context.getMessageId());`
-12. `}`
-13. `});`
-14. 
-15. 
-
+    '''java
+    1. `producer.sendAsync(msg, new SendCallback() {`
+    2. `@Override`
+    3. `public void onSuccess(final SendResult sendResult) {`
+    4. `// 消费发送成功`
+    5. `System.out.println("send message success. topic=" + sendResult.getTopic() + ", msgId=" + sendResult.getMessageId());`
+    6. `}`
+    7. 
+    8. `@Override`
+    9. `public void onException(OnExceptionContext context) {`
+    10. 
+    11. `System.out.println("send message failed. topic=" + context.getTopic() + ", msgId=" + context.getMessageId());`
+    12. `}`
+    13. `});`
+    14. 
+    15. 
+        '''
 
 
 **3，单向（Oneway）发送原理图**
@@ -167,10 +171,13 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 **单向（Oneway）发送消息关键代码**
 
-1. 
-2. `producer.sendOneway(msg);`
-3. 
+    '''java
+    1. 
+    2. `producer.sendOneway(msg);`
+    3. 
 
+
+    ''' 
 
 
 三种发送消息具体代码请参考文档：https://help.aliyun.com/document_detail/29547.html?spm=a2c4g.11186623.6.566.7e49793fuueSlB
@@ -185,53 +192,57 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 
 
 
-```
-try {
-```
-
-// 定时消息，单位毫秒（ms），在指定时间戳（当前时间之后）进行投递，例如 2016-03-07 16:21:00 投递。如果被设置成当前时间戳之前的某个时刻，消息将立刻投递给消费者。
-
-`long timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2016-03-07 16:21:00").getTime();`msg.setStartDeliverTime(timeStamp);
-
-```
-// 发送消息，只要不抛异常就是成功
-SendResult sendResult = producer.send(msg);
-System.out.println("MessageId:"+sendResult.getMessageId());
-}
-catch (Exception e) {
-// 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
-System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
-```
-
-e.printStackTrace();
-
-1. `}`
-
+    '''java
+    
+    ```
+    try {
+    ```
+    
+    // 定时消息，单位毫秒（ms），在指定时间戳（当前时间之后）进行投递，例如 2016-03-07 16:21:00 投递。如果被设置成当前时间戳之前的某个时刻，消息将立刻投递给消费者。
+    
+    `long timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2016-03-07 16:21:00").getTime();`msg.setStartDeliverTime(timeStamp);
+    
+    ```
+    // 发送消息，只要不抛异常就是成功
+    SendResult sendResult = producer.send(msg);
+    System.out.println("MessageId:"+sendResult.getMessageId());
+    }
+    catch (Exception e) {
+    // 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
+    System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
+    ```
+    
+    e.printStackTrace();
+    
+    1. `}`
+    
+       ''' 
 
 
 **发送延时消息关键代码**
 
 
-
-```
-try {
-// 延时消息，单位毫秒（ms），在指定延迟时间（当前时间之后）进行投递，例如消息在 3 秒后投递
-long delayTime = System.currentTimeMillis() + 3000;
-```
-
-`// 设置消息需要被投递的时间`msg.setStartDeliverTime(delayTime);
-
-```
-SendResult sendResult = producer.send(msg);
-// 同步发送消息，只要不抛异常就是成功
-if (sendResult != null) {
-System.out.println(new Date() + " Send mq message success. Topic is:" + msg.getTopic() + " msgId is: " + sendResult.getMessageId());
-}
-} catch (Exception e) {
-// 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
-System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
-```
-
+    '''java
+    
+    ```
+    try {
+    // 延时消息，单位毫秒（ms），在指定延迟时间（当前时间之后）进行投递，例如消息在 3 秒后投递
+    long delayTime = System.currentTimeMillis() + 3000;
+    ```
+    
+    `// 设置消息需要被投递的时间`msg.setStartDeliverTime(delayTime);
+    
+    ```
+    SendResult sendResult = producer.send(msg);
+    // 同步发送消息，只要不抛异常就是成功
+    if (sendResult != null) {
+    System.out.println(new Date() + " Send mq message success. Topic is:" + msg.getTopic() + " msgId is: " + sendResult.getMessageId());
+    }
+    } catch (Exception e) {
+    // 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
+    System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
+    ```
+     ''' 
 e.printStackTrace();
 
 1. `}`
@@ -303,73 +314,75 @@ RocketMQ提供类似X/Open XA的分布式事务功能来确保业务发送方和
 **final BusinessService businessService = new BusinessService(); // 本地业务**
 
 
-
-```
-TransactionProducer producer = ONSFactory.createTransactionProducer(properties,
-new LocalTransactionCheckerImpl());
-```
-
-producer.start();
-
-```
-Message msg = new Message("Topic", "TagA", "Hello MQ transaction===".getBytes());
-try {
-SendResult sendResult = producer.send(msg, new LocalTransactionExecuter() {
-@Override
-public TransactionStatus execute(Message msg, Object arg) {
-// 消息 ID（有可能消息体一样，但消息 ID 不一样，当前消息 ID 在控制台无法查询）
-String msgId = msg.getMsgID();
-// 消息体内容进行 crc32，也可以使用其它的如 MD5
-long crc32Id = HashUtil.crc32Code(msg.getBody());
-// 消息 ID 和 crc32id 主要是用来防止消息重复
-// 如果业务本身是幂等的，可以忽略，否则需要利用 msgId 或 crc32Id 来做幂等
-// 如果要求消息绝对不重复，推荐做法是对消息体 body 使用 crc32 或 MD5 来防止重复消息
-Object businessServiceArgs = new Object();
-TransactionStatus transactionStatus =TransactionStatus.Unknow;
-try {
-```
-
-`boolean isCommit =`businessService.execbusinessService(businessServiceArgs);
-
-```
-if (isCommit) {
-```
-
-`// 本地事务成功则提交消息`transactionStatus = TransactionStatus.CommitTransaction;
-
-```
-} else {
-```
-
-`// 本地事务失败则回滚消息`transactionStatus = TransactionStatus.RollbackTransaction;
-
-```
-}
-```
-
-`} catch (Exception e) {`log.error("Message Id:{}", msgId, e);
-
-```
-}
-```
-
-`System.out.println(msg.getMsgID());`log.warn("Message Id:{}transactionStatus:{}", msgId, transactionStatus.name());
-
-```
-return transactionStatus;
-}
-}, null);
-}
-catch (Exception e) {
-// 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
-System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
-```
-
-e.printStackTrace();
-
-```
-}
-```
+    '''java
+    
+    ```
+    TransactionProducer producer = ONSFactory.createTransactionProducer(properties,
+    new LocalTransactionCheckerImpl());
+    ```
+    
+    producer.start();
+    
+    ```
+    Message msg = new Message("Topic", "TagA", "Hello MQ transaction===".getBytes());
+    try {
+    SendResult sendResult = producer.send(msg, new LocalTransactionExecuter() {
+    @Override
+    public TransactionStatus execute(Message msg, Object arg) {
+    // 消息 ID（有可能消息体一样，但消息 ID 不一样，当前消息 ID 在控制台无法查询）
+    String msgId = msg.getMsgID();
+    // 消息体内容进行 crc32，也可以使用其它的如 MD5
+    long crc32Id = HashUtil.crc32Code(msg.getBody());
+    // 消息 ID 和 crc32id 主要是用来防止消息重复
+    // 如果业务本身是幂等的，可以忽略，否则需要利用 msgId 或 crc32Id 来做幂等
+    // 如果要求消息绝对不重复，推荐做法是对消息体 body 使用 crc32 或 MD5 来防止重复消息
+    Object businessServiceArgs = new Object();
+    TransactionStatus transactionStatus =TransactionStatus.Unknow;
+    try {
+    ```
+    
+    `boolean isCommit =`businessService.execbusinessService(businessServiceArgs);
+    
+    ```
+    if (isCommit) {
+    ```
+    
+    `// 本地事务成功则提交消息`transactionStatus = TransactionStatus.CommitTransaction;
+    
+    ```
+    } else {
+    ```
+    
+    `// 本地事务失败则回滚消息`transactionStatus = TransactionStatus.RollbackTransaction;
+    
+    ```
+    }
+    ```
+    
+    `} catch (Exception e) {`log.error("Message Id:{}", msgId, e);
+    
+    ```
+    }
+    ```
+    
+    `System.out.println(msg.getMsgID());`log.warn("Message Id:{}transactionStatus:{}", msgId, transactionStatus.name());
+    
+    ```
+    return transactionStatus;
+    }
+    }, null);
+    }
+    catch (Exception e) {
+    // 消息发送失败，需要进行重试处理，可重新发送这条消息或持久化这条数据进行补偿处理
+    System.out.println(new Date() + " Send mq message failed. Topic is:" + msg.getTopic());
+    ```
+    
+    e.printStackTrace();
+    
+    ```
+    }
+    ```
+       '''   
 
 
 
@@ -409,48 +422,62 @@ Broker部署相对复杂，Broker分为Master与Slave，一个Master可以对应
 
 **集群订阅：**同一个 Group ID 所标识的所有 Consumer 平均分摊消费消息。 例如某个 Topic 有 9 条消息，一个 Group ID 有 3 个 Consumer 实例，那么在集群消费模式下每个实例平均分摊，只消费其中的 3 条消息。
 
-```
-// 集群订阅方式设置（不设置的情况下，默认为集群订阅方式）
-```
 
-properties.put(PropertyKeyConst.MessageModel, PropertyValueConst.CLUSTERING);
+     '''java
+     
+     ```
+     // 集群订阅方式设置（不设置的情况下，默认为集群订阅方式）
+     ```
+     
+     properties.put(PropertyKeyConst.MessageModel, PropertyValueConst.CLUSTERING);
+
+
+     '''
 
 **广播订阅：**同一个 Group ID 所标识的所有 Consumer 都会各自消费某条消息一次。 例如某个 Topic 有 9 条消息，一个 Group ID 有 3 个 Consumer 实例，那么在广播消费模式下每个实例都会各自消费 9 条消息。
 
 
 
-```
-// 广播订阅方式设置
-```
+    '''java
+    
+    ```
+    // 广播订阅方式设置
+    ```
+    
+    properties.put(PropertyKeyConst.MessageModel, PropertyValueConst.BROADCASTING);
 
-properties.put(PropertyKeyConst.MessageModel, PropertyValueConst.BROADCASTING);
 
+​       
+       '''  
 **订阅消息关键代码：**
 
-`Consumer consumer = ONSFactory.createConsumer(properties);`consumer.subscribe("TopicTestMQ", "TagA||TagB", **new** MessageListener() { //订阅多个 Tag
 
-```
-public Action consume(Message message, ConsumeContext context) {
-System.out.println("Receive: " + message);
-return Action.CommitMessage;
-}
-});
-//订阅另外一个 Topic
-```
-
-consumer.subscribe("TopicTestMQ-Other", "*", **new** MessageListener() { //订阅全部 Tag
-
-```
-public Action consume(Message message, ConsumeContext context) {
-System.out.println("Receive: " + message);
-return Action.CommitMessage;
-}
-});
-```
-
-consumer.start();
-
-
+    '''java
+    
+    `Consumer consumer = ONSFactory.createConsumer(properties);`consumer.subscribe("TopicTestMQ", "TagA||TagB", **new** MessageListener() { //订阅多个 Tag
+    
+    ```
+    public Action consume(Message message, ConsumeContext context) {
+    System.out.println("Receive: " + message);
+    return Action.CommitMessage;
+    }
+    });
+    //订阅另外一个 Topic
+    ```
+    
+    consumer.subscribe("TopicTestMQ-Other", "*", **new** MessageListener() { //订阅全部 Tag
+    
+    ```
+    public Action consume(Message message, ConsumeContext context) {
+    System.out.println("Receive: " + message);
+    return Action.CommitMessage;
+    }
+    });
+    ```
+    
+    consumer.start();
+    
+    '''   
 
 **注意事项：**
 
@@ -478,11 +505,11 @@ consumer.start();
 
 
 
-3
+### 3
 
-**MQ是微服务架构**
+### MQ是微服务架构
 
-**非常重要的部分**
+### 非常重要的部分
 
 
 
