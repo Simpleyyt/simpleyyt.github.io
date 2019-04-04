@@ -120,7 +120,7 @@ MQ有生产者集群和消费者集群，所以客户端是亿级用户时，他
 ``` java
 try {
         SendResult sendResult = producer.send(msg);
-        // 同步发送消息，只要不抛异常就是成功`
+        // 同步发送消息，只要不抛异常就是成功
         if (sendResult != null) {
         System.out.println(new Date() + " Send mq message success. Topic is:" + msg.getTopic() + " msgId is: " + sendResult.getMessageId());
 
@@ -140,25 +140,24 @@ try {
 **异步消息关键代码**
 
 ``` java
-1. `producer.sendAsync(msg, new SendCallback() {`
+producer.sendAsync(msg, new SendCallback() {
 
-2. `@Override`
-3. `public void onSuccess(final SendResult sendResult) {`
+@Override
+public void onSuccess(final SendResult sendResult) {
 
-4.       `// 消费发送成功`
-5.      `System.out.println("send message success. topic=" + sendResult.getTopic() + ", msgId=" + sendResult.getMessageId());`
+       // 消费发送成功
+      System.out.println("send message success. topic=" + sendResult.getTopic() + ", msgId=" + sendResult.getMessageId());
 
-6. `}`
-7. 
-8. `@Override`
-9. `public void onException(OnExceptionContext context) {` 
+ }
+ 
+@Override
+public void onException(OnExceptionContext context) { 
 
-11.     `System.out.println("send message failed. topic=" + context.getTopic() + ", msgId=" + context.getMessageId());`
+   System.out.println("send message failed. topic=" + context.getTopic() + ", msgId=" + context.getMessageId());
 
-12. `}`
-13. `});`
-14. 
-15. 
+}
+});
+  
 ```
 
 
@@ -173,9 +172,9 @@ try {
 **单向（Oneway）发送消息关键代码**
 
 ``` java
-1. 
-2. `producer.sendOneway(msg);`
-3. 
+
+producer.sendOneway(msg);
+
 ```
 
 
@@ -195,7 +194,8 @@ try {
 try {
 
      // 定时消息，单位毫秒（ms），在指定时间戳（当前时间之后）进行投递，例如 2016-03-07 16:21:00 投递。如果被设置成当前时间戳之前的某个时刻，消息将立刻投递给消费者。
-    `long timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2016-03-07 16:21:00").getTime();`msg.setStartDeliverTime(timeStamp);
+    long timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2016-03-07 16:21:00").getTime();
+    msg.setStartDeliverTime(timeStamp);
 
     // 发送消息，只要不抛异常就是成功
     SendResult sendResult = producer.send(msg);
@@ -209,7 +209,7 @@ catch (Exception e) {
 
     e.printStackTrace();
 
-1. `}`
+ }
     
 ```      
 
@@ -223,7 +223,7 @@ try {
     // 延时消息，单位毫秒（ms），在指定延迟时间（当前时间之后）进行投递，例如消息在 3 秒后投递
     long delayTime = System.currentTimeMillis() + 3000;
 
-    `// 设置消息需要被投递的时间`msg.setStartDeliverTime(delayTime);
+    // 设置消息需要被投递的时间 msg.setStartDeliverTime(delayTime);
      SendResult sendResult = producer.send(msg);
      // 同步发送消息，只要不抛异常就是成功
      if (sendResult != null) {
@@ -237,7 +237,7 @@ try {
 
     e.printStackTrace();
 
-1. `}`
+ }
     
 ```
 
@@ -338,23 +338,23 @@ try {
         
         try {
         
-        `boolean isCommit =`businessService.execbusinessService(businessServiceArgs);
+        boolean isCommit = businessService.execbusinessService(businessServiceArgs);
         
         if (isCommit) {
         
-        `// 本地事务成功则提交消息`transactionStatus = TransactionStatus.CommitTransaction;
+        // 本地事务成功则提交消息 transactionStatus = TransactionStatus.CommitTransaction;
         
         } else {
         
-        `// 本地事务失败则回滚消息`transactionStatus = TransactionStatus.RollbackTransaction;
+        // 本地事务失败则回滚消息 transactionStatus = TransactionStatus.RollbackTransaction;
         
         }
         
-        `} catch (Exception e) {`log.error("Message Id:{}", msgId, e);
+        } catch (Exception e) {log.error("Message Id:{}", msgId, e);
         
         }
         
-        `System.out.println(msg.getMsgID());`log.warn("Message Id:{}transactionStatus:{}", msgId, transactionStatus.name());
+        System.out.println(msg.getMsgID());log.warn("Message Id:{}transactionStatus:{}", msgId, transactionStatus.name());
          
          return transactionStatus;
     }
@@ -433,7 +433,9 @@ properties.put(PropertyKeyConst.MessageModel, PropertyValueConst.BROADCASTING);
 
 ``` java
 
-`Consumer consumer = ONSFactory.createConsumer(properties);`consumer.subscribe("TopicTestMQ", "TagA||TagB", **new** MessageListener() { //订阅多个 Tag
+Consumer consumer = ONSFactory.createConsumer(properties);
+
+consumer.subscribe("TopicTestMQ", "TagA||TagB", **new** MessageListener() { //订阅多个 Tag
 
 public Action consume(Message message, ConsumeContext context) {
 
