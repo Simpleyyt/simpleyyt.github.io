@@ -11,6 +11,8 @@ published: true
 ### 背景
 最近项目中使用了 dubbo 在实现服务注册和发现，需要实现对服务提供者和调用者的监控，之前有研究过基于 redis作为注册中心的监控平台，不过本文基于 zk 作为注册中心，进行 dubbo-admin 和 dubbo-monitor 搭建。另外项目基于 dubbo 2.6.4版本，所以该监控版本调整为 dubbo2.6.4。
  
+ <!--more-->
+ 
 ### 步骤
 1. [GitHub](https://github.com/apache/incubator-dubbo-ops/tree/master)
 2. 官方组件目前在重构，采用前后分离技术，尚未完成。本文采用的还是 master 分支的老版本 dubbo-admin
