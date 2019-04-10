@@ -1,5 +1,5 @@
 ---
-layout: pst
+layout: post
 title: 计算机内存管理介绍
 tagline: by Adam Wong
 categories: Operating System
