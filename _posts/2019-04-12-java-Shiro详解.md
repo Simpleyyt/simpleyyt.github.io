@@ -39,7 +39,7 @@ Apache Shiro是Java的一个安全框架。
 
 我们可以看一下Apache官网上对Shiro，它都包含哪些功能。
 
-![](/assets/images/2019/java/image_yi/shiro图.jpg)
+![](/assets/images/2019/java/image_yi/04_13/shiro图.jpg)
 
 我们看看它每一个模块代表的是什么意思
 
@@ -83,19 +83,19 @@ Realms：
 
 当配置Shiro时，你必须指定至少一个Realm用来进行身份验证和/或授权。SecurityManager可能配置多个Realms，但至少有一个是必须的。
 
-![](/assets/images/2019/java/image_yi/Shiro整体架构.jpg)
+![](/assets/images/2019/java/image_yi/04_13/Shiro整体架构.jpg)
 
 我们可以通过一个简单的登录来看shiro对权限的控制。
 
 我们就通过图解来理解一下，然后写个简单的代码
 
-![](/assets/images/2019/java/image_yi/用户权限图.jpg)
+![](/assets/images/2019/java/image_yi/04_13/用户权限图.jpg)
 
 上图是对shiro角色权限的设计，
 
 而接下来我们就可以看一下它具体的登录图解了
 
-![](/assets/images/2019/java/image_yi/shiro登录图.jpg)
+![](/assets/images/2019/java/image_yi/04_13/shiro登录图.jpg)
 
 我解释一下这个图。
 
