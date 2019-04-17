@@ -22,7 +22,7 @@ published: true
 ## 先看面试过程
 
 面试官先是在纸上先画了这样一张图：
-![](/assets/images/2019/java/image_qry/20190417-distributed-transaction/1.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/1.png)
 
 让我看这张图按照上面的流程走，有没有什么问题？面试官并没有直接说出来这里面会有分布式事物的问题，而是让我来告诉他，**这就是面试套路呀**。
 
@@ -89,7 +89,7 @@ ok ，我回答到这里，应该回答了面试官的第一层意思，至少�
 
 我们先看这样一个场景，现在我们系统部署了两份（两个节点，web1 和 web2 ）,同样的业务代码，但是维护的是自己这个节点生成的数据。但是用户访问进来，可能会访问到不同的节点。但是不管是访问web1 还是web2 ,在用户参数数据 过后，这个数据都必须得同步到另外的节点，让用户不管访问哪个节点，都是响应他需要的数据。如下图：
 
-![2.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/2.png)
+![2.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/2.png)
 
 #### 分区容错性
 我们先说 **分区容错性**：也就是说呀，就算上面这两个节点之间发生了网络故障，无法发生同步的问题，但是用户访问进来，不管到哪个节点，这个节点都得单独提供服务，这一点对于互联网公司来说，是必须要满足的。
@@ -124,12 +124,12 @@ ok ，我回答到这里，应该回答了面试官的第一层意思，至少�
 大家想一个场景，在做单应用的时候，有的同学连过两个库吧？在一个事物中会同时向两个系统插入数据。但是对于普通事物来讲，是管不了的。
 
 看下图（只是举例这种操作的套路，不局限于下面的业务）：
-![3.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/3.png)
+![3.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/3.png)
 
 一个服务里面要去操作两个库，如何保证事物成功呢。
 
 这里我们介绍一个框架 **Atomikos** ，他就是实现了这种 XA 的套路。看代码：
-![4.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/4.png)
+![4.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/4.png)
 
 具体代码移步 Github [AtomikosJTATest](https://github.com/heyxyw/learn/blob/master/distributed-transaction/src/main/java/com/zhouq/jta/AtomikosJTATest.java): https://github.com/heyxyw/learn/blob/master/distributed-transaction/src/main/java/com/zhouq/jta/AtomikosJTATest.java
 
@@ -142,10 +142,10 @@ ok ，我回答到这里，应该回答了面试官的第一层意思，至少�
 这个过程是不是就有两个角色了，一个 事务管理器，一个资源管理器（我们这里是 数据库，也可以是其他的组件，消息队列什么的）。
 
 整个执行过程是这样：
-![5.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/5.png)
+![5.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/5.png)
 上图是正常情况，下图是一方出现故障的情况。
 
-![6.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/6.png)
+![6.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/6.png)
 
 图片来自：[XA 事务处理](https://www.infoq.cn/article/xa-transactions-handle)：https://www.infoq.cn/article/xa-transactions-handle ，具体关于XA 的详细讲解，可以好好看看。整个2PC 的流程：
 
@@ -181,7 +181,7 @@ ok ，我回答到这里，应该回答了面试官的第一层意思，至少�
 上面我们说了两阶段提交的方案，接下来我们讲讲怎么基于可靠消息最终一致性方案来解决分布式事物的问题。
 
 这个方案，就有消息服务中间件角色参与进来了。我们先看一个大提的流程图：
-![7.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/7.png)
+![7.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/7.png)
 
 我们以创建订单下单过程和 后面出库 的流程为例来讲述上面的图。
 
@@ -203,11 +203,11 @@ ok ，我回答到这里，应该回答了面试官的第一层意思，至少�
 
 贴一下关键的**独立消息服务核心逻辑代码框架**：
 
-![8.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/8.png)
+![8.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/8.png)
 
 **定时任务**：
 
-![9.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/9.png)
+![9.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/9.png)
 
 
 #### 基于 RocketMQ实现
@@ -216,7 +216,7 @@ ok ，我回答到这里，应该回答了面试官的第一层意思，至少�
 
 流程图如下：
 
-![10.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/10.png)
+![10.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/10.png)
 
 这里的整个流程跟上面基于消息服务是一致的。这里就不过多阐述，具体代码实现请参考 ：[https://www.jianshu.com/p/453c6e7ff81c](https://www.jianshu.com/p/453c6e7ff81c) ，写得非常好。
 
@@ -237,7 +237,7 @@ TCC 的全程分为三个阶段，分别是 Try、Confirm、Cancel：
 
 还是以转账的例子为例，在跨银行进行转账的时候，需要涉及到两个银行的分布式事物，从A 银行向 B 银行转 1 块，如果用TCC 方案来实现：
 
-![11.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/11.png)
+![11.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/11.png)
 
 
 大概思路就是这样的：
@@ -253,11 +253,11 @@ TCC 的全程分为三个阶段，分别是 Try、Confirm、Cancel：
 最开始 A 银行账户 与 B 银行账户都分别为：amount（数量）=1000，frozen（冻结金额）= 0
 
 从A银行账户发起转账到 B 银行账户 1 块：
-![12.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/12.png)
+![12.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/12.png)
 
 **try 阶段**：A 银行账户金额减 1，冻结金额 加 1，B 银行 账户 冻结金额加 1 。
 
-![13.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/13.png)
+![13.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/13.png)
 
 此时：
 
@@ -267,7 +267,7 @@ TCC 的全程分为三个阶段，分别是 Try、Confirm、Cancel：
 
 **confirm 阶段** ： A银行账户冻结金额 减 1，B 银行账户金额 加 1，冻结金额 减 1
 
-![14.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/14.png)
+![14.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/14.png)
 
 
 此时：
@@ -277,7 +277,7 @@ TCC 的全程分为三个阶段，分别是 Try、Confirm、Cancel：
 
 **cancel 阶段**： A 银行账户金额 + 1，冻结金额 -1 ，B 银行 冻结金额 -1
 
-![15.png](/assets/images/2019/java/image_qry/20190417-distributed-transaction/15.png)
+![15.png](http://www.justdojava.com/assets/images/2019/java/image_qry/20190417-distributed-transaction/15.png)
 
 此时：
 
