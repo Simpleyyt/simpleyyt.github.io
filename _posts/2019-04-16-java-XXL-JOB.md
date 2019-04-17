@@ -25,10 +25,10 @@ XXL-JOB由两个模块组成分为**调度中心**和**执行器**，作者许�
 从[release](https://github.com/xuxueli/xxl-job/releases)拉取最新代码
 
 根据自己的需要配置xxl-job-admin中xxl-job-admin.properties文件中的数据源信息以及账号密码，以及accessToken和邮件服务器地址等信息
-![](/assets/images/2019/java/image_ziyou/xxl-job1.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/xxl-job1.png)
 
 配置log4j.xml中日志的路径
-![](/assets/images/2019/java/image_ziyou/xxl-job2.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/xxl-job2.png)
 
 将xxl-job-admin打包成war包，部署到tomcat中即可
 
@@ -46,7 +46,7 @@ XXL-JOB由两个模块组成分为**调度中心**和**执行器**，作者许�
 ```
 
 配置文件中配置调度中心的地址和一些具体参数
-![](/assets/images/2019/java/image_ziyou/xxl-job3.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/xxl-job3.png)
 
 编写jobHandler，继承IJobHandler实现内部execute方法，具体的业务逻辑就在这个方法里面实现。这种方式是通过 Java 代码来执行定时任务的，除了 JavaBean 方式还支持 Python，nodeJs，Shell 等方式。
 我最喜欢的是 Python 方式，因为 Python 在处理简单的定时任务的时候还是比较得心应手的，而且很快速，但是稍微复杂一点的就不方便了，而且 Python 可以直接在WebIDE 里面直接粘贴代码，实现功能，就不用发版本了，但是具体的需要看具体的业务。
@@ -70,16 +70,16 @@ public class DemoHandler extends IJobHandler {
 配置好调度中心并且也成功启动了执行器后，登录调度中心新增执行器然后就可以配置任务了
 
 新增执行器
-![](/assets/images/2019/java/image_ziyou/xxl-job4.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/xxl-job4.png)
 
 新增任务
-![](/assets/images/2019/java/image_ziyou/xxl-job5.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/xxl-job5.png)
 > 新增任务的时候需要选择上一步创建的执行器，选择运行模式，如果是 JavaBean 方式就配置JobHandler，或者选择 Python 模式等，然后填上必要的一些信息，如Cron以及一些参数
 > 具体配置可以参考[三、任务详解](http://www.xuxueli.com/xxl-job/#/?id=%E4%B8%89%E3%80%81%E4%BB%BB%E5%8A%A1%E8%AF%A6%E8%A7%A3)
 这里的配置项比较多。
 
 配置完成后可以如下，可以手动执行，暂停，查看日志，如果是Python 模式可以直接点击`GLUE`按钮进去填写代码，相关的代码也有版本回溯，方便回滚，十分方便。
-![](/assets/images/2019/java/image_ziyou/xxl-job6.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/xxl-job6.png)
 
 
 ### 小结
