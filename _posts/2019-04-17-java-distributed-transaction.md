@@ -6,6 +6,7 @@ tagline: by 乔二爷
 tags: 
   - java
   - 面试
+  - 分布式事物
 published: true
 ---
 
