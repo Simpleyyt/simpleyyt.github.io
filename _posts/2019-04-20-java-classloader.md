@@ -19,7 +19,7 @@ published: true
 
 ### 类加载的流程
 我们先看下类加载的过程中有哪些阶段，后面再对其一一解释做了什么。
-![](http://127.0.0.1:4000/assets/images/2019/java/image_ziyou/classloader1.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/classloader1.jpg)
 
 简单画了一个图，从上图我们可以看出，类加载的整个过程有五个阶段，下面分别解释每个过程做了什么。
 
@@ -29,7 +29,7 @@ published: true
 1. class 文件的来源：有一点需要注意的是类加载机制不仅可以从文件系统读取 class 文件，也可以通过网络获取，其他 jar 包或者其他程序生成，如 JSP 应用。
 
 2. 类加载器：讲到类加载不得不讲到类加载的顺序和类加载器。Java 中大概有四种类加载器，分别是：启动类加载器（Bootstrap ClassLoader），扩展类加载器（Extension ClassLoader），系统类加载器（System ClassLoader），自定义类加载器（Custom ClassLoader），依次属于继承关系（注意这里的继承不是 Java 类里面的 extends）
-![](http://127.0.0.1:4000/assets/images/2019/java/image_ziyou/classloader2.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/classloader2.jpg)
 
 3. 启动类加载器（Bootstrap ClassLoader）：主要负责加载存放在Java_Home/jre/lib下，或被-Xbootclasspath参数指定的路径下的，并且能被虚拟机识别的类库（如rt.jar，所有的java.*开头的类均被Bootstrap ClassLoader加载），启动类加载器是无法被Java程序直接引用的。
 
