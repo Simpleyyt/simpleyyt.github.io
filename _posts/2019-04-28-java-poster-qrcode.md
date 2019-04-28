@@ -8,8 +8,6 @@ tag:
 ---
 
 
-### 01、
-
 >As long as you can still grab a breath, you fight.
 只要一息尚存，就不得不战。
 
