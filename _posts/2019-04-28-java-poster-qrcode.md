@@ -130,7 +130,7 @@ logger.debug("二维码：" + qrcodeFile.getAbsolutePath());
 
 在指定的临时目录下可以查看海报背景和个人品牌二维码，如下所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-decdbd6c60fa4fbb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/1179389-6370a6c9578472cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 05、利用 Graphics2D 将网络图片绘制成海报封面
 
@@ -268,13 +268,13 @@ public static String makeLineFeed(String zh, FontDesignMetrics metrics, int max_
 }
 ```
 
-假如文本是“沉默王二，《Web 全栈开发进阶之路》作者；一个不止写代码的程序员，还写有趣有益的文字，给不喜欢严肃的你。”我们来通过 `makeLineFeed()` 方法试验一下。
+假如文本是“懦怯囚禁人的灵魂，希望可以令你感受自由。强者自救，圣者渡人。”我们来通过 `makeLineFeed()` 方法试验一下。
 
 ```java
 Font font = new Font("微软雅黑", Font.PLAIN, 28);
 FontDesignMetrics metrics = FontDesignMetrics.getMetrics(font);
 
-String zh = "沉默王二，《Web 全栈开发进阶之路》作者；一个不止写代码的程序员，还写有趣有益的文字，给不喜欢严肃的你。";
+String zh = "懦怯囚禁人的灵魂，希望可以令你感受自由。强者自救，圣者渡人。";
 
 String[] rows = makeLineFeed(zh, metrics, 600).split("\n");
 for (int i = 0; i < rows.length; i++) {
@@ -284,9 +284,8 @@ for (int i = 0; i < rows.length; i++) {
 
 其结果如下所示。
 
->沉默王二，《Web 全栈开发进阶之路》作者；
-一个不止写代码的程序员，还写有趣有益的文字
-，给不喜欢严肃的你。
+>懦怯囚禁人的灵魂，希望可以令你感受自由。强
+者自救，圣者渡人。
 
 第四步，将自动换行后的文本在海报背景上打印。
 
@@ -427,7 +426,7 @@ graphics2dPoster.getGraphics2d().drawImage(qrcodeImage, qrcode_x, qrcode_y, qrco
 
 此时的海报效果如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-504754752993b0f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/1179389-bb2e098650a5d3bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 是不是感觉海报的左下角比较空白，整体的对称性不够自然，那就在左下角追加一些二维码的描述文本吧。
 
@@ -443,7 +442,7 @@ graphics2d.drawString("一个幽默的程序员", MARGIN, bgImage.getHeight() - 
 
 此时的海报效果如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-f2b7c79daad3d375.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/1179389-42162f54ef960ba2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 ### 08、使用 Swing 构建图形化界面
