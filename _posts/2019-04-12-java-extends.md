@@ -2,7 +2,7 @@
 layout: post
 title: 女皇武则天：我不愿被 extends
 tagline: by 沉默王二
-categories: 继承
+categories: java
 tag:
     - Java extends
 ---

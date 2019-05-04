@@ -2,7 +2,7 @@
 layout: post
 title: Java：接口和抽象类，傻傻分不清楚？
 tagline: by 沉默王二
-categories: 接口
+categories: java
 tag:
     - Java interface abstract
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: 你干啥的？Lombok
 tagline: by 沉默王二
-categories: Lombok
+categories: java
 tag:
     - Java Lombok
 ---
