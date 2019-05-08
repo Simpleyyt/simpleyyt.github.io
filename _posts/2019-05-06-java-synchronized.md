@@ -48,21 +48,21 @@ tag:
  
  而另一种是ReentrantLock，前者只能是非公平锁，而后者是默认非公平但可实现公平的一把锁。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yi/05-01/rentlock.jpg)
+![](/assets/images/2019/java/image_yi/05-01/rentlock.jpg)
 
 上面的类图看起来很不舒服，因为关于ReentrantLock这个锁，确实是没有很好的配图，我们可以自己画出来理解一下
 
 我们先看非公平锁，我画图大家理解一下，就像公共厕所，不要嫌弃恶心，但是绝对容易理解
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yi/05-01/tu1.jpg)
+![](/assets/images/2019/java/image_yi/05-01/tu1.jpg)
 
 上面这幅图，加入说图中的管理员是Lock，然后现在A来了，说我要去厕所，这时候管理员一看，厕所没人，那好你进去把，然后A就进去了。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yi/05-01/tu3.jpg)
+![](/assets/images/2019/java/image_yi/05-01/tu3.jpg)
 
 这个时候WC里面是有A的，正在进行式，这时候B来了，B也想去厕所
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yi/05-01/tu2.jpg)
+![](/assets/images/2019/java/image_yi/05-01/tu2.jpg)
 
 但是这个时候WC里面是有A的，然后管理员Lock看了一下，里面有人，排队把。。。
 
@@ -70,13 +70,13 @@ tag:
 
 就是这个样子的
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yi/05-01/tu4.jpg)
+![](/assets/images/2019/java/image_yi/05-01/tu4.jpg)
 
 这时候又过了一小会来了个D，也想去WC，这时候A恰好结束了，
 
 这时候非公平锁就上场了，Lock管理员一看，里面没人，D你进去把，这时候就是这样的。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yi/05-01/tu5.jpg)
+![](/assets/images/2019/java/image_yi/05-01/tu5.jpg)
 
 然后这时候因为A出来了之后说，我结束了，然后B正准备进去的时候，里面又有了D，这就是出现了非公平锁
 
@@ -88,7 +88,7 @@ A被Lock --> B去wait--> C在B后面wait --> A结束了，unlock -->非公平锁
 而公平锁就不一样了，Lock管理员会告诉新来的D，你前面已经有好几个在排号的了，你想进去，去后边排队。
 
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yi/05-01/tu6.jpg)
+![](/assets/images/2019/java/image_yi/05-01/tu6.jpg)
 
 公平锁的调用是这样子的。
 
