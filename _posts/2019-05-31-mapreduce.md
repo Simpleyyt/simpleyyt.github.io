@@ -77,9 +77,10 @@ MapReduce 是一种编程模型，用于大规模数据集（大于1TB）的并�
 
 ## WordCount 示例
 
-用一个代码示例来演示，它需要3个东西，一个是map task ,一个是 reduce task ，还有就是启动类，不然怎么关联他们的关系呢？
+用一个代码示例来演示，它需要3个东西，一个是map task ，一个是 reduce task ，还有就是启动类，不然怎么关联他们的关系呢。
 
-mapp task :
+首先是 map task :
+
 ```
 package com.zhouq.mr;
 import org.apache.hadoop.io.IntWritable;
