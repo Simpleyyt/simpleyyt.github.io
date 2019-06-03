@@ -28,8 +28,8 @@ CREATE TABLE `a` (
 
 ```
 采用上面的语句` EXPLAIN SELECT * FROM a; `，效果如下
-![explain](http://127.0.0.1:4000/assets/images/2019/java/image_ziyou/explain1.jpg)
-<!--![explain](http://www.justdojava.com/assets/images/2019/java/image_ziyou/explain1.jpg)-->
+<!--![explain](http://127.0.0.1:4000/assets/images/2019/java/image_ziyou/explain1.jpg)-->
+![explain](http://www.justdojava.com/assets/images/2019/java/image_ziyou/explain1.jpg)
 
 通过图片我们可以看到执行过后会输出 12 个字段，那么每个字段是什么意思呢？我们来一一看下
 
