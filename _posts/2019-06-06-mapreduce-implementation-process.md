@@ -50,9 +50,9 @@ Input Split 顾明思议，输入分片 ,为什么我们会叫 输入分片呢�
 
 如果有非常多的小文件，那么就会产生大量的 Map 任务，处理效率是非常低下的。
 
-这个阶段使用的是 InputFormat 组件，它是一个接口 ，默认使用的是 TextInputFormat 去处理，他会调用 readRecord 去读取数据。
+这个阶段使用的是 InputFormat 组件，它是一个接口 ，默认使用的是 TextInputFormat 去处理，他会调用 readRecord() 去读取数据。
 
-这也是MapReduce 计算优化的一个非常重要的一个点。面试被考过。如何去优化这个小文件的问题呢？
+这也是MapReduce 计算优化的一个非常重要的一个点，**面试被考过**。如何去优化这个小文件的问题呢？
 
 * 最好的办法：在数据处理系统的最前端（预处理、采集），就将小文件先进行合并了，再传到 HDFS 中去。
 * 补救措施：如果已经存在大量的小文件在HDFS中了，可以使用另一种 InputFormat 组件CombineFileInputFormat 去解决，它的切片方式跟 TextInputFormat 不同，它会将多个小文件从逻辑上规划到一个切片中，这样，多个小文件就可以交给一个 Map 任务去处理了。
@@ -62,6 +62,7 @@ Input Split 顾明思议，输入分片 ,为什么我们会叫 输入分片呢�
 Map 阶段就是我们编写好的 map 函数了，在 WordCount 示例中执行的就是对输入的每一行数据进行切分，然后把单词跟计数一起发送出去，类似于<xxx,1>。
 
 Map 阶段一般在存储数据的节点上运行。为什么是在数据存储的节点呢？因为移动数据的代价比较高，移动数据不如移动计算。
+
 
 ### Shuffle 阶段
 
@@ -74,13 +75,12 @@ Map 阶段一般在存储数据的节点上运行。为什么是在数据存储�
 
 数据在写入环形缓冲区的时候，数据会默认根据key 进行排序，每个分区的数据是有顺序的，默认是 HashPartitioner。当然了，我们也可以去自定义这个分区器。
 
-每次执行清理都产生一个文件，当 map 执行完成以后，还会有一个合并文件文件的过程（
-Partitioner），其实他这里跟 Map 阶段的输入分片（Input split）比较相似，一个 Partitioner 对应一个 Reduce 作业，如果只有一个 reduce 操作，那么 Partitioner 就只有一个，如果有多个 reduce 操作，那么 Partitioner 就有多个。
+每次执行清理都产生一个文件，当 map 执行完成以后，还会有一个合并文件文件的过程，其实他这里跟 Map 阶段的输入分片（Input split）比较相似，一个 Partitioner 对应一个 Reduce 作业，如果只有一个 reduce 操作，那么 Partitioner 就只有一个，如果有多个 reduce 操作，那么 Partitioner 就有多个。Partitioner 的数量是根据 key 的值和 Reduce 的数量来决定的。可以通过 job.setNumReduceTasks() 来设置。
 
 
 这里还有一个可选的组件 Combiner ,溢出数据的时候如果调用 Combiner 组件，它的逻辑跟 reduce 一样，相同的key 先把 value 进行相加，前提是合并并不会改变业务，这样就不糊一下传输很多相同的key 的数据，从而提升效率。
 
-比如之前在溢出的时候，数据是 <a,1>,<a,2>,<c,4> 当使用 Combiner 组件时，数据则是 <a,3>,<c,4> 把 a 的数据进行了合并。
+举个例子，在溢出数据的时候，默认不使用 Combiner，数据是长这样子： <a,1>,<a,2>,<c,4>。 当使用 Combiner 组件时，数据则是： <a,3>,<c,4> 。把 a 的数据进行了合并。
 
 ### Reduce 阶段
 
@@ -92,6 +92,19 @@ Reduce 阶段中的 reduce 方法，也是我们自己实现的逻辑，跟Map �
 
 在 reduce 函数中调用  context.write 函数时，会调用 OutPutFomart 组件，默认实现是 TextOutPutFormat ，把数据输出到目标存储中，一般是 HDFS。
 
+### 扩展
+
+上面我们只是讲解了大体的流程，这里给大家抛几个问题？**也是面试中经常被问到的**。
+
+1. 文件切分是怎么切的？一个文件到底会切成几分？算法是怎么样的？
+2. Map 任务的个数是怎么确定的？
+
+上面的问题，给大家贴两个链接：
+
+**MapReduce Input Split（输入分/切片）详解**：[https://blog.csdn.net/dr_guo/article/details/51150278](https://blog.csdn.net/dr_guo/article/details/51150278) 
+
+**源码解析 MapReduce作业切片(Split)过程**：[https://blog.csdn.net/u010010428/article/details/51469994](https://blog.csdn.net/u010010428/article/details/51469994) 
+
 ### 总结
 
 MapReduce 的执行流程到这里就大致讲解完成了，希望你也能画出来上面的大图。能够理解到大体的流程，并能掌握关键的环节 Shuffle 。以后你还会在其他的大数据组件上听到这个词。
@@ -99,11 +112,3 @@ MapReduce 的执行流程到这里就大致讲解完成了，希望你也能画�
 后面将给大家带来 Yarn 的大致运行机制，然后再为大家讲解 WordCount 运行的整个过程。
 
 敬请期待。
-
-
-
-
-
-
-
-
