@@ -156,6 +156,10 @@ docker run -itd --name registry -p 5000:5000 2e2f252f3c88
 
 ![14-4](/assets/images/2019/java/image_javaboy/0530/14-4.png)  
 
+# 总结
+
+本文主要向大家介绍了 DockerHub 和容器网络，DockerHub 是我们容器的集散中心，网络则使我们的容器有办法对外提供服务。
+
 参考资料：
 
 [1] 曾金龙，肖新华，刘清.Docker开发实践[M].北京：人民邮电出版社，2015.
