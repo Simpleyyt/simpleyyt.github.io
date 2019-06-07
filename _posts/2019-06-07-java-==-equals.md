@@ -17,7 +17,7 @@ tag:
 
 ## "=="判断基本类型数据
 
-基本数据类型指的是Java中的八大数据类型：byte，short，int，long，float，double，char，boolean
+基本数据类型指的是Java中的八大数据类型：byte，short，int，long，float，double，char，boolean。
 
 这八大基本数据类型有个共同的特点是它们在内存中是有具体值的, 比如说一个 int 类型的数据"2"，它在8位数据总线的机器上保存形式为 0000 0010。（8位机器是假设的）
 
