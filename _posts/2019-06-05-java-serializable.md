@@ -1,4 +1,3 @@
-@@ -0,0 +1,522 @@
 ---
 layout: post
 title: Java Serializable：明明就一个空的接口嘛
