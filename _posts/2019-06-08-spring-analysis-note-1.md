@@ -25,7 +25,7 @@ published: true
 
 使用 `ClassPathXmlApplicationContext`，通过在 `xml` 注册一个 `bean`，跟踪代码，了解它从配置文件的 `<bean>` 标签，加载到 `BeanFactory` 注册表 `beanDefinitionMap` 的详细过程。
 
-**展示的代码摘取了一些核心方法，去掉一些默认设置和日志输出，还有大多数错误异常也去掉了，小伙伴想看详细代码，注释和 demo，可以下载我上传的笔记项目📒
+**展示的代码摘取了一些核心方法，去掉一些默认设置和日志输出，还有大多数错误异常也去掉了，小伙伴想看详细代码，注释和 demo，可以下载我上传的笔记项目📒**
 
 
 [码云 Gitee 地址](https://gitee.com/vip-augus/spring-analysis-note.git)

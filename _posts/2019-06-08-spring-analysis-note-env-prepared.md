@@ -144,6 +144,4 @@ java.lang.AbstractMethodError: org.jetbrains.plugins.gradle.tooling.util.ModuleC
 
 2、[gradle版本引起编译报错问题：Cause: org.jetbrains.plugins.gradle.tooling.util.ModuleComponentIdentifierImpl.getM](https://blog.csdn.net/leftfist/article/details/88617463) 
 
-3、[Gradle 5 IntelJ java.lang.AbstractMethodError 
-
-](https://www.jianshu.com/p/f9951d5506fc) 
+3、[Gradle 5 IntelJ java.lang.AbstractMethodError ](https://www.jianshu.com/p/f9951d5506fc) 
