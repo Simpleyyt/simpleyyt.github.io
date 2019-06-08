@@ -8,9 +8,9 @@ tags:
 published: true
 ---
 
-<center>一起来准备阅读 `Spring` 源码</center> 
+一起来准备阅读 `Spring` 源码
 
-<!-- more --> 
+<!--more--> 
 
 ---
 

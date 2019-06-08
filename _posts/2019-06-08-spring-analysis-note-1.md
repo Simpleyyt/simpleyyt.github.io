@@ -8,9 +8,9 @@ tags:
 published: true
 ---
 
-<center>`Spring` 是这样加载 `xml` 配置的</center>
+`Spring` 是这样加载 `xml` 配置的
 
-<!-- more --> 
+<!--more--> 
 
 目录结构：
 
