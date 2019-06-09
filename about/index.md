@@ -58,12 +58,12 @@ Java 极客技术由一群热爱 Java 的技术人组建，专业输出高质量
 - 贾思谦，自由职业者，Java架构师，对iOS，Android，H5如AngularJS，Ionic。微信小程序可以独立进行开发。
 - others
 
-## 未来计划
+## 知识星球
 
 应该会开一个收费的知识星球，让大家有一个真正纯交流技术的地方；也许会联合作者开一些课程，大家敬请期待吧！
 
 现在才刚刚开始。。。
-
+![Java极客技术知识星球](http://www.justdojava.com/assets/images/zsxq.jpeg)
 
 ## 关键节点
 
