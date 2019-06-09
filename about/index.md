@@ -60,13 +60,13 @@ Java 极客技术由一群热爱 Java 的技术人组建，专业输出高质量
 
 ## 知识星球与未来计划
 
-2019-06-06 我们开通了知识星球，让大家有一个真正纯交流技术的地方；后期也许会联合作者开一些课程，大家敬请期待吧！
+2019-06-06 我们开通了知识星球[https://t.zsxq.com/JYvrVVf](https://t.zsxq.com/JYvrVVf)，让大家有一个真正纯交流技术的地方；后期也许会联合作者开一些课程，大家敬请期待吧！
 
 现在才刚刚开始。。。欢迎大家跟我们一起进步，成长！
-![Java极客技术知识星球](http://www.justdojava.com/assets/images/zsxq.jpeg)
 
 ## 关键节点
 
 - 2019年02月25日 发一篇文章[《Java 诞生的趣事》](https://mp.weixin.qq.com/s/bsYeKXJCKT4Vr1hNzsKxvw)
 - 2019年03月18日 招募到第一个团队成员，沉默王二发表文章：[《Java：并发不易，先学会用》](https://mp.weixin.qq.com/s/OCsAO2ydI2Nz1F5cANCXfw)
 - 2019年04月05日 用户突破一万 历时39天
+- 2019年06月06日 用户突破两万 历时100天
