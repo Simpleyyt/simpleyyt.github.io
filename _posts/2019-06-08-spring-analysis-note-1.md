@@ -1,4 +1,22 @@
 ---
+layout: post
+category: spring
+title: Spring 源码学习-容器的基础结构
+tagline: by JingQ
+tags: 
+  - spring
+published: true
+---
+
+本篇笔记主要记录了以下内容：
+
+使用 `ClassPathXmlApplicationContext`，通过在 `xml` 注册一个
+`bean`，跟踪代码，了解它从配置文件的 `<bean>` 标签，加载到 `BeanFactory`
+注册表 `beanDefinitionMap` 的详细过程。
+
+<!--more--> 
+
+---
 layout: post-   [ClassPathXmlApplicationContext](#classpathxmlapplicationcontext)
     -   [设置配置文件路径](#设置配置文件路径)
         -   [Profile](#profile)
@@ -23,11 +41,6 @@ layout: post-   [ClassPathXmlApplicationContext](#classpathxmlapplicationcontext
     -   [Javadoc 编译错误](#javadoc-编译错误)
 -   [参考资料](#参考资料)
 
-本篇笔记主要记录了以下内容：
-
-使用 `ClassPathXmlApplicationContext`，通过在 `xml` 注册一个
-`bean`，跟踪代码，了解它从配置文件的 `<bean>` 标签，加载到 `BeanFactory`
-注册表 `beanDefinitionMap` 的详细过程。
 
 **展示的代码摘取了一些核心方法，去掉一些默认设置和日志输出，还有大多数错误异常也去掉了，小伙伴想看详细代码，注释和
 demo，可以下载我上传的笔记项目📒**
