@@ -44,7 +44,9 @@ public class DemoTest {
 #### 3.1、不会创建“类对应的散列表”
 >这里所说的“不会创建类对应的散列表”是说：我们不会在HashSet, HashTable, HashMap等等这些本质是散列表的数据结构中，用到该类。例如，不会创建该类的HashSet集合。
 
-**在这种情况下，该类的“hashCode() 和 equals() ”没有半毛钱关系的！**equals() 用来比较该类的两个对象是否相等，而hashCode() 则根本没有任何作用，所以，不用理会hashCode()。
+**在这种情况下，该类的“hashCode() 和 equals() ”没有半毛钱关系的！**
+    
+equals() 用来比较该类的两个对象是否相等，而hashCode() 则根本没有任何作用，所以，不用理会hashCode()。
 举个例子
 ```
 public class DemoNormalTest {
@@ -181,6 +183,7 @@ p1.equals(p2) : true; p1(2018699554) p2(1311053135)
 set:[(eee, 100), (aaa, 200), (eee, 100)]
 ```
 结果分析：
+
 **我们重写了Person的equals()。但是，很奇怪的发现：HashSet中仍然有重复元素：p1 和 p2。为什么会出现这种情况呢？**
 
 **这是因为虽然p1 和 p2的内容相等，但是它们的hashCode()不等；所以，HashSet在添加p1和p2的时候，认为它们不相等。**
@@ -272,6 +275,7 @@ p1.equals(p4) : false; p1(68545) p4(68545)
 set:[(eee, 100), (EEE, 100), (aaa, 200)]
 ```
 结果分析：
+
 **这下，equals()生效了，HashSet中没有重复元素。**
 **比较p1和p2，我们发现：它们的hashCode()相等，通过equals()比较它们也返回true。所以，p1和p2被视为相等。**
 **比较p1和p4，我们发现：虽然它们的hashCode()相等；但是，通过equals()比较它们返回false。所以，p1和p4被视为不相等。**
@@ -342,26 +346,30 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 }
 ```
 可以看出，hashSet使用的是hashMap的put方法，而hashMap的put方法，使用hashCode()用key作为参数计算出hash值，然后进行比较，如果相同，再通过equals()比较key值是否相同，如果相同，返回同一个对象。
+
 **所以，如果类使用再散列表的集合对象中，要判断两个对象是否相同，除了要覆盖equals()之外，也要覆盖hashCode()函数。否则，equals()无效。**
 
 ### 04、有哪些覆写hashCode的诀窍
 > 一个好的hashCode的方法的目标：为不相等的对象产生不相等的散列码，同样的，相等的对象必须拥有相等的散列码。
 
 1、把某个非零的常数值，比如17，保存在一个int型的result中；
+
 2、对于每个关键域f（equals方法中设计到的每个域），作以下操作：
-+ a.为该域计算int类型的散列码；
-  ```
-  i.如果该域是boolean类型，则计算(f?1:0),
- ii.如果该域是byte,char,short或者int类型,计算(int)f,
- iii.如果是long类型，计算(int)(f^(f>>>32)).
- iv.如果是float类型，计算Float.floatToIntBits(f).
- v.如果是double类型，计算Double.doubleToLongBits(f),然后再计算long型的hash值
- vi.如果是对象引用，则递归的调用域的hashCode，如果是更复杂的比较，则需要为这个域计算一个范式，然后针对范式调用hashCode，如果为null，返回0
- vii. 如果是一个数组，则把每一个元素当成一个单独的域来处理。
-  ```
-+ b.result = 31 * result + c;
+* a.为该域计算int类型的散列码；
+
+```
+i.如果该域是boolean类型，则计算(f?1:0),
+ii.如果该域是byte,char,short或者int类型,计算(int)f,
+iii.如果是long类型，计算(int)(f^(f>>>32)).
+iv.如果是float类型，计算Float.floatToIntBits(f).
+v.如果是double类型，计算Double.doubleToLongBits(f),然后再计算long型的hash值
+vi.如果是对象引用，则递归的调用域的hashCode，如果是更复杂的比较，则需要为这个域计算一个范式，然后针对范式调用hashCode，如果为null，返回0
+vii. 如果是一个数组，则把每一个元素当成一个单独的域来处理。
+```
+* b.result = 31 * result + c;
 
 3、返回result
+
 4、编写单元测试验证有没有实现所有相等的实例都有相等的散列码。
 
 给个简单的例子：
