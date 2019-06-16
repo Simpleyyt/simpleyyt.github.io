@@ -1,12 +1,12 @@
-# Effective Java 解读与思考
+# Effective Java - 静态方法与构造器
 
 [TOC]
-
-先介绍传统的方式，再介绍新的方式，用新的方式与传统的方式进行对比
 
 ## 用静态工厂方法替代构造器?
 
 传统来讲，为了使客户端能够获取它自身的一个实例，最传统的方法就是提供一个公有的构造器。像下面这样
+
+<!--more-->
 
 ```java
 public class Apple {
@@ -33,7 +33,7 @@ public static Boolean valueOf(boolean b){
 public static final Boolean TRUE = new Boolean(true);
 ```
 
->注意：此静态工厂方法与设计模式中的工厂方法模式不同，本条目中所指的静态方法并不直接对应设计模式中的工厂方法。
+> 注意：此静态工厂方法与设计模式中的工厂方法模式不同，本条目中所指的静态方法并不直接对应设计模式中的工厂方法。
 
 那么我们为苹果增加一个属性appleSize，并分别提供静态的构造函数bigApple和smallApple，并提供一个方法来判断传进来的值，如果appleSize > 5的话就是大苹果，否则都是小苹果，改造后的代码如下
 
@@ -233,7 +233,6 @@ public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
 服务访问API：根据客户端指定的某种条件去实现对应的服务提供者
 
 ```java
-
 //四大组成之一：服务接口
 public interface LoginService {//这是一个登录服务
     public void login();
@@ -271,7 +270,7 @@ public class ServiceManager {
 }
 ```
 
-
+也可以参考这篇文章进一步理解：[JAVA 服务提供者框架介绍](https://liwenshui322.iteye.com/blog/1267202)
 
 ## 静态工厂方法的缺点
 
@@ -285,49 +284,49 @@ public class ServiceManager {
 
 在API文档中，它们没有像构造器那样在API文档中被标明，因此，对于提供了静态工厂方法而不是构造器的类来说，要想查明如何实例化一个类是非常困难的。下面提供了一些静态工厂方法的惯用名称。这里只列出来了其中的一小部分
 
-* from ——— 类型转换方法，它只有单个参数，返回该类型的一个相对应的实例，例如：
+- from ——— 类型转换方法，它只有单个参数，返回该类型的一个相对应的实例，例如：
 
 ```java
 Date d = Date.form(instant);
 ```
 
-* of ——— 聚合方法，带有多个参数，返回该类型的一个实例，把他们结合起来，例如:
+- of ——— 聚合方法，带有多个参数，返回该类型的一个实例，把他们结合起来，例如:
 
 ```java
 Set<Rank> faceCards = EnumSet.of(JACK,QUEEN,KING);
 ```
 
-* valueOf ——— 比from 和 of 更繁琐的一种替代方法，例如:
+- valueOf ——— 比from 和 of 更繁琐的一种替代方法，例如:
 
 ```java
 BigInteger prime = BigInteger.valueof(Integer.MAX_VALUE);
 ```
 
-* instance 或者 getInstance ———返回的实例是通过方法的(如有)参数来描述的，但是不能说与参数具有相同的值，例如:
+- instance 或者 getInstance ———返回的实例是通过方法的(如有)参数来描述的，但是不能说与参数具有相同的值，例如:
 
 ```java
 StackWalker luke = StackWalker.getInstance(options);
 ```
 
-* create 或者 newInstance ——— 像instance 或者 getInstance 一样，但create 或者 newInstance 能够确保每次调用都返回一个新的实例，例如:
+- create 或者 newInstance ——— 像instance 或者 getInstance 一样，但create 或者 newInstance 能够确保每次调用都返回一个新的实例，例如:
 
 ```java
 Object newArray = Array.newInstance(classObject,arrayLen);
 ```
 
-* getType ——— 像getInstance 一样，但是在工厂方法处于不同的类中的时候使用。Type 表示工厂方法所返回的对象类型，例如:
+- getType ——— 像getInstance 一样，但是在工厂方法处于不同的类中的时候使用。Type 表示工厂方法所返回的对象类型，例如:
 
 ```java
 FileStore fs = Files.getFileStore(path);
 ```
 
-* newType ——— 像newInstanfe 一样，但是在工厂方法处于不用的类中的时候使用，Type表示工厂方法返回的对象类型，例如:
+- newType ——— 像newInstanfe 一样，但是在工厂方法处于不用的类中的时候使用，Type表示工厂方法返回的对象类型，例如:
 
 ```java
 BufferedReader br = Files.newBufferedReader(path);
 ```
 
-* type ——— getType 和 newType 的简版，例如：
+- type ——— getType 和 newType 的简版，例如：
 
 ```java
 List<Complaint> litany = Collections.list(legacyLitancy);
