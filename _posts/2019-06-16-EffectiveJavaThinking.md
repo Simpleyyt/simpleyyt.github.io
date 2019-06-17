@@ -1,6 +1,15 @@
-# Effective Java - 静态方法与构造器
+---
+layout: post
+title: Effective Java - 静态方法与构造器
+tagline: by cxuan
+categories: Java
+tags: 
+  - Java
 
-[TOC]
+---
+
+
+# Effective Java - 静态方法与构造器
 
 ## 用静态工厂方法替代构造器?
 
@@ -168,6 +177,7 @@ public class UtilityClass {
     throw new AssertionError();
   }
 }
+
 ```
 
 AssertionError()不是必须的，但是它可以避免不小心在类的内部调用构造器。
@@ -196,6 +206,7 @@ static class UnmodifiableCollection<E> implements Collection<E>, Serializable {
   } 
   ...
 }
+
 ```
 
 这是Collections.java 中的代码片段，静态方法`unmodifiableCollection`返回一个新的UnmodifiableCollection，调用它的静态方法创建UnmodifiableCollection的对象，由于UnmodifiableCollection继承于Collection，也就是说静态方法unmodifiableCollection其实是返回了一个子类的对象。
@@ -217,6 +228,7 @@ public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
   else
     return new JumboEnumSet<>(elementType, universe);
 }
+
 ```
 
 ### 静态工厂返回的类可以不存在
@@ -268,6 +280,7 @@ public class ServiceManager {
         return provider.newLoginService();
     }
 }
+
 ```
 
 也可以参考这篇文章进一步理解：[JAVA 服务提供者框架介绍](https://liwenshui322.iteye.com/blog/1267202)
@@ -288,53 +301,56 @@ public class ServiceManager {
 
 ```java
 Date d = Date.form(instant);
+
 ```
 
 - of ——— 聚合方法，带有多个参数，返回该类型的一个实例，把他们结合起来，例如:
 
 ```java
 Set<Rank> faceCards = EnumSet.of(JACK,QUEEN,KING);
+
 ```
 
 - valueOf ——— 比from 和 of 更繁琐的一种替代方法，例如:
 
 ```java
 BigInteger prime = BigInteger.valueof(Integer.MAX_VALUE);
+
 ```
 
 - instance 或者 getInstance ———返回的实例是通过方法的(如有)参数来描述的，但是不能说与参数具有相同的值，例如:
 
 ```java
 StackWalker luke = StackWalker.getInstance(options);
+
 ```
 
 - create 或者 newInstance ——— 像instance 或者 getInstance 一样，但create 或者 newInstance 能够确保每次调用都返回一个新的实例，例如:
 
 ```java
 Object newArray = Array.newInstance(classObject,arrayLen);
+
 ```
 
 - getType ——— 像getInstance 一样，但是在工厂方法处于不同的类中的时候使用。Type 表示工厂方法所返回的对象类型，例如:
 
 ```java
 FileStore fs = Files.getFileStore(path);
+
 ```
 
 - newType ——— 像newInstanfe 一样，但是在工厂方法处于不用的类中的时候使用，Type表示工厂方法返回的对象类型，例如:
 
 ```java
 BufferedReader br = Files.newBufferedReader(path);
+
 ```
 
 - type ——— getType 和 newType 的简版，例如：
 
 ```java
 List<Complaint> litany = Collections.list(legacyLitancy);
+
 ```
 
 简而言之，静态工厂方法和公有构造器都各有用处，我们需要理解它们各自的长处。静态工厂经常更加合适，因此切忌第一反应就是提供公有的构造器，而不先考虑静态工厂。
-
-
-
-
-
