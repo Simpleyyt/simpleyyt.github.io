@@ -400,7 +400,7 @@ public void readExternal(ObjectInput in) throws IOException, ClassNotFoundExcept
 
 当一个类实现了 `Serializable` 接口后，IDE 就会提醒该类最好产生一个序列化 ID，就像下面这样：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-2bcfa763105b45aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://static.xmt.cn/89832082a2d5499cb102ba12bbde867b.png)
 
 1）添加一个默认版本的序列化 ID：
 
