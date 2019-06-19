@@ -8,6 +8,16 @@ tags:
 published: true
 ---
 
+既然我们 `Spring` 辛辛苦苦将 `bean` 进行了注册，当然需要拿出来进行使用，在使用之前还需要经过一个步骤，就是 `bean` 的加载。
+
+**在第一篇笔记提到了，完成 `bean` 注册到 `beanDefinitionMap` 注册表后，还调用了很多后处理器的方法，其中有一个方法 `finishBeanFactoryInitialization()`，注释上面写着 `Instantiate all remaining (non-lazy-init) singletons`，意味着非延迟加载的类，将在这一步实例化，完成类的加载。**
+
+**而我们使用到 `context.getBean("beanName")`方法，如果对应的 `bean` 是非延迟加载的，那么直接就能拿出来进行使用，而延迟加载的 `bean` 就需要上面的步骤进行类的加载，加载完之后才能进行使用~**
+
+下面一起来看下这两个步骤中， `bean` 是如何进行加载的。
+
+<!--more-->
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
@@ -32,17 +42,6 @@ published: true
 - [参考资料](#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-
-既然我们 `Spring` 辛辛苦苦将 `bean` 进行了注册，当然需要拿出来进行使用，在使用之前还需要经过一个步骤，就是 `bean` 的加载。
-
-**在第一篇笔记提到了，完成 `bean` 注册到 `beanDefinitionMap` 注册表后，还调用了很多后处理器的方法，其中有一个方法 `finishBeanFactoryInitialization()`，注释上面写着 `Instantiate all remaining (non-lazy-init) singletons`，意味着非延迟加载的类，将在这一步实例化，完成类的加载。**
-
-**而我们使用到 `context.getBean("beanName")`方法，如果对应的 `bean` 是非延迟加载的，那么直接就能拿出来进行使用，而延迟加载的 `bean` 就需要上面的步骤进行类的加载，加载完之后才能进行使用~**
-
-下面一起来看下这两个步骤中， `bean` 是如何进行加载的。
-
-<!--more-->
 
 ---
 ## 时序图
