@@ -8,6 +8,14 @@ tags:
 published: true
 ---
 
+还记得上一篇笔记，在 `bean` 加载流程，在创建过程中，出现了依赖循环的监测，如果出现了这个循环依赖，而没有解决的话，代码中将会报错，然后 `Spring` 容器初始化失败。
+
+由于感觉循环依赖是个比较独立的知识点，所以我将它的分析单独写一篇笔记，**来看下什么是循环依赖和如何解决它。**
+
+<!--more-->
+
+---
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
@@ -28,13 +36,6 @@ published: true
 - [参考资料](#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-
-# 前言
-
-还记得上一篇笔记，在 `bean` 加载流程，在创建过程中，出现了依赖循环的监测，如果出现了这个循环依赖，而没有解决的话，代码中将会报错，然后 `Spring` 容器初始化失败。
-
-由于感觉循环依赖是个比较独立的知识点，所以我将它的分析单独写一篇笔记，**来看下什么是循环依赖和如何解决它。**
 
 ---
 
