@@ -18,7 +18,7 @@ Spirng从2004年第一个版本至今已经有十多年了，Spring的出现是�
 
 正是因为EJB的没落，导致了Spring的崛起，在Spring中，它会认为一切Java的类都是资源，而自愿都是BEan，容纳这些Bean的Spring所提供的IOC容器，所以Spring是一种基于Bean的编程。
 
-##面试问法一：什么是Spring
+## 面试问法一：什么是Spring
 
 回答：Spring是一个J2EE的框架，这个框架提供了对轻量级IOC的良好支持，同时也提供了对AOP技术非常好的封装，相比于其他的框架，Spring框架的设计更加模块化，框架内的每个模块都能完成特定的工作，
 而且各个模块可以独立的运行，不会相互的前置，因此，在使用Spring框架的时候，我们可以使用整个框架，也可以使用框架中的一部分，例如只使用AOP模块的日志管理。
@@ -26,11 +26,11 @@ Spirng从2004年第一个版本至今已经有十多年了，Spring的出现是�
 回答这个问题的时候，不需要去特别的背诵到底什么是Spring，我们要说出自己对Spring框架的理解就可以了，很多时候面试官可能是问你的是你自己对框架的理解，而不是全篇背诵。
 
 
-##面试问法二：Spring有哪些模块
+## 面试问法二：Spring有哪些模块
 
 图解如下，
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yi/06-22/1.jpg)
+![](http://www.justdojava.com//assets/images/2019/java/image_yi/06-22/1.jpg)
 
 上面就是Spring的一些模块，在面试中，我们把这七个模块说完，要做出相应的一些讲解。
 
@@ -51,7 +51,7 @@ SpringCore：Spring框架的核心容器，他提供了Spring框架的基本的�
 上面介绍只是在面试的时候一些简单的介绍，可以自行理解，问到这个问题的时候，面试官可能并不是让你把每个模块都分析的特别透彻，很多情况下都是想看你到之对Spring的理解有多深。
 
 
-##面试问法三：Spring的核心是哪两个？
+## 面试问法三：Spring的核心是哪两个？
 
 Spring核心内容：IOC和AOP。
 
@@ -75,7 +75,7 @@ Spring核心内容：IOC和AOP。
 
 画个图来看一下
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yi/06-22/2.jpg)
+![](http://www.justdojava.com//assets/images/2019/java/image_yi/06-22/2.jpg)
 
 通过图中的方法，可以把创建对象的过程委托给TeaFactory来完成，在我们需要使用对象的时候，我们就直接调用Factroy类中的getTea方法即可，具体创建对象逻辑放在了TeaFactory中来实现，我们只需要把Greentea换成BlackTea，那么系统中所有的AbstractTea1 = new GreenTea（）这个方法就会替换成BlackTea了，只需要在一个地方做改动就能完成很复杂的事情了。
 
@@ -84,7 +84,7 @@ Spring核心内容：IOC和AOP。
 
 图解
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yi/06-22/3.jpg)
+![ ](http://www.justdojava.com//assets/images/2019/java/image_yi/06-22/3.jpg)
 
 Spring容器将会根据配置文件来创建调用者对象，同时把被调用的实例化对象通过构造函数或者set（）方法的形式注入到调用者对象中。
 
