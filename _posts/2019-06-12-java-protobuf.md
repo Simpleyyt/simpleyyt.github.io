@@ -45,7 +45,6 @@ message User {
 ```
 编写完了采用命令`protoc --java_out=. ./com-test-model-User.proto`，就会在当前路径下生成相应的代码结构。
 ![protobuf](http://www.justdojava.com/assets/images/2019/java/image_ziyou/protobuf1.jpg)
-![protobuf](http://127.0.0.1:4000/assets/images/2019/java/image_ziyou/protobuf1.jpg)
 
 3. 使用案例
 
