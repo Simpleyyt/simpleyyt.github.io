@@ -1,7 +1,7 @@
 ---
 layout: post
 title: java的可变参数
-tagline: by Jay pan
+tagline: by 炸鸡可乐
 categories: Java
 tags: 
   - Java
