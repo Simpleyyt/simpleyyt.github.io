@@ -1,7 +1,7 @@
 ---
 layout: post
 title: java泛型特性，你了解多少？
-tagline: by Jay pan
+tagline: by 炸鸡可乐
 categories: Java
 tags: 
   - Java
