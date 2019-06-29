@@ -215,7 +215,7 @@ static class UnmodifiableCollection<E> implements Collection<E>, Serializable {
 
 静态工厂的第四大优势在于，所返回的对象的类可以随着每次调用而发生变化，这取决于静态工厂方法的参数值。只要是已声明的返回类型的子类型，都是允许的。返回对象的类也可能随着发行版本的不同而不同。
 
-EnumSet （详见第36条）没有公有的构造器，只有静态工厂方法。在OpenJdk实现中，它们返回两种子类之一的一个实例，具体则取决于底层枚举类型的大小：如果它的元素有6 4个或者更少，就像大多数枚举类型一样，静态工厂方法就会返回一个RegularEnumSet实例，用单个long进行支持；如果枚举类型有65个或者更多元素，工厂就返回JumboEnumSet实例，用一个long数组进行支持。
+EnumSet 没有公有的构造器，只有静态工厂方法。在OpenJdk实现中，它们返回两种子类之一的一个实例，具体则取决于底层枚举类型的大小：如果它的元素有64个或者更少，就像大多数枚举类型一样，静态工厂方法就会返回一个RegularEnumSet实例，用单个long进行支持；如果枚举类型有65个或者更多元素，工厂就返回JumboEnumSet实例，用一个long数组进行支持。
 
 ```java
 public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
