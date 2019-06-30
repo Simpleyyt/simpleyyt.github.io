@@ -354,12 +354,13 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 同样，在工作中，经常会遇到与其它团队的合作，也会遇到同时需要对方的新接口支持，**例如在 `RPC` 中遇到循环调用，那我建议还是换一种方案，例如通过消息解耦，避免循环调用，实在没办法要循环调用，要记得在方法中加上退出条件，避免无限循环(>_<)**
 
 ---
-
 **由于个人技术有限，如果有理解不到位或者错误的地方，请留下评论，我会根据朋友们的建议进行修正**
 
-[spring-analysis-note 码云 Gitee 地址](https://gitee.com/vip-augus/spring-analysis-note.git)
+**代码和注释都在里面，小伙伴们可以下载我上传的代码，亲测可运行~**
 
-[spring-analysis-note Github 地址](https://github.com/Vip-Augus/spring-analysis-note)
+[Gitee 地址：https://gitee.com/vip-augus/spring-analysis-note.git](https://gitee.com/vip-augus/spring-analysis-note.git)
+
+[Github 地址：https://github.com/Vip-Augus/spring-analysis-note](https://github.com/Vip-Augus/spring-analysis-note)
 
 
 

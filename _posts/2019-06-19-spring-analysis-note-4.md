@@ -731,11 +731,14 @@ protected void registerDisposableBeanIfNecessary(String beanName, Object bean, R
 
 我截取的代码片段，为了篇幅原因，有些逻辑判断和日志处理都给摘掉，但是日志管理是很重要的一环，在关键地方打印日志，在之后排查问题和分析问题会有帮助。不然如果懒得打印日志，在关键的地方没有打印日志，即便出现了问题，也不知道从何查起，导致问题迟迟无法暴露，造成用户的投诉，那就得不偿失了。
 
+---
 **由于个人技术有限，如果有理解不到位或者错误的地方，请留下评论，我会根据朋友们的建议进行修正**
 
-[spring-analysis-note 码云 Gitee 地址](https://gitee.com/vip-augus/spring-analysis-note.git)
+**代码和注释都在里面，小伙伴们可以下载我上传的代码，亲测可运行~**
 
-[spring-analysis-note Github 地址](https://github.com/Vip-Augus/spring-analysis-note)
+[Gitee 地址：https://gitee.com/vip-augus/spring-analysis-note.git](https://gitee.com/vip-augus/spring-analysis-note.git)
+
+[Github 地址：https://github.com/Vip-Augus/spring-analysis-note](https://github.com/Vip-Augus/spring-analysis-note)
 
 ---
 ## 参考资料

@@ -1,7 +1,7 @@
 ---
 layout: post
 category: spring
-title: Spring 源码学习(六)扩展功能 上篇-BeanFactoryPostProcessor
+title: Spring 源码学习(六)扩展功能 上篇
 tagline: by JingQ
 tags: 
   - spring
@@ -342,14 +342,14 @@ public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFacto
 
 本次分析了 `beanFactory` 的后处理器 `BeanFactoryPostProcessor`，了解了 `Spring` 给我们提供的这个扩展接口使用用途和在源码中如何进行激活执行。
 
+---
 **由于个人技术有限，如果有理解不到位或者错误的地方，请留下评论，我会根据朋友们的建议进行修正**
 
-因为我也是一边看书，一边做笔记，下载了源码。
 **代码和注释都在里面，小伙伴们可以下载我上传的代码，亲测可运行~**
 
-[spring-analysis-note 码云 Gitee 地址](https://gitee.com/vip-augus/spring-analysis-note.git)
+[Gitee 地址：https://gitee.com/vip-augus/spring-analysis-note.git](https://gitee.com/vip-augus/spring-analysis-note.git)
 
-[spring-analysis-note Github 地址](https://github.com/Vip-Augus/spring-analysis-note)
+[Github 地址：https://github.com/Vip-Augus/spring-analysis-note](https://github.com/Vip-Augus/spring-analysis-note)
 
 ---
 # 参考资料
