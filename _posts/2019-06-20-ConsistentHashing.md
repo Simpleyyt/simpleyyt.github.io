@@ -202,7 +202,7 @@ public class ConsistentHashTest {
 1. 创建3个`zookeeper`服务, 构成集群. 在各自的`data`文件夹中添加一个`myid`文件, 各个id分别为`1, 2, 3`.
 
 
- ![在这里插入图片描述](https://www.cnblogs.com/images/cnblogs_com/tanshaoshenghao/1486568/o_1.png)
+ ![在这里插入图片描述](https://www.cnblogs.com/images/cnblogs_com/tanshaoshenghao/1486568/o_tempPic.png)
  
 2. 重新复制一份配置文件, 在配置文件中配置各个`zookeeper`的端口号. 本案例中三台`zookeeper`分别在`2181, 2182, 2183`端口
 
