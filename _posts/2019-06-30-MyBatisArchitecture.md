@@ -150,11 +150,11 @@ jdbc.password=123456
 </configuration>
 ```
 
-<configuration> 标签很像是Spring 中的<beans/>标签或者是基于注解的配置@Configuration，也就是MyBatis的核心配置环境，使用<properties> 引入外部属性环境，也就是数据库驱动配置，使用<mappers>映射到Mapper所在的包，这里指的就是DeptDao.java所在的包。
+configuration 标签很像是Spring 中的 beans 标签或者是基于注解的配置@Configuration，也就是MyBatis的核心配置环境，使用 properties 标签引入外部属性环境，也就是数据库驱动配置，使用 mappers 映射到Mapper所在的包，这里指的就是DeptDao.java所在的包。
 
 在test包下面新建一个Junit单元测试类，主要流程如下：
 
-![image-20190629084737308](/Users/mr.l/Library/Application Support/typora-user-images/image-20190629084737308.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/mybatis/mybatis01.png)
 
 MyBatisTest.java 代码如下：
 
@@ -199,13 +199,13 @@ public class MyBatisTest {
 
 整体结构如下：
 
-![image-20190629092134279](/Users/mr.l/Library/Application Support/typora-user-images/image-20190629092134279.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/mybatis/mybatis02.png)
 
 ## MyBatis 整体架构
 
 MyBatis的架构大概是这样的，最上面是接口层，接口层就是开发人员在Mapper或者是Dao接口中的接口定义，是查询、新增、更新还是删除操作；中间层是数据处理层，主要是配置Mapper -> xml层级之间的参数映射，SQL解析，SQL执行，结果映射的过程。上述两种流程都由基础支持层来提供功能支撑，基础支持层包括连接管理，事务管理，配置加载，缓存处理。
 
-![image-20190629101921538](/Users/mr.l/Library/Application Support/typora-user-images/image-20190629101921538.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/mybatis/mybatis03.png)
 
 ### 接口层
 
@@ -238,19 +238,21 @@ SQL语句的执行涉及多个组件，包括MyBatis的四大神器，它们是:
 
 用下面这幅图来表示
 
-![image-20190629155718069](/Users/mr.l/Library/Application Support/typora-user-images/image-20190629155718069.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/mybatis/mybatis04.png)
+
+
 
 MyBatis层级结构各个组件的介绍(这里只是简单介绍，具体介绍在后面)：
 
-- **SqlSession:**  **MyBatis核心API，主要用来执行命令，获取映射，管理事务。接收开发人员提供Statement Id 和参数.并返回操作结果**
-- **Executor:** **执行器，是MyBatis调度的核心，负责SQL语句的生成以及查询缓存的维护**
-- **StatementHandler: ** **封装了JDBC Statement操作，负责对JDBC statement 的操作，如设置参数、将Statement结果集转换成List集合。**
-- **ParameterHandler: ** **负责对用户传递的参数转换成JDBC Statement 所需要的参数**
-- **ResultSetHandler:** **负责将JDBC返回的ResultSet结果集对象转换成List类型的集合**
-- **TypeHandler: ** **用于Java类型和jdbc类型之间的转换**
-- **MappedStatement:** **动态SQL的封装**
-- **SqlSource: ** **表示从XML文件或注释读取的映射语句的内容，它创建将从用户接收的输入参数传递给数据库的SQL。**
-- **Configuration: **  **MyBatis所有的配置信息都维持在Configuration对象之中**
+- **SqlSession:  MyBatis核心API，主要用来执行命令，获取映射，管理事务。接收开发人员提供Statement Id 和参数.并返回操作结果**
+- **Executor: 执行器，是MyBatis调度的核心，负责SQL语句的生成以及查询缓存的维护**
+- **StatementHandler:  封装了JDBC Statement操作，负责对JDBC statement 的操作，如设置参数、将Statement结果集转换成List集合。**
+- **ParameterHandler:  负责对用户传递的参数转换成JDBC Statement 所需要的参数**
+- **ResultSetHandler: 负责将JDBC返回的ResultSet结果集对象转换成List类型的集合**
+- **TypeHandler:  用于Java类型和jdbc类型之间的转换**
+- **MappedStatement: 动态SQL的封装**
+- **SqlSource:  表示从XML文件或注释读取的映射语句的内容，它创建将从用户接收的输入参数传递给数据库的SQL。**
+- **Configuration:  MyBatis所有的配置信息都维持在Configuration对象之中**
 
 ### 基础支持层
 
