@@ -14,13 +14,27 @@ published: true
 
 <!--more-->
 
-> Spring 版本为 5.1.8-RELEASE
+> **Spring 版本为 5.1.8-RELEASE**
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [AnnotationMetadata 结构](#AnnotationMetadata-%E7%BB%93%E6%9E%84)
+- [AnnotationMetadataReadingVisitor](#AnnotationMetadataReadingVisitor)
+  - [ASM 框架简单应用](#ASM-%E6%A1%86%E6%9E%B6%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8)
+  - [AnnotationMetadataReadingVisitor#getMetaAnnotationTypes 源码解析](#AnnotationMetadataReadingVisitorgetMetaAnnotationTypes-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90)
+- [StandardAnnotationMetadata](#StandardAnnotationMetadata)
+- [总结](#%E6%80%BB%E7%BB%93)
+- [扩展阅读](#%E6%89%A9%E5%B1%95%E9%98%85%E8%AF%BB)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## AnnotationMetadata 结构
 
 使用 IDEA 生成 `AnnotationMetadata`  类图，如下：
 
-![AnnotationMetadata.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/AnnotationMetadata-4bbf9f8c.png)
+__![AnnotationMetadata.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/AnnotationMetadata-4bbf9f8c.png)
 
 `AnnotationMetadata` 存在两个实现类分别为 `StandardAnnotationMetadata`与 `AnnotationMetadataReadingVisitor`。`StandardAnnotationMetadata`主要使用 Java 反射原理获取元数据，而 `AnnotationMetadataReadingVisitor` 使用 ASM 框架获取元数据。
 
