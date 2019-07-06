@@ -18,7 +18,7 @@ tag:
 
 ### Executor的继承结构
 
-![image-20190630202322841](/Users/mr.l/Library/Application Support/typora-user-images/image-20190630202322841.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/mybatis/executor/01.png)
 
 如图所示，位于继承体系最顶层的是Executor执行器，它有两个实现类，分别是`BaseExecutor`和 `CachingExecutor`。
 
@@ -103,7 +103,7 @@ public Executor newExecutor(Transaction transaction, ExecutorType executorType) 
 >
 >ExecutorType来决定Configuration对象创建何种类型的执行器，它的赋值可以通过两个地方进行赋值：
 >
->* 可以通过<settings>标签来设置当前工程中所有的SqlSession对象使用默认的Executor
+>* 可以通过 settings 标签来设置当前工程中所有的SqlSession对象使用默认的Executor
 >
 >```xml
 ><settings>
@@ -130,7 +130,7 @@ Executor接口的方法还是比较多的，这里我们就几个主要的方法
 
 Executor中的大部分方法的调用链其实是差不多的，下面都是深入源码分析执行过程，如果你没有时间或者暂时不想深入研究的话，给你下面的执行流程图作为参考。
 
-![image-20190706093320718](/Users/mr.l/Library/Application Support/typora-user-images/image-20190706093320718.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/mybatis/executor/04.png)
 
 #### query()方法
 
@@ -144,10 +144,10 @@ query方法有两种形式，一种是**直接查询**；一种是**从缓存中
 
 当有一个查询请求访问的时候，首先会经过Executor的实现类**CachingExecutor**，先从缓存中查询SQL是否是第一次执行，如果是第一次执行的话，那么就直接执行SQL语句，**并创建缓存**，如果第二次访问相同的SQL语句的话，那么就会直接从缓存中提取
 
-CachingExecutor.j
+CachingExecutor.java
 
 ```java
-	// 第一次查询，并创建缓存
+// 第一次查询，并创建缓存
 public <E> List<E> query(MappedStatement ms, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler) throws SQLException {
   BoundSql boundSql = ms.getBoundSql(parameterObject);
   CacheKey key = createCacheKey(ms, parameterObject, rowBounds, boundSql);
@@ -155,13 +155,13 @@ public <E> List<E> query(MappedStatement ms, Object parameterObject, RowBounds r
 }
 ```
 
->`MapperStatement`**维护了一条<select|update|delete|insert>节点的封装**，包括资源(resource)，配置(configuration)，SqlSource(sql源文件)等。使用Configuration的getMappedStatement方法来获取MappedStatement对象
+>`MapperStatement`**维护了一条 select|update|delete|insert 节点的封装**，包括资源(resource)，配置(configuration)，SqlSource(sql源文件)等。使用Configuration的getMappedStatement方法来获取MappedStatement对象
 >
->![image-20190704213547830](/Users/mr.l/Library/Application Support/typora-user-images/image-20190704213547830.png)
+>![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/mybatis/executor/02.png)
 >
 >`BoundSql`这个类包括SQL的基本信息，基本的SQL语句，参数映射，参数类型等
 >
->![image-20190704213656669](/Users/mr.l/Library/Application Support/typora-user-images/image-20190704213656669.png)
+>![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/mybatis/executor/03.png)
 
 上述的query方法会调用到CachingExecutor类中的query查询缓存的方法
 
