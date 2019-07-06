@@ -20,7 +20,7 @@ published: true
 
 使用 IDEA 生成 `AnnotationMetadata`  类图，如下：
 
-![AnnotationMetadata.png](http://www.justdojava.com/assets/images/019/java/image_andyxh/20190706/AnnotationMetadata-4bbf9f8c.png)
+![AnnotationMetadata.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/AnnotationMetadata-4bbf9f8c.png)
 
 `AnnotationMetadata` 存在两个实现类分别为 `StandardAnnotationMetadata`与 `AnnotationMetadataReadingVisitor`。`StandardAnnotationMetadata`主要使用 Java 反射原理获取元数据，而 `AnnotationMetadataReadingVisitor` 使用 ASM 框架获取元数据。
 
@@ -44,11 +44,11 @@ Class 文件中包含类的所有信息，如接口，字段属性，方法，�
 
 使用 ASM 框架首先需要继承 `ClassVisitor`，完成解析相应信息，如解析方法，字段等。
 
-![ClassVisitor](http://www.justdojava.com/assets/images/019/java/image_andyxh/20190706/carbon57-14148480.png)
+![ClassVisitor](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/carbon57-14148480.png)
 
 然后使用 `ClassReader` 读取类文件，然后再使用 `ClassReader#accpet` 接受 `ClassVisitor`。
 
-![ClassReader](http://www.justdojava.com/assets/images/019/java/image_andyxh/20190706/carbon58-c3ea3d53.png)
+![ClassReader](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/carbon58-c3ea3d53.png)
 
 输出结果为：
 
@@ -75,21 +75,21 @@ com/spring/learning/customizescanning/asm/Person extends java/lang/Object {
 
 `AnnotationMetadataReadingVisitor#getMetaAnnotationTypes` 方法实现非常简单，直接从 `metaAnnotationMap` 根据注解类名称获取其上面所有元注解。注解相关信息解析由 `AnnotationMetadataReadingVisitor#visitAnnotation` 完成。
 
-![AnnotationMetadataReadingVisitor#getMetaAnnotationTypes](http://www.justdojava.com/assets/images/019/java/image_andyxh/20190706/carbon59-191a5ff6.png)
+![AnnotationMetadataReadingVisitor#getMetaAnnotationTypes](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/carbon59-191a5ff6.png)
 
 在 `visitAnnotation` 方法中，`metaAnnotationMap`当做构造参数传入了 `AnnotationAttributesReadingVisitor` 对象中，`metaAnnotationMap`会在这里面完成赋值。
 
-![`AnnotationAttributesReadingVisitor`](http://www.justdojava.com/assets/images/019/java/image_andyxh/20190706/carbon60-da72690b.png)
+![`AnnotationAttributesReadingVisitor`](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/carbon60-da72690b.png)
 
 `AnnotationAttributesReadingVisitor#visitEnd` 将会排除 `java.lang.annotation` 下的注解，然后通过递归调用 `recursivelyCollectMetaAnnotations`获取元注解，不断将元注解置入 `metaAnnotationMap`中。
 
-![AnnotationMetadataReadingVisitor#visitEnd](http://www.justdojava.com/assets/images/019/java/image_andyxh/20190706/carbon61-f3035b91.png)
+![AnnotationMetadataReadingVisitor#visitEnd](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/carbon61-f3035b91.png)
 
-![`recursivelyCollectMetaAnnotations`](http://www.justdojava.com/assets/images/019/java/image_andyxh/20190706/carbon62-b344e242.png)
+![`recursivelyCollectMetaAnnotations`](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/carbon62-b344e242.png)
 
 最后使用 UML 时序图中，概括以上调用流程。
 
-![AnnotationMetadataReadingVisitor5.png](http://www.justdojava.com/assets/images/019/java/image_andyxh/20190706/AnnotationMetadataReadingVisitor5-70726450.png)
+![AnnotationMetadataReadingVisitor5.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/AnnotationMetadataReadingVisitor5-70726450.png)
 
 > Spring 4 之后版本才有递归查找元注解的方法。各位同学可以翻阅 Spring3 的版本作为比较，可以看出 Spring 的代码功能也是逐渐迭代升级的。
 
@@ -99,7 +99,7 @@ com/spring/learning/customizescanning/asm/Person extends java/lang/Object {
 
 `StandardAnnotationMetadata#getMetaAnnotationTypes ` 通过使用 Spring 工具类 `AnnotatedElementUtils.getMetaAnnotationTypes`方法获取。源码调用比较清晰，各位同学可以自行翻阅理解，可以参考下面时序图理解，这里不再叙述。
 
-![StandardAnnotationMetadata4.png](http://www.justdojava.com/assets/images/019/java/image_andyxh/20190706/StandardAnnotationMetadata4-1d981b56.png)
+![StandardAnnotationMetadata4.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190706/StandardAnnotationMetadata4-1d981b56.png)
 
 ## 总结
 
