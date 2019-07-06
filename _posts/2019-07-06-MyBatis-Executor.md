@@ -155,7 +155,7 @@ public <E> List<E> query(MappedStatement ms, Object parameterObject, RowBounds r
 }
 ```
 
->`MapperStatement`**维护了一条 select|update|delete|insert 节点的封装**，包括资源(resource)，配置(configuration)，SqlSource(sql源文件)等。使用Configuration的getMappedStatement方法来获取MappedStatement对象
+>`MapperStatement`**维护了一条 select、update、delete、insert 节点的封装**，包括资源(resource)，配置(configuration)，SqlSource(sql源文件)等。使用Configuration的getMappedStatement方法来获取MappedStatement对象
 >
 >![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/mybatis/executor/02.png)
 >
