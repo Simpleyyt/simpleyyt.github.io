@@ -50,15 +50,15 @@ tag:
 
 画个图理解
 
-![](http://www.justdojava.com//assets/images/2019/java/image_yi/07_07/1.jpg)
+![](http://www.justdojava.com//assets/images/2019/java/image_yi/07_07/1.png)
 
 很显然，地府管理一切生灵的生死的方法都是通过类来进行区分的，比如孙悟空就是石猴，之后出现的那个六耳猕猴就是猕猴，但是他们都是属于同一个类，猴类，就像下图中。
 
-![](http://www.justdojava.com//assets/images/2019/java/image_yi/07_07/2.jpg)
+![](http://www.justdojava.com//assets/images/2019/java/image_yi/07_07/2.png)
 
 因此，孙悟空把猴类中有姓名的都从生死簿勾掉之后，显然是因为勾魂小鬼们并不区分石猴类与猕猴类，就像下图：
 
-![](http://www.justdojava.com//assets/images/2019/java/image_yi/07_07/3.jpg)
+![](http://www.justdojava.com//assets/images/2019/java/image_yi/07_07/3.png)
 
 换句话来说，只要是猴类适用的，猕猴和石猴都适用，这其实就是里式替换原则。
 
