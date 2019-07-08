@@ -96,11 +96,12 @@ transient 关键字可以应用于类的成员变量，以便指出该成员变�
 volatile 关键字用于表示可以被多个线程异步修改的成员变量。
 
 注意：volatile 关键字在许多 Java 虚拟机中都没有实现。 volatile 的目标用途是为了确保所有线程所看到的指定变量的值都是相同的。
-#### 3.11、native 本地
+#### 3.12、native 本地
 native 关键字可以应用于方法，以指示该方法是用Java以外的语言实现的，方法对应的实现不是在当前文件，而是在用其他语言（如C和C++）实现的文件中。。
 
 Java不是完美的，Java的不足除了体现在运行速度上要比传统的C++慢许多之外，Java无法直接访问到操作系统底层（如系统硬件等)，为此Java使用native方法来扩展Java程序的功能。
-
+#### 3.13、enum 枚举
+枚举类型（Enumerated Type） 很早就出现在编程语言中，它被用来将一组类似的值包含到一种类型当中。而这种枚举类型的名称则会被定义成独一无二的类型描述符，在这一点上和常量的定义相似。不过相比较常量类型，枚举类型可以为申明的变量提供更大的取值范围。
 ### 四、程序控制
 #### 4.1、流程判断
 ```
@@ -172,6 +173,23 @@ for (int i = 0; i < 10; i++) {
 		continue;
 	}
 }
+```
+#### 4.10、return关键字
+return：结束当前流程，返回结果！
+```
+return null;
+```
+#### 4.11、assert关键字
+assert：断言是为了方便调试程序，并不是发布程序的组成部分。理解这一点是很关键的，后面会单独介绍！
+
+断言是通过关键字assert来定义的，一般的，它有两种形式。
+```
+#例如：assert <bool expression>;
+boolean isStudent = false; assert isStudent;
+```
+```
+#例如：assert <bool expression> : <message>;
+boolean isSafe = false;  assert isSafe : "Not Safe at all";
 ```
 ### 五、错误处理
 #### 5.1、异常捕捉
