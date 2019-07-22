@@ -1,6 +1,7 @@
 ---
 layout: post
 title: spring data jpa进阶
+tagline: by 小马
 category: java
 tags: [jpa,spring,数据库,mybatis]
 ---
