@@ -257,7 +257,7 @@ multipleResults.add(defaultResultHandler.getResultList());
 
 下面我们来看一下返回的真实实现类 DefaultResultSetHandler 中的结构组成
 
-![image-20190725000859822](/Users/mr.l/Library/Application Support/typora-user-images/image-20190725000859822.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/mybatis/resultsethandler/01.png)
 
 在 DefaultResultSetHandler 中处理完结果映射，并把上述结构返回给调用的客户端，从而执行完成一条完整的SQL语句。
 
