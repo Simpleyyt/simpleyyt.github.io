@@ -60,33 +60,10 @@ cache 标签有多个属性，一起来看一些这些属性分别代表什么�
 
 Dept.java
 
-```java
 //存放在共享缓存中数据进行序列化操作和反序列化操作
-//因此数据对应实体类必须实现【序列化接口】
-public class Dept implements Serializable {
+//因此数据对应实体类必须实现【序列化接口】并提供 无参数的构造方法
 
-    private Integer deptNo;
-    private String  dname;
-    private String  loc;
-
-    public Dept() {}
-    public Dept(Integer deptNo, String dname, String loc) {
-        this.deptNo = deptNo;
-        this.dname = dname;
-        this.loc = loc;
-    }
-
-   get and set...
-    @Override
-    public String toString() {
-        return "Dept{" +
-                "deptNo=" + deptNo +
-                ", dname='" + dname + '\'' +
-                ", loc='" + loc + '\'' +
-                '}';
-    }
-}
-```
+**public class Dept implements Serializable**
 
 
 
