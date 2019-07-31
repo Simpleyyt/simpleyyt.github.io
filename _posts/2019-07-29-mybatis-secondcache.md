@@ -94,23 +94,15 @@ myBatis-config.xml
 
 在myBatis-config 中添加开启二级缓存的条件
 
-```xml
-<!-- 通知 MyBatis 框架开启二级缓存 -->
-<settings>
-  <setting name="cacheEnabled" value="true"/>
-</settings>
-```
+` <setting name="cacheEnabled" value="true"/>`
 
 
 
 DeptDao.xml
 
-还需要在 Mapper 对应的xml中添加 cache 标签，表示对哪个mapper 开启缓存
+还需要在 Mapper 对应的xml中添加 cache 标签，表示对哪个mapper 开启缓存`<cache>`
 
-```xml
-<!-- 表示DEPT表查询结果保存到二级缓存(共享缓存) -->
-<cache>
-```
+
 
 对应的二级缓存测试类如下：
 
@@ -154,6 +146,8 @@ public class MyBatisSecondCacheTest {
 ```
 
 >测试二级缓存效果，提交事务，`sqlSession`查询完数据后，`sqlSession2`相同的查询是否会从缓存中获取数据。
+
+
 
 测试结果如下：
 
