@@ -242,17 +242,8 @@ public class DeptVo {
         this.num = num;
     }
 
-    get and set
-
-    @Override
-    public String toString() {
-        return "DeptVo{" +
-                "deptNo=" + deptNo +
-                ", dname='" + dname + '\'' +
-                ", loc='" + loc + '\'' +
-                ", num=" + num +
-                '}';
-    }
+    get and set...
+    toString()...
 }
 ```
 
