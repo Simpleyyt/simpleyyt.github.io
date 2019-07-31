@@ -106,7 +106,7 @@ DeptDao.xml
 
 ```xml
 <!-- 表示DEPT表查询结果保存到二级缓存(共享缓存) -->
-<cache/>
+<cache>
 ```
 
 对应的二级缓存测试类如下：
@@ -322,8 +322,8 @@ DeptNum 数据库初始值：
 
 ```java
 /**
-     * 探究多表操作对二级缓存的影响
-     */
+* 探究多表操作对二级缓存的影响
+*/
 @Test
 public void testOtherMapper(){
 
