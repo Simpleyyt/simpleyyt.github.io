@@ -87,6 +87,8 @@ public class Dept implements Serializable {
 }
 ```
 
+
+
 myBatis-config.xml
 
 在myBatis-config 中添加开启二级缓存的条件
