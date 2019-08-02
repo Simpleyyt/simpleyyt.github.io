@@ -13,6 +13,8 @@ published: true
 首先给出这段时间以来的总结：
 [https://github.com/Vip-Augus/spring-analysis-note](https://github.com/Vip-Augus/spring-analysis-note)
 
+<!--more-->
+
 ## 为什么读源码
 
 在日常工作中，产品不断写业务需求，他们加班一天，我们开发就得工作一周来完成。
