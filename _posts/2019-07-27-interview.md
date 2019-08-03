@@ -2,9 +2,9 @@
 layout: post  
 title: 这么多优秀的面试题，你不心动吗？
 tagline: by 子悠  
-categories: 知识星球
+categories: 面试
 tag: 
-    - 知识星球
+    - 面试
 ---
 
 人生有涯，学海无涯。
