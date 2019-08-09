@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MyBatis一级缓存详解
+title: MyBatis 核心配置综述之 细说一级缓存
 tagline: by cxuan
 categories: Mybatis
 tag: 
