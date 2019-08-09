@@ -1,7 +1,7 @@
 ---
 layout: post
 category: Java
-title: MyBatis 想启动？得先问问它同不同意
+title: MyBatis 核心配置综述之 Configuration详解
 tagline: by cxuan
 tags: 
   - Mybatis
