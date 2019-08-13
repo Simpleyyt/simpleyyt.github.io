@@ -1,6 +1,6 @@
 ---
 layout: post  
-title: 神奇！明明是 Socket，被我玩成了 http！
+title: 神奇！明明是 socket，被我玩成了 http！
 tagline: by 江南一点雨
 categories: Java  
 tag: 
@@ -8,6 +8,8 @@ tag:
 ---
 
 现在，我们已经充分了解了 HTTP 和 Socket 的关系，也了解了 HTTP 报文的格式，为了让小伙伴能够加深对这两个概念的理解，本文我们来看看如何利用 Socket 模拟 HTTP 请求。如果小伙伴们对 HTTP 和 Socket 的关系、HTTP 报文格式尚不熟悉的话，可以参考前面的文章[ Http 和 Socket 到底是哪门子亲戚？](https://mp.weixin.qq.com/s/r1WlVG8cwaN3vXzoTU8bgQ)。    
+
+<!--more-->
 
 由于 HTTP 是基于 TCP 协议的应用层协议，因此我们可以用更为底层的方式来访问 HTTP 服务，即直接使用 Socket 完成 HTTP 的请求和响应。我们前面说过，HTTP 的任务就是完成数据的包装， Socket 提供了网络的传输能力，所以我们只需要按照 HTTP 报文的格式来组装数据，然后利用 Socket 将数据发送出去，就能得到回应。  
 
