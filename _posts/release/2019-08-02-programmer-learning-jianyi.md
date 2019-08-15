@@ -1,6 +1,6 @@
 ---
 layout: post
-title: @程序员，这四个学习建议值得收藏
+title: 程序员，这四个学习建议值得收藏
 tagline: by 沉默王二
 categories: 程序员
 tag: [程序员,学习建议]
