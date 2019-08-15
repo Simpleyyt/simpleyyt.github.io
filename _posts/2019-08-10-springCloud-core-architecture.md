@@ -1,7 +1,7 @@
 ---
 layout: post
 category: Java
-title: 面试系列01-Spring Cloud 的核心架构原理
+title: Spring Cloud 的核心架构原理
 tagline: by 乔二爷
 tags:
     - Java
