@@ -1,9 +1,10 @@
 ---
 layout: post
-title: MyBatis 二级缓存详解
+title: MyBatis 核心配置综述之 细说二级缓存
 tagline: by cxuan
 categories: mybatis
 tag: java
+
 
 ---
 
@@ -25,7 +26,7 @@ MyBatis 一级缓存最大的共享范围就是一个SqlSession内部，那么�
 
 ### 二级缓存开启条件
 
-二级缓存默认是不开启的，需要手动开启二级缓存，实现二级缓存的时候，MyBatis要求返回的POJO必须是可序列化的。开启二级缓存的条件也是比较简单，通过直接在 MyBatis 配置文件中通过 
+二级缓存默认开启的，不需要手动开启二级缓存，实现二级缓存的时候，MyBatis要求返回的POJO必须是可序列化的。开启二级缓存的条件也是比较简单，通过直接在 MyBatis 配置文件中通过 
 
 ```xml
 <settings>
@@ -59,53 +60,26 @@ cache 标签有多个属性，一起来看一些这些属性分别代表什么�
 
 Dept.java
 
-```java
 //存放在共享缓存中数据进行序列化操作和反序列化操作
-//因此数据对应实体类必须实现【序列化接口】
-public class Dept implements Serializable {
+//因此数据对应实体类必须实现【序列化接口】并提供 无参数的构造方法
 
-    private Integer deptNo;
-    private String  dname;
-    private String  loc;
+**public class Dept implements Serializable**
 
-    public Dept() {}
-    public Dept(Integer deptNo, String dname, String loc) {
-        this.deptNo = deptNo;
-        this.dname = dname;
-        this.loc = loc;
-    }
 
-   get and set...
-    @Override
-    public String toString() {
-        return "Dept{" +
-                "deptNo=" + deptNo +
-                ", dname='" + dname + '\'' +
-                ", loc='" + loc + '\'' +
-                '}';
-    }
-}
-```
 
 myBatis-config.xml
 
 在myBatis-config 中添加开启二级缓存的条件
 
-```xml
-<!-- 通知 MyBatis 框架开启二级缓存 -->
-<settings>
-  <setting name="cacheEnabled" value="true"/>
-</settings>
-```
+` <setting name="cacheEnabled" value="true"/>`
+
+
 
 DeptDao.xml
 
-还需要在 Mapper 对应的xml中添加 cache 标签，表示对哪个mapper 开启缓存
+还需要在 Mapper 对应的xml中添加 cache 标签，表示对哪个mapper 开启缓存`<cache>`
 
-```xml
-<!-- 表示DEPT表查询结果保存到二级缓存(共享缓存) -->
-<cache/>
-```
+
 
 对应的二级缓存测试类如下：
 
@@ -149,6 +123,8 @@ public class MyBatisSecondCacheTest {
 ```
 
 >测试二级缓存效果，提交事务，`sqlSession`查询完数据后，`sqlSession2`相同的查询是否会从缓存中获取数据。
+
+
 
 测试结果如下：
 
@@ -266,17 +242,8 @@ public class DeptVo {
         this.num = num;
     }
 
-    get and set
-
-    @Override
-    public String toString() {
-        return "DeptVo{" +
-                "deptNo=" + deptNo +
-                ", dname='" + dname + '\'' +
-                ", loc='" + loc + '\'' +
-                ", num=" + num +
-                '}';
-    }
+    get and set...
+    toString()...
 }
 ```
 
@@ -285,8 +252,7 @@ DeptDao.java
 ```java
 public interface DeptDao {
 
-    ...
-
+ 		// ...其他方法
     DeptVo selectByDeptVo(String name);
 
     DeptVo selectByDeptVoName(String name);

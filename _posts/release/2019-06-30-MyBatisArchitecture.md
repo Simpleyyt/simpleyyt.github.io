@@ -1,7 +1,7 @@
 ---
 layout: post
 category: mybatis
-title: MyBatis基础搭建及架构概述
+title: MyBatis 核心配置综述 之项目概述
 tagline: by cxuan
 tags: 
   - mybatis
