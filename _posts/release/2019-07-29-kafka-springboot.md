@@ -6,9 +6,6 @@ category: java
 tags: [Kafka,springboot,broker,bootstrap-server]
 ---
 
-* content
-{:toc}
-
 
 源码地址:
 
@@ -20,6 +17,8 @@ https://github.com/pony-maggie/springboot-kafka-demo
 ## 本地kafka和zk环境
 
 我们需要在本地启动一个单机版的kafka和zookeeper环境。kafka的安装包自带zookeeper，直接启动即可，这个详细过程不是本文的重点，不详细说了。
+
+<!--more-->
 
 我的本地环境配置如下：
 

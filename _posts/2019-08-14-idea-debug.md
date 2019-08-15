@@ -12,6 +12,8 @@ tag:
 
  
 所谓工欲善其事必先利其器，从eclipse转idea也有一段时间了。一直想总结下idea调试的一些高级技巧。debug过程如果高效，撸代码也会爽很多，不是吗？
+
+<!--more-->
  
 ## 多线程调试
   
@@ -106,11 +108,6 @@ idea有更加优雅的方式解决此类需求。
 https://www.jetbrains.com/help/idea/debugging-code.html
 
 
-欢迎大家访问我的博客：
-  
-https://blog.csdn.net/pony_maggie
-  
-http://www.machengyu.net/
 
  
 
