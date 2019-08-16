@@ -13,6 +13,8 @@ tags: [jpa,spring,数据库,mybatis]
 
 [spring data jpa入门示例](http://www.machengyu.net/tech/2019/06/29/spring-data-jpa-demo.html)
 
+<!--more-->
+
 本篇的源码地址：
 
 https://github.com/pony-maggie/spring-boot-jpa-advance

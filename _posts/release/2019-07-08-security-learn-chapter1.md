@@ -17,6 +17,8 @@ https://github.com/pony-maggie/spring-security-learn
 
 spring boot工程是需要引入spring-boot-starter-security即可
 
+<!--more-->
+
 ```
 <dependency>
 			<groupId>org.springframework.boot</groupId>

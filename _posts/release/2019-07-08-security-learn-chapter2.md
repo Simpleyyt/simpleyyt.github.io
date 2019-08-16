@@ -15,6 +15,8 @@ https://github.com/pony-maggie/spring-security-learn
 
 第一章我们基于内存中的用户信息实现了一个基本的登入功能，不过实际的项目中用户信息一般都是存在数据库中的。本章我们来实现一个比较接近真实项目的登入登出，同时引入UserDetailsService的概念。
 
+<!--more-->
+
 ## UserDetailsService和UserDetail
 
 思考一下，如果不用框架，我们自己要实现一个用户登录认证会怎么做？
