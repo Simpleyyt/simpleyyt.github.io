@@ -5,7 +5,7 @@ title: Spring Boot 都不懂，怎么跟面试官吹牛逼？
 tagline: by 江南一点雨
 tags: 
   - Spring Boot
-published: false
+published: true
 ---
 
 有个小伙伴最近在跳槽找工作，昨天把他的简历发给松哥，让松哥帮忙把把关。他顺便打听了下当前 Java 领域的热点，看看他掌握的技能是否都覆盖到这些热点了。
