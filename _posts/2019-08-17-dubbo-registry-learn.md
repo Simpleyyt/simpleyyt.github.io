@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Java,Dubbo
+category: Dubbo
 title: 如果有人问你 Dubbo 中注册中心工作原理，就把这篇文章给他
 tagline: by 小黑
 tags: 
