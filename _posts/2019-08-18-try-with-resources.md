@@ -1,11 +1,13 @@
-```
+---
 layout: post  
 title: Effective-Java 使用try-with-resources
 tagline: by cxuan
 categories: Java  
 tag: 
     - Java
-```
+
+
+---
 
 Java类库中有许多资源需要通过close方法进行关闭。
 
