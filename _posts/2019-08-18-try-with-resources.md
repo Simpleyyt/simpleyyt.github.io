@@ -1,19 +1,21 @@
-```
+---
 layout: post  
 title: Effective-Java 使用try-with-resources
 tagline: by cxuan
 categories: Java  
 tag: 
     - Java
-```
 
-## 引入
+
+---
 
 Java类库中有许多资源需要通过close方法进行关闭。
 
 比如 InputStream、OutputStream，数据库连接对象 Connection，MyBatis中的 SqlSession 会话等。作为开发人员经常会忽略掉资源的关闭方法，导致内存泄漏。
 
 <!--more-->
+
+## 引入
 
 根据经验，`try-finally`语句是确保资源会被关闭的最佳方法，就算异常或者返回也一样。try-catch-finally 一般是这样来用的
 
