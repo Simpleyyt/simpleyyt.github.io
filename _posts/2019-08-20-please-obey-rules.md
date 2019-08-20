@@ -276,8 +276,6 @@ public boolean equals(Object o) {
 
 这项测试是不必要的。为了测试其参数的等同性，equals 方法必须先把参数转换成适当的类型，以便可以调用它的访问方法，或者访问它的域。
 
-![image-20190821061210285](/Users/mr.l/Library/Application Support/typora-user-images/image-20190821061210285.png)
-
 如果漏掉了类型检查，有传递给 equals 方法错误的类型，那么 equals 方法将会抛出 `ClassCastException`，这就违反了 equals 约定。如果 instanceof 的第一个操作数为 null ，那么，不管第二个操作数是哪种类型，intanceof 操作符都指定应该返回 false 。因此，如果把 null 传给 equals 方法，类型检查就会返回 false ，所以不需要显式的 null 检查。
 
 遵循如下约定，可以实现高质量的空判断：
