@@ -5,7 +5,6 @@ title: 如果有人问你 Dubbo 中注册中心工作原理，就把这篇文章
 tagline: by 小黑
 tags: 
   - Java,Dubbo
-published: true
 ---
 
 开篇首先想思考一个问题，没有注册中心 Dubbo 还能玩下去吗？
