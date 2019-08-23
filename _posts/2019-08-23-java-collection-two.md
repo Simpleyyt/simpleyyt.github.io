@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-#### 一、List简介
+### 01、List简介
 > List 的数据结构就是一个序列，存储内容时直接在内存中开辟一块连续的空间，然后将空间地址与索引对应。
 
 以下是List集合简易架构图
@@ -28,7 +28,7 @@ tags:
 * Stack 是栈，它继承于Vector。它的特性是：先进后出(FILO, First In Last Out)。
 
 下面对各个实现类进行方法剖析！
-#### 二、ArrayList
+### 02、ArrayList
 > ArrayList实现了List接口，也是顺序容器，即元素存放的数据与放进去的顺序相同，允许放入null元素，底层通过数组实现。
 除该类未实现同步外，其余跟Vector大致相同。
 
@@ -37,7 +37,7 @@ tags:
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/358cb73abf31438580a99f69e2dbc9db.png)
 
 **常用方法介绍**
-##### 2.1、get方法
+#### 2.1、get方法
 get()方法同样很简单，先判断传入的下标是否越界，再获取指定元素。
 ```
 public E get(int index) {
@@ -53,7 +53,7 @@ private void rangeCheck(int index) {
         throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
 }
 ```
-##### 2.2、set方法
+#### 2.2、set方法
 set()方法也非常简单，直接对数组的指定位置赋值即可。
 ```
 public E set(int index, E element) {
@@ -63,7 +63,7 @@ public E set(int index, E element) {
         return oldValue;
 }
 ```
-##### 2.3、add方法
+#### 2.3、add方法
 ArrayList添加元素有两个方法，一个是add(E e)，另一个是add(int index, E e)。
 这两个方法都是向容器中添加新元素，可能会出现容量（capacity）不足，因此在添加元素之前，都需要进行剩余空间检查，如果需要则自动扩容。扩容操作最终是通过grow()方法完成的。
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/e25b2b7f2ccf4497912ed8b4350120d0.png)
@@ -87,7 +87,7 @@ private void grow(int minCapacity) {
 
 **不同点：addAll()的时间复杂度不仅跟插入元素的多少有关，也跟插入的位置相关，时间复杂度是线性增长！
 **
-##### 2.4、remove方法
+#### 2.4、remove方法
 remove()方法也有两个版本，一个是remove(int index)删除指定位置的元素；另一个是remove(Object o)，通过o.equals(elementData[index])来删除第一个满足的元素。
 
 需要将删除点之后的元素向前移动一个位置。需要注意的是为了让GC起作用，必须显式的为最后一个位置赋null值。
@@ -128,7 +128,7 @@ public boolean remove(Object o) {
 }
 ```
 
-#### 三、LinkedList
+### 03、LinkedList
 > 在上篇文章中，我们知道LinkedList同时实现了List接口和Deque接口，也就是说它既可以看作一个顺序容器，又可以看作一个队列（Queue），同时又可以看作一个栈（Stack）。
 
 LinkedList底层通过双向链表实现，通过`first`和`last`引用分别指向链表的第一个和最后一个元素，注意这里没有所谓的哑元（某个参数如果在子程序或函数中没有用到，那就被称为哑元），当链表为空的时候`first`和`last`都指向null。
@@ -168,7 +168,7 @@ private static class Node<E> {
 ```
 
 **常用方法介绍**
-##### 3.1、get方法
+#### 3.1、get方法
 get()方法同样很简单，先判断传入的下标是否越界，再获取指定元素。
 ```
 public E get(int index) {
@@ -184,7 +184,7 @@ private void checkElementIndex(int index) {
             throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
 }
 ```
-##### 3.2、set方法
+#### 3.2、set方法
 set(int index, E element)方法将指定下标处的元素修改成指定值，也是先通过node(int index)找到对应下表元素的引用，然后修改Node中item的值。
 ```
 public E set(int index, E element) {
@@ -195,7 +195,7 @@ public E set(int index, E element) {
         return oldVal;
 }
 ```
-##### 3.3、add方法
+#### 3.3、add方法
 同样的，add()方法有两方法，一个是add(E e)，另一个是add(int index, E element)。
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/6de4cc50dbe045bd8a95bdd174a6610d.png)
@@ -264,7 +264,7 @@ void linkBefore(E e, Node<E> succ) {
 同样的，添加元素还有另外一个addAll()方法，addAll()方法能够一次添加多个元素，根据位置不同也有两个方法，一个是在末尾添加的addAll(Collection<? extends E> c)方法，另一个是从指定位置开始插入的addAll(int index, Collection<? extends E> c)方法。
 
 里面也for循环添加元素，**addAll()的时间复杂度不仅跟插入元素的多少有关，也跟插入的位置相关，时间复杂度是线性增长！**
-##### 3.4、remove方法
+#### 3.4、remove方法
 同样的，remove()方法也有两个方法，一个是删除指定下标处的元素remove(int index)，另一个是删除跟指定元素相等的第一个元素remove(Object o)。
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/9827160856bf4931a62140a08a3ae245.png)
@@ -336,12 +336,12 @@ E unlink(Node<E> x) {
         return element;
 }
 ```
-#### 四、Vector
+### 04、Vector
 Vector类属于一个挽救的子类，早在jdk1.0的时候，就已经存在此类，但是到了jdk1.2之后重点强调了集合的概念，所以，先后定义了很多新的接口，比如ArrayList、LinkedList，但考虑到早期大部分已经习惯使用Vector类，所以，为了兼容性，java的设计者，就让Vector多实现了一个List接口，这才将其保留下来。
 
 在使用方面，Vector的`get`、`set`、`add`、`remove`方法实现，与ArrayList基本相同，不同的是Vector在方法上加了线程同步锁`synchronized`，所以，执行效率方面，会比较慢！
 
-##### 4.1、get方法
+#### 4.1、get方法
 ```
 public synchronized E get(int index) {
         if (index >= elementCount)
@@ -350,7 +350,7 @@ public synchronized E get(int index) {
         return elementData(index);
 }
 ```
-##### 4.2、set方法
+#### 4.2、set方法
 ```
 public synchronized E set(int index, E element) {
         if (index >= elementCount)
@@ -361,7 +361,7 @@ public synchronized E set(int index, E element) {
         return oldValue;
 }
 ```
-##### 4.3、add方法
+#### 4.3、add方法
 ```
 public synchronized boolean add(E e) {
         modCount++;
@@ -370,7 +370,7 @@ public synchronized boolean add(E e) {
         return true;
 }
 ```
-##### 4.4、remove方法
+#### 4.4、remove方法
 ```
 public synchronized boolean removeElement(Object obj) {
         modCount++;
@@ -382,12 +382,12 @@ public synchronized boolean removeElement(Object obj) {
         return false;
 }
 ```
-#### 五、Stack
+### 05、Stack
 在 Java 中 Stack 类表示后进先出（LIFO）的对象堆栈。栈是一种非常常见的数据结构，它采用典型的先进后出的操作方式完成的；**在现实生活中，手枪弹夹的子弹就是一个典型的后进先出的结构。**
 
 在使用方面，主要方法有`push `、`peek `、`pop `。
 
-##### 5.1、push方法
+#### 5.1、push方法
 push方法表示，向栈中添加元素
 ```
 public E push(E item) {
@@ -395,7 +395,7 @@ public E push(E item) {
         return item;
 }
 ```
-##### 5.2、peek方法
+#### 5.2、peek方法
 peek方法表示，查看栈顶部的对象，但不从栈中移除它
 ```
 public synchronized E peek() {
@@ -405,7 +405,7 @@ public synchronized E peek() {
         return elementAt(len - 1);
 }
 ```
-##### 5.3、pop方法
+#### 5.3、pop方法
 pop方法表示，移除元素，并将要移除的元素方法
 ```
   public synchronized E pop() {
@@ -418,7 +418,7 @@ pop方法表示，移除元素，并将要移除的元素方法
 ```
 
 关于 Java 中 Stack 类，有很多的质疑声，栈更适合用队列结构来实现，这使得Stack在设计上不严谨，因此，官方推荐使用Deque下的类来是实现栈！
-#### 六、总结
+### 06、总结
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/9c40fc67fed4447194eeb606595a160b.jpg)
 
 * **ArrayList(动态数组结构)，查询快（随意访问或顺序访问），增删慢，但在末尾插入，速度与LinkedList相差无几！**
@@ -426,5 +426,5 @@ pop方法表示，移除元素，并将要移除的元素方法
 * **Vector（动态数组结构），相比ArrayList都慢，被ArrayList替代，基本不在使用。优势是线程安全（函数都是synchronized），如果需要在多线程下使用，推荐使用并发容器中的工具类来操作，效率高！**
 * **Stack（栈结构）继承于Vector，数据是先进后出，基本不在使用，如果要实现栈，推荐使用Deque下的ArrayDeque，效率比Stack高！**
 
-#### 七、参考
+### 07、参考
 [CarpenterLee  - Java集合分析](https://github.com/CarpenterLee/JCFInternals/blob/master/markdown/2-ArrayList.md)
