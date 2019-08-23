@@ -63,7 +63,9 @@ tag:
 ### （1）getClass
 
 ```java
+
 public final native Class<?> getClass();
+
 ```
 
 作用是：告诉大家我是谁，返回的是Class<?>对象。
@@ -78,6 +80,7 @@ JVM为每个类管理唯一的Class对象，因此我们可以用双等号操作
 Class 构造方法的定义如下：
 
 ```java
+
 /*
  * Private constructor. Only the Java Virtual Machine creates Class objects.
  * This constructor is not used and prevents the default constructor being
@@ -88,6 +91,7 @@ private Class(ClassLoader loader) {
     // prevents future JIT optimizations from assuming this final field is null.
     classLoader = loader;
 }
+
 ```
 
 
@@ -95,6 +99,7 @@ private Class(ClassLoader loader) {
 
 
 ```java
+
 public class ClassDemo {
     public static UserDTO user1 = new UserDTO("1");
     private static UserDTO user2 = new UserDTO("2");
@@ -119,6 +124,7 @@ public class ClassDemo {
         }
     }
 }
+
 ```
 
 
