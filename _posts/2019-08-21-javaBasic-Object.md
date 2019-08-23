@@ -115,13 +115,7 @@ public class ClassDemo {
 
         public String getUserId() {return userId; }
         public void setUserId(String userId) {this.userId = userId; }
-
-        @Override
-        public String toString() {
-            return "UserDTO{" +
-                    "userId='" + userId + '\'' +
-                    '}';
-        }
+        
     }
 }
 
