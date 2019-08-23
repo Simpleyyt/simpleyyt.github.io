@@ -76,6 +76,7 @@ JVM为每个类管理唯一的Class对象，因此我们可以用双等号操作
 可以从这里可以扩展到和面试同学聊”反射“的一些话题。
 
 Class 构造方法的定义如下：
+
 ```java
 /*
  * Private constructor. Only the Java Virtual Machine creates Class objects.
@@ -89,7 +90,10 @@ private Class(ClassLoader loader) {
 }
 ```
 
+
 实例：验证“JVM为每个类管理唯一的Class对象”：
+
+
 ```java
 public class ClassDemo {
     public static UserDTO user1 = new UserDTO("1");
