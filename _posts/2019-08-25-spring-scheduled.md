@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring 系列之定时任务—— Scheduled 详解
+title: Spring 系列之定时任务—— Scheduled
 tagline: by 子悠
 categories: Spring
 tags: 
