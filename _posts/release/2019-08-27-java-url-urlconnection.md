@@ -24,7 +24,7 @@ URLConnection 看起来只是比 URL 多了一个 Connection，它们之间的�
 
 它们之间的关系如下图所示：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-e162059bb8ad0c89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://static.xmt.cn/4807d477c6c949d38506729633eab847.png)
 
 这图啥意思啊，怎么办呢？张小敬有问题就去问葛佬，咱不会就去问“维基百科”啊。
 
@@ -104,7 +104,7 @@ try (InputStream in = connection.getInputStream();) {
 
 打印的内容如下图所示（部分）：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-7b6b220f97958927.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://static.xmt.cn/172a38adb8e242a68cf37478cfea93b4.png)
 
 如果你想读取某个 URL 的内容，上述方法是一个不错的方案，赶快去试试吧！
 
