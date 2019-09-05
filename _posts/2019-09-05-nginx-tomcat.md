@@ -60,12 +60,14 @@ yum install -y zlib zlib-devel
 yum install -y openssl openssl-devel
 ```
 5）解压Nginx
+
 安装完以上环境库之后，接着进行解压操作
 ```
 #解压文件夹
 tar -zxvf nginx-1.6.3.tar.gz
 ```
 6）执行配置命令
+
 cd进入文件夹
 ```
 cd nginx-1.6.3
@@ -94,6 +96,7 @@ cd nginx-1.6.3
 --http-scgi-temp-path=/var/temp/nginx/scgi
 ```
 注意：临时文件目录指定为/var/temp/nginx，需要在/var下创建temp及nginx目录
+
 7）执行编译安装命令
 ```
 make install
@@ -107,6 +110,7 @@ whereis nginx
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/74a7bee90e38484e86ab276e2ef05615.jpg)
 
 9）启动服务
+
 进入nginx的目录
 ```
 cd /usr/local/nginx/sbin/
@@ -128,6 +132,7 @@ cd /usr/local/nginx/sbin/
 ./nginx -s reload
 ```
 10）修改配置文件
+
 比如，修改端口号，默认端口号为`80`，咱们这里改成`81`；
 
 进入配置文件夹
@@ -179,6 +184,7 @@ mv apache-tomcat-8.5.40 tomcat-1
 mv apache-tomcat-8.5.40 tomcat-2
 ```
 1）修改tomcat端口号
+
 **将tomcat1的http端口设置为8080，将tomcat2的http端口设置为8081。**
 
 进入`tomcat`的`conf`文件夹，修改`server.xml`
@@ -218,6 +224,7 @@ tomcat2的`SHUTDOWN`、`HTTP/1.1`、`redirectPort`、`AJP/1.3`设置如下：
 </Server>
 ```
 2）启动服务
+
 分别进入tomcat1、tomcat2的`bin`文件夹，执行脚本，启动服务
 ```
 sh startup.sh
@@ -232,6 +239,7 @@ ps -ef|grep tomcat
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/90806dacf45c4eca9953262afedd049f.jpg)
 
 3）编写Html
+
 为了便于测试，我们创建一个`html`格式的页面，文件命名为`index.html`，内容如下：
 ```
 <!DOCTYPE html>
@@ -254,6 +262,7 @@ ps -ef|grep tomcat
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/d23b429abd2a409f8b50270be8cce4ee.jpg)
 
 4）测试
+
 创建好了之后，分别在浏览器上访问`ip:8080`、`ip:8081`；
 
 `ip:8080`，结果如下：
