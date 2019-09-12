@@ -6,12 +6,6 @@ category: java
 tags: [java,logback,mybatis]
 ---
 
-* content
-{:toc}
-
-
-
-[TOC]
 
 ##  springProfile标签中定义多个环境
 
