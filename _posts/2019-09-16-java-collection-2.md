@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 集合系列 - 深入浅出分析Collection中的List接口
+title: 【集合系列】- 深入浅出分析Collection中的List接口
 tagline: by 炸鸡可乐
 categories: Java
 tags: 
@@ -10,13 +10,11 @@ tags:
 在上一章《初探java集合框架图》中，我相信大部分朋友对java容器整体架构都有了初步的了解，那么本章主要是想详细的介绍以下List接口实现类之间的区别！
 
 <!--more-->
-
 ### 01、List简介
 > List 的数据结构就是一个序列，存储内容时直接在内存中开辟一块连续的空间，然后将空间地址与索引对应。
 
 以下是List集合简易架构图
-
-![](http://www.justdojava.com/assets/images/2019/java/image-jay/670043b74b4c41cca7ed9c0dc9b6c7bd.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/6e4ccc43eadc4fddabd7959c58f45aef.jpg)
 
 由图中的继承关系，可以知道，ArrayList、LinkedList、Vector、Stack都是List的四个实现类。
 * AbstractCollection 是一个抽象类，它唯一实现Collection接口的类。AbstractCollection主要实现了toArray()、toArray(T[] a)、remove()等方法。
@@ -427,4 +425,6 @@ pop方法表示，移除元素，并将要移除的元素方法
 * **Stack（栈结构）继承于Vector，数据是先进后出，基本不在使用，如果要实现栈，推荐使用Deque下的ArrayDeque，效率比Stack高！**
 
 ### 07、参考
-[CarpenterLee  - Java集合分析](https://github.com/CarpenterLee/JCFInternals/blob/master/markdown/2-ArrayList.md)
+1、JDK1.7&JDK1.8 源码
+2、[CarpenterLee  - Java集合分析](https://github.com/CarpenterLee/JCFInternals/blob/master/markdown/2-ArrayList.md)
+3、[博客园 - 朽木 - ArrayList、LinkedList、Vector、Stack的比较](https://www.cnblogs.com/zhousysu/p/5483948.html)
