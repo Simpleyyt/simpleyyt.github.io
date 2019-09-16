@@ -26,14 +26,23 @@ Java集合大致可以分为两大体系，一个是Collection，另一个是Map
 其中，Java 集合框架中主要封装的是典型的数据结构和算法，如动态数组、双向链表、队列、栈、Set、Map 等。
 
 将集合框架挖掘处理，可以分为以下几个部分
+
 **1) 数据结构**
+
 `List`列表、`Queue`队列、`Deque`双端队列、`Set`集合、`Map`映射
+
 **2) 比较器**
+
 `Comparator`比较器、`Comparable `排序接口
+
 **3) 算法**
+
 `Collections`常用算法类、`Arrays`静态数组的排序、查找算法
+
 **4) 迭代器**
+
 `Iterator`通用迭代器、`ListIterator`针对 `List` 特化的迭代器
+
 
 ### 02、有序列表（List）
 > List集合的特点就是存取有序，可以存储重复的元素，可以用下标进行元素的操作
@@ -512,7 +521,7 @@ public static <T> T[] copyOfRange(T[] original, int from, int to)
 ```
 
 ##### 7.2.6、equals和deepEquals
-equals：判断两个数组的每一个对应的元素是否相等（equals, 对于两个数组的元素a和a2有a==null ? a2==null : a.equals(a2)）
+equals：判断两个数组的每一个对应的元素是否相等（equals, 对于两个数组的元素a和a2有`a==null ? a2==null : a.equals(a2)`）
 ```
 #基本数据类型，例子int类型数组，a为原数组，a2为目标数组
 public static boolean equals(int[] a, int[] a2)
@@ -571,5 +580,7 @@ for(String obj : list){
 
 ### 10、参考
 1、JDK1.7&JDK1.8 源码
+
 2、[Otokaze's Blog - Java Collection框架](https://www.zfl9.com/java-collection.html)
+
 3、[CSDN - 朱小厮 - Comparable与Comparator浅析](https://blog.csdn.net/u013256816/article/details/50899416)

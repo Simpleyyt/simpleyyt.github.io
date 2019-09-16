@@ -18,6 +18,7 @@ tags:
 关于HashMap，一直都是一个非常热门的话题，只要你出去面试，我保证一定少不了它！
 
 本文主要结合JDK1.7和JDK1.8的区别，就HashMap的数据结构和实现功能，进行深入探讨，废话也不多说了，直奔主题！
+
 ### 02、简介
 > 在程序编程的时候，HashMap是一个使用非常频繁的容器类，它允许键值都放入null元素。除该类方法未实现同步外，其余跟Hashtable大致相同，但跟TreeMap不同，该容器不保证元素顺序，根据需要该容器可能会对元素重新哈希，元素的顺序也会被重新打散，因此不同时间迭代同一个HashMap的顺序可能会不同。
 
@@ -35,11 +36,17 @@ HashMap容器，实质还是一个哈希数组结构，但是在元素插入的�
 
 ### 03、源码解析
 直接打开HashMap的源码分析，可以看到，主要有5个关键参数：
+
 * **threshold：表示容器所能容纳的key-value对极限。**
+
 * **loadFactor：负载因子。**
+
 * **modCount：记录修改次数。**
+
 * **size：表示实际存在的键值对数量。**
+
 * **table：一个哈希桶数组，键值对就存放在里面。**
+
 
 ```
 public class HashMap<K,V> extends AbstractMap<K,V>
@@ -73,7 +80,9 @@ static class Node<K,V> implements Map.Entry<K,V> {
 在HashMap的数据结构中，有两个参数可以影响HashMap的性能：**初始容量（inital capacity）**和**负载因子（load factor）**。
 
 **初始容量（inital capacity）是指table的初始长度length（默认值是16）；**
+
 **负载因子（load factor）用指自动扩容的临界值（默认值是0.75）；**
+
 
 `threshold`是`HashMap`所能容纳的最大数据量的`Node`(键值对)个数，计算公式`threshold = capacity * Load factor`。当entry的数量超过`capacity*load_factor`时，容器将自动扩容并重新哈希，扩容后的`HashMap`容量是之前容量的**两倍**，**所以数组的长度总是2的n次方**。
 
@@ -85,10 +94,15 @@ Map map = new HashMap(int initialCapacity, float loadFactor);
 但是，默认的负载因子0.75是对空间和时间效率的一个平衡选择，建议大家不要修改，除非在时间和空间比较特殊的情况下，如果内存空间很多而又对时间效率要求很高，可以降低负载因子Load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1。 同时，对于插入元素较多的场景，可以将初始容量设大，减少重新哈希的次数。
 
 HashMap的内部功能实现有很多，本文主要从以下几点，进行逐步分析。
+
 * **通过K获取数组下标；**
+
 * **put方法的详细执行；**
+
 * **resize扩容过程；**
+
 * **get方法获取参数值；**
+
 * **remove删除元素；**
 
 #### 3.1、通过K获取数组下标
@@ -117,12 +131,19 @@ put(K key, V value)方法是将指定的key, value对添加到map里。该方法
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/5047e226992242af9833d84092584fe4.png)
 
 具体执行步骤
+
 * **1、判断键值对数组table[i]是否为空或为null，否则执行resize()进行扩容；**
+
 * **2、根据键值key计算hash值得到插入的数组索引i，如果table[i]==null，直接新建节点添加；**
+
 * **3、当table[i]不为空，判断table[i]的首个元素是否和传入的key一样，如果相同直接覆盖value；**
+
 * **4、判断table[i] 是否为treeNode，即table[i] 是否是红黑树，如果是红黑树，则直接在树中插入键值对；**
+
 * **5、遍历table[i]，判断链表长度是否大于8，大于8的话把链表转换为红黑树，在红黑树中执行插入操作，否则进行链表的插入操作；遍历过程中若发现key已经存在直接覆盖value即可；**
+
 * **6、插入成功后，判断实际存在的键值对数量size是否超多了最大容量threshold，如果超过，进行扩容操作；**
+
 
 **put方法源码部分**
 ```
@@ -252,8 +273,10 @@ final TreeNode<K,V> putTreeVal(HashMap<K,V> map, Node<K,V>[] tab,
        }
 }
 ```
+
 #### 3.3、resize扩容过程
 在说jdk1.8的HashMap动态扩容之前，我们先来了解一下jdk1.7的HashMap扩容实现，因为jdk1.8代码实现比Java1.7复杂了不止一倍，主要是Java1.8引入了红黑树设计，但是实现思想大同小异！
+
 ##### 3.3.1、jdk1.7的扩容实现
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/4cff4fedcfff484196682d694aa93412.jpg)
 
@@ -313,7 +336,7 @@ void transfer(Entry[] newTable) {
 }
 ```
 
-**jdk1.7扩容总结：**newTable[i]的引用赋给了e.next，也就是使用了单链表的头插入方式，同一位置上新元素总会被放在链表的头部位置；这样先放在一个索引上的元素终会被放到Entry链的尾部(如果发生了hash冲突的话），这一点和Jdk1.8有区别。在旧数组中同一条Entry链上的元素，通过重新计算索引位置后，有可能被放到了新数组的不同位置上。
+**jdk1.7扩容总结：** newTable[i]的引用赋给了e.next，也就是使用了单链表的头插入方式，同一位置上新元素总会被放在链表的头部位置；这样先放在一个索引上的元素终会被放到Entry链的尾部(如果发生了hash冲突的话），这一点和Jdk1.8有区别。在旧数组中同一条Entry链上的元素，通过重新计算索引位置后，有可能被放到了新数组的不同位置上。
 
 ##### 3.3.2、jdk1.8的扩容实现
 
@@ -420,7 +443,9 @@ final Node<K,V>[] resize() {
         return newTab;
 }
 ```
+
 1.7与1.8处理逻辑大同小异，区别主要还是在树节点的分裂`((TreeNode<K,V>)e).split() `这个方法上
+
 ```
 /**
  * 红黑树分裂方法
@@ -637,9 +662,13 @@ final TreeNode<K,V> find(int h, Object k, Class<?> kc) {
 }
 ```
 get方法，首先通过hash()函数得到对应数组下标，然后依次判断。
+
 * 1、判断第一个元素与key是否匹配，如果匹配就返回参数值；
+
 * 2、判断链表是否红黑树，如果是红黑树，就进入红黑树方法获取参数值；
+
 * 3、如果不是红黑树结构，直接循环判断，直到获取参数为止；
+
 
 #### 3.5、remove删除元素
 remove(Object key)的作用是删除key值对应的Node，该方法的具体逻辑是在`removeNode(hash(key), key, null, false, true)`里实现的。
@@ -806,20 +835,32 @@ final void removeTreeNode(HashMap<K,V> map, Node<K,V>[] tab,
                 moveRootToFront(tab, r);
 }
 ```
+
 jdk1.8的删除逻辑实现比较复杂，相比jdk1.7而言，多了红黑树节点删除和调整：
+
 * 1、默认判断链表第一个元素是否是要删除的元素；
+
 * 2、如果第一个不是，就继续判断当前冲突链表是否是红黑树，如果是，就进入红黑树里面去找；
+
 * 3、如果当前冲突链表不是红黑树，就直接在链表中循环判断，直到找到为止；
+
 * 4、将找到的节点，删除掉，如果是红黑树结构，会进行颜色转换、左旋、右旋调整，直到满足红黑树特性为止；
+
 
 ### 04、总结
 1、如果key是一个对象，记得在对象实体类里面，要重写equals和hashCode方法，不然在查询的时候，无法通过对象key来获取参数值！
+
 2、相比JDK1.7，JDK1.8引入红黑树设计，当链表长度大于8的时候，链表会转化为红黑树结构，发生冲突的链表如果很长，红黑树的实现很大程度优化了HashMap的性能，使查询效率比JDK1.7要快一倍！
+
 3、对于大数组的情况，可以提前给Map初始化一个容量，避免在插入的时候，频繁的扩容，因为扩容本身就比较消耗性能！
 
 ### 05、参考
 1、JDK1.7&JDK1.8 源码
+
 2、[美团技术团队 - Java 8系列之重新认识HashMap](https://zhuanlan.zhihu.com/p/21673805)
+
 3、[简书 - JDK1.8红黑树实现分析-此鱼不得水](https://www.jianshu.com/p/34b6878ae6de)
+
 4、[简书 - JJDK 1.8 中 HashMap 扩容](https://www.jianshu.com/p/bdfd5f98cc31)
+
 5、[Java HashMap 基础面试常见问题](https://www.rabbitwfly.com/articles/2019/04/23/1556021848567.html)
