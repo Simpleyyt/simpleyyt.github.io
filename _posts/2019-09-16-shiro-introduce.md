@@ -9,10 +9,11 @@ tags:
 
 Apache Shiro是一个开源安全框架，提供身份验证、授权、密码学和会话管理。Shiro框架具有直观、易用等特性，同时也能提供健壮的安全性，虽然它的功能不如SpringSecurity那么强大，但是在普通的项目中也够用了。  
 
+<!--more-->
 
 ## 由来
 
-Shiro 的前身是 JSecurity，2004年，Les Hazlewood 和 Jeremy Haile 创办了 Jsecurity。当时他们找不到适用于应用程序级别的合适 Java 安全框架，同时又对 JAAS 非常失望。2004 年到 2008 年期间，JSecurity 托管在 SourceForge 上，贡献者包括 Peter Ledbrook、Alan Ditzel 和 Tim Veil。2008年，JSecurity项目贡献给了Apache软件基金会（ASF），并被接纳成为Apache Incubator 项目，由导师管理，目标是成为一个顶级 Apache 项目。期间，Jsecurity 曾短暂更名为 Ki，随后因商标问题被社区更名为 “Shiro” 。随后项目持续在 Apache Incubator 中孵化，并增加了贡献者 Kalle Korhonen。2010年7月，Shiro 社区发布了 1.0 版，随后社区创建了其项目管理委员会，并选举 Les Hazlewood 为主席。2010年9月22日，Shrio 成为 Apache 软件基金会的顶级项目（TLP）。  
+Shiro 的前身是 JSecurity，2004年，Les Hazlewood 和 Jeremy Haile 创办了 Jsecurity。当时他们找不到适用于应用程序级别的合适 Java 安全框架，同时又对 JAAS 非常失望。2004 年到 2008 年期间，JSecurity 托管在 SourceForge 上，贡献者包括 Peter Ledbrook、Alan Ditzel 和 Tim Veil。2008年，JSecurity 项目贡献给了Apache软件基金会（ASF），并被接纳成为Apache Incubator 项目，由导师管理，目标是成为一个顶级 Apache 项目。期间，Jsecurity 曾短暂更名为 Ki，随后因商标问题被社区更名为 “Shiro” 。随后项目持续在 Apache Incubator 中孵化，并增加了贡献者 Kalle Korhonen。2010年7月，Shiro 社区发布了 1.0 版，随后社区创建了其项目管理委员会，并选举 Les Hazlewood 为主席。2010年9月22日，Shrio 成为 Apache 软件基金会的顶级项目（TLP）。  
 
 ## 有哪些功能
 
@@ -32,7 +33,7 @@ Apache Shiro 是一个强大而灵活的开源安全框架，它干净利落地�
 
 Apache Shiro 是一个拥有许多功能的综合性的程序安全框架。下面的图表展示了 Shiro 的重点：  
 
-![](http://www.justdojava.com/assets/images/2019/java/image_javaboy/shiro/1-1.jpg)   
+![](http://www.justdojava.com/assets/images/2019/java/image_javaboy/shiro/1-1.jpg) 
 
 Shiro 中有四大基石——身份验证，授权，会话管理和加密。  
 
@@ -54,7 +55,7 @@ Shiro 中有四大基石——身份验证，授权，会话管理和加密。
 
 Shiro 的学习资料并不多，没看到有相关的书籍。张开涛的《跟我学Shiro》是一个非常不错的资料，小伙伴可以搜索了解下。  
 
-好了，上面就是我们对shiro的一个简单介绍，从下篇文章开始，我将带着小伙伴们一起来学习如何在项目中使用 shiro。  
+好了，上面就是我们对 shiro 的一个简单介绍，从下篇文章开始，我将带着小伙伴们一起来学习如何在项目中使用 shiro。  
 
 参考资料：  
 
