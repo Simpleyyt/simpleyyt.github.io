@@ -32,11 +32,11 @@ published: true
 第四个节点为具体服务节点，节点名为具体的 URL 字符串，如 `dubbo://2.0.1.13:12345/com.dubbo.example.DemoService?xx=xx` ，该节点默认为临时节点。
 dubbo ZK 树形内部结构示例为：
 
-![image.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/image-5ae692eb.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/image-5ae692eb.png)
 
 ZK 内部服务具体示例如下：
 
-![Snipaste20190811170204.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/Snipaste20190811170204-8ccbf03e.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/Snipaste20190811170204-8ccbf03e.png)
 
 ## `RegistryFactory` 实现
 
@@ -44,23 +44,23 @@ Dubbo 可以在配置文件中指定使用注册中心，可以使用 `dubbo.reg
 
 *`RegistryFactory ` 接口源码如下:*
 
-![RegistryFactory.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/RegistryFactory-558fb540.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/RegistryFactory-558fb540.png)
 
 `RegistryFactory` 接口方法使用 `@Adaptive` 注解，这里将会使用 Dubbo SPI 机制，自动生成代码的一些实现逻辑。这里将会根据 URL 中 `protocol` 属性，去调用最终实现子类。
 
 *`RegistryFactory` 实现子类如图所示：*
 
-![RegistryFactory.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/RegistryFactory-b88babc7.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/RegistryFactory-b88babc7.png)
 
 `AbstractRegistryFactory` 将会实现接口的 `getRegistry` 方法，主要完成加锁，并调用抽象模板方法 `createRegistry` 创建具体注册中心实现类，并将其缓存在内存中。
 
 *`AbstractRegistryFactory#getRegistry` 源码如下所示：*
 
-![getRegistry.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/getRegistry-9462b1e0.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/getRegistry-9462b1e0.png)
 
 注册中心实例将会通过具体工厂类创建，这里我们看下 `ZookeeperRegistryFactory` 源码：
 
-![ZookeeperRegistryFactory.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/ZookeeperRegistryFactory-b95ee536.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/ZookeeperRegistryFactory-b95ee536.png)
 
 ps：Dubbo SPI 机制还具有 IOC 特性，这里的`ZookeeperTransporter` 注入可以参考：[Dubbo 扩展点加载](http://dubbo.apache.org/zh-cn/docs/dev/SPI.html)
 
@@ -76,7 +76,7 @@ ps：Dubbo SPI 机制还具有 IOC 特性，这里的`ZookeeperTransporter` 注�
 
 *`ZookeeperRegistry#doRegister` 实现源码如下：*
 
-![doRegister.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/doRegister-d41ddbb5.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/doRegister-d41ddbb5.png)
 
 `zkClient.create` 方法需要传入两个参数。
 
@@ -87,6 +87,7 @@ void create(String path, boolean ephemeral);
 第一个参数为节点路径，将会通过 `toUrlPath` 将 URL 实例转化成 ZK 中路径格式，转化结果如下：
 
 ```
+
 ## 转化前 URL 如下：
 
 dubbo://10.20.82.31:12345/com.dubbo.example.DemoService
@@ -100,7 +101,7 @@ dubbo://10.20.82.31:12345/com.dubbo.example.DemoService
 
 `zkClient.create` 方法里将会递归调用，首先父节点是否存在，不存在就会创建，直到最后一个节点跳出递归方法。
 
-![AbstractZookeeperClientcreate.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/AbstractZookeeperClientcreate-d2310cd3.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/AbstractZookeeperClientcreate-d2310cd3.png)
 
 最后 `createEphemeral` 与 `createPersistent` 实际创建节点操作将会交给 ZK 客户端类，这里实现比较简单，可以自行参考源码。
 
@@ -128,7 +129,7 @@ dubbo zk 注册中心采用是事件通知与客户端拉取方式。服务第�
 
 *`doSubscribe` 方法整体源码逻辑：*
 
-![doSubscribe.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/doSubscribe-1d1bcd2f.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/doSubscribe-1d1bcd2f.png)
 
 服务治理中心(dubbo-admin)，需要订阅 service 全量接口，用以感知每个服务的状态，所以订阅之前将会把 service 设置成 *，处理所有service。
 
@@ -140,27 +141,27 @@ dubbo zk 注册中心采用是事件通知与客户端拉取方式。服务第�
 
 *`toCategoriesPath`  源码如下：*
 
-![toCategoriesPath.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/toCategoriesPath-866ae26e.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/toCategoriesPath-866ae26e.png)
 
 接着循环路径数组，循环内将会缓存节点监听器，用以提高性能。
 
-![类别订阅服务.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/类别订阅服务-f462befb.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/类别订阅服务-f462befb.png)
 
 最终将会在 ZK 目录节点上注册 watcher，并获取目录节点下所有子节点数据。
 
 `ZookeeperClient#addChildListener 源码如下`
 
-![订阅.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/订阅-b9b2a82b.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/订阅-b9b2a82b.png)
 
 这里 watcher 使用 Curator 接口 `CuratorWatcher`，一旦 ZK 节点发生会变化，将会回调 `CuratorWatcher#process` 方法。
 
 *`CuratorWatcher#process` 方法源码如下：*
 
-![CuratorWatcherprocess.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/CuratorWatcherprocess-85cbd2f3.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/CuratorWatcherprocess-85cbd2f3.png)
 
 *消费者订阅时序图如下：*
 
-![dubbo订阅1.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/dubbo订阅1-6a4ab156.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/dubbo订阅1-6a4ab156.png)
 
 ### listener 关系图
 
@@ -168,11 +169,11 @@ dubbo zk 注册中心采用是事件通知与客户端拉取方式。服务第�
 
 `listener` 关系图如下：
 
-![dubbodoSubscribelistener关系图1.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/dubbodoSubscribelistener关系图1-614939d8.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/dubbodoSubscribelistener关系图1-614939d8.png)
 
 回调关系如图所示：
 
-![listener回调关系3.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/listener回调关系3-0457ed49.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/listener回调关系3-0457ed49.png)
 
 ### ZK 模块订阅存在问题
 
@@ -182,9 +183,9 @@ Dubbo 2.7 之后版本引入元数据中心解决该问题，详情可参考，[
 
 *引用文中一种解决方案如下图:*
 
-![e2a0160ed30947eb93f321877b1005cf.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/e2a0160ed30947eb93f321877b1005cf-85a96178.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/e2a0160ed30947eb93f321877b1005cf-85a96178.png)
 
-![ef9d4e895a454669ab3a5d878c76b5ab.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/ef9d4e895a454669ab3a5d878c76b5ab-2350cd57.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/ef9d4e895a454669ab3a5d878c76b5ab-2350cd57.png)
 
 ## 总结
 
