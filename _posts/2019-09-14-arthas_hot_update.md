@@ -105,9 +105,17 @@ Affect(row-cnt:0) cost in 884 ms.
 
 既然前面的操作，获取修改后的 `.class` 文件，都是为了最后一步 `redefine` 所服务，那只要获取精确的 `.class` 文件就可以了，跳过前面的步骤也可以。
 
+
+
 **于是与一个前辈讨论后，他建议我使用 `IDEA` 工具编译后的 `.class` 文件**
 
 于是将本地代码进行修改，进行打包编译，得到想要的 `.class` 文件，然后将这个文件上传到测试环境，进行替换。
+
+
+
+文件地址类似下图：
+
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/arthas/idea_class_position.png)
 
 ``` bash
 [arthas@63]$ redefine /tmp/xxxxxx.class
