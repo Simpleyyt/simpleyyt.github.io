@@ -329,7 +329,7 @@ Dubbo 2.7 之后版本引入元数据中心解决该问题，详情可参考，[
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/ef9d4e895a454669ab3a5d878c76b5ab-2350cd57.png)
 
-## 总结
+## 五、总结
 
 本文主要介绍了 dubbo zk 的数据结构，其次深入研究 `ZookeeperRegistry` 相关实现源码。通过了解服务注册以及订阅原理，了解 Dubbo 服务动态发现实现方式。
 
