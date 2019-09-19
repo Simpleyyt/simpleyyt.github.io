@@ -303,7 +303,7 @@ dubbo zk 注册中心采用是事件通知与客户端拉取方式。服务第�
 
 *消费者订阅时序图如下：*
 
-![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/dubbo订阅1-6a4ab156.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/dubbo-6a4ab156.png)
 
 ### 4.3 listener 关系图
 
@@ -311,11 +311,11 @@ dubbo zk 注册中心采用是事件通知与客户端拉取方式。服务第�
 
 `listener` 关系图如下：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/dubbodoSubscribelistener关系图1-614939d8.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/dubbodoSubscribelistener-614939d8.png)
 
 回调关系如图所示：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/listener回调关系3-0457ed49.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190823/listener-0457ed49.png)
 
 ### 4.4 ZK 模块订阅存在问题
 
