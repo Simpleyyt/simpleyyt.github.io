@@ -4,7 +4,8 @@ category: Java
 title: 线程池正确安全的关闭方式
 tagline: by 小黑
 tags: 
-  - java,线程池
+  - java
+  - 线程池
 published: true
 ---
 
@@ -16,7 +17,7 @@ published: true
 
 线程池 API 提供两个主动关闭的方法 `ThreadPoolExecutor#shutdownNow` 与 `ThreadPoolExecutor#shutdown`，这两个方法都可以用于关闭线程池，但是具体效果却不太一样。
 
-## 线程池的状态
+## 一、线程池的状态
 
 在说线程池关闭方法之前，我们先了解线程池状态。
 
@@ -34,7 +35,7 @@ published: true
 
 当我们执行 `ThreadPoolExecutor#shutdown` 方法将会使线程池状态从 **RUNNING** 转变为 **SHUTDOWN**。而调用 `ThreadPoolExecutor#shutdownNow` 之后线程池状态将会从 **RUNNING** 转变为 **STOP**。从上面的图上还可以看到，当线程池处于 **SHUTDOWN**，我们还是可以继续调用 `ThreadPoolExecutor#shutdownNow` 方法，将其状态转变为 **STOP** 。
 
-##  `ThreadPoolExecutor#shutdown`
+## 二、ThreadPoolExecutor#shutdown
 
 上面我们知道线程池状态，这里先说说 `shutdown` 方法。`shutdown` 方法源码比较简单，能比较直观理解其调用逻辑。
 
@@ -80,7 +81,7 @@ published: true
 
 当线程池处于第二步时，线程将会使用 `workQueue#take` 获取队头的任务，然后完成任务。如果工作队列一直没任务，由于队列为阻塞队列，`workQueue#take` 将会阻塞线程。
 
-## `ThreadPoolExecutor#shutdownNow` 
+## 三、ThreadPoolExecutor#shutdownNow
 
 *`ThreadPoolExecutor#shutdownNow`  源码如下：*
 
@@ -135,7 +136,7 @@ published: true
 
 如果需要使用这种进制，建议在上面的基础上增加一定**重试次数**。这个真的很重要！！！
 
-## 优雅关闭线程池 
+## 四、优雅关闭线程池 
 
 回顾上面线程池状态关系图，我们可以知道处于 **SHUTDOWN** 的状态下的线程池依旧可以调用 `shutdownNow`。所以我们可以结合 `shutdown` ， `shutdownNow`，`awaitTermination` ，更加优雅关闭线程池。
 
