@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 集合系列 - 深入浅出分析Collection中的List接口
+title: 【集合系列】- 深入浅出分析Collection中的List接口
 tagline: by 炸鸡可乐
 categories: Java
 tags: 
@@ -10,22 +10,28 @@ tags:
 在上一章《初探java集合框架图》中，我相信大部分朋友对java容器整体架构都有了初步的了解，那么本章主要是想详细的介绍以下List接口实现类之间的区别！
 
 <!--more-->
-
 ### 01、List简介
 > List 的数据结构就是一个序列，存储内容时直接在内存中开辟一块连续的空间，然后将空间地址与索引对应。
 
 以下是List集合简易架构图
-
-![](http://www.justdojava.com/assets/images/2019/java/image-jay/670043b74b4c41cca7ed9c0dc9b6c7bd.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/6e4ccc43eadc4fddabd7959c58f45aef.jpg)
 
 由图中的继承关系，可以知道，ArrayList、LinkedList、Vector、Stack都是List的四个实现类。
+
 * AbstractCollection 是一个抽象类，它唯一实现Collection接口的类。AbstractCollection主要实现了toArray()、toArray(T[] a)、remove()等方法。
+
 * AbstractList 也是一个抽象类，它继承于AbstractCollection。AbstractList实现List接口中除size()、get(int location)之外的函数，比如特定迭代器ListIterator。
+
 * AbstractSequentialList 是一个抽象类，它继承于AbstractList。AbstractSequentialList 实现了“链表中，根据index索引值操作链表的全部函数”。
+
 * ArrayList 是一个动态数组，它由数组实现。随机访问效率高，随机插入、随机删除效率低。
+
 * LinkedList 是一个双向链表。它也可以被当作堆栈、队列或双端队列进行操作。LinkedList随机访问效率低，但随机插入、随机删除效率高。
+
 * Vector 也是一个动态数组，和ArrayList一样，也是由数组实现。但是ArrayList是非线程安全的，而Vector是线程安全的。
+
 * Stack 是栈，它继承于Vector。它的特性是：先进后出(FILO, First In Last Out)。
+
 
 下面对各个实现类进行方法剖析！
 ### 02、ArrayList
@@ -85,8 +91,10 @@ private void grow(int minCapacity) {
 
 添加元素还有另外一个addAll()方法，addAll()方法能够一次添加多个元素，根据位置不同也有两个方法，一个是在末尾添加的addAll(Collection<? extends E> c)方法，一个是从指定位置开始插入的addAll(int index, Collection<? extends E> c)方法。
 
-**不同点：addAll()的时间复杂度不仅跟插入元素的多少有关，也跟插入的位置相关，时间复杂度是线性增长！
-**
+
+**不同点：addAll()的时间复杂度不仅跟插入元素的多少有关，也跟插入的位置相关，时间复杂度是线性增长！**
+
+
 #### 2.4、remove方法
 remove()方法也有两个版本，一个是remove(int index)删除指定位置的元素；另一个是remove(Object o)，通过o.equals(elementData[index])来删除第一个满足的元素。
 
@@ -264,6 +272,7 @@ void linkBefore(E e, Node<E> succ) {
 同样的，添加元素还有另外一个addAll()方法，addAll()方法能够一次添加多个元素，根据位置不同也有两个方法，一个是在末尾添加的addAll(Collection<? extends E> c)方法，另一个是从指定位置开始插入的addAll(int index, Collection<? extends E> c)方法。
 
 里面也for循环添加元素，**addAll()的时间复杂度不仅跟插入元素的多少有关，也跟插入的位置相关，时间复杂度是线性增长！**
+
 #### 3.4、remove方法
 同样的，remove()方法也有两个方法，一个是删除指定下标处的元素remove(int index)，另一个是删除跟指定元素相等的第一个元素remove(Object o)。
 
@@ -422,9 +431,17 @@ pop方法表示，移除元素，并将要移除的元素方法
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/9c40fc67fed4447194eeb606595a160b.jpg)
 
 * **ArrayList(动态数组结构)，查询快（随意访问或顺序访问），增删慢，但在末尾插入，速度与LinkedList相差无几！**
+
 * **LinkedList（双向链表结构），查询慢，增删快！**
+
 * **Vector（动态数组结构），相比ArrayList都慢，被ArrayList替代，基本不在使用。优势是线程安全（函数都是synchronized），如果需要在多线程下使用，推荐使用并发容器中的工具类来操作，效率高！**
+
 * **Stack（栈结构）继承于Vector，数据是先进后出，基本不在使用，如果要实现栈，推荐使用Deque下的ArrayDeque，效率比Stack高！**
 
+
 ### 07、参考
-[CarpenterLee  - Java集合分析](https://github.com/CarpenterLee/JCFInternals/blob/master/markdown/2-ArrayList.md)
+1、JDK1.7&JDK1.8 源码
+
+2、[CarpenterLee  - Java集合分析](https://github.com/CarpenterLee/JCFInternals/blob/master/markdown/2-ArrayList.md)
+
+3、[博客园 - 朽木 - ArrayList、LinkedList、Vector、Stack的比较](https://www.cnblogs.com/zhousysu/p/5483948.html)
