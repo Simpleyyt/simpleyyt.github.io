@@ -1,30 +1,30 @@
 ---
 layout: post
-title: 手把手教你，使用Nginx搭配Tomcat实现负载均衡!
+title: 手把手教你，使用 Nginx 搭配 Tomcat 实现负载均衡!
 tagline: by 炸鸡可乐
 categories: Nginx
 tags: 
   - nginx
 ---
 
-说到Nginx，相信大家都不会陌生，最常用的莫过于：用它来与Tomcat搭配做负载均衡，起到灰度发布的作用，同时保证系统高可用！
+说到 Nginx ，相信大家都不会陌生，最常用的莫过于：用它来与 Tomcat 搭配做负载均衡，起到灰度发布的作用，同时保证系统高可用！
 
 <!--more-->
 ### 01、简介
-> Nginx（发音同engine x）是异步框架的网页服务器，也可以用作反向代理、负载平衡器和HTTP缓存。该软件由伊戈尔·赛索耶夫创建并于2004年首次公开发布。 2011年成立同名公司以提供支持。2019年3月11日，Nginx公司被F5 Networks以6.7亿美元收购。
+> Nginx（发音同 engine x）是异步框架的网页服务器，也可以用作反向代理、负载平衡器和 HTTP 缓存。该软件由伊戈尔·赛索耶夫创建并于2004年首次公开发布。 2011年成立同名公司以提供支持。2019年3月11日，Nginx 公司被 F5 Networks 以6.7亿美元收购。
 
-传统模型下，一个项目部署在一台tomcat上，这个时候，假如tomcat因为服务器资源不够，突然挂机了，那么整个项目就无法使用，给客户造成的损失可想而知！
+传统模型下，一个项目部署在一台`tomcat`上，这个时候，假如`tomcat`因为服务器资源不够，突然挂机了，那么整个项目就无法使用，给客户造成的损失可想而知！
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/542c0dfd9e9247769118ed63b5fb99ea.jpg)
 
-Nginx就可以避免单台服务如果挂机，依然能保证服务正常使用，当我们把项目war包部署到三台服务器上时，即使A、B服务器都挂了，依然能够通过服务器C访问项目资源！
+Nginx 就可以避免单台服务如果挂机，依然能保证服务正常使用，当我们把项目 war 包部署到三台服务器上时，即使服务器`A`、服务器`B`都挂了，依然能够通过服务器`C`访问项目资源！
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/628d9c0447424795b3d38e91f86123db.jpg)
 
 好了，啥也不说了，直接开始干！
-### 02、Nginx安装
-#### 2.1、下载Nginx安装包
-直接访问Nginx官网（`https://nginx.org`），下载对应的安装包，本次案例选择的是`nginx-1.6.3.tar.gz`版本，安装环境是`centos7`。
+### 02、Nginx 安装
+#### 2.1、下载 Nginx 安装包
+直接访问 Nginx 官网（`https://nginx.org`），下载对应的安装包，本次案例选择的是`nginx-1.6.3.tar.gz`版本，安装环境是`centos7`。
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/3e5842347af94a1f8bd6561a96fe6bc2.jpg)
 
@@ -41,25 +41,26 @@ wget -c https://nginx.org/download/nginx-1.6.3.tar.gz
 ```
 yum install wget
 ```
-#### 2.2、安装Nginx
-在按照Nginx之前，需要安装相应运行库环境，操作如下
-1）安装gcc 环境
+#### 2.2、安装 Nginx
+在按照 Nginx 之前，需要安装相应运行库环境，操作如下
+
+1）安装 gcc 环境
 ```
 yum install gcc-c++
 ```
-2） 安装PCRE依赖库
+2） 安装 PCRE 依赖库
 ```
 yum install -y pcre pcre-devel
 ```
-3）安装zlib 依赖库
+3）安装 zlib 依赖库
 ```
 yum install -y zlib zlib-devel
 ```
-4） 安装OpenSSL安全套接字层密码库
+4） 安装 OpenSSL 安全套接字层密码库
 ```
 yum install -y openssl openssl-devel
 ```
-5）解压Nginx
+5）解压 Nginx
 
 安装完以上环境库之后，接着进行解压操作
 ```
@@ -68,7 +69,7 @@ tar -zxvf nginx-1.6.3.tar.gz
 ```
 6）执行配置命令
 
-cd进入文件夹
+`cd`进入文件夹
 ```
 cd nginx-1.6.3
 ```
@@ -95,7 +96,7 @@ cd nginx-1.6.3
 --http-uwsgi-temp-path=/var/temp/nginx/uwsgi \
 --http-scgi-temp-path=/var/temp/nginx/scgi
 ```
-注意：临时文件目录指定为/var/temp/nginx，需要在/var下创建temp及nginx目录
+注意：临时文件目录指定为`/var/temp/nginx`，需要在`/var`下创建`temp`及`nginx`目录
 
 7）执行编译安装命令
 ```
@@ -111,7 +112,7 @@ whereis nginx
 
 9）启动服务
 
-进入nginx的目录
+进入 nginx 的目录
 ```
 cd /usr/local/nginx/sbin/
 ```
@@ -143,7 +144,7 @@ cd /usr/local/nginx/conf
 ```
 cp nginx.conf nginx.conf.back
 ```
-编辑nginx.conf配置文件
+编辑`nginx.conf`配置文件
 ```
 vim nginx.conf
 ```
@@ -157,17 +158,17 @@ vim nginx.conf
 ```
 ./nginx
 ```
- 查看nginx进程
+查看 nginx 进程
 ```
 ps -ef|grep nginx
 ```
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/f1ecd9e7fa8e4e378f5faee5af2f33e9.jpg)
 
-到此，nginx安装基本完成，直接在浏览器上访问服务器地址`ip:81`，就可以进入页面
+到此，nginx 安装基本完成，直接在浏览器上访问服务器地址`ip:81`，就可以进入页面
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/049e5789d5274683b2f4f8929fbf1c51.jpg)
 ### 03、Tomcat安装
-直接访问tomcat官网（`http://tomcat.apache.org/`），下载对应的安装包，本次案例选择的是`apache-tomcat-8.5.45.tar.gz`版本，本次安装环境是`centos7`。
+直接访问 tomcat 官网（`http://tomcat.apache.org/`），下载对应的安装包，本次案例选择的是`apache-tomcat-8.5.45.tar.gz`版本，本次安装环境是`centos7`。
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/f160521a7de0422b852efef24a367156.jpg)
 
@@ -183,9 +184,9 @@ mv apache-tomcat-8.5.40 tomcat-1
 ```
 mv apache-tomcat-8.5.40 tomcat-2
 ```
-1）修改tomcat端口号
+1）修改 tomcat 端口号
 
-**将tomcat1的http端口设置为8080，将tomcat2的http端口设置为8081。**
+**将 tomcat-1 的 http 端口设置为8080，将 tomcat-2 的 http 端口设置为8081。**
 
 进入`tomcat`的`conf`文件夹，修改`server.xml`
 ```
@@ -193,7 +194,7 @@ vim server.xml
 ```
 修改`SHUTDOWN`、`HTTP/1.1`、`redirectPort`、`AJP/1.3`端口，使其错开，避免重启的时候，报端口被占用问题
 
-tomcat1的`SHUTDOWN`、`HTTP/1.1`、`redirectPort`、`AJP/1.3`设置如下：
+tomcat-1 的`SHUTDOWN`、`HTTP/1.1`、`redirectPort`、`AJP/1.3`设置如下：
 ```
 <!--关闭服务端口-->
 <Server port="9005" shutdown="SHUTDOWN">
@@ -208,7 +209,7 @@ tomcat1的`SHUTDOWN`、`HTTP/1.1`、`redirectPort`、`AJP/1.3`设置如下：
 ...
 </Server>
 ```
-tomcat2的`SHUTDOWN`、`HTTP/1.1`、`redirectPort`、`AJP/1.3`设置如下：
+tomcat-2 的`SHUTDOWN`、`HTTP/1.1`、`redirectPort`、`AJP/1.3`设置如下：
 ```
 <!--关闭服务端口-->
 <Server port="10005" shutdown="SHUTDOWN">
@@ -225,7 +226,7 @@ tomcat2的`SHUTDOWN`、`HTTP/1.1`、`redirectPort`、`AJP/1.3`设置如下：
 ```
 2）启动服务
 
-分别进入tomcat1、tomcat2的`bin`文件夹，执行脚本，启动服务
+分别进入 tomcat-1 、 tomcat-2 的`bin`文件夹，执行脚本，启动服务
 ```
 sh startup.sh
 ```
@@ -255,10 +256,10 @@ ps -ef|grep tomcat
 ```
 进入`tomcat`的`webapps`文件夹，删除`ROOT`文件夹里面的东西，创建`index.html`文件；
 
-在tomcat-1中，index内容如下：
+在 tomcat-1 中，`index.html` 内容如下：
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/8436c998da7e4722b0b0202e11e8b642.jpg)
 
-在tomcat-2中，index内容如下：
+在 tomcat-2 中，`index.html` 内容如下：
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/d23b429abd2a409f8b50270be8cce4ee.jpg)
 
 4）测试
@@ -271,7 +272,7 @@ ps -ef|grep tomcat
 `ip:8081`，结果如下：
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/fb2a1e76271e478aa8423305fb08d8dc.jpg)
 ### 04、Nginx实现负载均衡
-进入Nginx的配置文件夹
+进入 Nginx 的配置文件夹
 ```
 cd /usr/local/nginx/conf
 ```
@@ -326,6 +327,7 @@ http {
 }  
 ```
 参数说明：
+
 * worker_processes：工作进程的个数，一般与计算机的cpu核数一致 
 * worker_connections：单个进程最大连接数（最大连接数=连接数*进程数）
 * include：文件扩展名与文件类型映射表
@@ -342,6 +344,6 @@ http {
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/46a08f2039ed430cbe0039e9b6872a49.jpg)
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/4433ba8844b74dca9925c371948fe270.jpg)
 
-至此，Nginx与Tomcat搭配实现负载均衡已经配置完了，是不是很酷！
+至此，Nginx 与 Tomcat 搭配实现负载均衡已经配置完了，是不是很酷！
 
 赶紧去试试吧！

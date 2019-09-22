@@ -6,12 +6,13 @@ tagline: by 乔二爷
 tags:
     - Java
 ---
-分布式系统面试系列04-服务注册中心如何进行选型的？服务发现慢遇到了么？怎么解决？
+上家公司我们的技术栈是基于 SpringCloud ，注册中心默认的也是使用Eureka，但是出来面试的时候被问到了关于注册中心的选型是怎么来做的。今天这篇整好梳理一下服务注册中心如何来进行选型，还有服务发现慢的问题都是怎么来解决的，希望对大家有所帮助。
+
 <!--more-->
 
 服务注册中心，当前用得比较多的就是 Eureka 跟 Zookeeper 了。
 
-Eureka 是 SpringCloud 自带的组件，而 Zookeeper 则是 Dubbo 一般会选择的。
+Eureka 是 SpringCloud 自带的组件，而 Zookeeper 则是 Dubbo 默认选择的。
 我们以前在做服务这块其实是基于 Spring Cloud 技术栈来做的，没有选择Dubbo。所以，Eureka 也就作为了我们的服务注册中心首选。
 
 在选择服务服务注册中心之前，我们一般会选择是基于 Spring Cloud 或者 Dubbo 来作为我们的微服务框架。选择好以后那么服务注册中心，一般情况下Dubbo作为服务框架的，一般注册中心会选择zk， Spring Cloud作为服务框架的，一般服务注册中心会选择Eureka。
@@ -110,3 +111,6 @@ eureka.instance.leaseExpirationDurationInSeconds = 90
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_qry/2019-08-31-registration-center-guide/4.png)
 
+### 7、学习资料
+
+以上内容是学习《中华石杉老师-21天互联网Java进阶面试训练营（分布式篇）》课程时自己整理的笔记，希望对大家有所帮助。

@@ -11,16 +11,16 @@ tag:
 怎么破坏单例模式和怎么防止单例模式被破坏
 <!--more-->
 
-### 简介
+### 01、简介
 
-单例模式（Singleton Pattern）是指确保一个类在任何情况下都绝对只有一个实例，并提供一个全局访问点，破坏单例模式的话,就是说可以弄出两个或两个以上的实例嘛。既然可以破坏,那么我们怎么防止单例模式被破坏呢?这篇文章我会带着大家来了解一下
+单例模式（Singleton Pattern）是指确保一个类在任何情况下都绝对只有一个实例，并提供一个全局访问点，破坏单例模式的话,就是说可以弄出两个或两个以上的实例嘛。既然可以破坏，那么我们怎么防止单例模式被破坏呢？这篇文章我会带着大家来了解一下
 
-### 破坏单列模式的方式
+### 02、破坏单列模式的方式
 
 1. 反射
 2. 序列和反序列化
 
-这里我以静态内部类单例来举例,先看下静态内部类单例的代码
+这里我以静态内部类单例来举例，先看下静态内部类单例的代码
 
 ```java   
 public class LazyInnerClassSingleton {
@@ -37,7 +37,7 @@ public class LazyInnerClassSingleton {
 }
 ```
 
-### 反射破坏单例模式
+### 03、反射破坏单例模式
 
 我们来看代码
 
@@ -48,7 +48,7 @@ public static void main(String[] args) {
             Class<?> clazz = LazyInnerClassSingleton.class;
             //通过反射拿到私有的构造方法
             Constructor c = clazz.getDeclaredConstructor(null);
-            //因为要访问私有的构造方法,这里要设为true,相当于让你有权限去操作
+            //因为要访问私有的构造方法，这里要设为true，相当于让你有权限去操作
             c.setAccessible(true);
             //暴力初始化
             Object o1 = c.newInstance();
@@ -64,7 +64,7 @@ public static void main(String[] args) {
 
 输出为false，说明内存地址不同，就是实例化了多次，破坏了单例模式的特性。
 
-### 防止反射破坏单例模式
+### 04、防止反射破坏单例模式
 
 通过上面反射破坏单例模式的代码，我们可以知道，反射也是通过调用构造方法来实例化对象，那么我们可以在构造函数里面做点事情来防止反射，我们把静态内部类单例的代码改造一下，看代码
 
@@ -88,7 +88,7 @@ public class LazyInnerClassSingleton {
 }
 ```
 
-这样我们在通过反射创建单例对象的时候,多次创建就会抛出异常
+这样我们在通过反射创建单例对象的时候，多次创建就会抛出异常
 
 ```java
 java.lang.reflect.InvocationTargetException
@@ -102,9 +102,9 @@ Caused by: java.lang.RuntimeException: 只能实例化1个对象
 	... 5 more
 ```
 
-### 序列化破坏单例模式
+### 05、序列化破坏单例模式
 
-用序列化的方式,需要在静态内部类(LazyInnerClassSingleton)实现Serializable接口,代码在下面的防止序列化破坏单例模式里面
+用序列化的方式,需要在静态内部类(LazyInnerClassSingleton) 实现 Serializable 接口，代码在下面的防止序列化破坏单例模式里面
 
 这里我们先来看下序列和反序列的代码
 
@@ -137,9 +137,9 @@ Caused by: java.lang.RuntimeException: 只能实例化1个对象
 
 结果为false，说明也破坏了单例模式
 
-### 防止序列化破坏单例模式
+### 06、防止序列化破坏单例模式
 
-这里我们先来看下改造后的代码,然后分析原理
+这里我们先来看下改造后的代码，然后分析原理
 
 ```java
 public class LazyInnerClassSingleton implements Serializable {
@@ -169,7 +169,7 @@ public class LazyInnerClassSingleton implements Serializable {
 }
 ```
 
-在执行上面序列和反序列化代码,输出true,是不是一脸懵逼,为什么加了一个readResolve方法,就能防止序列化破坏单例模式,下面就带着大家来看下序列化的源码:
+在执行上面序列和反序列化代码，输出true，是不是一脸懵逼，为什么加了一个readResolve方法，就能防止序列化破坏单例模式，下面就带着大家来看下序列化的源码：
 
 ```java
 public final Object readObject()throws IOException, ClassNotFoundException{
@@ -199,7 +199,7 @@ public final Object readObject()throws IOException, ClassNotFoundException{
 }
 ```
 
-然后我们看下`readObject0`这个方法
+然后我们看下 `readObject0` 这个方法
 
 ```java
 private Object readObject0(boolean unshared) throws IOException {
@@ -212,7 +212,7 @@ private Object readObject0(boolean unshared) throws IOException {
 }
 ```
 
-然后我们看下`readOrdinaryObject`这个方法,我加一些注释,认真看
+然后我们看下`readOrdinaryObject` 这个方法
 
 ```java
 	private Object readOrdinaryObject(boolean unshared)throws IOException{
@@ -220,48 +220,21 @@ private Object readObject0(boolean unshared) throws IOException {
         Object obj;
         try {
             //这里判断是否有无参的构造函数,有的话就调用newInstance()实例化对象
-            obj = desc.isInstantiable() ? desc.newInstance() : null;
-        } catch (Exception ex) {
-            throw (IOException) new InvalidClassException(
-                desc.forClass().getName(),
-                "unable to create instance").initCause(ex);
-        }
+            obj = desc.isInstantiable() ? desc.newInstance() : null; 
 		...
         if (obj != null &&
             handles.lookupException(passHandle) == null &&
-            //这里我直接把hasReadResolveMethod()的代码贴出来,代码不多,但是很关键
-            //return (readResolveMethod != null);
-            //readResolveMethod是一个方法,我们看下他得初始化
-            //readResolveMethod = getInheritableMethod(cl, "readResolve", null, 			//Object.class);
-            //其实这里就是看序列化的类有没有readResolve方法.有的话就走if里面的代码,没有就直			//接返回obj,obj是通过反射调用构造函数实例化的对象,地址肯定不一样
             desc.hasReadResolveMethod())
         {
-            //这里invokeReadResolve方法就是通过反射调用readResolveMethod方法,也就是
-            //readResolve方法,这里面返回的对象的地址就是单例对象地址
             Object rep = desc.invokeReadResolve(obj);
-            if (unshared && rep.getClass().isArray()) {
-                rep = cloneArray(rep);
-            }
-            if (rep != obj) {
-                // Filter the replacement object
-                if (rep != null) {
-                    if (rep.getClass().isArray()) {
-                        filterCheck(rep.getClass(), Array.getLength(rep));
-                    } else {
-                        filterCheck(rep.getClass(), -1);
-                    }
-                }
-                //obj = rep这里不用说了吧
-                handles.setObject(passHandle, obj = rep);
-            }
-        }
-
-        return obj;
+          ...
     }
 ```
 
+这里的关键是`desc.hasReadResolveMethod()` ，这段代码的意思是查看你的单例类里面有没有`readResolve`方法，有的话就利用反射的方式执行这个方法，具体是`desc.invokeReadResolve(obj)`这段代码，返回单例对象。这里其实是实例化了两次，只不过新创建的对象没有被返回而已。如果创建对象的动作发生频率增大，就意味着内存分配开销也就随之增大，这也算是一个缺点吧。
+
 完整的流程就是这样，是不是很神奇。
 
-### 总结
+### 07、总结
 
-破坏和防止单例模式被破坏的知识点get到了吗，大家平时多看些源码，能了解很多有趣的东西。
+破坏和防止单例模式被破坏的知识点 get 到了吗，大家平时多看些源码，能了解很多有趣的东西。
