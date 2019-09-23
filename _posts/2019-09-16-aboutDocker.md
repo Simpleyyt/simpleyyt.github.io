@@ -17,8 +17,8 @@ tag:
 好吧，说的再明白点儿，就是有了镜像，才有的容器。容器是在镜像的基础上，才有的。
 # Docker 安装
 以前写过，这里就不赘述了，直接上链接：
-需要科学上网的安装方法:[[Docker]CentOS7下Docker安装教程](https://blog。csdn。net/zll_0405/article/details/84890806)
-不需要科学上网的安装方法:[[Docker]CentOS7通过rpm包安装Docker](https://blog。csdn。net/zll_0405/article/details/85092766)
+需要科学上网的安装方法:[[Docker]CentOS7下Docker安装教程](https://blog.csdn.net/zll_0405/article/details/84890806)
+不需要科学上网的安装方法:[[Docker]CentOS7通过rpm包安装Docker](https://blog.csdn.net/zll_0405/article/details/85092766)
 # Docker 相关命令
 ## Docker 操作相关命令：
 ```
@@ -38,8 +38,8 @@ docker images
 ```
 docker search 镜像名称
 ```
-拉取镜像:[[Docker]Docker拉取，上传镜像到Harbor仓库](https://blog。csdn。net/zll_0405/article/details/85124404)
-删除镜像:[[Docker]如何批量删除镜像](https://blog。csdn。net/zll_0405/article/details/85217839)
+拉取镜像:[[Docker]Docker拉取，上传镜像到Harbor仓库](https://blog.csdn.net/zll_0405/article/details/85124404)
+删除镜像:[[Docker]如何批量删除镜像](https://blog.csdn.net/zll_0405/article/details/85217839)
 ## <font face='华文中宋' size=3 >容器相关命令：
 <strong>查看容器:</strong>
 查看正在运行的容器：
@@ -202,6 +202,6 @@ WORDIR path_dir 设置工作目录
 ```
 需要注意一下，如果要使用 Dockerfile 文件，名字必须为「Dockerfile」,否则里面的命令不会有效。
 # 镜像上传下载到镜像仓库
-以前写过博客，感觉还是比较详细的:[[Docker]Docker拉取，上传镜像到Harbor仓库](https://blog。csdn。net/zll_0405/article/details/85124404)(在上面应该也看到过了，再放一次)
+以前写过博客，感觉还是比较详细的:[[Docker]Docker拉取，上传镜像到Harbor仓库](https://blog.csdn.net/zll_0405/article/details/85124404)(在上面应该也看到过了，再放一次)
 
 关于 Docker 入门，我只能帮你到这儿了~
