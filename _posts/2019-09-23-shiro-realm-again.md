@@ -19,7 +19,7 @@ tags:
 
 可能我们并不知道，实际上这个类在我们第二篇文章中就已经用过了。这个类一开始就有如下两行定义：  
 
-```
+```java
 public static final String USERS_SECTION_NAME = "users";
 public static final String ROLES_SECTION_NAME = "roles";
 ```
@@ -37,7 +37,7 @@ role.role1=permission1
 
 这个顾名思义，就是从数据库中查询用户的角色、权限等信息。打开 JdbcRealm 类，我们看到源码中有如下几行：  
 
-```
+```java
 protected static final String DEFAULT_AUTHENTICATION_QUERY = "select password from users where username = ?";
 protected static final String DEFAULT_SALTED_AUTHENTICATION_QUERY = "select password, password_salt from users where username = ?";
 protected static final String DEFAULT_USER_ROLES_QUERY = "select role_name from user_roles where username = ?";
@@ -52,7 +52,7 @@ protected static final String DEFAULT_PERMISSIONS_QUERY = "select permission fro
 
 使用 JdbcRealm，涉及到数据库操作，要用到数据库连接池，这里我使用 Druid 数据库连接池，因此首先添加如下依赖：  
 
-```
+```xml
 <dependency>
     <groupId>com.alibaba</groupId>
     <artifactId>druid</artifactId>
@@ -77,7 +77,7 @@ protected static final String DEFAULT_PERMISSIONS_QUERY = "select permission fro
 
 然后将 shiro.ini 中的所有配置注释掉，添加如下注释：  
 
-```
+```java
 jdbcRealm=org.apache.shiro.realm.jdbc.JdbcRealm
 dataSource=com.alibaba.druid.pool.DruidDataSource
 dataSource.driverClassName=com.mysql.jdbc.Driver
@@ -99,7 +99,7 @@ OK，做完上面几步就可以测试了，测试方式和第二篇文章中一
 
 小伙伴们看懂了上文，对于自定义查询 SQL 就没什么问题了。我这里举一个简单的例子，比如我要自定义 authenticationQuery 对对应的 SQL，查看 JdbcRealm 源码，我们发现 authenticationQuery 对应的 SQL 本来是 `select password from users where username = ?` ，如果需要修改的话，比如说我的表名不是 users 而是 employee，那么在 shiro.ini 中添加如下配置即可：  
 
-```
+```java
 jdbcRealm.authenticationQuery=select password from employee where username = ?
 ```
 
