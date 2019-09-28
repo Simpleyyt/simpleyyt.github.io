@@ -90,12 +90,12 @@ mysql底层有个叫优化器的东东，当我们执行一条sql时，会经过
 
 我借用一张网上的图：
 
-![image](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569585685231&di=bc113a44e3848ab3219a263d3df3cd4a&imgtype=0&src=http%3A%2F%2Fstatic.codeceo.com%2Fimages%2F2017%2F05%2Fa9078e8653368c9c291ae2f8b74012e74.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_xiaoma/mysql-index-nouse/3.png)
+
 
 如果对索引字段做函数操作（本例是cast函数做了隐式的转换），可能会破坏索引值的有序性，因此优化器就决定放弃走树搜索功能。
 
 ## 4、总结
-下面这句话跟我读三遍：
 
 1. 字符串类型的索引查询语句中必须加单引号，否则MySQL不会使用该索引。
 2. MySQL不支持函数索引 ，在开发时要避免在查询条件加入函数。
