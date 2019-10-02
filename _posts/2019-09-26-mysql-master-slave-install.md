@@ -72,7 +72,7 @@ expire_logs_days= 7
 max_binlog_size= 100m                       //binlog每个日志文件大小
 binlog_cache_size= 4m                        //binlog缓存大小
 max_binlog_cache_size= 512m                     //最大binlog缓存大小
-binlog-do-db=401_itoo
+binlog-do-db=401_test
 lower_case_table_names=1
 ```
 
