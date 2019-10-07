@@ -77,8 +77,6 @@ partition 译为分区，topic 中的消息被分割为一个或多个的 partit
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/kafka/05.png)
 
-​																		分区示意图
-
 >注意：由于一个主题包含无数个分区，因此无法保证在整个 topic 中有序，但是单个 Partition 分区可以保证有序。消息被迫加写入每个分区的尾部。Kafka 通过分区来实现数据冗余和伸缩性
 
 分区可以分布在不同的服务器上，也就是说，一个主题可以跨越多个服务器，以此来提供比单个服务器更强大的性能。
@@ -95,8 +93,6 @@ broker 是集群的组成部分，每个集群中都会有一个 broker 同时�
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/kafka/06.png)
 
-​																	分区复制示意图
-
 ### producer
 
 生产者，即消息的发布者，其会将某 topic 的消息发布到相应的 partition 中。生产者在默认情况下把消息均衡地分布到主题的所有分区上，而并不关心特定消息会被写到哪个分区。不过，在某些情况下，生产者会把消息直接写到指定的分区。
@@ -106,10 +102,6 @@ broker 是集群的组成部分，每个集群中都会有一个 broker 同时�
 消费者，即消息的使用者，一个消费者可以消费多个 topic 的消息，对于某一个 topic 的消息，其只会消费同一个 partition 中的消息
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/kafka/07.png)
-
-​																	消费者消费消息
-
-
 
 在了解完 Kafka 的基本概念之后，我们通过搭建 Kafka 集群来进一步深刻认识一下 Kafka。
 
