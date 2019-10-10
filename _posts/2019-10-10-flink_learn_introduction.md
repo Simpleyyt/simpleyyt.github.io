@@ -16,7 +16,7 @@ published: true
 
 于是规划了基于以下的系统架构：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/system_architecture.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/system_architecture.png)
 
 **可以看到，业务数据库与数据分析进行了剥离，避免了对核心业务的影响，基于数据分析的结果存储到线下备份库，查询大量的分析结果也不会影响核心业务。**
 
@@ -42,7 +42,7 @@ published: true
 ---
 ### 1、流 Stream
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/bounded-unbounded.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/bounded-unbounded.png)
 
 从上图中看出，分为 **有界（bounded）** 和 **无界（unbounded）** 数据流。二者的区别在于无限数据流的数据会随着时间的推演而持续增加，计算持续进行且不存在结束的状态，相对的有限数据流大小固定，计算最终会完成并处于结束的状态。
 
@@ -56,7 +56,7 @@ published: true
 ---
 ### 3、时间 Time
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/event_ingestion_processing_time.svg)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/event_ingestion_processing_time.svg)
 
 分为**事件时间（Event Time）**、**摄入时间（Ingestion Time）**、**处理时间（Processing Time）**，`Flink` 的无限数据流是一个持续的过程，时间是我们判断业务状态是否滞后，数据处理是否及时的重要依据。
 
@@ -69,7 +69,7 @@ published: true
 ---
 ### 4、接口 API
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/api-stack.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/api-stack.png)
 
 从上往下有三层，分别是 `SQL/Table API`、`DataStream API` 和 `ProcessFunction`，`API` 的表达能力及业务抽象能力都非常强大，但越接近 `SQL` 层，表达能力会逐步减弱，抽象能力会增强（由于是基础了解，所以没有对于 `SQL API` 层深入学习，感兴趣的同学可以深入了解）。
 
@@ -82,7 +82,7 @@ published: true
 
 来源 [https://ververica.cn/developers/flink-basic-tutorial-1-basic-concept/](https://ververica.cn/developers/flink-basic-tutorial-1-basic-concept/)
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/flink_architecture.jpeg)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/flink_architecture.jpeg)
 
 ###  1、有界和无界数据流
 
@@ -115,7 +115,7 @@ published: true
 
 `Flink` 程序的基本构建块是流和转换。 （请注意，`Flink` 的 `DataSet API `中使用的 `DataSet `也是内部流）从概念上讲，流是数据记录流（可能永无止境），而转换是将一个或多个流作为一个操作的操作。一个输入，可以产生一个（例如 `map`）或多个输出流（例如 `flatMap`）。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/flink_streaming_dataflow.svg)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/flink_streaming_dataflow.svg)
 
 上图是数据处理流程，可以看到有几个核心组件：
 
@@ -150,23 +150,23 @@ published: true
 
 下面简单列出它俩的**吞吐量和作业延迟的比较**
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/flink_storm_throughput_contrast.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/flink_storm_throughput_contrast.png)
 
 上图的数据源是 `Kafka Source`，蓝色是 `Storm`，橙色是 `Flink`，在一个分区 `partition` 情况下，`Flink` 吞吐约为 `Storm` 的 3.2 倍；而在 8 个分区情况下，性能提高到 4.6 倍。
 
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/flink_strom_delayed_contrast.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/flink_strom_delayed_contrast.png)
 
 上图采用的的 `outTime-eventTime` 作为延迟，可以看出，`Flink` 的延迟还是比 `Storm` 的要低。
 
 ---
 ## 管理方式 JobManager、TaskWorker
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/flink_jobManager_worker.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/flink_jobManager_worker.jpg)
 
 上面是官方示意图，阐述了 `Flink` 提交作业的流程，应用程序 `Flink Program`、`JobManage` 和 `TaskManager` 之间的关系。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/flink_distract_architecture.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/flink_distract_architecture.png)
 
 上面是我对它的理解，个人觉得 `zhisheng` 大佬写的更加详细，可以参考这篇文章：[http://www.54tianzhisheng.cn/2018/10/13/flink-introduction/](http://www.54tianzhisheng.cn/2018/10/13/flink-introduction/)
 
@@ -177,7 +177,7 @@ published: true
 
 `Flink` 提供了丰富的状态访问（例如有 `List`、`Map`、`Aggregate` 等数据类型），以及高效的容错机制，存储状态 `State`，然后通过存储了状态的 `Checkpoint` 和 `Savepoint` 来帮助应用进行快速恢复。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introductioncn/flink_state_checkpoint_introducation.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/flink_state_checkpoint_introducation.png)
 
 详细请参考这两篇：
 
