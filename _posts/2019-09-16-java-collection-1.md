@@ -1,26 +1,27 @@
 ---
 layout: post
-title: 【集合系列】- 初探java集合框架图
+title: 【集合系列】- 初探 java 集合框架图
 tagline: by 炸鸡可乐
 categories: Java
 tags: 
   - Java
 ---
 
-实际开发中，经常用到java的集合框架，比如ArrayList、LinkedList、HashMap、LinkedHashMap，几乎经常接触到，虽然用的多，但是对集合的整体框架，基础知识还是不够系统，今天想和大家一起来梳理一下！
+实际开发中，经常用到 java 的集合框架，比如 ArrayList 、 LinkedList 、 HashMap 、 LinkedHashMap，几乎经常接触到，虽然用的多，但是对集合的整体框架，基础知识还是不够系统，今天想和大家一起来梳理一下！
 
 <!--more-->
 ### 01、集合类简介
->  Java集合就像一种容器，可以把多个对象（实际上是对象的引用，但习惯上都称对象）“丢进”该容器中。从Java 5 增加了泛型以后，Java集合可以记住容器中对象的数据类型，使得编码更加简洁、健壮。
+>  Java 集合就像一种容器，可以把多个对象（实际上是对象的引用，但习惯上都称对象）“丢进”该容器中。从 Java 5 增加了泛型以后，Java 集合可以记住容器中对象的数据类型，使得编码更加简洁、健壮。
 
-Java集合大致可以分为两大体系，一个是Collection，另一个是Map
+Java 集合大致可以分为两大体系，一个是 Collection，另一个是 Map；
+
 * Collection ：主要由List、Set、Queue接口组成，List代表有序、重复的集合；其中Set代表无序、不可重复的集合；Java 5 又增加了Queue体系集合，代表一种队列集合实现。
 * Map：则代表具有映射关系的键值对集合。
 
-**java.util.Collection下的接口和继承类关系简易结构图：**
+**java.util.Collection 下的接口和继承类关系简易结构图：**
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/c25904af60394296a36c41d0c3749ab4.jpg)
 
-**java.util.Map下的接口和继承类关系简易结构图：**
+**java.util.Map 下的接口和继承类关系简易结构图：**
 ![](http://www.justdojava.com/assets/images/2019/java/image-jay/4c0ea9d4d39c4ab09ed7e81ac76993d1.jpg)
 
 其中，Java 集合框架中主要封装的是典型的数据结构和算法，如动态数组、双向链表、队列、栈、Set、Map 等。
@@ -49,13 +50,13 @@ Java集合大致可以分为两大体系，一个是Collection，另一个是Map
 
 List主要实现类：ArrayList、LinkedList、Vector、Stack。
 #### 2.1、ArrayList
-ArrayList是一个动态数组结构，支持随机存取，尾部插入删除方便，内部插入删除效率低（因为要移动数组元素）；如果内部数组容量不足则自动扩容，因此当数组很大时，效率较低。
+ArrayList 是一个动态数组结构，支持随机存取，尾部插入删除方便，内部插入删除效率低（因为要移动数组元素）；如果内部数组容量不足则自动扩容，因此当数组很大时，效率较低。
 #### 2.2、LinkedList
-LinkedList是一个双向链表结构，在任意位置插入删除都很方便，但是不支持随机取值，每次都只能从一端开始遍历，直到找到查询的对象，然后返回；不过，它不像 ArrayList 那样需要进行内存拷贝，因此相对来说效率较高，但是因为存在额外的前驱和后继节点指针，因此占用的内存比 ArrayList 多一些。
+LinkedList 是一个双向链表结构，在任意位置插入删除都很方便，但是不支持随机取值，每次都只能从一端开始遍历，直到找到查询的对象，然后返回；不过，它不像 ArrayList 那样需要进行内存拷贝，因此相对来说效率较高，但是因为存在额外的前驱和后继节点指针，因此占用的内存比 ArrayList 多一些。
 #### 2.3、Vector
-Vector也是一个动态数组结构，一个元老级别的类，早在jdk1.1就引入进来类，之后在jdk1.2里引进ArrayList，ArrayList大部分的方法和Vector比较相似，两者是不同的，Vector是允许同步访问的，Vector中的操作是线程安全的，但是效率低，而ArrayList所有的操作都是异步的，执行效率高，但不安全！
+Vector 也是一个动态数组结构，一个元老级别的类，早在 jdk1.1 就引入进来类，之后在 jdk1.2 里引进 ArrayList，ArrayList 大部分的方法和 Vector 比较相似，两者是不同的，Vector 是允许同步访问的，Vector 中的操作是线程安全的，但是效率低，而 ArrayList 所有的操作都是异步的，执行效率高，但不安全！
 
-关于`Vector`，现在用的很少了，因为里面的`get`、`set`、`add`等方法都加了`synchronized`，所以，执行效率会比较低，如果需要在多线程中使用，可以采用下面语句创建ArrayList对象
+关于`Vector`，现在用的很少了，因为里面的`get`、`set`、`add`等方法都加了`synchronized`，所以，执行效率会比较低，如果需要在多线程中使用，可以采用下面语句创建 ArrayList 对象
 ```
 List<Object> list =Collections.synchronizedList(new ArrayList<Object>());
 ```
@@ -64,21 +65,21 @@ List<Object> list =Collections.synchronizedList(new ArrayList<Object>());
 final CopyOnWriteArrayList<Object> cowList = new CopyOnWriteArrayList<String>(Object);
 ```
 #### 2.4、Stack
-Stack是Vector的一个子类，本质也是一个动态数组结构，不同的是，它的数据结构是先进后出，取名叫栈！
+Stack 是 Vector 的一个子类，本质也是一个动态数组结构，不同的是，它的数据结构是先进后出，取名叫栈！
 
 关于`Stack`，现在用的也很少，因为有个`ArrayDeque`双端队列，可以替代`Stack`所有的功能，并且执行效率比它高！
 ### 03、集(Set)
 > Set集合的特点：元素不重复，存取无序，无下标；
 
-Set主要实现类：HashSet、LinkedHashSet和TreeSet。
+Set主要实现类：HashSet、LinkedHashSet 和 TreeSet。
 #### 3.1、HashSet
 HashSet底层是基于 HashMap 的`k`实现的，元素不可重复，特性同 HashMap。
 #### 3.2、LinkedHashSet
 LinkedHashSet底层也是基于 LinkedHashMap 的`k`实现的，一样元素不可重复，特性同 LinkedHashMap。
 #### 3.3、TreeSet
-同样的，TreeSet也是基于 TreeMap 的`k`实现的，同样元素不可重复，特性同 TreeMap；
+同样的，TreeSet 也是基于 TreeMap 的`k`实现的，同样元素不可重复，特性同 TreeMap；
 
-**Set集合的实现，基本都是基于Map中的键做文章，使用Map中键不能重复、无序的特性；所以，我们只需要重点关注Map的实现即可！**
+**Set 集合的实现，基本都是基于 Map 中的键做文章，使用 Map 中键不能重复、无序的特性；所以，我们只需要重点关注 Map 的实现即可！**
 ### 04、队列(Queue)
 > Queue是一个队列集合，队列通常是指“先进先出”（FIFO）的容器。新元素插入（offer）到队列的尾部，访问元素（poll）操作会返回队列头部的元素。通常，队列不允许随机访问队列中的元素。
 
