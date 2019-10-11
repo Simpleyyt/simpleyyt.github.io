@@ -73,11 +73,11 @@ Redis 作为当下主流的 NoSQL 数据库，已经成为企业级开发不可�
 4. 使用配置文件启动 redis 服务端：`redis-server redis.conf`
 5. 客户端登录并测试
 
-![image-20191011002718840](http://justdojava.com/assets/images/2019/java/image_ziyou/redis-series02.png)
+   ![image-20191011002718840](http://justdojava.com/assets/images/2019/java/image_ziyou/redis-series02.png)
 
-至此，两种方式的安装都介绍完了，大家可以根据自己的情况采用一种方式安装学习。
+   至此，两种方式的安装都介绍完了，大家可以根据自己的情况采用一种方式安装学习。
 
-### 03、使用场景
+### 03、常用场景
 
 Redis 作为 NoSQL 数据库，主要的使用场景如下：
 
@@ -85,10 +85,21 @@ Redis 作为 NoSQL 数据库，主要的使用场景如下：
 2. 计数统计：Redis 本身支持加一和减一命令，单线程情况下可以帮我们做简单的计数功能，可以累积计算 pv 值，也很实用。
 3. 排序和集合操作：Redis 的 list 和 zset 数据结构可以用于需要实现排序如排行榜，最新评论，或者获取共同好友等场景。
 4. 消息队列：Redis 提供的 发布订阅（`PUB/SUB`）和 阻塞队列的功能，能够满足基本的消息队列的使用。
+5. 分布式锁：在分布式环境下，经常会使用的分布式锁，基于 Redis 的`SET resource_name my_random_value NX PX 30000` 也可以实现高性能的分布式锁。Redis 实现的分布式锁性能比数据库以及 zookeeper 实现的要高，可以参考之前的文章[分布式下必备神器之分布式锁](https://mp.weixin.qq.com/s?__biz=MzU3NzczMTAzMg==&mid=2247484721&idx=1&sn=e70194f7832dd1900a508e17b3279fad&chksm=fd016586ca76ec9032afbb56d51a5df1d342404202e5ff6e29e6b56fc565439634e7c8a6fbe8&token=847382307&lang=zh_CN#rd)
 
-### 04、总结
+### 04、高级特性
+
+Redis 有很多高级的特性，这里先简单罗列一下，后面的系列文章会详细介绍：
+
+1. 支持管道
+   1. 可以批量执行 Redis 命令，生产中我们有时候需要处理大量的 Redis 数据，这个时候如果采用单个命令执行的话会非常耗时间，这个时候我们就可以生产符合 Redis 规则的文件，进行批量的处理，十分方便。
+2. 内存回收策略和 Key 的过期策略
+   1. Redis 的内存回收和 Key 的过期策略，内部有多种不同方案的实现，后面我们会详细谈到。
+3. 支持 lua 脚本；
+4. Redis 的事物；
+   1. Redis 的事物跟我们熟知的关系型数据库的事物有什么不同和区别呢？我们会面文章也会介绍。
+
+### 05、总结
 
 这篇文章是 Redis 系列文章的第一篇，简单的给大家介绍了 Redis 的一些概述和基本特性，以及两种安装方式和一些常用的使用场景，下篇文章会开始介绍一些基本的命令使用以及逐渐的深入分析。大家在使用 Redis 的时候有什么坑或者心得可以分享的吗？欢迎到我们《Java 极客技术》知识星球来大家一起讨论，一起进步。
-
-![子悠-知识星球](http://justdojava.com/assets/images/2019/java/image_ziyou/子悠-知识星球.png)
 
