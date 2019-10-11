@@ -12,6 +12,7 @@ published: true
 
 Redis 作为当下主流的 NoSQL 数据库，已经成为企业级开发不可或缺的一个重要组件了，现在大大小小的项目都会用到它，并且最新的版本已经达到 5.x 了。从这篇文章开始，我们会用一个系列的文章详细的给大家介绍一下 Redis 底层实现和使用场景，希望能帮助大家更好的使用。
 
+<!--more-->
 ### 01、概述
 
 本篇是 Redis 系列的第一篇文章，我们主要对 Redis 做一下概述，以及详细的安装教程和简单使用，后面的文章会一步一步带大家走进 Redis 的细节部分。
@@ -22,7 +23,7 @@ Redis 作为当下主流的 NoSQL 数据库，已经成为企业级开发不可�
 
 > Redis is an open source (BSD licensed), in-memory **data structure store**, used as a database, cache and message broker. It supports data structures such as [strings](https://redis.io/topics/data-types-intro#strings), [hashes](https://redis.io/topics/data-types-intro#hashes), [lists](https://redis.io/topics/data-types-intro#lists), [sets](https://redis.io/topics/data-types-intro#sets), [sorted sets](https://redis.io/topics/data-types-intro#sorted-sets) with range queries, [bitmaps](https://redis.io/topics/data-types-intro#bitmaps), [hyperloglogs](https://redis.io/topics/data-types-intro#hyperloglogs), [geospatial indexes](https://redis.io/commands/geoadd) with radius queries and [streams](https://redis.io/topics/streams-intro.md).
 
-大致的意思是说：Redis 是一个开放源码(基于 BSD 协议)的内存存储数据结构，被用作于数据库，缓存。它支持数据结构有字符串，哈希，列表，集合，排序集合，位图，超日志，GEO。 
+大致的意思是说：Redis 是一个开放源码(基于 BSD 协议)的内存存储数据结构，被用作于数据库，缓存。它支持数据结构有字符串，哈希，列表，集合，排序集合，位图，超日志，GEO。
 
 #### 1.2 特性
 
