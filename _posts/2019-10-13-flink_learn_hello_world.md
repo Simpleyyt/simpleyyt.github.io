@@ -288,7 +288,7 @@ public class SocketWindowWordCount {
 这里先初步接触一下 **时间（Time）和窗口（Window）概念**，之后慢慢接触逐步加深理解吧。
 
 ---
-#总结
+# 总结
 
 **本文基于 `Mac` 系统已经 `Apache Flink 1.9` 版本进行了项目搭建和 `Demo` 编写，介绍了 `Suorce -> Transaction -> Sink` 的流程。简单的实现了一个字符计数器，根据套接字数据源，源源不断的输入，然后进行统计出现的次数，如有疑惑或不对之处请与我讨论~**
 
