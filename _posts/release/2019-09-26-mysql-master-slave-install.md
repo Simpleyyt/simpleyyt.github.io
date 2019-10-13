@@ -20,7 +20,7 @@ tag:
 ```
 
 至此，就算安装完毕。刚安装上 MySQL 时，是没有密码的，所以运行第 5 个命令之后，直接回车，就能进入到 MySQL 界面，如图，即表示成功
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-01.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-01.jpg)
 # MySQL 修改密码
 没有密码就能进入 MySQL ，安全性肯定是不能保证的，所以接下来介绍一下，如何修改密码。运行以下命令即可（这里以将密码改为 root 为例）：
 
@@ -38,7 +38,7 @@ mysql -uroot -p
 ```
 
 输入root之后，能看到如下界面，即为成功：
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-02.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-02.jpg)
 # MySQL搭建主从复制
 写在前面：搭建主从复制的前提是，都安装好了 MySQL 。这篇文章以 192.168.243.133 为主，192.168.243.132 为从为例，来演示搭建过程。同时请注意，MySQL 密码为 root
 1，133 为主，132 为从，从 133 上面，进入 MySQL 给 132 授权：
@@ -55,7 +55,7 @@ grant replication slave on *.* to 'root'@'192.168.243.132' identified by 'root';
 ```
 
 成功效果如图：
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-03.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-03.jpg)
 2，开启 133 的 binarylog
 MySQL Binary Log 也就是常说的 bin-log  ,是 mysql 执行改动产生的二进制日志文件,其主要作用有两个:
 * 数据恢复
@@ -77,9 +77,9 @@ lower_case_table_names=1
 ```
 
 具体如图：
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-04.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-04.jpg)
 进入 mysql ,查看 binary 是否开启成功：
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-05.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-05.jpg)
 3，在 133 和 132 上面分别创建数据库。此处以 401_test (如果数据库和我的不同,则主从的 my.cnf 上面相对应的数据库名称都要更改)为例
 
 ```
@@ -101,7 +101,7 @@ replicate-do-db=401_test
 ```
 
 与 133 稍微有些不同，请注意。效果如图：
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-06.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-06.jpg)
 5，查看 133 的 binary 日志位置，这在后续配置 132 时会用到。
 连接 MySQL ，使用命令查看 binary ：
 
@@ -109,7 +109,7 @@ replicate-do-db=401_test
 show master status\G
 ```
 
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-07.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-07.jpg)
 
 ```
 具体解析：
@@ -131,7 +131,7 @@ CHANGE MASTER TO
 ```
 
 具体如图:
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-08.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-08.jpg)
 
 ```
 HOST:主节点ip
@@ -148,7 +148,7 @@ MASTER_LOG_POS:日志偏移量,需要和 133 的一样
 show slave status\G
 ```
 
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-09.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-09.jpg)
 Slave_IO_Running为读取master的binaryLog的线程
 Slave_SQL_Running为执行SQL的线程
 这两个线程必须都为YES才可以实现主从复制
@@ -168,7 +168,7 @@ grant replication slave on *.* to 'root'@'192.168.243.133' identified by 'root';
 show master status;
 ```
 
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-10.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-10.jpg)
 3，开启 133 的同步(这里的步骤和 132 配置相同,我就不在这里展示了,如果忘记了,可以往上面再翻翻看)
 4，查看 133 slave 的状态：
 
@@ -176,9 +176,9 @@ show master status;
 show slave status\G；
 ```
 
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-11.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-11.jpg)
 可能出现的错误：
-![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysql-12.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-zll/mysqlInstall/mysql-12.jpg)
 解决办法：
 出现上图的错误就先将 slave 停掉,再操作一遍,使用命令: STOP SLAVE ,(此处命令必须为大写)
 开启完同步之后需要打开 slave ,使用命令: START SLAVE (此处命令必须为大写)。
