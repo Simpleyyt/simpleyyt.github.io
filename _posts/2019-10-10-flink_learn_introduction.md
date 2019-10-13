@@ -61,7 +61,9 @@ published: true
 分为**事件时间（Event Time）**、**摄入时间（Ingestion Time）**、**处理时间（Processing Time）**，`Flink` 的无限数据流是一个持续的过程，时间是我们判断业务状态是否滞后，数据处理是否及时的重要依据。
 
 `事件时间`：事件被处理的时间，也就是由机器的系统时间决定。
+
 `处理时间`：事件发生的时间，一般数据源携带的一个字段，指明事件发生的时间。
+
 `摄入时间`：时间进入 `Flink` 的时间，在数据源处，事件将会以当源的操作时间作为时间戳。
 
 **三个时间出现的位置在上图的底部，具体的之后会专门讲述~**
@@ -205,8 +207,11 @@ published: true
 运行环境如下：
 
 > OS : Mac
+>
 > Flink Version : 1.9
+>
 > IDE : IDEA
+>
 > Java Version : 1.8
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/Flink_study_diagram.png)
@@ -215,7 +220,7 @@ published: true
 
 ---
 # 总结：未来的计算方式
-从调研的结果中能看出，无论从性能、接口编程和容错上，`Flink` 都是一个不错的计算引擎。 `github` 拥有 1w 多个 `star`，这么多人支持以及阿里巴巴的大力推广，以及在 2019.09 参加的云栖大会，演讲嘉宾对 `Flink` 的展望
+从调研的结果中能看出，无论从性能、接口编程和容错上，`Flink` 都是一个不错的计算引擎。 `github` 拥有 1w 多个 `star`，这么多人支持以及阿里巴巴的大力推广，还有在 2019.09 参加的云栖大会，演讲嘉宾对 `Flink` 的展望
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/alibaba_flink_preview.jpeg)
 
