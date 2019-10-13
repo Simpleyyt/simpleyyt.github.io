@@ -13,8 +13,11 @@ published: true
 说明一下，项目运行的环境如下：
 
 > OS : Mac
+>
 > Flink Version : 1.9
+>
 > IDE : IDEA
+>
 > Java Version : 1.8
 
 下面来讲下关于环境准备，如果是 `Windows` 的用户，请参照每个步骤，找到适应自己的安装 `or` 启动方法。
@@ -134,7 +137,7 @@ public class SocketTextStreamWordCount {
 }
 ```
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/helloworldcn/flink_helloworld_process.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/helloworld/flink_helloworld_process.png)
 
 简单说明一下，上面出现了 `SocketTextStream` 套接字字符 **数据源（Source）**，接着是 **算子（Operator）**： `FlatMap`（一个输入源，可以输出零个个或多个结果）、`KeyBy`（按照某字段或者 tuple 元组中某个下标进行分类） 和 `sun`（跟翻译一样，就是进行聚合汇总） ，最后输出
 
@@ -278,9 +281,11 @@ public class SocketWindowWordCount {
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/helloworld/flink_hello_world_time_winodw.png)
 
-可以看到由于滑动窗口大小是 1s，窗口是有重合的部分，然后每秒统计自己所在窗口的数据（5s 内传输过来的数据），可以看到第 6s 时，已经舍弃掉第 0s 输入的字符串数据。
+由于滑动窗口大小是 1s，窗口是有重合的部分，然后每秒统计自己所在窗口的数据（5s 内传输过来的数据），可以看到第 6s 时，已经舍弃掉第 0s 输入的字符串数据。
 
-可以修改一下时间窗口大小和滑动窗口大小，然后输入自定义的数据，这里先初步接触一下 **时间（Time）和窗口（Window）概念**，之后慢慢接触逐步加深理解吧。
+小伙伴们也可以修改一下时间窗口大小和滑动窗口大小，然后输入自定义的数据，进行不同参数的设置，看下输出效果如何，是否有达到自己的预期。
+
+这里先初步接触一下 **时间（Time）和窗口（Window）概念**，之后慢慢接触逐步加深理解吧。
 
 ---
 #总结
