@@ -24,7 +24,7 @@ published: true
 
 <!--more-->
 
----
+
 
 # 官网介绍
 
@@ -39,7 +39,7 @@ published: true
 
 基础语义很重要，高层语法都是基础基础语义加工的，所以需要对它们有个了解，这里推荐的是 [`ververica`](https://ververica.cn/developers/flink-basic-tutorial-1-basic-concept/) 中的介绍：
 
----
+
 ### 1、流 Stream
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/bounded-unbounded.png)
@@ -48,12 +48,12 @@ published: true
 
 同样还有 **实时** 和 **历史记录** 属性。流中的数据一生成就得到实时处理；另一种可能时效性要求不高，只需要在凌晨统计前一天完整的数据，可以先将数据流持久化到存储系统中，然后再进行批处理。
 
----
+
 ### 2、状态 State
 
 状态时计算过程中的数据信息，在容错恢复和 `Checkpoint` 中有重要的作用，流计算在本质上是增量处理，因此需要不断查询保持状态；另外，为了保证 `Excatly-once` 语义，还需要将数据写入到状态中，用来保证在故障发生时，通过保存在状态中的数据，进行恢复，保证一致性；还有持久化存储，能够保证在整个分布式系统运行失败或者挂掉的情况下做到 `Exactly-once`，这是状态的另一个价值。
 
----
+
 ### 3、时间 Time
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/event_ingestion_processing_time.svg)
@@ -68,7 +68,7 @@ published: true
 
 **三个时间出现的位置在上图的底部，具体的之后会专门讲述~**
 
----
+
 ### 4、接口 API
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/api-stack.png)
@@ -90,7 +90,7 @@ published: true
 
 `Flink` 具有统一的框架处理有界和无界两种数据流的能力（流处理是无界的，批处理是有界的，给无界的流处理加上窗口 `Window` 就相当于有界的批处理，由于 `API` 是一致的，所以算子写完后可以进行复用）
 
----
+
 ### 2、部署灵活
 
 `Flink` 底层支持多种资源调度器，包括 `Yarn`、`Kubernetes` 等。`Flink` 自身带的 `Standalone` 的调度器，在部署上也十分灵活。（`Standalone` 也是我们本地开发常用的模式）
@@ -100,7 +100,7 @@ published: true
 
 可伸缩性对于分布式系统十分重要，资源不够可以动态添加节点，分摊压力，资源充足，撤下服务器，减少资源浪费。介绍中说到：阿里巴巴双 11 大屏采用 `Flink` 处理海量数据，使用过程中测得峰值可达 17 亿/秒。
 
----
+
 ### 4、极致的流式处理性能
 
 `Flink` 相对于 `Storm` 最大的特地就是将状态语义完全抽象到框架后只能怪，支持本地状态读取，避免了大量网络 `IO`，可以极大提升状态存储的性能。
@@ -112,7 +112,7 @@ published: true
 
 这里不会太深入分析，主要简单介绍它的特性和优点，有个大致的了解，由浅入深，在之后的文章中慢慢加深学习~
 
----
+
 ## 处理流程
 
 `Flink` 程序的基本构建块是流和转换。 （请注意，`Flink` 的 `DataSet API `中使用的 `DataSet `也是内部流）从概念上讲，流是数据记录流（可能永无止境），而转换是将一个或多个流作为一个操作的操作。一个输入，可以产生一个（例如 `map`）或多个输出流（例如 `flatMap`）。
@@ -126,21 +126,21 @@ published: true
 
 像图中获取的数据源是 `Kafka`，与其它中间件整合中，也封装了很多方便的方法，调用它们可以更方便获取数据源的数据。
 
----
+
 ### 2、转换 Transaction
 
 进行数据的转化，对应于文档中的算子 `Operator`。常见的数据操作有以下：`map`、`flatMap`、`filter`、`keyBy`、`reduce`、`fold`（在 1.9 中看到被标注为 `deprecated`）、`aggregate`、`window`等常用操作。
 
 同时从上图也能看出，转换的操作可以不止一次，多个算子可以形成 `chain` 链式调用，然后发挥作用。
 
----
+
 ### 3、存储 Sink
 
 进行数据的存储或发送，对应于文档中的 `connector`（既可以连接数据源，也能发送到某个地方存储起来）。
 
 常用的存储 `sink` 有 `Kafka`、`Apache Cassandra`、`Elasticsearch`、`RabbitMQ`、`Hadoop` 等。与前面一样，可以通过扩展 `RichSinkFunction` 进行自定义存储的逻辑。
 
----
+
 ## 性能比较
 
 例如 `Hadoop`、`Storm` 或 `Spark`，与这些优秀的前辈们进行比较，对比性能的高低，如果选择使用 `Flink`，必须得比以前的开发方便和性能好。
@@ -161,7 +161,7 @@ published: true
 
 上图采用的的 `outTime-eventTime` 作为延迟，可以看出，`Flink` 的延迟还是比 `Storm` 的要低。
 
----
+
 ## 管理方式 JobManager、TaskWorker
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/flink_jobManager_worker.jpg)
@@ -172,7 +172,7 @@ published: true
 
 上面是我对它的理解，个人觉得 `zhisheng` 大佬写的更加详细，可以参考这篇文章：[http://www.54tianzhisheng.cn/2018/10/13/flink-introduction/](http://www.54tianzhisheng.cn/2018/10/13/flink-introduction/)
 
----
+
 ## 高可用 HA、状态恢复
 
 `High Availablity` 是个老生常谈的话题了，服务难免会遇到无法预测的意外，如何在出现异常情况下并尽快恢复，继续处理之前的数据，保证一致性，这是个考量服务稳定性的标准。
@@ -186,7 +186,7 @@ published: true
 - [Apache Flink 零基础入门（七）：状态管理及容错机制 https://ververica.cn/developers/state-management/](https://ververica.cn/developers/state-management/)
 - [Apache Flink状态管理和容错机制介绍 https://ververica.cn/developers/introduction-to-state-management-and-fault-tolerance/](https://ververica.cn/developers/introduction-to-state-management-and-fault-tolerance/) 
 
----
+
 ## 社区生态
 
 **真的是十分敬仰发明优秀框架的团队，也十分敬佩每一个为技术做贡献的参与者，所以每次找到相关的资料都跟发现宝藏一样。**
@@ -218,11 +218,15 @@ published: true
 
 上图是我在学习过程中整理的一些知识点，之后将会根据罗列的知识点慢慢进行梳理和记录~
 
----
+
 # 总结：未来的计算方式
 从调研的结果中能看出，无论从性能、接口编程和容错上，`Flink` 都是一个不错的计算引擎。 `github` 拥有 1w 多个 `star`，这么多人支持以及阿里巴巴的大力推广，还有在 2019.09 参加的云栖大会，演讲嘉宾对 `Flink` 的展望
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/introduction/alibaba_flink_preview.jpeg)
+
+- **`Apache Flink` 已经是非常优秀和成熟的流计算引擎**
+- **`Apache Flink` 已经成为优秀的批处理引擎的挑战者**
+- **继续挖掘 `Apache Flink` 在 `OLAP` 数据分析领域的潜力，使其成为优秀的数据分析引擎**
 
 直觉相信，`Flink` 的发展前景不错，希望接下来与大家分享和更好的去学习它~
 

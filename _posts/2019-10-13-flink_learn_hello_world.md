@@ -24,12 +24,12 @@ published: true
 
 <!--more-->
 
----
+
 # 环境准备
 
 **首先我们默认已经安装了 `Jdk 1.8` 和编码工具 `IDEA`，下面来讲如何安装 `Flink` 和建立脚手架。下面展示的项目代码已经放入了 [Github](https://github.com/Vip-Augus/flink-learning-note)，可以下载进行本地运行**
 
----
+
 ## 安装 Flink
 
 ```sh
@@ -56,7 +56,7 @@ Starting taskexecutor daemon on host yejingqideMBP-c510.
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/helloworld/flink_dashboard.png)
 
----
+
 ## 创建项目
 
 这里推荐的是使用 `maven` 进行构建，在命令行中输入如下内容(# 号后面是说明，请不要输入）：
@@ -91,12 +91,12 @@ wiki-edits/
 
 如果是自己自定义的，包结构会不一致，但是通过脚手架创立的，`pom` 文件中预置的依赖都将一致，引入了 `Flink` 基础开发相关的 `API`，然后通过 `IDEA` 打开该项目目录，就可以开始我们的 `Hello world`。
 
----
+
 # 开始项目
 
 首先交代一下待会的流程，编写程序代码，启动 `netcat` 命令来监听 9000 端口，启动或提交 `Flink` 程序，监听日志输出信息。
 
----
+
 ##  1、项目代码
 
 `Demo` 的代码作用是监听 `netcat` 输入的字符，然后进行聚合操作，进行输出字符统计
@@ -141,7 +141,7 @@ public class SocketTextStreamWordCount {
 
 简单说明一下，上面出现了 `SocketTextStream` 套接字字符 **数据源（Source）**，接着是 **算子（Operator）**： `FlatMap`（一个输入源，可以输出零个个或多个结果）、`KeyBy`（按照某字段或者 tuple 元组中某个下标进行分类） 和 `sun`（跟翻译一样，就是进行聚合汇总） ，最后输出
 
----
+
 ## 2、开启 tcp 长链接
 
 为了模拟流数据，我们造的场景是不断往 9000 端口输入字符，`Flink` 程序添加的数据源是 `SocketTextStream` （套接字字符流）。
@@ -154,7 +154,7 @@ $ nc -l 9000
 
 有关 `netcat` 命令的用法，请看参考资料第二条，这里的作用就是打开 `TCP` 长链接，监听 9000 端口
 
----
+
 ## 3、启动 Flink 程序
 
 刚才第一个步骤中，已经编辑好了程序代码，第二个步骤也已经启动了一个 `TCP` 客户端，启动 `Flink` 程序有两个方法：
@@ -169,7 +169,7 @@ $ nc -l 9000
 
 这是本地开发经常使用的方法，进行结果的验证。
 
----
+
 ### 3.2、提交到 JobManager
 
 前面我们启动的是单机集群版，启动了一个 `JobManager` 和 `TaskWorker`，打开的 `localhost:8081` 就是 `JobManager` 的监控面板，所以我们要通过下面的方式，将 `Flink` 程序提交到 `JobManager`。
@@ -190,7 +190,7 @@ $ flink run -c cn.sevenyuan.wordcount.SocketTextStreamWordCount target/flink-qui
 
 顶部信息讲的是运行程序名字、时间、时间线、配置参数等信息，底下 `Name` 一栏，说明该程序逻辑步骤（读取数据源，进行映射处理，使用 keyBy 和聚合运算，最后输出到【打印 sink】）
 
----
+
 ## 4、输入数据 & 验证结果
 
 前面验证了程序正常启动，接下来我们来验证输入和输出
@@ -229,7 +229,7 @@ hello my world
 
 每行字符以空格进行分割，然后分别进行汇总统计，得到的输出结果一致。
 
----
+
 # 扩展阅读
 
 如果你在官网游览，应该也曾看到过 `TimeWindow` 时间窗口的例子，下面是 `Demo` 代码
