@@ -64,7 +64,7 @@ get 方法根据指定的 key 值返回对应的 value，该方法调用了`getE
 算法思想是根据 key 的自然顺序（或者比较器顺序）对二叉查找树进行查找，直到找到满足`k.compareTo(p.key) == 0`的`entry`。
 
 源码如下：
-```
+```java
 final Entry<K,V> getEntry(Object key) {
 		//如果传入比较器，通过getEntryUsingComparator方法获取元素
         if (comparator != null)
