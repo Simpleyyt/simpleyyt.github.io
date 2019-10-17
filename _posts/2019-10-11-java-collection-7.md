@@ -30,41 +30,41 @@ public class IdentityHashMap<K,V>
     extends AbstractMap<K,V>
     implements Map<K,V>, java.io.Serializable, Cloneable
 {
-	/**默认容量大小*/
+    /**默认容量大小*/
     private static final int DEFAULT_CAPACITY = 32;
-	
-	/**最小容量*/
+    
+    /**最小容量*/
     private static final int MINIMUM_CAPACITY = 4;
-	
-	/**最大容量*/
+    
+    /**最大容量*/
     private static final int MAXIMUM_CAPACITY = 1 << 29;
-	
-	/**用于存储实际元素的表*/
+    
+    /**用于存储实际元素的表*/
     transient Object[] table;
-	
-	/**数组大小*/
+    
+    /**数组大小*/
     int size;
 
-	/**对Map进行结构性修改的次数*/
+    /**对Map进行结构性修改的次数*/
     transient int modCount;
 
-	/**key为null所对应的值*/
+    /**key为null所对应的值*/
     static final Object NULL_KEY = new Object();
-	
-	......
+    
+    ......
 }
 ```
 可以看到类的底层，使用了一个 Object 数组来存放元素；在对象初始化时，IdentityHashMap 容量大小为`64`；
 ```java
 public IdentityHashMap() {
-	//调用初始化方法
-	init(DEFAULT_CAPACITY);
+    //调用初始化方法
+    init(DEFAULT_CAPACITY);
 }
 ```
 ```java
 private void init(int initCapacity) {
-	//数组大小默认为初始化容量的2倍
-	table = new Object[2 * initCapacity];
+    //数组大小默认为初始化容量的2倍
+    table = new Object[2 * initCapacity];
 }
 ```
 ### 03、常用方法介绍
@@ -76,98 +76,98 @@ put 方法是将指定的 key, value 对添加到 map 里。该方法首先会�
 源码如下：
 ```java
 public V put(K key, V value) {
-	//判断key是否为空，如果为空，初始化一个Object为key
-	final Object k = maskNull(key);
+    //判断key是否为空，如果为空，初始化一个Object为key
+    final Object k = maskNull(key);
 
-	retryAfterResize: for (;;) {
-		final Object[] tab = table;
-		final int len = tab.length;
-		//通过key、length获取数组小编
-		int i = hash(k, len);
-		
-		//循环遍历是否存在指定的key
-		for (Object item; (item = tab[i]) != null;
-			 i = nextKeyIndex(i, len)) {
-			 //通过==判断，是否数组中是否存在key
-			if (item == k) {
-					V oldValue = (V) tab[i + 1];
-					//新value覆盖旧value
-				tab[i + 1] = value;
-				//返回旧value
-				return oldValue;
-			}
-		}
-		
-		//数组长度 +1
-		final int s = size + 1;
-		//判断是否需要扩容
-		if (s + (s << 1) > len && resize(len))
-			continue retryAfterResize;
+    retryAfterResize: for (;;) {
+        final Object[] tab = table;
+        final int len = tab.length;
+        //通过key、length获取数组小编
+        int i = hash(k, len);
+        
+        //循环遍历是否存在指定的key
+        for (Object item; (item = tab[i]) != null;
+             i = nextKeyIndex(i, len)) {
+             //通过==判断，是否数组中是否存在key
+            if (item == k) {
+                    V oldValue = (V) tab[i + 1];
+                    //新value覆盖旧value
+                tab[i + 1] = value;
+                //返回旧value
+                return oldValue;
+            }
+        }
+        
+        //数组长度 +1
+        final int s = size + 1;
+        //判断是否需要扩容
+        if (s + (s << 1) > len && resize(len))
+            continue retryAfterResize;
 
-		//更新修改次数
-		modCount++;
-		//将k加入数组
-		tab[i] = k;
-		//将value加入数组
-		tab[i + 1] = value;
-		size = s;
-		return null;
-	}
+        //更新修改次数
+        modCount++;
+        //将k加入数组
+        tab[i] = k;
+        //将value加入数组
+        tab[i + 1] = value;
+        size = s;
+        return null;
+    }
 }
 ```
 maskNull 函数，判断 key 是否为空
 ```java
 private static Object maskNull(Object key) {
-	return (key == null ? NULL_KEY : key);
+    return (key == null ? NULL_KEY : key);
 }
 ```
 hash 函数，通过 key 获取 hash 值，结合数组长度通过位运算获取数组散列下标
 ```java
 private static int hash(Object x, int length) {
-	int h = System.identityHashCode(x);
-	// Multiply by -127, and left-shift to use least bit as part of hash
-	return ((h << 1) - (h << 8)) & (length - 1);
+    int h = System.identityHashCode(x);
+    // Multiply by -127, and left-shift to use least bit as part of hash
+    return ((h << 1) - (h << 8)) & (length - 1);
 }
 ```
 nextKeyIndex 函数，通过 hash 函数计算得到的数组散列下标，进行加2；因为一个 key、value 都存放在数组中，所以一个 map 对象占用两个数组下标，所以加2。
 ```java
 private static int nextKeyIndex(int i, int len) {
-	return (i + 2 < len ? i + 2 : 0);
+    return (i + 2 < len ? i + 2 : 0);
 }
 ```
 resize 函数，通过数组长度，进行扩容处理，扩容之后的长度为当前长度的2倍
 ```java
 private boolean resize(int newCapacity) {
-	//扩容后的数组长度，为当前数组长度的2倍
-	int newLength = newCapacity * 2;
+    //扩容后的数组长度，为当前数组长度的2倍
+    int newLength = newCapacity * 2;
 
-	Object[] oldTable = table;
-	int oldLength = oldTable.length;
-	if (oldLength == 2 * MAXIMUM_CAPACITY) { // can't expand any further
-		if (size == MAXIMUM_CAPACITY - 1)
-			throw new IllegalStateException("Capacity exhausted.");
-		return false;
-	}
-	if (oldLength >= newLength)
-		return false;
+    Object[] oldTable = table;
+    int oldLength = oldTable.length;
+    if (oldLength == 2 * MAXIMUM_CAPACITY) { // can't expand any further
+        if (size == MAXIMUM_CAPACITY - 1)
+            throw new IllegalStateException("Capacity exhausted.");
+        return false;
+    }
+    if (oldLength >= newLength)
+        return false;
 
-	Object[] newTable = new Object[newLength];
-	//将旧数组内容转移到新数组
-	for (int j = 0; j < oldLength; j += 2) {
-		Object key = oldTable[j];
-		if (key != null) {
-			Object value = oldTable[j+1];
-			oldTable[j] = null;
-			oldTable[j+1] = null;
-			int i = hash(key, newLength);
-			while (newTable[i] != null)
-				i = nextKeyIndex(i, newLength);
-			newTable[i] = key;
-			newTable[i + 1] = value;
-		}
-	}
-	table = newTable;
-	return true;
+    Object[] newTable = new Object[newLength];
+    //将旧数组内容转移到新数组
+    for (int j = 0; j < oldLength; j += 2) {
+        Object key = oldTable[j];
+        if (key != null) {
+            Object value = oldTable[j+1];
+            oldTable[j] = null;
+            oldTable[j+1] = null;
+            int i = hash(key, newLength);
+            while (newTable[i] != null)
+                i = nextKeyIndex(i, newLength);
+            newTable[i] = key;
+            newTable[i + 1] = value;
+        }
+    }
+    table = newTable;
+    return true;
 }
 ```
 #### 3.2、get方法
@@ -180,22 +180,22 @@ get 方法根据指定的 key 值返回对应的 value。同样的，该方法�
 源码如下：
 ```java
 public V get(Object key) {
-	Object k = maskNull(key);
-	Object[] tab = table;
-	int len = tab.length;
-	int i = hash(k, len);
-	
-	//循环遍历数组，直到找到key或者，数组为空为值
-	while (true) {
-		Object item = tab[i];
-		//通过==判断，当前数组元素与key相同
-		if (item == k)
-			return (V) tab[i + 1];
-		//数组为空
-		if (item == null)
-			return null;
-		i = nextKeyIndex(i, len);
-	}
+    Object k = maskNull(key);
+    Object[] tab = table;
+    int len = tab.length;
+    int i = hash(k, len);
+    
+    //循环遍历数组，直到找到key或者，数组为空为值
+    while (true) {
+        Object item = tab[i];
+        //通过==判断，当前数组元素与key相同
+        if (item == k)
+            return (V) tab[i + 1];
+        //数组为空
+        if (item == null)
+            return null;
+        i = nextKeyIndex(i, len);
+    }
 }
 ```
 
@@ -207,50 +207,50 @@ remove 的作用是通过 key 删除对应的元素。该方法会循环遍历�
 源码如下：
 ```java
 public V remove(Object key) {
-	Object k = maskNull(key);
-	Object[] tab = table;
-	int len = tab.length;
-	int i = hash(k, len);
+    Object k = maskNull(key);
+    Object[] tab = table;
+    int len = tab.length;
+    int i = hash(k, len);
 
-	while (true) {
-		Object item = tab[i];
-		if (item == k) {
-			modCount++;
-			//数组长度减1
-			size--;
-				V oldValue = (V) tab[i + 1];
-			//将key、value设置为null
-			tab[i + 1] = null;
-			tab[i] = null;
-			//删除该元素后，需要把原来有冲突往后移的元素移到前面来
-			closeDeletion(i);
-			return oldValue;
-		}
-		if (item == null)
-			return null;
-		i = nextKeyIndex(i, len);
-	}
+    while (true) {
+        Object item = tab[i];
+        if (item == k) {
+            modCount++;
+            //数组长度减1
+            size--;
+                V oldValue = (V) tab[i + 1];
+            //将key、value设置为null
+            tab[i + 1] = null;
+            tab[i] = null;
+            //删除该元素后，需要把原来有冲突往后移的元素移到前面来
+            closeDeletion(i);
+            return oldValue;
+        }
+        if (item == null)
+            return null;
+        i = nextKeyIndex(i, len);
+    }
 }
 ```
 closeDeletion 函数，删除该元素后，需要把原来有冲突往后移的元素移到前面来，对数组进行重写排列；
 ```java
 private void closeDeletion(int d) {
-	// Adapted from Knuth Section 6.4 Algorithm R
-	Object[] tab = table;
-	int len = tab.length;
+    // Adapted from Knuth Section 6.4 Algorithm R
+    Object[] tab = table;
+    int len = tab.length;
 
-	Object item;
-	for (int i = nextKeyIndex(d, len); (item = tab[i]) != null;
-		 i = nextKeyIndex(i, len) ) {
-		int r = hash(item, len);
-		if ((i < r && (r <= d || d <= i)) || (r <= d && d <= i)) {
-			tab[d] = item;
-			tab[d + 1] = tab[i + 1];
-			tab[i] = null;
-			tab[i + 1] = null;
-			d = i;
-		}
-	}
+    Object item;
+    for (int i = nextKeyIndex(d, len); (item = tab[i]) != null;
+         i = nextKeyIndex(i, len) ) {
+        int r = hash(item, len);
+        if ((i < r && (r <= d || d <= i)) || (r <= d && d <= i)) {
+            tab[d] = item;
+            tab[d + 1] = tab[i + 1];
+            tab[i] = null;
+            tab[i + 1] = null;
+            d = i;
+        }
+    }
 }
 ```
 ### 04、总结
@@ -264,14 +264,14 @@ private void closeDeletion(int d) {
 IdentityHashMap 测试例子：
 ```java
 public static void main(String[] args) {
-	Map<String, String> identityMaps = new IdentityHashMap<String, String>();
+    Map<String, String> identityMaps = new IdentityHashMap<String, String>();
 
-	identityMaps.put(new String("aa"), "aa");
-	identityMaps.put(new String("aa"), "bb");
-	identityMaps.put(new String("aa"), "cc");
-	identityMaps.put(new String("aa"), "cc");
-	//输出添加的元素
-	System.out.println("数组长度："+identityMaps.size() + "，输出结果：" + identityMaps);
+    identityMaps.put(new String("aa"), "aa");
+    identityMaps.put(new String("aa"), "bb");
+    identityMaps.put(new String("aa"), "cc");
+    identityMaps.put(new String("aa"), "cc");
+    //输出添加的元素
+    System.out.println("数组长度："+identityMaps.size() + "，输出结果：" + identityMaps);
 }
 ```
 输出结果：
