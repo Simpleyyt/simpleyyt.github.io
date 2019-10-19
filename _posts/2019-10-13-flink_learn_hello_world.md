@@ -94,12 +94,12 @@ wiki-edits/
 
 # 开始项目
 
-首先交代一下待会的流程，编写程序代码，启动 `netcat` 命令来监听 9000 端口，启动或提交 `Flink` 程序，监听日志输出信息。
+首先交代一下待会的流程，编写程序代码，启动 `netcat` 命令来监听 9000 端口，启动或提交 `Flink` 程序，最后监听日志输出信息。
 
 
 ##  1、项目代码
 
-`Demo` 的代码作用是监听 `netcat` 输入的字符，然后进行聚合操作，进行输出字符统计
+`Demo` 的代码作用是监听 `netcat` 输入的字符，然后进行聚合操作，最后输出字符统计
 
 ```java
 public class SocketTextStreamWordCount {
@@ -139,7 +139,7 @@ public class SocketTextStreamWordCount {
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/helloworld/flink_helloworld_process.png)
 
-简单说明一下，上面出现了 `SocketTextStream` 套接字字符 **数据源（Source）**，接着是 **算子（Operator）**： `FlatMap`（一个输入源，可以输出零个个或多个结果）、`KeyBy`（按照某字段或者 tuple 元组中某个下标进行分类） 和 `sun`（跟翻译一样，就是进行聚合汇总） ，最后输出
+简单说明一下，上面出现了 `SocketTextStream` 套接字字符 **数据源（Source）**，接着是 **算子（Operator）**： `FlatMap`（一个输入源，可以输出零个或多个结果）、`KeyBy`（按照某字段或者 tuple 元组中某个下标进行分类） 和 `sum`（跟翻译一样，就是进行聚合汇总） ，最后输出
 
 
 ## 2、开启 tcp 长链接
@@ -157,7 +157,7 @@ $ nc -l 9000
 
 ## 3、启动 Flink 程序
 
-刚才第一个步骤中，已经编辑好了程序代码，第二个步骤也已经启动了一个 `TCP` 客户端，启动 `Flink` 程序有两个方法：
+刚才第一个步骤中，已经编辑好了程序代码，第二个步骤也已经启动了一个 `TCP` 客户端，启动 `Flink` 程序有两种方法：
 
 ### 3.1、本地调试
 
@@ -165,7 +165,7 @@ $ nc -l 9000
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/helloworld/flink_debug_method.png)
 
-如果不需要调试，想直接看结果，选择第一个 `Run`，但有时不确定代码执行过程和出错更具体的原因，可以通过第二个选项 `Debug` 进行调试。
+如果不需要调试，想直接看结果，选择第一个 `Run`，但有时不确定代码执行过程和出错的具体原因，可以通过第二个选项 `Debug` 进行调试。
 
 这是本地开发经常使用的方法，进行结果的验证。
 
@@ -232,7 +232,7 @@ hello my world
 
 # 扩展阅读
 
-如果你在官网游览，应该也曾看到过 `TimeWindow` 时间窗口的例子，下面是 `Demo` 代码
+如果你在官网阅览，应该也曾看到过 `TimeWindow` 时间窗口的例子，下面是 `Demo` 代码
 
 ```java
 public class SocketWindowWordCount {
@@ -290,7 +290,7 @@ public class SocketWindowWordCount {
 ---
 # 总结
 
-**本文基于 `Mac` 系统已经 `Apache Flink 1.9` 版本进行了项目搭建和 `Demo` 编写，介绍了 `Suorce -> Transaction -> Sink` 的流程。简单的实现了一个字符计数器，根据套接字数据源，源源不断的输入，然后进行统计出现的次数，如有疑惑或不对之处请与我讨论~**
+**本文基于 `Mac` 系统、 `Apache Flink 1.9` 版本进行了项目搭建和 `Demo` 编写，介绍了 `Suorce -> Transformation -> Sink` 的流程。简单的实现了一个字符计数器，往套接字数据源 `SocketTextStream`，源源不断的输入，然后进行统计出现的次数，如有疑惑或不对之处请与我讨论~**
 
 ---
 # 项目地址
