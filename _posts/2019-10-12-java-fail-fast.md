@@ -161,7 +161,7 @@ private void fastRemove(int index) {
 
 不信，可以直接在 ArrayList 类的 909 行打个断点 debug 一下。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_chenmowanger/java-fail-fast-1.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-chenmowanger/java-fail-fast-1.png)
 
 真的耶，一个是 4 一个是 3。
 
