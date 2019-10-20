@@ -245,9 +245,9 @@ staffOpt
 
 ## 四、帮助文章
 
-[Tired of Null Pointer Exceptions? Consider Using Java SE 8's `Optional`!](https://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html)  
-[Optionals: Patterns and Good Practices](https://community.oracle.com/docs/DOC-991686)  
-Java8 in Action
+1、[Tired of Null Pointer Exceptions? Consider Using Java SE 8's Optional!](https://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html)  
+3、[Optionals: Patterns and Good Practices](https://community.oracle.com/docs/DOC-991686)  
+3、Java8 in Action
 
 
 
