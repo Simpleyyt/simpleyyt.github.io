@@ -48,9 +48,9 @@ published: true
 集合数据源主要有三种：`collection`、`element` 和 `generateSequence`。
 
 - **fromCollection(Collection)**：接受的参数对象必须是同一类型的集合
-- **fromCollection(Iterator\<OUT\> data, Class\<OUT\> type)**：第一个参数是迭代器，第二个参数是指定返回的类型
-- **fromElements(Class\<OUT\> type, OUT... data)**：第一个参数是指定返回的类型，后面的是不定数量入参，可以输入多个 `OUT` 类型的对象
-- **fromParallelCollection(SplittableIterator\<OUT\> iterator, TypeInformation\<OUT\> typeInfo, String operatorName)**：**从一个可分离的迭代器中创建并行数据源**。这个方法是 `parallel` 并行数据源的底层调用方法，`typeInfo` 是具体的类型信息，最后一个参数就是操作名字。这个并行数据源并没有测试过，等到之后回来补坑吧。
+- **fromCollection(Iterator`<`OUT`>` data, Class`<`OUT`>` type)**：第一个参数是迭代器，第二个参数是指定返回的类型
+- **fromElements(Class`<`OUT`>` type, OUT... data)**：第一个参数是指定返回的类型，后面的是不定数量入参，可以输入多个 `OUT` 类型的对象
+- **fromParallelCollection(SplittableIterator`<`OUT`>` iterator, TypeInformation`<`OUT`>` typeInfo, String operatorName)**：**从一个可分离的迭代器中创建并行数据源**。这个方法是 `parallel` 并行数据源的底层调用方法，`typeInfo` 是具体的类型信息，最后一个参数就是操作名字。这个并行数据源并没有测试过，等到之后回来补坑吧。
 - **generateSequence(long, long)**：创建一个包含数字序列的新数据流。例如传进去是 1l 和 10l，那么数据源就是 [1-10]
 
 测试代码如下：
