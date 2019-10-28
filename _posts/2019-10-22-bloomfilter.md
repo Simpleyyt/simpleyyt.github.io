@@ -3,7 +3,6 @@ layout: post
 category: Java
 title: 到底是存在还是不存在之 BloomFilter
 tagline: by 子悠
-author:   子悠
 tags:
   - BloomFilter
 ---
