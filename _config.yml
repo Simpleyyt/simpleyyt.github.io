@@ -125,6 +125,11 @@ menu:
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
+webrick:
+ headers:
+  My-Header: My-Value
+  My-Other-Header: My-Other-Value
+
 # Enable/Disable menu icons.
 # Icon Mapping:
 #   Map a menu item to a specific FontAwesome icon name.
