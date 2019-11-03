@@ -8,6 +8,8 @@
       {{ __.title.tags }}
     {% elsif page.type == "about" and page.title == nil %}
       {{ __.title.about }}
+    {% elsif page.type == "pubwechat" and page.title == nil %}
+      {{ __.title.pubwechat }}
     {% else %}
       {{ page.title }}
     {% endif %}
