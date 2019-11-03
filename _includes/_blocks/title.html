@@ -12,8 +12,6 @@
       {{ __.title.tags | append: page_title_suffix }}
     {% elsif page.type == "about" and page.title == nil %}
       {{ __.title.about | append: page_title_suffix }}
-    {% elsif page.type == "pubwechat" and page.title == nil %}
-      {{ __.title.pubwechat | append: page_title_suffix }}
     {% else %}
       {{ page.title | append: page_title_suffix }}
     {% endif %}
