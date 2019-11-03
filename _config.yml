@@ -125,6 +125,7 @@ menu:
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
+
 # Enable/Disable menu icons.
 # Icon Mapping:
 #   Map a menu item to a specific FontAwesome icon name.
@@ -284,7 +285,7 @@ links_title: Links
 #links_layout: inline
 links:
   纯洁的微笑: http://ityouknow.com
-  沉默王二: http://www.qingmiaokeji.cn
+  沉默王二: http://www.itwanger.com
   子悠: https://zxsilence.cn
   江南一点雨: http://www.javaboy.org
   炸鸡可乐: http://pzblog.cn
