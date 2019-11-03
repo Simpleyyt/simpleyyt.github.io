@@ -377,7 +377,7 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-baidu_analytics: 70b7e141dfc0ea2b204682f94ab2e01a
+#baidu_analytics: 70b7e141dfc0ea2b204682f94ab2e01a
 
 # Duoshuo ShortName
 #duoshuo_shortname:
@@ -590,7 +590,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: true
+  enable: false
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
