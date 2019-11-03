@@ -51,7 +51,7 @@ https://www.cnblogs.com/sunxucool/p/3449068.html
 
 ### 4. 详细讲一下TCP的滑动窗口
 
-![](https://www.cnblogs.com/images/cnblogs_com/tanshaoshenghao/1426602/o_%e7%bd%91%e7%bb%9c7.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-tssh/network/1.png)
 
 从上面的图可以看到滑动窗口左边的是已发送并且被确认的分组，滑动窗口右边是还没有轮到的分组。滑动窗口里面也分为两块，一块是已经发送但是未被确认的分组，另一块是窗口内等待发送的分组。随着已发送的分组不断被确认，窗口内等待发送的分组也会不断被发送。整个窗口就会往右移动，让还没轮到的分组进入窗口内。
 
