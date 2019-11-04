@@ -256,7 +256,7 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right
-  position: left
+  position: right
 
   #position: right
 
