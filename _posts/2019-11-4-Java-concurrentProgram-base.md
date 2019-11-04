@@ -2,7 +2,7 @@
 layout: post  
 title: java并发编程之线程基础
 tagline: by 小九
-categories: Java  
+categories: java
 tag: 
     - Java,thread
 

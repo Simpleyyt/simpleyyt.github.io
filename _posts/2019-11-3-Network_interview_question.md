@@ -1,6 +1,6 @@
 ---
 layout: post
-category: 计算机网络
+categories: java
 title: 最常见的12道计算机网络面试题
 tagline: by 炭烧生蚝
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Java
+categories: java
 title: 从Java的平台无关性引入的一系列面试题
 tagline: by 炭烧生蚝
 tags:
