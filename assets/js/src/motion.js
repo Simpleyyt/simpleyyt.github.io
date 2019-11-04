@@ -282,8 +282,7 @@ $(document).ready(function () {
 
     sidebar: function (integrator) {
       if (CONFIG.sidebar.display === 'always') {
-          // NexT.utils.displaySidebar();
-          NexT.utils.showSidebar();
+          NexT.utils.displaySidebar();
           // sidebarToggleMotion.clickHandler();
       }
       integrator.next();
