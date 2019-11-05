@@ -9,6 +9,7 @@ tags:
 
 最近在看 java 集合源码的时候，发现原来我们经常使用的 Properties 类既然继承自 Hashtable！又涨见识了！
 
+
 <!--more-->
 ### 01、摘要
 在集合系列的第一章，咱们了解到，Map 的实现类有 HashMap、LinkedHashMap、TreeMap、IdentityHashMap、WeakHashMap、Hashtable、Properties 等等。
