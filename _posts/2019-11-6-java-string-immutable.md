@@ -27,7 +27,7 @@ String alita = "阿丽塔";
 
 这行代码在字符串常量池中创建了一个内容为“阿丽塔”的对象，并将其赋值给了字符串变量 alita（存储的是字符串对象"阿丽塔"的引用）。如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-bc9e0af38549ff9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.justdojava.com/assets/images/2019/java/image-chenmowanger/1.png)
 
 再来看下面这行代码。
 
@@ -37,7 +37,7 @@ String wanger = alita;
 
 这行代码将字符串变量 alita 赋值给了字符串变量 wanger。这时候，wanger 和 alita 存储的是同一个字符串对象的引用。如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-345342d059af0cea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.justdojava.com/assets/images/2019/java/image-chenmowanger/2.png)
 
 再来看下面这行代码。
 
@@ -62,7 +62,7 @@ return new String(buf, true);
 
 可以看得出，`"战斗天使".concat(alita)` 这行代码会先在字符串常量池中创建一个新的字符串对象，内容为“战斗天使”，然后 `concat()` 方法会将其对应的字符数组和“阿丽塔”对应的字符数组复制到一个新的字符数组 buf 中，最后，再通过 new 关键字创建了一个新的字符串对象，并返回。如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-74f4971aba320561.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.justdojava.com/assets/images/2019/java/image-chenmowanger/3.png)
 
 从上图中可以得出结论，alita 此时引用的是在堆中新创建的字符串对象。
 
@@ -76,7 +76,7 @@ return new String(buf, true);
 
 PS：Java 虚拟机在执行程序的过程中会把内存区域划分为若干个不同的数据区域，如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-64e7eeadb485b82e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.justdojava.com/assets/images/2019/java/image-chenmowanger/4.png)
 
 对象存储在堆（heap）中，而对象的引用存储在栈（stack）中。
 
