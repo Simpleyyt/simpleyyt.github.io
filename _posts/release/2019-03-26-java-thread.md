@@ -7,11 +7,13 @@ tag:
     - java
 ---
 
-[我](https://mp.weixin.qq.com/s/feoOINGSyivBO8Z1gaQVOA)从事Java编程已经11年了，绝对是个老兵；但对于Java并发编程，[我](https://mp.weixin.qq.com/s/feoOINGSyivBO8Z1gaQVOA)只能算是个新兵蛋子。我说这话估计要遭到某些高手的冷嘲热讽，但我并不感到害怕。
+[我](https://mp.weixin.qq.com/s/feoOINGSyivBO8Z1gaQVOA)从事Java编程已经11年了，绝对是个老兵；但对于Java并发编程，我只能算是个新兵蛋子。我说这话估计要遭到某些高手的冷嘲热讽，但我并不感到害怕。
+
+因为我知道，每年都会有很多很多的新人要加入Java编程的大军，他们对“并发”编程中遇到的问题也会有感到无助的时候。而我，非常乐意与他们一道，对使用Java线程进行并发程序开发的基础知识进行新一轮的学习。
 
 <!--more-->
 
-因为我知道，每年都会有很多很多的新人要加入Java编程的大军，他们对“并发”编程中遇到的问题也会有感到无助的时候。而我，非常乐意与他们一道，对使用Java线程进行并发程序开发的基础知识进行新一轮的学习。
+
 
 ### 01、我们为什么要学习并发？
 
@@ -116,7 +118,7 @@ public class Wanger {
 
 但是，故事要转折了。阿里巴巴的Java开发手册（可在「沉默王二」公众号的后台回复关键字「Java」获取）中明确地指出，**不允许**使用Executors来创建线程池。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-155c39e5f2193f80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-bingfa-1.png)
 
 不能使用`Executors`创建线程池，那么该怎么创建线程池呢？
 
@@ -225,11 +227,16 @@ public static void addCount() {
 
 并发编程难学吗？说实话，真的不太容易。来看一下王宝令老师总结的思维导图就能知道。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-ac3c2c57bafd5d10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-bingfa-2.png)
 
 但你也知道，“**冰冻三尺非一日之寒**”，学习是一件循序渐进的事情。只要你学会了怎么创建一个线程，学会了怎么创建线程池，学会了怎么解决共享资源竞争的问题，你已经在并发编程的领域里迈出去了一大步。
 
-为自己加个油，好吗？
+
+----
+
+上一篇：[Java I/O 入门篇](http://www.itwanger.com/java/2019/11/09/java-io.html)
+
+下一篇：[Java 并发编程(一)：简介](http://www.itwanger.com/java/2019/11/09/java-bingfa-1.html)
 
 
 
