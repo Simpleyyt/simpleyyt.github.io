@@ -2,9 +2,9 @@
 layout: post
 title:  面试必问之：Java 中 == 和 equals 的区别你知道吗
 tagline: by 迷恋着你微笑的人
-categories: java
+categories: 面试题系列
 tag: 
-    - java
+    - 迷恋着你微笑的人
 ---
 
 关于这个问题，一般初中级面试中都会遇到，还记得我当初实习找工作的时候也遇到了这个问题，现在都还记得自己是怎么回答的：== 是基本类型比较，equals 是对象比较，不懂 hashCode，想起来简直惨不忍睹。于是找了一点小时间，研究了一番整理成文章供大家参考。

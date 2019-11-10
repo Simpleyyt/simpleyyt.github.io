@@ -2,9 +2,9 @@
 layout: post
 title:  Java：double 精度比 float 低吗
 tagline: by 沉默王二
-categories: java
+categories: java基础
 tag: 
-    - java
+    - 沉默王二
 ---
 
 Java：double精度比float低吗？
