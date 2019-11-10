@@ -1,12 +1,13 @@
 title:
   archive: 归档
   category: 分类
-  tag: 标签
+  tag: 作者
   schedule: 日程表
   archives: 归档
   categories: 分类
-  tags: 标签
+  tags: 作者
   about: 关于
+  
 
 author: 博主
 
@@ -14,8 +15,9 @@ menu:
   home: 首页
   archives: 归档
   categories: 分类
-  tags: 标签
+  tags: 作者
   about: 关于
+  authors: 作者
   search: 搜索
   schedule: 日程表
   sitemap: 站点地图
@@ -46,7 +48,7 @@ post:
 
 page:
   totally: 共有
-  tags: 标签
+  tags: 作者
 
 footer:
   powered: "由 %s 强力驱动"
@@ -54,9 +56,9 @@ footer:
 
 counter:
   tag_cloud:
-    zero: 暂无标签
-    one: 目前共计 1 个标签
-    other: "目前共计 %d 个标签"
+    zero: 暂无作者
+    one: 目前共计 1 位作者
+    other: "目前共计 %d 位作者"
 
   categories:
     zero: 暂无分类
@@ -71,7 +73,7 @@ counter:
 state:
   posts: 日志
   pages: 页面
-  tags: 标签
+  tags: 作者
   categories: 分类
 
 search:
