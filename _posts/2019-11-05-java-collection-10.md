@@ -4,7 +4,7 @@ title: 【集合系列】- 深入浅出的分析 Properties
 tagline: by 炸鸡可乐
 categories: Java
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 最近在看 java 集合源码的时候，发现原来我们经常使用的 Properties 类既然继承自 Hashtable！又涨见识了！
