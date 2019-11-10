@@ -1,11 +1,11 @@
 ---
 layout: post
-category: java
+category: java工具
 title: Swagger2边写代码边写文档
 tagline: by 子悠
 tags: 
-  - java
-published: true
+  - 子悠
+
 ---
 
 作为一个开发人员最怕的就是写文档了，但是要想成为一个合格的程序员，写好文档也是一个必备的技能。开发中我们经常要写接口服务，既然是服务就要跟别人对接，那难免要写接口文档，那么如何”优雅“的写接口文档呢？本文介绍一个在写代码的过程就可以写完接口文档的工具——Swagger2（江湖人称丝袜哥😂）

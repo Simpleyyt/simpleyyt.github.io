@@ -1,11 +1,10 @@
 ---
 layout: post
-category: java
+category: 面试经历
 title: 一次蚂蚁金服的面试经历
 tagline: by 子悠
 tags: 
-  - java
-  - 面试
+  - 子悠
 published: true
 ---
 

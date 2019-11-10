@@ -2,9 +2,9 @@
 layout: post
 title:  老年代的垃圾回收算法
 tagline: by 懿
-categories: java
-tag: 
-    - java
+categories: java数据结构
+tags: 
+    - 懿
 ---
 
 之前看过了垃圾回收算法的新生代GC,也是使用的一种比较浪费内存的复制算法，晚上看书又接着往下看了一点，

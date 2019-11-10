@@ -3,8 +3,8 @@ layout: post
 title:  关于应用层前后端软件开发的思考
 tagline: by 贾思谦
 categories: java
-tag: 
-    - java
+tags: 
+    - 贾思谦
 ---
 
 
