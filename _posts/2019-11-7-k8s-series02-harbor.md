@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: k8s
-title: [Kubernetes]CentOS7 下搭建 Harbor 仓库以及登录
+title: CentOS7 下搭建 Harbor 仓库以及登录
 tagline: by 郑璐璐
 tag: 
   - k8s
