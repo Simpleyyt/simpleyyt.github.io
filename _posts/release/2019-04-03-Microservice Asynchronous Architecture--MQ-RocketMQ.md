@@ -2,9 +2,9 @@
 layout: post
 title:  微服务异步架构---MQ之RocketMQ
 tagline: by 贾思谦
-categories: java
+categories: 微服务
 tag: 
-    - java
+    - 贾思谦
 ---
 
 "我们大家都知道把一个微服务架构变成一个异步架构只需要加一个MQ，现在市面上有很多MQ的开源框架。到底选择哪一个MQ的开源框架才合适呢?"

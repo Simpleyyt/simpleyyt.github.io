@@ -1,12 +1,10 @@
 ---
 layout: post
-category: java
+category: 面试经历
 title: 记录一次成都阿里一面的经历
 tagline: by 乔二爷
 tags: 
-  - java
-  - 面试
-published: true
+  - 乔二爷
 ---
 
 上周在拉勾上收到一个蚂蚁金服的大哥要我的简历，当时很惊讶，居然有蚂蚁金服的找到我，然后想都没想就给了。

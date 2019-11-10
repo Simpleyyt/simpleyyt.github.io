@@ -2,9 +2,9 @@
 layout: post
 title:  Java：并发不易，先学会用
 tagline: by 沉默王二
-categories: java
-tag: 
-    - java
+categories: java并发
+tags: 
+    - 沉默王二
 ---
 
 [我](https://mp.weixin.qq.com/s/feoOINGSyivBO8Z1gaQVOA)从事Java编程已经11年了，绝对是个老兵；但对于Java并发编程，我只能算是个新兵蛋子。我说这话估计要遭到某些高手的冷嘲热讽，但我并不感到害怕。

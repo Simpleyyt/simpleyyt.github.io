@@ -2,9 +2,9 @@
 layout: post
 title:  内存结构和垃圾回收算法
 tagline: by 懿
-categories: java
-tag: 
-    - java
+categories: java数据结构
+tags: 
+    - 懿
 ---
 
 做JAVA也有接近2年的时间了，公司的leader说，做JAVA，三年是个坎，如果过了三年你还没有去研究JVM的话，那么你这个程序员只能是板砖的工具了。恰逢辞职，来个JVM的解析可好？
