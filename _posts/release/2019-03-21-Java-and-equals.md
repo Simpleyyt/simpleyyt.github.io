@@ -3,7 +3,7 @@ layout: post
 title:  面试必问之：Java 中 == 和 equals 的区别你知道吗
 tagline: by 迷恋着你微笑的人
 categories: 面试题系列
-tag: 
+tags: 
     - 迷恋着你微笑的人
 ---
 

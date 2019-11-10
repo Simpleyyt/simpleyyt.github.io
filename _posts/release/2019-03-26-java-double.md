@@ -3,7 +3,7 @@ layout: post
 title:  Java：double 精度比 float 低吗
 tagline: by 沉默王二
 categories: java基础
-tag: 
+tags: 
     - 沉默王二
 ---
 

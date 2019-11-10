@@ -3,7 +3,7 @@ layout: post
 title:  老年代的垃圾回收算法
 tagline: by 懿
 categories: java数据结构
-tag: 
+tags: 
     - 懿
 ---
 

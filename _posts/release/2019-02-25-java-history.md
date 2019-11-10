@@ -3,7 +3,7 @@ layout: post
 title:  差点把 Java 命名成了 Silk（丝绸）
 tagline: by 纯洁的微笑
 categories: java历史
-tag: 
+tags: 
     - 纯洁的微笑
 ---
 
