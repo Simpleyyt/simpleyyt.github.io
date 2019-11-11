@@ -157,4 +157,3 @@ return h;
 参考链接：https://www.programcreek.com/2009/02/diagram-to-show-java-strings-immutability
 
 
-谢谢大家的阅读，喜欢就点个赞，这将是我最强的写作动力。如果你觉得文章对你有所帮助，也蛮有趣的，就微信搜索“**沉默王二**”关注一下我的公众号。嘘，回复关键字「Java」更有好礼相送。
