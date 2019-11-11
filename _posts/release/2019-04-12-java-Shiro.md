@@ -2,9 +2,9 @@
 layout: post
 title:  Shiro框架详解
 tagline: by 懿
-categories: java
-tag: 
-    - java
+categories: 权限控制框架
+tags: 
+    - 懿
 ---
 
 

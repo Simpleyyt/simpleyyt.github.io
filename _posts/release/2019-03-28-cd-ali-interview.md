@@ -1,6 +1,6 @@
 ---
 layout: post
-category: 面试经历
+categories: 面试经历
 title: 记录一次成都阿里一面的经历
 tagline: by 乔二爷
 tags: 

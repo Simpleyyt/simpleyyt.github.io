@@ -2,9 +2,9 @@
 layout: post
 title: 女皇武则天：我不愿被 extends
 tagline: by 沉默王二
-categories: java
-tag:
-    - Java extends
+categories: java基础
+tags:
+    - 沉默王二
 ---
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-224a422587ba257f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

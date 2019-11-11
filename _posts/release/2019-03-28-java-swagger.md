@@ -1,6 +1,6 @@
 ---
 layout: post
-category: java工具
+categories: java工具
 title: Swagger2边写代码边写文档
 tagline: by 子悠
 tags: 

@@ -1,11 +1,11 @@
 ---
 layout: post
-category: java
+categories: java
 title: 你应该知道的任务调度平台 XXL-JOB
 tagline: by 子悠
 tags: 
-  - java
-published: true
+  - 子悠
+
 ---
 
 ### 背景

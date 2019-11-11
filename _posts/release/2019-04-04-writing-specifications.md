@@ -3,7 +3,7 @@ layout: post
 title:  Java 极客技术建议写作规范
 tagline: by 纯洁的微笑
 categories: 写作规范
-tag: 
+tags: 
     - 纯洁的微笑
     - 规范
     - Markdown

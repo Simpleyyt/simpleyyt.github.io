@@ -1,13 +1,11 @@
 ---
 layout: post
-category: java
+categories: java
 title: 面互联网公司必备的分布式事务方案
 tagline: by 乔二爷
 tags: 
-  - java
-  - 面试
-  - 分布式事务
-published: true
+  - 乔二爷
+
 ---
 
 4月初在面试一家互联网公司的过程中就被问到了分布式事务问题。我又一次在没有好好整理的问题上吃了亏，记录一下，还是长记性！！！

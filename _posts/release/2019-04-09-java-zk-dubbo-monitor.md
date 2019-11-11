@@ -1,11 +1,10 @@
 ---
 layout: post
-category: java
+categories: 分布式
 title: 基于ZK的 Dubbo-admin 与 Dubbo-monitor 搭建
 tagline: by 子悠
 tags: 
-  - java
-published: true
+  - 子悠
 ---
 
 ### 背景
