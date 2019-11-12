@@ -1,10 +1,10 @@
 ---
 layout: post
-category: BigData
+categories: 大数据
 title: MapReduce 运行全过程解析
 tagline: by 乔二爷
 tags: 
-  - BigData
+  - 乔二爷
   
 published: true
 ---

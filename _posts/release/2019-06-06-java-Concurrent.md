@@ -2,9 +2,9 @@
 layout: post
 title: 并发程序设计有感
 tagline: by 懿
-categories: java
-tag: 
-    - java
+categories: java并发
+tags: 
+    - 懿
 ---
 
 之前写过一些锁的文章了，然后就莫名其妙的去看了并发程序设计这块的内容，然后发现了很多专业的名词之前的理解有稍微的偏差，这次

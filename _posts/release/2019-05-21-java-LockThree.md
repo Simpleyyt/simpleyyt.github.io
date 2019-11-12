@@ -2,9 +2,9 @@
 layout: post
 title:  读写锁，你难道不需要了解一下吗？
 tagline: by 懿
-categories: java
+categories: java数据结构
 tag: 
-    - java
+    - 懿
 ---
 
 之前在的文章中已经写了公平锁、非公平锁，独享锁、共享锁，那么接下来我们就得介绍互斥锁和读写锁了。那我们我就来了解一波把！

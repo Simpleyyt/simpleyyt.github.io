@@ -2,9 +2,9 @@
 layout: post
 title: Java Serializable：明明就一个空的接口嘛
 tagline: by 沉默王二
-categories: Java
-tag:
-    - Java
+categories: java基础
+tags:
+    - 沉默王二
 ---
 
 

@@ -2,9 +2,9 @@
 layout: post
 title:  云阶月地，关锁千重(一.独享锁/共享锁)
 tagline: by 懿
-categories: java
-tag: 
-    - java
+categories: java数据结构
+tags: 
+    - 懿
 ---
 
 之前在的文章中已经写了公平锁和非公平锁了，接下来就该介绍第二种锁了，他就是共享锁和独享锁，顾名思义，独享，只能被一个线程

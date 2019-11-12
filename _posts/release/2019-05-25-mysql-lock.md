@@ -1,11 +1,11 @@
 ---
 layout: post
-category: mysql
+categories: MYSQL数据库
 title: 面试你应该知道的 MySQL 的锁
 tagline: by 子悠
 tags: 
-  - mysql
-published: true
+  - 子悠
+
 ---
 
 ### 背景

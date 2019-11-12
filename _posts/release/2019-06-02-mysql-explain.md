@@ -1,11 +1,11 @@
 ---
 layout: post
-category: mysql
+categories: MYSQL数据库
 title: MySQL 之 Explain 输出分析
 tagline: by 子悠
 tags: 
-  - mysql
-published: true
+  - 子悠
+
 ---
 
 ### 背景

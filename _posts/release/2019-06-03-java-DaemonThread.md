@@ -2,9 +2,9 @@
 layout: post
 title:  线程之守护线程
 tagline: by 懿
-categories: java
-tag: 
-    - java
+categories: java线程
+tags: 
+    - 懿
 ---
 
 多线程一直是我们开发中最关注的一个点，因为在并发中，会有各种各样的问题，但是这中多线程中的问题，又是我们需要去解决的，

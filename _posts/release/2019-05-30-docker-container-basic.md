@@ -2,9 +2,9 @@
 layout: post
 title:  Docker 容器基本操作[Docker 系列-2]
 tagline: by 江南一点雨
-categories: docker
-tag: 
-    - docker
+categories: Docker系列
+tags: 
+    - 江南一点雨
 ---
 
 docker 中的容器就是一个轻量级的虚拟机，是镜像运行起来的一个状态，本文就先来看看容器的基本操作。 

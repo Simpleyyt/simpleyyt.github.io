@@ -2,9 +2,9 @@
 layout: post
 title:  Docker 容器高级操作[Docker 系列-3]
 tagline: by 江南一点雨
-categories: docker
-tag: 
-    - docker
+categories: Docker系列
+tags: 
+    - 江南一点雨
 ---
 
 上篇文章向读者介绍了一个 Nginx 的例子，对于 Nginx 这样一个容器而言，当它启动成功后，我们不可避免的需要对 Nginx 进行的配置进行修改，那么这个修改要如何完成呢？且看下文。

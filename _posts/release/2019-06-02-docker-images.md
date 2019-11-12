@@ -2,8 +2,8 @@
 layout: post
 title:  Docker 镜像基本操作[Docker 系列-4]
 tagline: by 江南一点雨
-categories: docker
-tag: 
+categories: Docker系列
+tags: 
     - docker
 ---
 
