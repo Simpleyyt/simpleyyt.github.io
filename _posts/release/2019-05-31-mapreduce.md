@@ -1,10 +1,10 @@
 ---
 layout: post
-category: BigData
+categories: 大数据系列
 title: MapReduce 编程模型 & WordCount 示例
 tagline: by 乔二爷
 tags: 
-  - bigdata
+  - 乔二爷
   
 published: true
 ---

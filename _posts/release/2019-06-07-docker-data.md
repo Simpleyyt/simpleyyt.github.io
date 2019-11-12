@@ -2,9 +2,9 @@
 layout: post
 title:  Docker 数据卷操作[Docker 系列-6]
 tagline: by 江南一点雨
-categories: docker
-tag: 
-    - docker
+categories: Docker系列
+tags: 
+    - 江南一点雨
 ---
 
 # 数据卷入门

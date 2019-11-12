@@ -2,9 +2,9 @@
 layout: post
 title:  DockerHub 与容器网络[Docker 系列-5]
 tagline: by 江南一点雨
-categories: docker
-tag: 
-    - docker
+categories: Docker系列
+tags: 
+    - 江南一点雨
 ---
 
 # DockerHub
