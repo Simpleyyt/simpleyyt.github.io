@@ -3,7 +3,7 @@ layout: post
 category: java
 title: @程序员，别再迷恋多线程工作了
 tagline: by 沉默王二
-tag: java
+tag: [java,沉默王二]
 ---
 
 我刚刚尝试了一下，一边用 iPad 看“Java 极客技术”自制的 SpringBoot 视频（1.2X 倍速），一边在 iMac 上回复博客上读者的留言。过了一会，视频上讲了什么，我完全没有印象了；而回复的内容也写得乱七八糟。
