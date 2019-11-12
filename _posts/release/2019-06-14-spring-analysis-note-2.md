@@ -1,16 +1,14 @@
 ---
 layout: post
-category: spring
+categories: spring
 title: Spring 源码学习(二)-默认标签解析
-tagline: by 惊奇
 tags: 
-  - spring
+  - 惊奇
 published: true
 
 ---
 
 <center>`Spring` 解析默认标签~</center>
-
 <!--more-->
 
 ---

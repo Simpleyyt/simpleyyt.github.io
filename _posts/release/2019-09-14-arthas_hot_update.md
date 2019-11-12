@@ -1,10 +1,9 @@
 ---
 layout: post
-category: Java
+categories: Java
 title: 记一次使用 Arthas 热更新线上代码（误）
-tagline: by 惊奇
 tags: 
-  - Java
+  - 惊奇
 published: true
 ---
 

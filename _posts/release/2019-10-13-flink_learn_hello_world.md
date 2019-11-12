@@ -1,10 +1,9 @@
 ---
 layout: post
-category: Flink
+categories: Flink
 title: Flink 基础学习(二)搭建一个 "Hello World" 程序
-tagline: by 惊奇
 tags: 
-  - Flink
+  - 惊奇
 published: true
 ---
 

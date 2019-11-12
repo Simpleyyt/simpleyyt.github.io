@@ -1,10 +1,9 @@
 ---
 layout: post
-category: Flink
+categories: Flink
 title: Flink 基础学习(一)初识和基础概念
-tagline: by 惊奇
 tags: 
-  - Flink
+  - 惊奇
 published: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Flink
+categories: Flink
 title: Flink 基础学习(四)转换 Transformation
 tags: 
   - 惊奇
@@ -13,7 +13,8 @@ published: true
 
 > 算子将一个或多个 `DataStream` 转换为新的 `DataStream`。程序可以将多种转换组合成复杂的数据流拓扑。
 
-<!-- more -->
+<!--more-->
+
 在学习过程中，官网是个不错的入门介绍，格式如下：
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/transformation/flink_transformation_official_desc.png)

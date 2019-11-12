@@ -1,10 +1,9 @@
 ---
 layout: post
-category: spring
+categories: spring
 title: Spring 源码学习(五) 循环依赖
-tagline: by 惊奇
 tags: 
-  - spring
+  - 惊奇
 published: true
 ---
 
