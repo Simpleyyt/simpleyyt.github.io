@@ -2,9 +2,9 @@
 layout: post
 title: 你干啥的？Lombok
 tagline: by 沉默王二
-categories: java
+categories: java工具
 tag:
-    - Java Lombok
+    - 沉默王二
 ---
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-168fc10b5d7c16fe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

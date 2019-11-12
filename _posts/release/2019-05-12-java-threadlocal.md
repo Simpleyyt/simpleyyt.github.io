@@ -1,11 +1,11 @@
 ---
 layout: post
-category: java
+categories: java线程
 title: 聊聊面试中的 ThreadLocal 原理和使用场景
 tagline: by 子悠
 tags: 
-  - java
-published: true
+  - 子悠
+
 ---
 
 相信大家不管是在网上做题还是在面试中都经常被问过 ThreadLocal 的原理和用法，虽然一直知道这个东西的存在但是一直没有好好的研究一下原理，没有自己的知识体系。今天花点时间好好学习了一下，分享给有需要的朋友。

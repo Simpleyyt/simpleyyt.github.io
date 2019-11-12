@@ -2,8 +2,8 @@
 layout: post
 title:  云阶月地，关锁千重(一.公平和非公平)
 tagline: by 懿
-categories: java
-tag: 
+categories: java数据结构
+tags: 
     - java
 ---
 

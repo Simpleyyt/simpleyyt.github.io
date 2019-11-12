@@ -2,9 +2,9 @@
 layout: post
 title: Java：优雅地处理异常真是一门学问啊！
 tagline: by 沉默王二
-categories: java
-tag:
-    - Java 异常
+categories: java基础
+tags:
+    - 沉默王二
 ---
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-a83c3620131690fa.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

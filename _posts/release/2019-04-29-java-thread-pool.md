@@ -1,11 +1,11 @@
 ---
 layout: post
-category: java
+categories: java
 title: 聊聊面试中的 Java 线程池
 tagline: by 子悠
 tags: 
-  - java
-published: true
+  - 子悠
+
 ---
 
 ### 背景

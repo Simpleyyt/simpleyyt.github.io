@@ -2,9 +2,9 @@
 layout: post
 title:  Docker 入门及安装[Docker 系列-1]
 tagline: by 江南一点雨
-categories: docker
-tag: 
-    - docker
+categories: Docker系列
+tags: 
+    - 江南一点雨
 ---
 
 docker 如日中天，这不是单纯的炒概念，docker 确确实实解决了开发与运维的痛点，因此在企业开发中得到了非常广泛的使用，本文对于 docker 的这些基本知识点再做一些简单回顾。

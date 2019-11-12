@@ -2,9 +2,9 @@
 layout: post
 title:  面试中的最常被问到的两种锁
 tagline: by 懿
-categories: java
+categories: java数据结构
 tag: 
-    - java
+    - 懿
 ---
 
 之前在的文章中已经写了公平锁、非公平锁，独享锁、共享锁，互斥锁和读写锁，那么接下来我们就得介绍互乐观锁和悲观锁了。那我们我就来了解一波把！
