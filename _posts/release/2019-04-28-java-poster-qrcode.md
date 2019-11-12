@@ -2,9 +2,9 @@
 layout: post
 title: 开源）嗨，Java，你可以生成金山词霸的二维码分享海报吗？
 tagline: by 沉默王二
-categories: java
-tag:
-    - Java poster swing qrcode
+categories: java工具
+tags:
+    - 沉默王二
 ---
 
 

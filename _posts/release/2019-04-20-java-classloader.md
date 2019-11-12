@@ -1,11 +1,11 @@
 ---
 layout: post
-category: java
+categories: java数据结构
 title: 关于 Java ClassLoader 你真的了解吗
 tagline: by 子悠
 tags: 
-  - java
-published: true
+  - 子悠
+
 ---
 
 ### 背景

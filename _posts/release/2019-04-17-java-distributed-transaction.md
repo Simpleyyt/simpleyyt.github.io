@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: java
+categories: 面试
 title: 面互联网公司必备的分布式事务方案
 tagline: by 乔二爷
 tags: 
