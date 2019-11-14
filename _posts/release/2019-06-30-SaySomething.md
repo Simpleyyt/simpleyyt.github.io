@@ -1,6 +1,6 @@
 ---
 layout: post
-category: else
+categories: else
 title: 【吐槽篇】关于工作半年的一点感悟
 tagline: by cxuan
 tags: 

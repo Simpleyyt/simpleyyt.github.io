@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Java
+categories: Java
 title: 再谈 Shiro 中的 Realm
 tagline: by 江南一点雨
 categories: shiro

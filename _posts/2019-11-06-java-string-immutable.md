@@ -1,6 +1,6 @@
 ---
 layout: post
-category: java
+categories: java
 title: 灵魂拷问：为什么 Java 字符串是不可变的？
 tagline: by 沉默王二
 tags: 

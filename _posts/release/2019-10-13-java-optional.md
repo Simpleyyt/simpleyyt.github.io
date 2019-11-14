@@ -1,6 +1,6 @@
 ---
 layout: post
-category: java工具
+categories: java工具
 title: 还在重复写空指针检查代码？考虑使用 Optional 吧！
 tagline: by 小黑
 tags: 

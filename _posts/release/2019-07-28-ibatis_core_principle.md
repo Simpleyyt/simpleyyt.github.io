@@ -1,6 +1,6 @@
 ---
 layout: post
-category: ORM
+categories: ORM
 title: ibatis  核心原理解析
 tagline: by 小黑
 tags: 

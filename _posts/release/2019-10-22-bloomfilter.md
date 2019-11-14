@@ -1,6 +1,6 @@
 ---
 layout: post
-category: java基础
+categories: java基础
 title: 到底是存在还是不存在之 BloomFilter
 tagline: by 子悠
 tags:

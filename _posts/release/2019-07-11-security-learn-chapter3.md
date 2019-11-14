@@ -2,7 +2,7 @@
 layout: post
 title:  跟我学spring security系列文章第三章 Remember Me功能
 tagline: by 小马
-category: spring
+categories: spring
 tags: 
     - 小马
 ---

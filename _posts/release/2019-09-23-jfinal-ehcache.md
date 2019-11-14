@@ -1,6 +1,6 @@
 ---
 layout: post
-category: java基础
+categories: java基础
 title: 如果有人问你 JFinal 如何集成  EhCache，把这篇文章甩给他
 tagline: by 沉默王二
 tags: 

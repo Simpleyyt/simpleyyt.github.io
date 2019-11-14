@@ -1,6 +1,6 @@
 ---
 layout: post
-category: SpingBoot
+categories: SpingBoot
 title: SpringBoot 精髓之 SpringBoot-starter
 tagline: by 子悠
 tags: 

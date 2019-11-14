@@ -1,6 +1,6 @@
 ---
 layout: post
-category: SpringBoot
+categories: SpringBoot
 title: SpringBoot 速记
 tagline: by 惊奇
 tags: 

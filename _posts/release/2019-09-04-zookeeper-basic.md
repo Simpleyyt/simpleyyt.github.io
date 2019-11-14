@@ -1,6 +1,6 @@
 ---
 layout: post
-category: 分布式
+categories: 分布式
 title: ZooKeeper 基本概述
 tagline: by cxuan
 tags: 

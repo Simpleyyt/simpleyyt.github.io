@@ -1,6 +1,6 @@
 ---
 layout: post
-category: java线程
+categories: java线程
 title: 面试官:都说阻塞 I/O 模型将会使线程休眠，为什么 Java 线程状态却是 RUNNABLE？
 tagline: by 小黑
 tags: 

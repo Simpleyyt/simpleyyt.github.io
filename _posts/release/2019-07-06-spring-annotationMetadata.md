@@ -1,6 +1,6 @@
 ---
 layout: post
-category: spring
+categories: spring
 title: Spring 注解编程之 AnnotationMetadata
 tagline: by 小黑
 tags: 

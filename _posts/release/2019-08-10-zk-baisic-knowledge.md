@@ -1,6 +1,6 @@
 ---
 layout: post
-category: 分布式
+categories: 分布式
 title: 想知道注册中心原理吗？先来学习一下 ZooKeeper
 tagline: by 小黑
 tags: 
