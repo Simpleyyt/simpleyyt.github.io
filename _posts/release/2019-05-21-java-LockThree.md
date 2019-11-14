@@ -3,7 +3,7 @@ layout: post
 title:  读写锁，你难道不需要了解一下吗？
 tagline: by 懿
 categories: java数据结构
-tag: 
+tags: 
     - 懿
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title:  面试中的最常被问到的两种锁
 tagline: by 懿
 categories: java数据结构
-tag: 
+tags: 
     - 懿
 ---
 

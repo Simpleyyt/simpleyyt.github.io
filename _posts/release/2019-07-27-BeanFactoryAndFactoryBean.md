@@ -3,7 +3,7 @@ layout: post
 title: BeanFactory 和 FactoryBean 的理解
 tagline: by cxuan
 categories: spring
-tag: 
+tags: 
     - cxuan
 
 ---

@@ -3,7 +3,7 @@ layout: post
 title: 现如今的技术浪潮中，我们到底该做些什么？
 tagline: by 懿
 categories: java思考
-tag: 
+tags: 
     - 懿
 ---
 

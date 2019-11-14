@@ -3,7 +3,7 @@ layout: post
 title: Java 极客技术 2019 年高考语文卷
 tagline: by 沉默王二
 categories: Java
-tag:
+tags:
     - 沉默王二
 ---
 
