@@ -3,7 +3,9 @@ layout: post
 title: MyBatis 核心配置综述之 细说二级缓存
 tagline: by cxuan
 categories: mybatis
-tag: java
+tags: 
+    - cxuan
+
 
 
 ---

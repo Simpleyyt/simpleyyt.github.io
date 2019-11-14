@@ -2,8 +2,9 @@
 layout: post
 title: 你真的不想加入我们么？
 tagline: by 懿
-categories: java
-tag:
+categories: 软文
+tags:
+    - 懿
 ---
 
 今天我们不谈技术，我们来谈一下我为什么会加入这个团队。

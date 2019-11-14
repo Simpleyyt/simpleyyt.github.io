@@ -2,8 +2,9 @@
 layout: post
 title: 代理到底是什么？
 tagline: by 懿
-categories: java
-tag:
+categories: 代理
+tags:
+    - 懿
 ---
 
 之前星球的球友面试，问了我一些问题，说让我写一下这个代理，和代理到底是根据什么来进行区分，又该在什么地方使用。这篇文章我细致的讲解一下关于代理的一些问题。

@@ -1,11 +1,11 @@
 ---
 layout: post
-category: IDEA
+categories: IDEA
 title: 深入学习 Intellij IDEA 调试技巧
 tagline: by 小黑
 tags: 
-  - IDEA
-published: true
+  - 小黑
+
 ---
 
 程序员的日常工作除了写代码之外，很大一部分时间将会在查找 BUG，解决问题。查找 BUG，离不开在 IDE 中调试代码。熟练的掌握调试技巧，可以帮助我们减少查找时间，快速定位问题。

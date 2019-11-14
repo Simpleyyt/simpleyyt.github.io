@@ -1,11 +1,11 @@
 ---
 layout: post
-category: java
+category: SpingBoot
 title: SpringBoot 精髓之 SpringBoot-starter
 tagline: by 子悠
 tags: 
-  - java
-published: true
+  - 子悠
+
 ---
 
 ### 背景

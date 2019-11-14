@@ -1,11 +1,11 @@
 ---
 layout: post
-category: spring
+categories: spring
 title: Spring 注解编程之注解属性别名与覆盖
 tagline: by 小黑
 tags: 
-  - spring
-published: true
+  - 小黑
+
 ---
 
 前两篇文章咱聊了深入了解了 Spring 注解编程一些原理，这篇文章我们关注注解属性方法，聊聊 Spring 为注解的带来的功能，属性别名与覆盖。

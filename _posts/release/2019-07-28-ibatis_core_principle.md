@@ -4,8 +4,8 @@ category: ORM
 title: ibatis  核心原理解析
 tagline: by 小黑
 tags: 
-  - ibatis
-published: true
+  - 小黑
+
 ---
 
 最近查找一个生产问题的原因，需要深入研究 ibatis 框架的源码。虽然最后证明问题的原因与 ibatis 无关，但是这个过程加深了对 ibatis 框架原理的理解。

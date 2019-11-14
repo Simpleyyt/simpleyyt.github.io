@@ -3,8 +3,8 @@ layout: post
 title: MyBatis 核心配置综述之 StatementHandler
 tagline: by cxuan
 categories: Mybatis
-tag: 
-    - java
+tags: 
+    - cxuan
 
 
 ---
