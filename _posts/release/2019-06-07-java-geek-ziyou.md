@@ -1,11 +1,10 @@
 ---
 layout: post
-category: java
+categories: java
 title: 我与微笑哥以及 Java 极客技术的前世今生
 tagline: by 子悠
 tags: 
-  - java
-published: true
+  - 子悠
 ---
 
 Hello，大家好，我是子悠，Java 极客技术团队的作者之一，细心的读者可能早就知道我，看过我写的几篇文章，没注意过的也没关系，因为后面我们还会经常见面。首先关于 Java 极客技术公众号的介绍可以去看文章[搞事情](https://mp.weixin.qq.com/s/4O5AvyR7tqsKNJVBOolEGw)，今天这篇文章主要想跟大家分享一下我是如何跟微笑哥以及 Java 极客技术团队结缘的。
