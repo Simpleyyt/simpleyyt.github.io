@@ -2,8 +2,9 @@
 layout: post
 title:  跟我学spring security系列文章第一章 实现一个基本的登入
 tagline: by 小马
-category: java
-tags: [java,spring,spring security]
+categories: spring
+tags: 
+    - 小马
 ---
 
 * content

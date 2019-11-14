@@ -2,9 +2,9 @@
 layout: post
 title: Java断言，一个被遗忘的关键字！
 tagline: by 炸鸡可乐
-categories: Java
+categories: java基础
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 在实际的开发过程中，几乎很少接触到java的assert，它是个啥呢，今天小编带大家一起来了解一下！

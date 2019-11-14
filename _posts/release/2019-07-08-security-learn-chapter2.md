@@ -2,8 +2,9 @@
 layout: post
 title:  跟我学spring security系列文章第二章 基于数据库实现一个基本的登入登出
 tagline: by 小马
-category: java
-tags: [java,spring,security,UserDetail]
+categories: spring
+tags:
+    - 小马
 ---
 
 * content
