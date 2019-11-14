@@ -1,11 +1,11 @@
 ---
 lock: need
 layout: post
-category: life
+categories: life
 title: 灵魂拷问：Java 的 substring() 是如何工作的？
 tagline: by 沉默王二
 tags: 
-  - [java,沉默王二]
+  - 沉默王二
 ---
 
 在逛 programcreek 的时候，我发现了一些小而精悍的主题。比如说：Java 的 `substring()` 方法是如何工作的？像这类灵魂拷问的主题，非常值得深入地研究一下。

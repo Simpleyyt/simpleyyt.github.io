@@ -3,9 +3,8 @@ layout: post
 categories: k8s
 title: CentOS7 下搭建 Harbor 仓库以及登录
 tagline: by 郑璐璐
-tag: 
-  - k8s
-published: true
+tags: 
+  - 郑璐璐
 ---
 
 手把手教会你在 CentOS7 环境下搭建 Harbor 仓库，以及使用 Docker 以 HTTP 方式登录 Harbor 仓库。

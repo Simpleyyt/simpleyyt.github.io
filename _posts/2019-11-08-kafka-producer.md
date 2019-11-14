@@ -1,9 +1,10 @@
 ---
 layout: post
-category: java
+categories: Kafka
 title: 带你涨姿势的认识一下Kafka-Producer
 tagline: by cxuan
-tag: Kafka
+tag: 
+    - cxuan
 ---
 
 上一篇文章我们主要介绍了什么是 Kafka，Kafka 的基本概念是什么，Kafka 单机和集群版的搭建，以及对基本的配置文件进行了大致的介绍，还对 Kafka 的几个主要角色进行了描述，我们知道，不管是把 Kafka 用作消息队列、消息总线还是数据存储平台来使用，最终是绕不过`消息`这个词的，这也是 Kafka 最最核心的内容，Kafka 的消息从哪里来？到哪里去？都干什么了？别着急，一步一步来，先说说 Kafka 的消息从哪来。

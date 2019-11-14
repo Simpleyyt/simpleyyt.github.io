@@ -3,7 +3,8 @@ layout: post
 category: java
 title: 灵魂拷问：为什么 Java 字符串是不可变的？
 tagline: by 沉默王二
-tag: java
+tags: 
+    - 沉默王二
 ---
 
 在逛 programcreek 的时候，发现了一些精妙绝伦的主题。比如说：为什么 Java 字符串是不可变的？像这类灵魂拷问的主题，非常值得深思。
