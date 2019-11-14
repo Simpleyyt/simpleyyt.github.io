@@ -4,7 +4,6 @@ categories: Java
 title: 记一次使用 Arthas 热更新线上代码（误）
 tags: 
   - 惊奇
-published: true
 ---
 
 > 引用参考第二条 -  Arthas提醒您： 诊断千万条，规范第一条，热更不规范，同事两行泪

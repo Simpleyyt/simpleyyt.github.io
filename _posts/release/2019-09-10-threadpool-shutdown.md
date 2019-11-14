@@ -1,11 +1,10 @@
 ---
 layout: post
-category: Java
+categories: java线程
 title: 线程池正确安全的关闭方式
 tagline: by 小黑
 tags: 
-  - java
-  - 线程池
+    - 小黑
 published: true
 ---
 

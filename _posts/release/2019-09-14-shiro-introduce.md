@@ -2,9 +2,9 @@
 layout: post
 title: 轻量级权限管理框架--Shiro 简介
 tagline: by 江南一点雨
-categories: Java
+categories: shiro
 tags: 
-  - Shiro
+  - 江南一点雨
 ---
 
 Apache Shiro是一个开源安全框架，提供身份验证、授权、密码学和会话管理。Shiro框架具有直观、易用等特性，同时也能提供健壮的安全性，虽然它的功能不如SpringSecurity那么强大，但是在普通的项目中也够用了。  

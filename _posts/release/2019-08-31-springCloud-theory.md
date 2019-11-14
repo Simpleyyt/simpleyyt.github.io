@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Java
+categories: 面试
 title: 分布式系统面试系列02-Spring Cloud 的底层架构原理
 tagline: by 乔二爷
 tags:
-    - Java
+    - 乔二爷
 ---
 
 分布式系统面试系列02-Spring Cloud 的底层架构原理，前面我们讲了 SpringCloud 的核心架构，了解了有要构建一套分布式系统我们需要哪些组件。今天以SpringCloud 为例，讲解一下它的核心组件的原理。

@@ -1,11 +1,10 @@
 ---
 layout: post
-category: Java
+category: java线程
 title: 面试官:都说阻塞 I/O 模型将会使线程休眠，为什么 Java 线程状态却是 RUNNABLE？
 tagline: by 小黑
 tags: 
-  - Java,并发
-published: true
+  - 小黑
 ---
 
 使用 Java 阻塞 I/O 模型读取数据，将会导致线程阻塞，线程将会进入休眠，从而让出 CPU 的执行权，直到数据读取完成。这个期间如果使用 jstack 查看线程状态，却可以发现Java 线程状态是处于 RUNNABLE，这就和上面说的存在矛盾，为什么会这样？

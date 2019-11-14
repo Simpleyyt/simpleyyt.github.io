@@ -2,8 +2,9 @@
 layout: post
 title:  一文带你了解logback的一些常用配置
 tagline: by 小马
-category: java
-tags: [java,logback,mybatis]
+category: java基础
+tags: 
+    - 小马
 ---
 
 

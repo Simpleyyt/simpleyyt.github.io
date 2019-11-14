@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Java
+categories: 面试
 title: 分布式系统面试系列03-Dubbo 的底层原理
 tagline: by 乔二爷
 tags:
-    - Java
+    - 乔二爷
 ---
 
 分布式系统面试系列02-Dubbo 的底层原理，前面我们讲了 SpringCloud 核心组件的底层原理，同样的，作为微服务里面的另外一大派系Dubbo ，使用的也是蛮多的，很多时候面试也会考到。

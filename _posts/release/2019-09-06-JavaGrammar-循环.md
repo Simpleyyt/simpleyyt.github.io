@@ -2,9 +2,9 @@
 layout: post  
 title: Java Grammar：循环
 tagline: by Vi的技术博客
-categories: Java  
-tag: 
-    - Java
+categories: java基础 
+tags: 
+    - Vi的技术博客
 
 ---
 <!--more-->

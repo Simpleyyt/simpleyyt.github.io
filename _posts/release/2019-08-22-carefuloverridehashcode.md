@@ -2,9 +2,9 @@
 layout: post  
 title: Effective Java - 覆盖 equals 时总要覆盖 hashCode
 tagline: by cxuan
-categories: Java  
-tag: 
-    - Java
+categories: Effective Java  
+tags: 
+    - cxuan
 
 ---
 

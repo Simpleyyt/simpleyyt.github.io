@@ -2,9 +2,9 @@
 layout: post
 title: 【集合系列】- 初探 java 集合框架图
 tagline: by 炸鸡可乐
-categories: Java
+categories: java基础
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 实际开发中，经常用到 java 的集合框架，比如 ArrayList 、 LinkedList 、 HashMap 、 LinkedHashMap，几乎经常接触到，虽然用的多，但是对集合的整体框架，基础知识还是不够系统，今天想和大家一起来梳理一下！

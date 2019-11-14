@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Java
+category: 分布式
 title: ZooKeeper 基本概述
 tagline: by cxuan
 tags: 
-  - Java
+  - cxuan
 
 ---
 

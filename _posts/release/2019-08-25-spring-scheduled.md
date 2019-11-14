@@ -2,9 +2,9 @@
 layout: post
 title: Spring 系列之定时任务—— Scheduled
 tagline: by 子悠
-categories: Spring
+categories: spring
 tags: 
-  - Java,Spring
+  - 子悠
 ---
 
 **人生有涯，学海无涯**

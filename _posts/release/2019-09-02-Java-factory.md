@@ -2,9 +2,9 @@
 layout: post  
 title: 工厂模式详解
 tagline: by xiaojiu
-categories: Java  
-tag: 
-    - Java,single
+categories: 设计模式
+tags: 
+    - xiaojiu
 
 ---
 

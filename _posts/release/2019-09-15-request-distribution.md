@@ -2,9 +2,9 @@
 layout: post
 title: 浅谈从纯Servlet到Spring的请求分发机制
 tagline: by 炭烧生蚝
-categories: Java
+categories: HTTP
 tags: 
-  - Java
+  - 炭烧生蚝
 ---
 
 本文将分享从纯 Servlet 时代到 Spring 框架时代的过程中，关于请求分发的一些思考。

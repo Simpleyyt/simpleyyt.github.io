@@ -1,11 +1,10 @@
 ---
 layout: post
-category: spring
+category: SpringBoot
 title: SpringBoot 速记
 tagline: by 惊奇
 tags: 
-  - springboot
-published: true
+  - 惊奇
 ---
 
  结束了前面的《Spring 源码深度学习》，这个八月给自己放松了一下，看了几本小说和电视剧，还有写一个工作中用到的小工具，周报数据渲染的前端界面（前端是真的难）。
