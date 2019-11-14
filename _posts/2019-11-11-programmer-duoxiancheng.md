@@ -1,6 +1,6 @@
 ---
 layout: post
-category: java
+categories: java
 title: 程序员，别再迷恋多线程工作了
 tagline: by 沉默王二
 tags: 
