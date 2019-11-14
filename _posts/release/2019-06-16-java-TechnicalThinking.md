@@ -2,9 +2,9 @@
 layout: post
 title: 现如今的技术浪潮中，我们到底该做些什么？
 tagline: by 懿
-categories: java
+categories: java思考
 tag: 
-    - java
+    - 懿
 ---
 
 今天，我们不谈技术实现，我们来分析一下现在的技术浪潮中，我们到底是应该去做什么？
