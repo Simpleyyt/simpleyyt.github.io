@@ -2,9 +2,9 @@
 layout: post
 title: 【集合系列】- 深入浅出的分析 TreeMap
 tagline: by 炸鸡可乐
-categories: Java
+categories: 数据结构
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 前面介绍了 Map 接口的实现类 LinkedHashMap，LinkedHashMap 存储的元素是有序的，可以保持元素的插入顺序，但不能对元素进行自动排序。在某些场景，如果在数据的存储过程中，能够自动对数据进行排序，将会极大提高编程效率。而 Map 接口有一个重要的实现类 TreeMap，TreeMap 可以实现存储元素的自动排序。

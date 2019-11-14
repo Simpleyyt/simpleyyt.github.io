@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Redis
+categories: Redis
 title: 【Redis 系列 01】Redis 基本概述与安装
 tagline: by 子悠
 tags:
-  - redis
+  - 子悠
 published: true
 ---
 

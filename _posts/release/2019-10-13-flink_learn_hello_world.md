@@ -4,7 +4,6 @@ categories: Flink
 title: Flink 基础学习(二)搭建一个 "Hello World" 程序
 tags: 
   - 惊奇
-published: true
 ---
 
 在学习技术时，总会有一个简单程序 `Demo` 带着我们入门，所以参考着官网例子，带大家快速熟悉 `Flink` 的 `Hello World`~

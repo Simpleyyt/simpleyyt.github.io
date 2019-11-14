@@ -1,11 +1,10 @@
 ---
 layout: post
-category: Java
+category: java工具
 title: 还在重复写空指针检查代码？考虑使用 Optional 吧！
 tagline: by 小黑
 tags: 
-  - Java
-published: true
+  - 小黑
 ---
 
 ## 一、前言

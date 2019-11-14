@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Redis
+categories: Redis
 title: 【Redis 系列 02】Redis 简单动态字符串
 tagline: by 子悠
 tags:
-  - redis
+  - 子悠
 ---
 
 ### 01、SDS 数据结构

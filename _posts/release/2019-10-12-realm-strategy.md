@@ -1,11 +1,10 @@
 ---
 layout: post
-category: shiro
+categories: shiro
 title: 【Shiro 系列 05】Shiro 中多 Realm 的认证策略问题
 tagline: by 江南一点雨
 tags:
-  - shiro
-published: true
+  - 江南一点雨
 ---
 
 上篇文章和小伙伴们分享了 JdbcRealm，本文我想和小伙伴们聊聊多 Realm 的认证策略问题。

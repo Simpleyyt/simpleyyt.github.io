@@ -1,10 +1,10 @@
 ---
 layout: post
-categories: java
+categories: 面试题
 title: 最常见的12道计算机网络面试题
 tagline: by 炭烧生蚝
 tags:
-  - 计算机网络
+  - 炭烧生蚝
 ---
 
 > 本篇总结了12道最常见的计算机网络面试题，并给出了一些自己的看法，若有不妥之处万望指正。

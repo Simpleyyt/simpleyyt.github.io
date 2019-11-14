@@ -2,9 +2,9 @@
 layout: post
 title: 【集合系列】- 深入浅出的分析 Hashtable
 tagline: by 炸鸡可乐
-categories: Java
+categories: 数据结构
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 Hashtable 一个元老级的集合类，早在 JDK 1.0 就诞生了，今天小编想和大家一起来揭开它的面纱！

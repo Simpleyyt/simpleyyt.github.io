@@ -2,9 +2,9 @@
 layout: post
 title: 【集合系列】- 深入浅出的分析 IdentityHashMap
 tagline: by 炸鸡可乐
-categories: Java
+categories: 数据结构
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 IdentityHashMap 从它的名字上可以看出来用于表示唯一的 HashMap，但是分析了其源码，发现其数据结构与 HashMap 使用的数据结构完全不同。

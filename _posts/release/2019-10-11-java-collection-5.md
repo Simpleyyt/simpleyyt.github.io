@@ -2,9 +2,9 @@
 layout: post
 title: 【集合系列】- 深入浅出分析 LinkedHashMap
 tagline: by 炸鸡可乐
-categories: Java
+categories: 数据结构
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 在上一章节，咱们深入浅出的分析了 HashMap，如果你已读过 HashMap 的讲解，一定能够想到本文将要讲解的 LinkedHashMap 其实也是一样的，LinkedHashMap 继承于 HashMap，不同的是 LinkedHashMap 插入的元素，可以按照插入的顺序读取！

@@ -4,7 +4,6 @@ categories: Flink
 title: Flink 基础学习(一)初识和基础概念
 tags: 
   - 惊奇
-published: true
 ---
 
 # 为什么要学 Flink

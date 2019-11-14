@@ -1,11 +1,10 @@
 ---
 layout: post
-category: shiro
+categories: shiro
 title: 【Shiro 系列 06】Shiro 中密码加密
 tagline: by 江南一点雨
 tags:
-  - shiro
-published: true
+  - 江南一点雨
 ---
 
 上篇文章和小伙伴们分享了 Realm 的认证策略问题，本文我想和小伙伴们来聊一聊密码的加密问题。
