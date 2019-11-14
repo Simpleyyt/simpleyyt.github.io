@@ -2,9 +2,9 @@
 layout: post
 title: java泛型特性，你了解多少？
 tagline: by 炸鸡可乐
-categories: Java
+categories: java基础
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 对java泛型特性的了解，很多时候是从集合对象接触到的，今天小编带大家一起去深入的了解泛型的缘由和使用方式！

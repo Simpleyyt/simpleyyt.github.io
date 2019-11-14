@@ -4,7 +4,7 @@ title: java的可变参数
 tagline: by 炸鸡可乐
 categories: Java
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 Java方法中的可变参数类型是一个非常重要的概念，有着非常广泛的应用，今天小编带大家一起去深入的了解java的可变参数使用方式！

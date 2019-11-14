@@ -4,7 +4,7 @@ categories: spring
 title: Spring 源码学习(六)扩展功能 上篇
 tags: 
   - 惊奇
-published: true
+
 ---
 
 结束了前面的基础结构分析，了解到 `Spring` 是如何识别配置文件和进行解析属性，最终将 `bean` 加载到内存中。**同时为了更好得理解 `Spring` 的扩展功能，我们先来巩固一下 `beanFactory` 和 `bean` 的概念，然后再分析新内容后处理器 `PostProcessor` 。**
