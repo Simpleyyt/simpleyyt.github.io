@@ -3,9 +3,9 @@ layout: post
 category: Java
 title: 再谈 Shiro 中的 Realm
 tagline: by 江南一点雨
-categories: Java
+categories: shiro
 tags: 
-  - Shiro
+  - 江南一点雨
 ---
 
 上篇文章和小伙伴们聊了 realm 的简单操作，本文我们来继续深入这个话题。  

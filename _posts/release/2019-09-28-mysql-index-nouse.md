@@ -1,9 +1,10 @@
 ---
 layout: post
 title: 说一个在工作中遇到的mysql索引失效的问题
-category: mysql
+categories: mysql
 tagline: by 小马
-tags: [mysql,索引,失效,字符串]
+tags:
+    - 小马
 ---
 
 * content

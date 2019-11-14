@@ -1,11 +1,11 @@
 ---
 layout: post
-category: Java
+category: 算法
 title: 你应该知道的常用排序算法之插入排序
 tagline: by 子悠
 tags: 
-  - 面试题
-published: true
+  - 子悠
+
 ---
 
 **人生有涯，学海无涯**

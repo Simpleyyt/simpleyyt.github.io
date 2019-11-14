@@ -1,12 +1,10 @@
 ---
 layout: post
-category: Java
+categories: Kafka
 title: Kafka 异步消息也会阻塞？记一次 Dubbo 频繁超时排查过程
 tagline: by 小黑
 tags: 
-  - Kafka
-  - Java
-published: true
+  - 小黑
 ---
 线上某服务 A 调用服务 B 接口完成一次交易，一次晚上的生产变更之后，系统监控发现服务 B 接口频繁超时，后续甚至返回线程池耗尽错误 `Thread pool is EXHAUSTED`。因为服务 B 依赖外部接口，刚开始误以为外部接口延时导致，所以临时增加服务 B dubbo 线程池线程数量。配置变更之后，重启服务，服务恢复正常。一段时间之后，服务 B 再次返回线程池耗尽错误。这次深入排查问题之后，才发现 Kafka 异步发送消息阻塞了 dubbo 线程，从而导致调用超时。
 

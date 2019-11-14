@@ -3,7 +3,8 @@ layout: post
 title: 【MySQL】CentOS7 下安装及搭建主从复制
 tagline: by 郑璐璐
 categories: mysql
-tag:
+tags:
+    - 郑璐璐
 ---
 
 一篇文章，教你搞定 MySQL 主从复制。
