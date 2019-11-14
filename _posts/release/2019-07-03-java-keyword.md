@@ -2,9 +2,9 @@
 layout: post
 title: java关键字名单
 tagline: by 炸鸡可乐
-categories: Java
+categories: java基础
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 java有一系列的关键字，在代码中各自有自己的重要用途与意义，今天小编想带着大家一起来了解一下java的关键字！

@@ -4,7 +4,7 @@ categories: spring
 title: Spring 源码学习(七)扩展功能 下篇
 tags: 
   - 惊奇
-published: true
+
 ---
 
 在上一篇文章中，深入分析和学习了 `BeanFactoryPostProcessor` ，主体是 `BeanFactory` 的后处理器，这次来学习主体是 `Bean` 的后处理器：`BeanPostProcessor`。

@@ -2,9 +2,9 @@
 layout: post
 title: 深入解析java反射
 tagline: by 炸鸡可乐
-categories: Java
+categories: java反射
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 本博文主要记录Java 反射（reflect）的使用，在了解反射之前，你应该先了解 Java 中的 Class 类，如果你不是很了解，可以先简单了解下。

@@ -3,8 +3,8 @@ layout: post
 title: MyBatis 核心配置综述之 Executor
 tagline: by cxuan
 categories: MyBatis
-tag:
-    - Java
+tags:
+    - cxuan
 
 ---
 

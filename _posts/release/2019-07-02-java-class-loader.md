@@ -3,8 +3,8 @@ layout: post
 title: 我竟然不再抗拒 Java 的类加载机制了
 tagline: by 沉默王二
 categories: Java
-tag:
-    - Java
+tags:
+    - 沉默王二
 ---
 
 很长一段时间里，我对 Java 的类加载机制都非常的抗拒，因为我觉得太难理解了。但为了成为一名优秀的 Java 工程师，我决定硬着头皮研究一下。
