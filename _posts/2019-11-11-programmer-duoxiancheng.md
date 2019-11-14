@@ -1,7 +1,7 @@
 ---
 layout: post
 category: java
-title: @程序员，别再迷恋多线程工作了
+title: 程序员，别再迷恋多线程工作了
 tagline: by 沉默王二
 tag: [java,沉默王二]
 ---
