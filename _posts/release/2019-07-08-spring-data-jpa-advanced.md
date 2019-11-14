@@ -4,7 +4,7 @@ title: spring data jpa进阶
 tagline: by 小马
 categories: spring
 tags: 
-    -小马
+    - 小马
 ---
 
 * content
