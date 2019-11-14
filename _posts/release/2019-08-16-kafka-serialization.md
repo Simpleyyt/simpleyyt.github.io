@@ -2,9 +2,9 @@
 layout: post
 title: kafka的序列化和反序列化
 tagline: by 小马
-category: java
-tag: 
-    - java
+categories: kafka
+tags: 
+    - 小马
 ---
 
  

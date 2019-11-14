@@ -1,11 +1,11 @@
 ---
 layout: post
-category: 程序员
+categories: 程序员
 title: 26岁程序员的出路
 tagline: by 沉默王二
 tags: 
-  - 程序员
-published: false
+  - 沉默王二
+
 ---
 
 **所谓路，途也，道也，古人有云：路漫漫其修远兮，吾将上下而求索；歌曲有唱：敢问路在何方，路在脚下；我心有念：流年似水，三十将至，然迷，不复得路。**

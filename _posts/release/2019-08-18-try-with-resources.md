@@ -2,9 +2,9 @@
 layout: post  
 title: Effective-Java 使用try-with-resources
 tagline: by cxuan
-categories: Java  
-tag: 
-    - Java
+categories: Effective-Java
+tags: 
+    - cxuan
 
 
 ---

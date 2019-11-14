@@ -2,8 +2,9 @@
 layout: post
 title: 索引实现靠的是树，你知道么？
 tagline: by 懿
-categories: java
-tag:
+categories: MYSQL
+tags:
+    - 懿
 ---
 
 之前朋友在面试的时候被问到了许多关于索引的问题，而索引这个词一直也是我们在开发中最最最常见的，也是很多在进行代码优化的时候会去做的一件事情，所以今天我们来说说面试中关于索引的那点事。

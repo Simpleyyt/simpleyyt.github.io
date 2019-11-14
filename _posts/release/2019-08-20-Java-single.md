@@ -2,9 +2,9 @@
 layout: post  
 title: java设计模式之单例模式
 tagline: by xiaojiu
-categories: Java  
-tag: 
-    - Java,single
+categories: 设计模式
+tags: 
+    - xiaojiu
 
 ---
 

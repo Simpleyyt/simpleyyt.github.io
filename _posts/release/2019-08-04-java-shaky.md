@@ -2,8 +2,9 @@
 layout: post
 title: 七夕节教你如何打动妹子芳心
 tagline: by 懿
-categories: java
-tag:
+categories: 感想
+tags:
+    - 懿
 ---
 
 七夕节到了，我们今天不看技术了，我来帮助广大程序员赶紧脱单一波吧！

@@ -1,11 +1,11 @@
 ---
 layout: post
-category: 感想
+categories: 感想
 title: 程序员：你写文档吗？
 tagline: by 小黑
 tags: 
-  - 感想
-published: true
+  - 小黑
+
 ---
 
 上午看了沈剑老师的两篇文章，内容主要关于技术文档。有感而发，下面从个人经历聊聊写文档这件事。
