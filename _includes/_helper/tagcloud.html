@@ -25,7 +25,7 @@
 <script>
 var li_list = $(".tags-list-item"), arr = [];
 for (var i = 0; i < li_list.length; i ++) {
-    if (li_list[i] != null) {
+    if (li_list[i] != undefined) {
         arr[i] = li_list[i].id;
     }
 }
