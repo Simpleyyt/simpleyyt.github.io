@@ -5,8 +5,6 @@ tagline: by 纯洁的微笑
 categories: 写作规范
 tags: 
     - 纯洁的微笑
-    - 规范
-    - Markdown
 ---
 
 本文由纯洁的微笑所起草，欢迎团队内成员在此基础上维护、完善。
