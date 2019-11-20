@@ -4,7 +4,7 @@ title: hashCode和equals的区别
 tagline: by Jay pan
 categories: java基础
 tags: 
-    - Jay pan
+    - Jaypan
 ---
 
 有面试官会问：你重写过 hashcode 和 equals 么，为什么重写equals时必须重写hashCode方法？equals和hashCode都是Object对象中的非final方法，它们设计的目的就是被用来覆盖(override)的，所以在程序设计中还是经常需要处理这两个方法。下面我们一起来看一下，它们到底有什么区别，总结一波！
