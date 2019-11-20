@@ -24,12 +24,9 @@
 <script src="/assets/js/src/jquery.min.js"></script>
 <script>
 var li_list = $(".tags-list-item"), arr = [];
-if (li_list.length != 0) {
-    for (var i = 0; i < li_list.length; i ++) {
-        arr[i] = li_list[i].id;
-    }
+for (var i = 0; i < li_list.length; i ++) {
+  arr[i] = li_list[i].id;
 }
-
 var resultArray = arr.sort(
   function compareFunction(param1, param2) {
     return param1.localeCompare(param2,"zh");
