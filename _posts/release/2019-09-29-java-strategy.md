@@ -4,7 +4,7 @@ title: 设计模式之策略模式
 tagline: by 小九
 categories: 设计模式
 tags: 
-  - 小九
+    - 小九
 ---
 
 看了这篇文章，希望你也能写出优雅的代码
