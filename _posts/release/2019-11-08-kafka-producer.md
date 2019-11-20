@@ -3,7 +3,7 @@ layout: post
 categories: Kafka
 title: 带你涨姿势的认识一下Kafka-Producer
 tagline: by cxuan
-tag: 
+tags: 
     - cxuan
 ---
 
