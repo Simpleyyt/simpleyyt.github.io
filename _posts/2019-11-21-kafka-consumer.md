@@ -1,7 +1,7 @@
 ---
 layout: post
 title: kafka 消费者
-categories: kafka
+categories: Kafka
 tags:
 	- cxuan
 
