@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 你还拿着培训班教给你的 Cookie 去面试？确定不要进来看一下 Cookie 到底是什么样子的？
-categories: HTTP系列
+categories: HTTP
 tags:
 	- 懿
 ---
