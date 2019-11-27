@@ -15,7 +15,7 @@ ArrayDeque 一个循环数组，诞生于 JDK 1.6，今天小编想和大家一�
 
 Queue 接口是由大名鼎鼎的 Doug Lea 创建，中文名为道格·利，关于这位大神，会在后期进行介绍，翻开 JDK1.8 源代码，可以将 Queue 接口旗下的实现类抽象成如下结构图：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/333e239b47084559a9c3dbc4f232b5bd.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/333e239b47084559a9c3dbc4f232b5bd.jpg)
 
 Queue 接口，主要实现类有：ArrayDeque、LinkedList、PriorityQueue。
 
@@ -34,11 +34,11 @@ public class ArrayDeque<E> extends AbstractCollection<E>
 
 **当作为队列使用时**，我们会将它与 LinkedList 类来做对比，在后文，我们会做测试类来将两者进行详细数据对比。因为 Deque 接口继承自 Queue接口，在这里，我们分别列出两者接口所定义的方法，两者内容区别如下：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/dda9c71312c8468c88caa6fc9b655d38.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/dda9c71312c8468c88caa6fc9b655d38.jpg)
 
 **当作为栈使用时**，难免会将它与 Java 中一个叫做 Stack 的类做比较，Stack 类的数据结构也是后进先出，可以作为栈来使用，我们分别列出 Stack 类和 Deque 接口所定义的方法，两者内容区别如下：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/95d459a217564fe9917f2fef3d36a363.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/95d459a217564fe9917f2fef3d36a363.jpg)
 
 虽然，ArrayDeque 和 Stack 类都可以作为栈来使用，但是 ArrayDeque 的效率要高于 Stack 类，并且功能也比 Stack 类丰富的多，当需要使用栈时，**Java 已不推荐使用 Stack，而是推荐使用更高效的 ArrayDeque，次选 LinkedList** 。
 
@@ -48,7 +48,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
 
 继续回到咱们要介绍的这个 ArrayDeque 类，从名字上可以看出 ArrayDeque 底层是通过数组实现的，为了满足可以同时在数组两端插入或删除元素的需求，该数组还必须是循环的，即**循环数组**，也就是说数组的任何一点都可能被看作起点或者终点。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/a01166952ddd4d8db97d3c47e83d7fc7.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/a01166952ddd4d8db97d3c47e83d7fc7.jpg)
 
 
 
@@ -125,7 +125,7 @@ ArrayDeque，添加元素的方法有两种，一种是通过数组尾部下标�
 ##### 3.1.1、addLast 方法
 addLast 方法，表示向尾部添加元素，操作如下图：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/8c6cb88eed2f485790ab49799e1c3543.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/8c6cb88eed2f485790ab49799e1c3543.jpg)
 
 如果插入失败，就失败抛异常，同时添加的元素不能为空`null`，源码如下：
 ```java
@@ -179,7 +179,7 @@ public static void main(String[] args) {
 
 我们来看看`doubleCapacity()`扩容这个方法，其逻辑是申请一个更大的数组（原数组的两倍），然后将原数组复制过去，流程图下：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/116682d252094adca203651078f5fa3b.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/116682d252094adca203651078f5fa3b.jpg)
 
 `doubleCapacity()`扩容源码如下：
 ```java
@@ -282,7 +282,7 @@ ArrayDeque，删除元素的方法有两种，一种是通过数组尾部下标�
 ##### 3.2.1、pollFirst 方法
 pollFirst 方法，表示删除头部元素，并返回删除的元素。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/7e6adaee4a8a4508a3e5f2c63f9d8434.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/7e6adaee4a8a4508a3e5f2c63f9d8434.jpg)
 
 pollFirst 方法源码如下：
 ```java
@@ -315,7 +315,7 @@ public E removeFirst() {
 ##### 3.2.3、pollLast 方法
 pollLast 方法，与`pollFirst`方法正好相反，对数组尾部元素进行删除，并返回元素。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/7bf14cee6b874207962927c625e19ae4.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/7bf14cee6b874207962927c625e19ae4.jpg)
 
 pollLast 方法，源码如下：
 ```java
@@ -521,7 +521,7 @@ public static void main(String[] args) {
 #### 4.3、总结
 我们分别以10万条数据、100万条数据、1000万条数据来测试，两个类在作为队列和栈方面的性能，可能因为机器的不同，每个机器的测试结果不同，本次使用的是 mac 机器，测试结果如下图：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/c86cd463add54d9c80d01fbfabb923b3.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/c86cd463add54d9c80d01fbfabb923b3.jpg)
 
 **从数据上可以看出，在 10 万条数据下，两者性能都差不多，当达到 100 万条、1000 万条数据的时候，两者的差别就比较明显了，ArrayDeque 无论是作为队列还是作为栈使用，性能均高于 LinkedList 。**
 

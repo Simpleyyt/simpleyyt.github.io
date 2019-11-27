@@ -13,7 +13,7 @@ PriorityQueue 一个特殊的优先级队列，今天咱们一起来揭开它的
 ### 一、摘要
 在前几篇文章中，咱们了解到，Queue 的实现类有 ArrayDeque、LinkedList、PriorityQueue。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/333e239b47084559a9c3dbc4f232b5bd.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/333e239b47084559a9c3dbc4f232b5bd.jpg)
 
 在上一章节中，陆续的介绍到 ArrayDeque 和 LinkedList 的数据结构和算法实现，今天咱们来介绍一下** PriorityQueue 这个类，一个特殊的优先级队列**。如果有理解不当之处，欢迎指正。
 
@@ -28,7 +28,7 @@ PriorityQueue 一个特殊的优先级队列，今天咱们一起来揭开它的
 
 PriorityQueue 是采用树形结构来描述元素的存储，具体说是通过完全二叉树实现一个小顶堆，**在物理存储方面，PriorityQueue 底层通过数组来实现元素的存储。**
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/dc772c5097824fad9c0af8c8f84b394a.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/dc772c5097824fad9c0af8c8f84b394a.jpg)
 
 在上图中，我们给每个元素的下标做了标注，足够细心的你会发现，数组下标，存在以下关系：
 ```java
@@ -103,7 +103,7 @@ public PriorityQueue(Comparator<? super E> comparator) {
 
 在介绍 PriorityQueue 实现的方法之前，咱们了解到，Queue 接口定义有如下方法：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/eeeab14cbae840cabda77e05b2703901.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/eeeab14cbae840cabda77e05b2703901.jpg)
 
 同样的 PriorityQueue 也实现了这些方法，PriorityQueue 方法虽然定义的很多，但无非就是对容器进行添加、删除、查询操作，下面我们分别来看看各个操作方法的实现过程。
 
@@ -113,7 +113,7 @@ PriorityQueue 的添加方法有 2 种，分别是`add(E e)`和`offer(E e)`，�
 ##### 3.1.1、offer 方法
 offer 方法图解实现流程如下：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/c487377b1f6048c583f2d90476f319c3.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/c487377b1f6048c583f2d90476f319c3.jpg)
 
 新加入的元素可能会破坏小顶堆的性质，在 c、d 两步会进行调整。
 
@@ -291,7 +291,7 @@ PriorityQueue 的删除方法有 2 种，分别是`remove()`和`poll()`，两者
 ##### 3.2.1、poll 方法
 offer 方法图解实现流程如下：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/76aee08e71d746bd9481cb3cb067cda8.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/76aee08e71d746bd9481cb3cb067cda8.png)
 
 删除的元素可能会破坏小顶堆的性质，在 b、 c、d 三步会进行调整。
 
@@ -395,7 +395,7 @@ PriorityQueue 的查询方法有 2 种，分别是`element()`和`和peek()`，�
 ##### 3.3.1、peek 方法
 peek 方法图解实现流程如下：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_jay/5e3d3e6696494f1aa158d51285afad81.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image-jay/5e3d3e6696494f1aa158d51285afad81.jpg)
 
 peek 方法实现，直接返回数组下标为`0`的元素，源码如下：
 ```java
