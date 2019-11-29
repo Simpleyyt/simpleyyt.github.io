@@ -20,7 +20,7 @@ tags:
 
 一共有三种时间类型：`Processing Time`、`Event Time` 和 `Ingestion Time`
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/timecn/flink_time_introduction.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/time/flink_time_introduction.png)
 
 图片参考官网，加上了一些注释配合理解，三种时间类型对应了三个发生位置，下面具体说下三种时间类型的区别。
 
@@ -137,11 +137,11 @@ new Watermark(currentTimeStamp - maxUnOrderWatermark);
 
 下图显示了带有（逻辑）时间戳记的事件流，以及串联的 `Watermark`。 在此示例中，事件是按顺序（`In Order`）排列的（相对于其时间戳），这意味着 `Watermark` 只是流中的周期性标记。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/timecn/stream_watermark_in_order.svg)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/time/stream_watermark_in_order.svg)
 
 **`Watermark` 对于乱序流（`Out Of Order`）至关重要，如下图所示，其中事件不是按其时间戳排序的。** 通常，`Watermark` 是一种声明，即到流中的那个点，直到某个时间戳的所有事件都应该到达。一旦 `Watermark` 到达 `Operator`，`Operator` 就可以将其内部事件时钟提前到 `Watermark` 的值。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/timecn/stream_watermark_out_of_order.svg)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/time/stream_watermark_out_of_order.svg)
 
 > 请注意，`Evnet Time` 是由新创建的一个（或多个）流元素从产生它们的事件或触发了创建这些元素的 `Watermark` 中继承的。
 
@@ -156,7 +156,7 @@ new Watermark(currentTimeStamp - maxUnOrderWatermark);
 
 下图显示了流过并行流的事件和 `Watermark` 的示例，`Operator` 跟踪事件时间。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/timecn/parallel_streams_watermarks.svg)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/time/parallel_streams_watermarks.svg)
 
 （并行流用的不多，这里留个坑吧，待之后用到再来补=-=）
 
