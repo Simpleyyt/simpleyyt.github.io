@@ -2,7 +2,7 @@
 layout: post
 categories: Flink
 title: Flink 基础学习(七) 窗口 Window
-tags: 
+tags:
   - 惊奇
 ---
 
@@ -24,7 +24,7 @@ tags:
 
 `Windows` 是处理无限流的核心。`Windows` 将流分成有限大小的“存储桶”，我们可以在其上应用计算。**`Flink` 是一个优秀的流计算引擎，数据是源源不断的，它认为批处理 `Batch` 是一种特殊的流计算，在流中分割出一个个窗口，每个窗口相当于有限大小的空间，汇聚了待处理的数据。**
 
-窗口式 `Flink` 程序的一般结构如下所示。第一个片段指的是键控流，第二个片段指的是非键控流。可以看到，唯一的区别是对键控流的 `keyBy(...)` 调用和对非键控流的 `window(...)` 变为 `windowAll(...)`。 
+窗口式 `Flink` 程序的一般结构如下所示。第一个片段指的是键控流，第二个片段指的是非键控流。可以看到，唯一的区别是对键控流的 `keyBy(...)` 调用和对非键控流的 `window(...)` 变为 `windowAll(...)`。
 
 - Keyed Windows 键控流
 
@@ -56,7 +56,7 @@ stream
 ---
 # 3 Window 按驱动类型分类
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/windowcn/flink_window_xmind.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/window/flink_window_xmind.png)
 
 上图按照不同驱动类型，将窗口分成三类。
 
@@ -72,7 +72,7 @@ stream
 
 > **我们举个具体的场景来形象地理解不同窗口的概念。假设，淘宝网会记录每个用户每次购买的商品个数，我们要做的是统计不同窗口中用户购买商品的总数。下图给出了几种经典的窗口切分概述图（圈中的数字代表该用户本次购买的商品个数）：**
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/windowcn/jark_window_intro.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/window/jark_window_intro.png)
 
 从上图能够看出，`Raw stream data` 是原始数据流，数据输入方向为【从左到右】，根据左侧不同的窗口分类，将会得到右边相应的窗口，依据设定的窗口大小和时间间隔，每个窗口将会搜集到相应的数据（一个颜色块表示一个窗口）。
 
@@ -115,7 +115,7 @@ DataStream<ItemViewCount> windowData = pvData
 ```
 
 ---
-## 3.2 CountWindows 
+## 3.2 CountWindows
 
 `Apache Flink` 还具有计数窗口。滚动计数窗口为 100 时，将在一个窗口中收集 100 个事件，并在添加第 100 个元素时触发该窗口的计算。
 
@@ -173,7 +173,7 @@ input
 
 该组件主要功能是决定数据该分发到哪个窗口，它的作用可以类比于 `Spring MVC` 中的 `Dispatcher`。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/windowcn/flink/window/window_assigner_impls.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/window/window_assigner_impls.png)
 
 上图左侧是 `Flink` 窗口实现的包结构，三大组件在对应的目录下，清晰明了。
 
@@ -185,7 +185,7 @@ input
 
 对于每个插入到窗口中的元素以及先前注册的计时器超时时，将触发该触发器。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/windowcn/flink/window/trigger_impls.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/window/trigger_impls.png)
 
 上图展示了触发器的继承类，从中可以看出，它可以根据时间或者计数来触发，表示这个窗口的数据已收集完成，可以触发计算逻辑。
 
@@ -193,7 +193,7 @@ input
 
 直译为 ‘驱逐者’，作用类似于过滤器 `fliter`，在 `trigger` 后执行，如果设定了 `evictor`，将会去除不符合条件的数据（默认是不设定的，不会驱逐）
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/windowcn/flink/window/evictor_impls.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/window/evictor_impls.png)
 
 通过这三大组件，可以实现自定义窗口逻辑，决定数据如何分配、何时触发计算以及哪些数据要被提前去除，详细使用例子可以参考官网的示例：https://flink.apache.org/news/2015/12/04/Introducing-windows.html
 
@@ -201,13 +201,13 @@ input
 
 **前面介绍了三大组件，接下来就来看下在实际应用中，它们的流程是如何串起来。**
 
-`Flink` 的内置时间和计数窗口涵盖了各种常见的窗口用例。 
+`Flink` 的内置时间和计数窗口涵盖了各种常见的窗口用例。
 
-但是，当然有些应用程序需要自定义窗口逻辑，而 `Flink` 的内置窗口无法解决这些逻辑。为了也支持需要非常特定的窗口语义的应用程序，`DataStream API` 公开了其窗口机制内部的接口。 
+但是，当然有些应用程序需要自定义窗口逻辑，而 `Flink` 的内置窗口无法解决这些逻辑。为了也支持需要非常特定的窗口语义的应用程序，`DataStream API` 公开了其窗口机制内部的接口。
 
 这些接口可以非常精细地控制窗口的构建和评估方式。下图描述了 `Flink` 的窗口机制，并介绍了其中涉及的组件。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/windowcn/flink_window_mechanism.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/window/flink_window_mechanism.png)
 
 到达窗口运算符的元素将传递给 `WindowAssigner`。` WindowAssigner` 将元素分配给一个或多个窗口，可能会创建新窗口。窗口本身只是元素列表的标识符，并且可以提供一些可选的元信息，例如在使用 `TimeWindow` 时的开始和结束时间。请注意，可以将元素添加到多个窗口，这也意味着元素可以同时存在于多个窗口（图中的元素 6 就存在于第一个和第三个窗口中）。
 
