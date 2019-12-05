@@ -76,7 +76,7 @@ published: true
 
 *工作流程图如下：*
 
-![线程池执行流程图.png](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20190910/线程池执行流程图-9ea9bd3a.png)
+![QGl0BV.png](https://s2.ax1x.com/2019/12/05/QGl0BV.png)
 
 当线程池处于第二步时，线程将会使用 `workQueue#take` 获取队头的任务，然后完成任务。如果工作队列一直没任务，由于队列为阻塞队列，`workQueue#take` 将会阻塞线程。
 
