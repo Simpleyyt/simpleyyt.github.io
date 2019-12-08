@@ -2,9 +2,9 @@
 layout: post  
 title: 浅谈Java中字符串的初始化及字符串操作类。    
 tagline: by 炭烧生蚝  
-categories: Java  
-tag: 
-    - Java
+categories: java基础
+tags: 
+    - 炭烧生蚝
 ---
 
 在深入学习字符串类之前, 我们先搞懂JVM是怎样处理新生字符串的. 

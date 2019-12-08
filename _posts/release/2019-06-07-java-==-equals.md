@@ -2,9 +2,9 @@
 layout: post  
 title:  Java中"=="和equals()的区别  
 tagline: by 炭烧生蚝  
-categories: Java  
-tag: 
-    - Java
+categories: Java基础
+tags: 
+    - 炭烧生蚝  
 ---
 
 “判断两个事物是否相等”，是编程中最常见的操作之一，在Java中，判断是否相等有两种方法，一种是使用“==”判断符，另一种是使用“equals()”方法，你是否曾因混用二者导致不可思议的bug？本篇文章将带你深入二者背后的判断原理。

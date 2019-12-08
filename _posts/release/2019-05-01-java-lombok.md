@@ -3,7 +3,7 @@ layout: post
 title: 你干啥的？Lombok
 tagline: by 沉默王二
 categories: java工具
-tag:
+tags:
     - 沉默王二
 ---
 

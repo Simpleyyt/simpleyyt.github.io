@@ -1,11 +1,10 @@
 ---
 layout: post
-category: spring
+categories: spring
 title: MyBatis 核心配置综述之 ParameterHandlers
 tagline: by cxuan
 tags: 
-  - mybatis
-published: true
+  - cxuan
 
 ---
 

@@ -1,11 +1,10 @@
 ---
 layout: post
-category: shiro
+categories: shiro
 title: 【Shiro 系列 07】Shiro 中密码加盐
 tagline: by 江南一点雨
 tags:
-  - shiro
-published: true
+  - 江南一点雨
 ---
 
 上篇文章和小伙伴们聊了密码加密问题，但是还不够，本文我们再来看看密码加盐问题。

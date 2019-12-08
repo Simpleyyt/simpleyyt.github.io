@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Java
+categories: java基础
 title: 为什么双重检查锁模式需要 volatile ？
 tagline: by 小黑
 tags: 
-  - Java
+  - 小黑
 published: true
 ---
 

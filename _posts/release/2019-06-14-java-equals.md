@@ -2,9 +2,9 @@
 layout: post
 title: Java的== 与 equals区别
 tagline: by Jay pan
-categories: Java
+categories: java基础
 tags: 
-  - Java
+  - Jaypan
 ---
 
 

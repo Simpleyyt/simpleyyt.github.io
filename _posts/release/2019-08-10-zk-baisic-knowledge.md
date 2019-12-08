@@ -1,11 +1,11 @@
 ---
 layout: post
-category: Java
+categories: 分布式
 title: 想知道注册中心原理吗？先来学习一下 ZooKeeper
 tagline: by 小黑
 tags: 
-  - Java
-published: true
+  - 小黑
+
 ---
 
 Dubbo 通过注册中心在分布式环境中实现服务的注册与发现，而注册中心通常采用 ZooKeeper，研究注册中心相关源码绕不开 ZooKeeper，所以学习了 ZooKeeper 的基本概念以及相关 API 操作。

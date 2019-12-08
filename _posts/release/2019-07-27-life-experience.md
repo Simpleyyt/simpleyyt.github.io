@@ -4,7 +4,7 @@ title: 意外的入坑
 tagline: by 炸鸡可乐
 categories: else
 tags: 
-  - else
+  - 炸鸡可乐
 ---
 
 美团程序员吐槽：“培训机构混半年，小公司出来张嘴就要30k！” 小编有话要说！

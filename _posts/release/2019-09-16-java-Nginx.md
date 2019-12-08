@@ -2,8 +2,9 @@
 layout: post
 title: 关于Nginx，你还在背诵那些培训机构教给你的内容么？
 tagline: by 懿
-categories: java
-tag:
+categories: Nginx
+tags:
+    - 懿
 ---
 
 关于Nginx你还在背诵着培训班中教给你的内容么？面试的时候很多项目都说使用过Nginx，但是当面试官问你Nginx的原理的时候，你还在手足无错么？如果有，那么这篇文章我送给大家，让你面试回答Nginx的的时候不再慌张，不需要再去背诵那些内容了，各位看官准备好了么？

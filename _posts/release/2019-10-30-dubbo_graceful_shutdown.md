@@ -1,12 +1,10 @@
 ---
 layout: post
-category: Dubbo
+categories: Dubbo
 title: Dubbo 优雅停机演进之路
 tagline: by 小黑
 tags: 
-  - Dubbo
-  - Java
-published: true
+    - 小黑
 ---
 
 

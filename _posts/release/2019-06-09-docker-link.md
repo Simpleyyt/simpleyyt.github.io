@@ -1,10 +1,10 @@
 ---
 layout: post
-categories: Docker
+categories: Docker系列
 title: Docker 容器连接[Docker 系列-7]
 tagline: by 江南一点雨
 tags: 
-  - Docker
+  - 江南一点雨
 ---
 
 数据卷容器以及和大家聊过了，本文我们再来看看使用数据卷容器实现数据的备份与恢复，然后再来看看容器的连接操作。

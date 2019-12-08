@@ -3,8 +3,8 @@ layout: post
 title: 计算机内存管理介绍
 tagline: by Adam Wong
 categories: 计算机原理
-tag:
-    - Adam Wong
+tags:
+    - AdamWong
 ---
 
 

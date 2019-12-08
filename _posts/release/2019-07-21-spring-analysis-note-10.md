@@ -4,7 +4,7 @@ categories: spring
 title: Spring 源码学习(十) Spring mvc
 tags: 
   - 惊奇
-published: true
+
 ---
 
 **经过前面的 `AOP`（面向切面编程） 和 `Transaction`（事务管理），这次来到了 `MVC`（Web 应用，进行请求分发和处理）**

@@ -1,10 +1,10 @@
 ---
 layout: post
-category: 程序员
+categories: 网络编程
 title: Java 网络编程：必知必会的 URL 和 URLConnection
 tagline: by 沉默王二
 tags: 
-  - 网络编程
+  - 沉默王二
 ---
 
 `java.net.URL` 类将 URL 地址进行了封装，并提供了解析 URL 地址的基本方法，比如获取 URL 的主机名和端口号。`java.net.URLConnection` 则代表了应用程序和 URL 之间的通信链接，可用于读取和写入此 URL 引用的资源。

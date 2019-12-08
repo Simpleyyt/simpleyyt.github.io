@@ -1,10 +1,10 @@
 ---
 layout: post
-categories: Docker
+categories: Docker系列
 title: Docker 容器编排入门[Docker 系列-8]
 tagline: by 江南一点雨
 tags: 
-  - Docker
+  - 江南一点雨
 ---
 
 在实际的开发环境或者生产环境，容器往往都不是独立运行的，经常需要多个容器一起运行，此时，如果继续使用 run 命令启动容器，就会非常不便，在这种情况下，docker-compose 是一个不错的选择，使用 docker-compose 可以实现简单的容器编排,本文就来看看 docker-compose 的使用。  

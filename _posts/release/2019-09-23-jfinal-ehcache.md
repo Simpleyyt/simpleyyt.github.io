@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Java
+categories: java基础
 title: 如果有人问你 JFinal 如何集成  EhCache，把这篇文章甩给他
 tagline: by 沉默王二
 tags: 
-  - Java
+  - 沉默王二
 ---
 
 废话不多说，就说一句：在 JFinal 中集成 EhCache，可以提高系统的并发访问速度。

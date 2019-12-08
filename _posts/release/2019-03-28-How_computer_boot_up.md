@@ -4,7 +4,7 @@ title:  计算机启动过程
 tagline: by Adam Wong
 categories: 计算机原理
 tags: 
-    - Adam Wong
+    - AdamWong
 ---
 
 

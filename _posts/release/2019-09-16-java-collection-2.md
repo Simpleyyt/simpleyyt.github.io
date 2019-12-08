@@ -2,9 +2,9 @@
 layout: post
 title: 【集合系列】- 深入浅出分析Collection中的List接口
 tagline: by 炸鸡可乐
-categories: Java
+categories: java基础
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 在上一章《初探java集合框架图》中，我相信大部分朋友对java容器整体架构都有了初步的了解，那么本章主要是想详细的介绍以下List接口实现类之间的区别！

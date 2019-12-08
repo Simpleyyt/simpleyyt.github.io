@@ -4,7 +4,7 @@ title: 手把手教你，使用 Nginx 搭配 Tomcat 实现负载均衡!
 tagline: by 炸鸡可乐
 categories: Nginx
 tags: 
-  - nginx
+  -  炸鸡可乐
 ---
 
 说到 Nginx ，相信大家都不会陌生，最常用的莫过于：用它来与 Tomcat 搭配做负载均衡，起到灰度发布的作用，同时保证系统高可用！

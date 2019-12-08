@@ -1,11 +1,11 @@
 ---
 layout: post
-category: java
+categories: Redis
 title: 聊聊 Redis 的事务
 tagline: by 子悠
 tags: 
-  - java
-published: true
+  - 子悠
+
 ---
 
 ### 背景

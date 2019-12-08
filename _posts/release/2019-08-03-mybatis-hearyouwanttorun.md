@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Java
+categories: mybatis
 title: MyBatis 核心配置综述之 Configuration详解
 tagline: by cxuan
 tags: 
-  - Mybatis
+  -  cxuan
 ---
 
 

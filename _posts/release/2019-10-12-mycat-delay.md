@@ -1,9 +1,10 @@
 ---
 layout: post
 title: 生产上遇到的一例mycat读写分离延时问题
-category: mysql
+categories: mysql
 tagline: by 小马
-tags: [mycat,读写分离,延时]
+tags: 
+    - 小马
 ---
 
 * content

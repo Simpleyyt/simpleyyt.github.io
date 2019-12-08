@@ -2,9 +2,9 @@
 layout: post
 title: 浅谈分布式事务与TX-LCN
 tagline: by 炭烧生蚝
-categories: Java
+categories: 分布式
 tags: 
-  - Java
+  - 炭烧生蚝
 ---
 
 

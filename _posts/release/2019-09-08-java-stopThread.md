@@ -2,9 +2,9 @@
 layout: post  
 title: 面试题：Java中如何停止线程？
 tagline: by 炭烧生蚝
-categories: Java  
-tag: 
-    - Java
+categories: java线程
+tags: 
+    - 炭烧生蚝
 
 ---
 

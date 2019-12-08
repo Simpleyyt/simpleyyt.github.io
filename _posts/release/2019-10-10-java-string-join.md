@@ -2,9 +2,9 @@
 layout: post
 title: 羞，Java 字符串拼接竟然有这么多姿势
 tagline: by 沉默王二
-categories: java
+categories: java基础
 tags: 
-  - java
+  - 沉默王二
 ---
 
 就在昨天，一位叫小菜的读者微信我说：

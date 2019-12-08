@@ -3,7 +3,8 @@ layout: post
 title: 【运维】proxmox ve 与 vSphere 对比
 tagline: by 郑璐璐
 categories: 操作系统
-tag:
+tags:
+    - 郑璐璐
 ---
 
 我曾经捣鼓过 vSphere 相关的内容，写过一个专栏，起码有些许的成绩了，支撑起了公司大大小小的项目，虽然出过问题，但最后都有惊无险的熬了过来。

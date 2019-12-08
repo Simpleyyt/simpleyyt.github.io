@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Java
+categories: java基础
 title: 到底是存在还是不存在之 BloomFilter
 tagline: by 子悠
 tags:
-  - BloomFilter
+  - 子悠
 ---
 
 ### 01、什么是 BloomFilter（布隆过滤器）

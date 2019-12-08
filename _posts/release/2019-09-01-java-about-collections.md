@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Java
+categor: java基础
 title: Java 集合框架全整理
 tagline: by cxuan
 tags:
-    - Java
+    -  cxuan
 ---
 
 本篇文章的形式结构：

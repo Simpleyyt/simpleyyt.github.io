@@ -2,9 +2,9 @@
 layout: post  
 title: 正则表达式在Java中的使用
 tagline: by 炭烧生蚝
-categories: Java  
-tag: 
-    - Java
+categories: java基础
+tags: 
+    - 炭烧生蚝
 ---
 
 正则表达式一般用于字符串匹配, 字符串查找和字符串替换. 别小看它的作用, 在工作学习中灵活运用正则表达式处理字符串能够大幅度提高效率, 编程的快乐来得就是这么简单。

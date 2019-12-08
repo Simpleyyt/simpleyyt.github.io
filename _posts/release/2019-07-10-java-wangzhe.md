@@ -2,9 +2,9 @@
 layout: post
 title:  Java 代码界 3% 的王者？看我是如何解错这 5 道题的
 tagline: by 沉默王二
-categories: java
-tag: 
-    - java
+categories: java基础
+tags: 
+    - 沉默王二
 ---
 
 前些日子，阿里妹（妹子出题也这么难）发表了一篇文章《悬赏征集！5 道题征集代码界前 3% 的超级王者》——看到这个标题，我内心非常非常激动，因为终于可以证明自己技术很牛逼了。

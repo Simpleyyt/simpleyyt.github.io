@@ -1,11 +1,10 @@
 ---
 layout: post
-category: http
+categories: HTTP
 title: Http 和 Socket 到底是哪门子亲戚？
 tagline: by 江南一点雨
 tags: 
-  - http
-  - socket
+    - 江南一点雨
 published: true
 
 ---

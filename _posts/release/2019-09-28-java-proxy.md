@@ -2,9 +2,9 @@
 layout: post
 title: 设计模式之代理模式
 tagline: by 小九
-categories: java
+categories: 设计模式
 tags: 
-  - proxy
+  - 小九
 ---
 
 看了这篇文章，你会对静态代理模式，`JDK` 动态代理模式和 `CGLIB` 动态代理模式有个很清晰的认识

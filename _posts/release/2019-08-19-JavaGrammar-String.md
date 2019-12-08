@@ -2,9 +2,9 @@
 layout: post  
 title: Java Grammar：几道面试题学习String
 tagline: by Vi的技术博客
-categories: Java  
-tag: 
-    - Java
+categories: 面试  
+tags: 
+    - Vi的技术博客
 
 ---
 

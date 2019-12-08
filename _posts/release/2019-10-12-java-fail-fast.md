@@ -2,9 +2,9 @@
 layout: post
 title: Java，你告诉我 fail-fast 是什么鬼？
 tagline: by 沉默王二
-categories: java
+categories: java基础
 tags: 
-  - java
+  - 沉默王二
 ---
 
 ### 01、前言

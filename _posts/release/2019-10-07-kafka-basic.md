@@ -4,7 +4,7 @@ title: Kafka 第一篇 - 基本概述和快速搭建
 tagline: by cxuan
 categories: Kafka
 tags: 
-  - Java,Kafka
+  - cxuan
 
 ---
 

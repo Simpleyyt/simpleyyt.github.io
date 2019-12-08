@@ -1,12 +1,10 @@
 ---
 layout: post
-category: Java
+categories: Dubbo
 title: 不知道如何实现服务的动态发现？快来看看 Dubbo 是如何做到的
 tagline: by 小黑
 tags: 
-  - Dubbo
-  - Zookeeper
-published: true
+    - 小黑
 ---
 
 

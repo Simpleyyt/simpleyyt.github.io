@@ -1,11 +1,11 @@
 ---
 layout: post
-category: Java
+categories: Docker系列
 title: Docker 安装 Redis、MySQL、Gogs
 tagline: by 子悠
 tags:
-  - docker
-published: true
+  - 子悠
+
 ---
 
 **人生有涯，学海无涯**

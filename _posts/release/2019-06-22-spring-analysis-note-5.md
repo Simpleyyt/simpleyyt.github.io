@@ -4,7 +4,7 @@ categories: spring
 title: Spring 源码学习(五) 循环依赖
 tags: 
   - 惊奇
-published: true
+
 ---
 
 还记得上一篇笔记，在 `bean` 加载流程，在创建过程中，出现了依赖循环的监测，如果出现了这个循环依赖，而没有解决的话，代码中将会报错，然后 `Spring` 容器初始化失败。

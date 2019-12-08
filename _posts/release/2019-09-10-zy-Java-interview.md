@@ -1,11 +1,11 @@
 ---
 layout: post
-category: Java
+categories: 面试
 title: 今天站在面试官的角度，我们来谈谈面试这件事
 tagline: by 子悠
 tags: 
-  - 知识星球
-published: true
+  - 子悠
+
 ---
 
 **人生有涯，学海无涯**

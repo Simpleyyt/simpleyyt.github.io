@@ -3,7 +3,7 @@ layout: post
 title: MyBatis 核心配置综述之 ResultSetHandler
 tagline: by cxuan
 categories: mybatis
-tag: java
+tags: cxuan
 
 ---
 

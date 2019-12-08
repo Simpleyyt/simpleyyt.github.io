@@ -1,11 +1,10 @@
 ---
 layout: post
-category: spring
+categories: spring
 title: Spring 注解编程之 AnnotationMetadata
 tagline: by 小黑
 tags: 
-  - spring
-published: true
+  - 小黑
 ---
 
 在上篇文章  [Spring 注解编程之模式注解](https://juejin.im/post/5d19ce21f265da1bb96ff538#heading-2) 中我们讲到 Spring 模式注解底层原理，依靠 `AnnotationMetadata` 接口判断是否存在指定元注解。

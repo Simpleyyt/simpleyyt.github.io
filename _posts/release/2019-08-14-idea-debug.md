@@ -2,9 +2,9 @@
 layout: post
 title: idea debug高级特性看这篇就够了
 tagline: by 小马
-category: java
-tag: 
-    - java
+categories: IDEA
+tags: 
+    - 小马
 ---
 
 * content

@@ -5,7 +5,7 @@ title: Spring 源码学习(九) Transaction 事务
 tagline: by 惊奇
 tags: 
   - 惊奇
-published: true
+
 ---
 
 业务系统的数据，一般最后都会落入到数据库中，例如 `MySQL`、`Oracle` 等主流数据库，不可避免的，在数据更新时，有可能会遇到错误，这时需要将之前的数据更新操作撤回，避免错误数据。

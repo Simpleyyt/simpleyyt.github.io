@@ -4,7 +4,7 @@ title:  Docker 镜像基本操作[Docker 系列-4]
 tagline: by 江南一点雨
 categories: Docker系列
 tags: 
-    - docker
+    - 江南一点雨
 ---
 
 镜像也是 docker 的核心组件之一，镜像时容器运行的基础，容器是镜像运行后的形态。前面我们介绍了容器的用法，今天来和大家聊聊镜像的问题。

@@ -2,9 +2,9 @@
 layout: post
 title: 【集合系列】- 红黑树实现分析
 tagline: by 炸鸡可乐
-categories: Java
+categories: 数据结构
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 在分析jdk1.8的HashMap实现原理之前，咱们先可以了解一下红黑树的设计，相比jdk1.7的HashMap而言，jdk1.8最重要的就是引入了红黑树的设计，当冲突的链表长度超过8个的时候，链表结构就会转为红黑树结构。

@@ -2,9 +2,9 @@
 layout: post  
 title: Effective Java - 覆盖equals遵守的约定
 tagline: by cxuan
-categories: Java  
-tag: 
-    - Java
+categories: Effective Java
+tags: 
+    - cxuan
 
 
 ---

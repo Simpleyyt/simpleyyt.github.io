@@ -1,11 +1,10 @@
 ---
 layout: post
-category: Java
+categories: 消息队列
 title: rocketmq 部署启动指南-Docker 版
 tagline: by 小黑
 tags: 
-  - rocketmq
-published: true
+  - 小黑
 ---
 
 最近学习使用 rocketmq，需要搭建 rocketmq 服务端，本文主要记录 rocketmq 搭建过程以及这个过程踩到的一些坑。

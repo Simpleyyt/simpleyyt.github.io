@@ -2,9 +2,9 @@
 layout: post
 title: 后端JAVAWeb工程师必须掌握的三个内容！！
 tagline: by 懿
-categories: java
-tag: 
-    - java
+categories: javaWeb
+tags: 
+    - 懿
 ---
 
 我们都是作为一个JAVA开发，之前有好几次出去面试，面试官都问我，JAVAWeb掌握的怎么样，我当时就不知道怎么回答，Web，日常开发中用的是什么？今天我们来说说JAVAWeb最应该掌握的三个内容。

@@ -2,9 +2,9 @@
 layout: post  
 title:  探究Java中的final关键字  
 tagline: by 炭烧生蚝  
-categories: Java  
-tag: 
-    - Java
+categories: java基础 
+tags: 
+    - 炭烧生蚝
 ---
 
 > final 关键字的字面意思是最终的，不可修改的。这似乎是一个看见名字就大概知道怎么用的语法，但你是否有深究过final在各个场景中的具体用法，注意事项，以及背后涉及的Java设计思想呢？

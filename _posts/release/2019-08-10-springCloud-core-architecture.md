@@ -1,10 +1,10 @@
 ---
 layout: post
-category: Java
+categories: SpringCloud
 title: Spring Cloud 的核心架构原理
 tagline: by 乔二爷
 tags:
-    - Java
+    - 乔二爷
 ---
 
 最近在补一些分布式系列的面试内容，提前几个月做做准备吧，你们懂的，也跟大家分享分享。现在分布式系统基本上都是标配了，如果你现在还在玩儿单机，没有接触过这些东西的话，权当是为你打开一扇新的大门吧。

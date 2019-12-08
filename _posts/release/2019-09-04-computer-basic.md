@@ -1,10 +1,10 @@
 ---
 layout: post
-category: 计算机组成原理
+categories: 计算机组成原理
 title: 计算机是由二进制组成的
 tagline: by cxuan
 tags:
-    - 计算机组成原理
+    - cxuan
 
 ---
 

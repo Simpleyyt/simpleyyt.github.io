@@ -3,8 +3,8 @@ layout: post
 title: Effective Java - 构造器私有、枚举和单例
 tagline: by cxuan
 categories: Effective-Java
-tag:
-    - Java
+tags:
+    - cxuan
 ---
 
 # Effective Java - 构造器私有、枚举和单例

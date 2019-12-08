@@ -2,9 +2,9 @@
 layout: post
 title: 【集合系列】- 深入浅出分析HashMap
 tagline: by 炸鸡可乐
-categories: Java
+categories: 数据结构
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 最近几天，一直在学习HashMap的底层实现，发现关于HashMap实现的博客文章还是很多的，对比了一些，都没有一个很全面的文章来做总结，本篇文章也断断续续结合源码写了一下，如果有理解不当之处，欢迎指正！

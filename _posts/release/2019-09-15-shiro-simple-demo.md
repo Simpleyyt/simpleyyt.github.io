@@ -2,9 +2,9 @@
 layout: post
 title: Shiro--从一个简单的 Realm 开始权限认证
 tagline: by 江南一点雨
-categories: Java
+categories: shiro
 tags: 
-  - Shiro
+  - 江南一点雨
 ---
 
 通过上篇文章的学习，小伙伴们对 shiro 应该有了一个大致的了解了，本文我们就来通过一个简单的案例，先来看看 shiro 中登录操作的一个基本用法。  

@@ -2,9 +2,9 @@
 layout: post
 title: 【集合系列】- 深入浅出的分析 WeakHashMap
 tagline: by 炸鸡可乐
-categories: Java
+categories: 数据结构
 tags: 
-  - Java
+  - 炸鸡可乐
 ---
 
 在 Map 家族中，WeakHashMap 是一个很特殊的成员，从名字上看与 HashMap 相关，但是与 HashMap 有着很大的差别，翻译成中文后表示弱 HashMap，俗称缓存 HashMap。

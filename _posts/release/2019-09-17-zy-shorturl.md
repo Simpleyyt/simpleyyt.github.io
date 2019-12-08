@@ -1,11 +1,11 @@
 ---
 layout: post
-category: Java
+categories: 面试
 title: 微博限定用户每次输入最多 140个字符，用户如果传字符串很长的链接，怎么办？
 tagline: by 子悠
 tags: 
-  - 面试题
-published: true
+  - 子悠
+
 ---
 
 **人生有涯，学海无涯**

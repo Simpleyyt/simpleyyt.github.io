@@ -1,11 +1,11 @@
 ---
 layout: post
-category: 知识星球
+categories: 知识星球
 title: 生存还是灭亡？这是一个问题！加入还是不加入？这是最后一个机遇！
 tagline: by 子悠
 tags: 
-  - 知识星球
-published: true
+  - 子悠
+
 ---
 
 **人生有涯，学海无涯**

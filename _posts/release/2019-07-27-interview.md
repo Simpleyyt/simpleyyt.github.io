@@ -3,8 +3,8 @@ layout: post
 title: 这么多优秀的面试题，你不心动吗？
 tagline: by 子悠  
 categories: 面试
-tag: 
-    - 面试
+tags: 
+    - 子悠  
 ---
 
 人生有涯，学海无涯。

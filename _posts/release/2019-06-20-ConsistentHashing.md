@@ -2,9 +2,9 @@
 layout: post  
 title: Java实现一致性哈希算法，并搭建环境测试其负载均衡特性。    
 tagline: by 炭烧生蚝  
-categories: java  
-tag: 
-    - Consistent Hashing
+categories: 数据结构 
+tags: 
+    - 炭烧生蚝 
 ---
 
 实现负载均衡是后端领域一个重要的话题，一致性哈希算法是实现服务器负载均衡的方法之一，你很可能已在一些远程服务框架中使用过它。下面我们尝试一下自己实现一致性哈希算法。

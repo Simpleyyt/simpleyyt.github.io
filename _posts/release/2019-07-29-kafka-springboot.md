@@ -2,8 +2,9 @@
 layout: post
 title: springboot集成kafka示例
 tagline: by 小马
-category: java
-tags: [Kafka,springboot,broker,bootstrap-server]
+categories: java
+tags: 
+    - 小马
 ---
 
 

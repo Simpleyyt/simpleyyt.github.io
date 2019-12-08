@@ -1,11 +1,11 @@
 ---
 layout: post
-category: java
+categories: SpringBoot系列
 title: SpringBoot 集成 Protocol Buffer案例
 tagline: by 子悠
 tags: 
-  - java
-published: true
+  - 子悠
+
 ---
 
 ### 背景

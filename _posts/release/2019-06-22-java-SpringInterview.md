@@ -2,9 +2,9 @@
 layout: post
 title: 面试中的Spring,我们该怎么去回答
 tagline: by 懿
-categories: java
-tag: 
-    - java
+categories: 面试
+tags: 
+    - 懿
 ---
 
 之前的有作者JingQ发布了一些自己学习Spring源码的一些心得和教程，我今天只谈一下我们在面试中的如果面试官问到Spring，你应该怎么去回答，来获取面试官的青睐。在我的印象中，Spring框架可以说是Java世界里面最为成功的框架了，在企业的实际的应用里面，大部分的企业架构都是基于Spring框架的，它的成功来自于他的理念而不是技术，最为核心的理念是IOC和AOP。接下来我们就来讲讲这个Spring吧！

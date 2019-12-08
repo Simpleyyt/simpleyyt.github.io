@@ -2,9 +2,9 @@
 layout: post
 title: java中List元素移除元素的那些坑
 tagline: by 炸鸡可乐
-categories: java
+categories: java基础
 tags: 
-  - java
+  - 炸鸡可乐
 ---
 
 本文主要介绍，java中list集合移除元素的那些坑，今天小编就和大家一起来了解一下吧！

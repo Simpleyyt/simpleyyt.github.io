@@ -2,9 +2,9 @@
 layout: post  
 title:  Java 中 hashCode() 和 equals() 的关系   
 tagline: by 炭烧生蚝  
-categories: Java  
-tag: 
-    - Java
+categories: java基础 
+tags: 
+    - 炭烧生蚝
 ---
 
 Java 中 hashCode() 和 equals() 的关系是面试中的常考点，如果没有深入思考过两者设计的初衷，这个问题将很难回答。除了应付面试，理解二者的关系更有助于我们写出高质量且准确的代码。

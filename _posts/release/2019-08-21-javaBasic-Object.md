@@ -2,9 +2,9 @@
 layout: post  
 title: Object 中有哪些常用方法？
 tagline: by 比拉河畔
-categories: Java  
-tag: 
-    - Java
+categories: java基础
+tags: 
+    - 比拉河畔
 
 ---
 
