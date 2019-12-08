@@ -8,16 +8,20 @@ tags:
 ---
 
 
+这一篇文章我们就用 Java 来生成一下仿金山词霸的海报。
+
+
+<!--more-->
+
+
 >As long as you can still grab a breath, you fight.
 只要一息尚存，就不得不战。
 
 有那么一段时间，我特别迷恋金山词霸的每日一句分享海报。因为不仅海报上的图片美，文字也特别美，美得让我感觉生活都有了诗意。就像文章开头的那句中英文对照，中文和英文都妙极了。
 
-<!--more-->
-
 最近，又有很多人迷恋上了流利说的小程序分享海报（朋友圈比比皆是）。但不管是金山词霸还是流利说，分享的海报都不是自己的二维码，这对于个人品牌的缔造者来说，实在是一件出力不讨好的事。
 
-当然了，这种事难不倒作为程序员的我。这一篇文章我们就用 Java 来生成一下仿金山词霸的海报。
+当然了，这种事难不倒作为程序员的我。
 
 ### 01、大致思路
 
@@ -95,7 +99,7 @@ fos.close();
 
 在指定的临时目录下可以查看采集到的图片，如下所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-a92e3d2db0923ee8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-1.png)
 
 
 
@@ -103,7 +107,7 @@ fos.close();
 
 海报背景的大小为 678 * 1013 像素，个人品牌二维码的大小为 128 * 128 像素。两张图片都是事先准备好的，放在 src 目录下。整个项目的目录结构图如下所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-077de4fa0e14e3bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-2.png)
 
 接下来，我们把这两张图片分别读取到临时文件当中，供后续动作使用。
 
@@ -130,7 +134,7 @@ logger.debug("二维码：" + qrcodeFile.getAbsolutePath());
 
 在指定的临时目录下可以查看海报背景和个人品牌二维码，如下所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-6370a6c9578472cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-3.png)
 
 ### 05、利用 Graphics2D 将网络图片绘制成海报封面
 
@@ -184,7 +188,7 @@ ImageIO.write(bgImage, "jpg", posterFile);
 
 在指定的临时目录下可以查看海报，如下所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-5aba12ba4701917c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-4.png)
 
 ### 06、利用 Graphics2D 在海报上打印中文
 
@@ -236,7 +240,7 @@ g.setColor(new Color(71, 71, 71));
 - top 指的是指的是最高字符到 baseline 的值，即 ascent 的最大值
 - bottom 指的是最下字符到 baseline 的值，即 descent 的最大值
 
-![](https://upload-images.jianshu.io/upload_images/1179389-5f238b6ecc64690c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-5.png)
 
 `FontDesignMetrics` 的 `charWidth()` 方法可以计算字符的宽度。
 
@@ -268,13 +272,13 @@ public static String makeLineFeed(String zh, FontDesignMetrics metrics, int max_
 }
 ```
 
-假如文本是“懦怯囚禁人的灵魂，希望可以令你感受自由。强者自救，圣者渡人。”我们来通过 `makeLineFeed()` 方法试验一下。
+假如文本是“沉默王二，《Web 全栈开发进阶之路》作者；一个不止写代码的程序员，还写有趣有益的文字，给不喜欢严肃的你。”我们来通过 `makeLineFeed()` 方法试验一下。
 
 ```java
 Font font = new Font("微软雅黑", Font.PLAIN, 28);
 FontDesignMetrics metrics = FontDesignMetrics.getMetrics(font);
 
-String zh = "懦怯囚禁人的灵魂，希望可以令你感受自由。强者自救，圣者渡人。";
+String zh = "沉默王二，《Web 全栈开发进阶之路》作者；一个不止写代码的程序员，还写有趣有益的文字，给不喜欢严肃的你。";
 
 String[] rows = makeLineFeed(zh, metrics, 600).split("\n");
 for (int i = 0; i < rows.length; i++) {
@@ -284,14 +288,15 @@ for (int i = 0; i < rows.length; i++) {
 
 其结果如下所示。
 
->懦怯囚禁人的灵魂，希望可以令你感受自由。强
-者自救，圣者渡人。
+>沉默王二，《Web 全栈开发进阶之路》作者；
+一个不止写代码的程序员，还写有趣有益的文字
+，给不喜欢严肃的你。
 
 第四步，将自动换行后的文本在海报背景上打印。
 
 这里需要用到 `FontDesignMetrics` 的 `getHeight()` 方法获取每行文本的高度。对照下面的示意图，理解 height 的具体高度。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-c3cc5ea8397f139b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-6.png)
 
 
 ```java
@@ -310,7 +315,7 @@ for (int i = 0; i < zhWraps.length; i++) {
 
 此时的海报效果如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-f595185d5912de00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-7.png)
 
 可以看得出，文字带有很强的锯齿感，怎么消除呢？
 
@@ -405,7 +410,7 @@ for (int i = 0; i < enWraps.length; i++) {
 
 此时的海报效果如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-076ee1532bcadacb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-8.png)
 
 ### 07、利用 Graphics2D 在海报上绘制个人专属二维码
 
@@ -426,7 +431,7 @@ graphics2dPoster.getGraphics2d().drawImage(qrcodeImage, qrcode_x, qrcode_y, qrco
 
 此时的海报效果如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-bb2e098650a5d3bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-9.png)
 
 是不是感觉海报的左下角比较空白，整体的对称性不够自然，那就在左下角追加一些二维码的描述文本吧。
 
@@ -442,7 +447,7 @@ graphics2d.drawString("一个幽默的程序员", MARGIN, bgImage.getHeight() - 
 
 此时的海报效果如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-42162f54ef960ba2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-10.png)
 
 
 ### 08、使用 Swing 构建图形化界面
@@ -457,7 +462,7 @@ Eclipse 默认是不支持可视化的 Swing 编程的，但 Eclipse 的插件�
 
 可直接拖拽到 Eclipse 进行安装，如下图。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-c4dd2343ceaac953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-11.png)
 
 注意，Eclipse 的版本要求为：
 
@@ -465,7 +470,7 @@ Eclipse 默认是不支持可视化的 Swing 编程的，但 Eclipse 的插件�
 
 拖拽到 Eclipse 后的效果如下：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-6e7cbb3661c9f0ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-12.png)
 
 
 安装完成后，会提醒你重启 Eclipse。
@@ -474,7 +479,7 @@ Eclipse 默认是不支持可视化的 Swing 编程的，但 Eclipse 的插件�
 
 安装成功后，就可以使用可视化工具设计界面了，如下图所示：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-1eedb5a740e36b1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-13.png)
 
 ### 09、将项目打成 jar 包发行
 
@@ -482,20 +487,28 @@ Eclipse 默认是不支持可视化的 Swing 编程的，但 Eclipse 的插件�
 
 将项目打成 jar 包也很简单，在 Eclipse 中，可依次右键项目→Export→Runnable JAR file。你将会看到以下界面。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-802b89800ea95026.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-14.png)
 
 选择 main 方法所在类，指定导出目标，选择 `Copy required libraries` 选项，点击「Finish」即可。在指定的目录下可找到生成的 jar 包文件。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-5745376e7b39b31c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-15.png)
 
 ### 10、运行 jar 包，填写必要信息后生成海报
 
 如果电脑上安装了 Java 的运行环境，双击该 jar 包文件就可以运行。运行后的界面，如下图所示。可以填写中文、英文、海报封面路径，然后点击按钮生成海报。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-b435fb67d023df9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-qrcode-poster-16.png)
 
 PS：为了便于大家的学习，我已经将源码放在了 GitHub 上，地址如下。
 
 https://github.com/qinggee/poster/tree/jinshanciba
 
 赶快去 star 吧！
+
+
+
+
+
+上一篇：[Java ：接口和抽象类，傻傻分不清](http://www.itwanger.com/java/2019/11/14/java-extends.html)
+
+下一篇：[Java：优雅地处理异常真是一门学问啊！](http://www.itwanger.com/java/2019/11/14/java-exception.html)

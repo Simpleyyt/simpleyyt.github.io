@@ -7,16 +7,15 @@ tags:
     - 沉默王二
 ---
 
-![](https://upload-images.jianshu.io/upload_images/1179389-57dc87b6a2322e67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+再来聊聊接口和抽象类。
 
-### 01、
+<!--more-->
+
+### 01、抽象类和接口的区别
 
 来看网络上对接口的一番解释：
 
 >接口（英文：Interface），在 Java 编程语言中是一个抽象类型，是抽象方法的集合。一个类通过继承接口的方式，从而来继承接口的抽象方法。
-
-<!--more-->
-
 
 兄弟们，你们怎么看，这段解释把我绕得晕乎乎的，好像喝过一斤二锅头。到底是解释抽象类呢还是接口呢？傻傻分不清楚。
 
@@ -27,7 +26,7 @@ tags:
 3. 接口中不能含有静态代码块以及静态方法(用 `static` 修饰的方法)，而抽象类是可以有静态代码块和静态方法的。
 4. 一个类只能继承一个抽象类，而一个类却可以实现多个接口。
 
-### 02、
+### 02、进一步剖析接口和抽象类
 
 好像知道了两者之间的区别，但印象还是有些模糊。没关系，我们进一步深入。
 
@@ -117,11 +116,11 @@ public class Wanger extends Author implements ContractBeihang, Contract51 {
 }
 ```
 
-### 03、
+### 03、接口和抽象类之间的差别
 
 通过上面举的例子，是不是对接口和抽象类有比较清晰的认知了？如果还没有，来来来，我们再来比较一下接口和抽象类之间的差别。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-e1837c25fd88d254.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://www.itwanger.com/assets/images/2019/11/java-interface-abstract-1.png)
 
 究竟什么时候使用接口，什么时候使用抽象类呢？
 
@@ -133,7 +132,7 @@ public class Wanger extends Author implements ContractBeihang, Contract51 {
 
 4、抽象类和接口有很大的相似性，请谨慎判断。Java 从1.8版本开始，尝试向接口中引入了默认方法和静态方法，以此来减少抽象类和接口之间的差异。换句话说，两者之间越来越难区分了。
 
-### 04、
+### 04、接口的实际应用
 
 在实际的开发应用当中，抽象类我用得不多（这可真是大实话）；接口我倒是用得蛮多的，就像下面这样子：
 
@@ -172,6 +171,10 @@ public class CityService {
 
 在注射器接口中，也只会存在那些与数据库查询相关的抽象方法，就像你看到的 `List<City> getCitys();`。一个注射器接口 + 注射器注解就可以增删改查数据库，是不是感觉很神奇？
 
-### 05、
+### 05、总结
 
-这篇文章的目的是帮助更多的读者了解和掌握抽象类、接口的特点，以及不同的使用场景，通过我整篇文章的努力，我相信你一定若有所获——这也是我写作的最强动力。最后，感谢各位的阅读哦。
+这篇文章的目的是帮助更多的读者了解和掌握抽象类、接口的特点，以及不同的使用场景。
+
+上一篇：[再谈 Java 的继承和超类 Object](http://www.itwanger.com/java/2019/11/14/java-extends.html)
+
+下一篇：[Java 生成二维码分享海报](http://www.itwanger.com/java/2019/11/14/java-qrcode-poster.html)

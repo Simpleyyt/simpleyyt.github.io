@@ -7,13 +7,13 @@ tags:
     - 沉默王二
 ---
 
-![](https://upload-images.jianshu.io/upload_images/1179389-224a422587ba257f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### 01、
-
-利用继承，我们可以基于已存在的类构造一个新类。继承的好处在于，子类可以复用父类的非 `private` 的方法和非 `private` 成员变量。
+再来聊聊继承，以及超类 Object。
 
 <!--more-->
+
+### 01、先有继承，后有多态
+
+利用继承，我们可以基于已存在的类构造一个新类。继承的好处在于，子类可以复用父类的非 `private` 的方法和非 `private` 成员变量。
 
 `is-a` 是继承的一个明显特征，就是说子类的对象引用类型可以是一个父类。我们可以将通用的方法和成员变量放在父类中，达到代码复用的目的；然后将特殊的方法和成员变量放在子类中，除此之外，子类还可以覆盖父类的方法。这样，子类也就焕发出了新的生命力。
 
@@ -67,19 +67,19 @@ final class Wanger {
 }
 ```
 
-**继承**是面向对象编程当中举足轻重的一个概念，与多态、封装共为面向对象的三个基本特征。 继承可以使得子类具有父类的成员变量和方法，还可以重新定义、追加成员变量和方法等。
+**继承**是面向对象编程当中举足轻重的一个概念，与多态、封装共为[面向对象](http://www.itwanger.com/java/2019/11/01/oop.html)的三个基本特征。 继承可以使得子类具有父类的成员变量和方法，还可以重新定义、追加成员变量和方法等。
 
 在设计继承的时候，可以将通用的方法和成员变量放在父类中。但不建议随心所欲地将成员变量以 `protected` 的形式放在父类当中；尽管允许这样做，并且子类可以在需要的时候直接访问，但这样做会破坏类的封装性（封装要求成员变量以 `private` 的形式出现，并且提供对应 `getter / setter` 用来访问）。
 
-Java 是不允许多继承的，为什么呢？
+Java 是不允许多[继承](http://www.itwanger.com/java/2019/11/01/java-extends.html)的，为什么呢？
 
 如果有两个类共同继承一个有特定方法的父类，那么该方法会被两个子类重写。然后，如果你决定同时继承这两个子类，那么在你调用该重写方法时，编译器不能识别你要调用哪个子类的方法。
 
 这也正是著名的菱形问题，见下图。ClassC 同时继承了 ClassA 和 ClassB，ClassC 的对象在调用 ClassA 和 ClassB 中重载的方法时，就不知道该调用 ClassA 的方法，还是 ClassB 的方法。
 
-![](https://static.xmt.cn/80c748d11ae0407286c7f12042a2a81f.png)
+![](http://www.itwanger.com/assets/images/2019/11/java-extends-object-1.png)
 
-### 02、
+### 02、超类 Object
 
 在 Java 中，所有类都由 Object 类继承而来。Object 这个单词的英文意思是对象，是不是突然感觉顿悟了——万物皆对象？没错，Java 的设计者真是良苦用心了啊！现在，你一定明白了为什么 Java 是面向对象编程语言的原因。
 
@@ -161,121 +161,6 @@ class Wanger {
 >POJO（Plain Ordinary Java Object）指简单的 Java 对象，也就是普通的 `JavaBeans`，包含一些成员变量及其 `getter / setter` ，没有业务逻辑。有时叫做 VO (value - object)，有时叫做 DAO （Data Transform Object）。
 
 
-### 03、
+### 03、总结
 
-Java 语言虽然号称“万物皆对象”，但基本类型是例外的——有 8 个基本类型不是 `Object`，包括 `boolean`、`byte` 、`short`、`char`、`int`、`foat`、`double`、`long`。
-
-我们以 `int` 为例，来谈一谈 `Integer` 和 `int` 之间的差别。`Integer` 是 `int` 的包装器，`int` 是 `Integer` 的基本类型。Java 5 的时候，引入了自动装箱和自动拆箱功能（`boxing / unboxing`），`Integer` 和 `int` 可以根据上下文自动进行转换。
-
-比如说：
-
-```java
-Integer a = 100;
-```
-
-实际的字节码是（装箱和拆箱发生在 javac 阶段而不是运行时）：
-
-```java
-Integer a = Integer.valueOf(100);
-```
-
-Java 为什么要这么做呢？因为在实际的应用当中，Java 的设计者发现大部分数据操作都集中在有限的、较小的数值范围内。为了提升性能，Java 5 新增了静态工厂方法 `valueOf()`：
-
-```java
-public static Integer valueOf(int i) {
-    if (i >= IntegerCache.low && i <= IntegerCache.high)
-        return IntegerCache.cache[i + (-IntegerCache.low)];
-    return new Integer(i);
-}
-```
-
-那么 `IntegerCache.low` 和 `IntegerCache.high` 的值是多少呢？来看源码：
-
-```java
-private static class IntegerCache {
-    static final int low = -128;
-    static final int high;
-    static final Integer cache[];
-
-    static {
-        // high value may be configured by property
-        int h = 127;
-        String integerCacheHighPropValue =
-            sun.misc.VM.getSavedProperty("java.lang.Integer.IntegerCache.high");
-        if (integerCacheHighPropValue != null) {
-            try {
-                int i = parseInt(integerCacheHighPropValue);
-                i = Math.max(i, 127);
-                // Maximum array size is Integer.MAX_VALUE
-                h = Math.min(i, Integer.MAX_VALUE - (-low) -1);
-            } catch( NumberFormatException nfe) {
-                // If the property cannot be parsed into an int, ignore it.
-            }
-        }
-        high = h;
-
-        cache = new Integer[(high - low) + 1];
-        int j = low;
-        for(int k = 0; k < cache.length; k++)
-            cache[k] = new Integer(j++);
-
-        // range [-128, 127] must be interned (JLS7 5.1.7)
-        assert IntegerCache.high >= 127;
-    }
-
-    private IntegerCache() {}
-}
-```
-
-这说明最小值是 -128，最大值是 127。现在，我们来看一个有意思的代码，看看它们会输出什么。
-
-```java
-Integer a = 127, b = 127;
-System.out.println(a == b); // 输出  true
-
-Integer a1 = 128, b1 = 128;
-System.out.println(a1 == b1); // 输出 false
-
-Integer a2 = 127;
-int b2 = 127;
-System.out.println(a2 == b2); // 输出 true
-
-Integer a3 = 128;
-int b3 = 128;
-System.out.println(a3 == b3); // 输出 true
-```
-
-我是怎么判断出来结果的呢？这需要借助 class 字节码，如下：
-
-```java
-Integer a = Integer.valueOf(127);
-Integer b = Integer.valueOf(127);
-System.out.println(a == b);
-
-Integer a1 = Integer.valueOf(128);
-Integer b1 = Integer.valueOf(128);
-System.out.println(a1 == b1);
-
-Integer a2 = Integer.valueOf(127);
-int b2 = 127;
-System.out.println(a2.intValue() == b2);
-
-Integer a3 = Integer.valueOf(128);
-int b3 = 128;
-System.out.println(a3.intValue() == b3);
-
-```
-
-1）`a == b` 为 true，是因为 127 刚好在 -128 到 127 的边界，会从 IntegerCache 中产生。
-
-2）`a1 == b1` 为 false，是因为 128 刚好不在 -128 到 127 之间，a1 和 b1 都是重新 new 出来的 Integer 对象，两个对象之间是不会 == 的。
-
-3）`a2 == b2` 和 `a3 == b3` 为 true是因为两个 int 值在比较。尽管源码是 `Integer == int`，但编译后的字节码实际是 `Integer.intValue() == int`（`intValue()` 返回的类型为 int），也就是两个基本类型在比较，它们的值是相等的，所以返回 true。
-
-`Integer a = int` 是自动装箱；`int a = Integer.intValue()` 是自动拆箱。
-
-《阿里巴巴 Java 开发手册》强制规定：所有相同类型的包装器对象之间值的比较，应该使用 `equals()` 方法比较。
-
-### 04、
-
-本篇，我们先谈了面向对象的重要特征继承；然后谈到了继承的终极父类 `Object`；最后谈到了“万物皆对象”的漏网之鱼基本类型。这些知识点都相当的重要，请务必深入理解！
+本篇，我们先谈了面向对象的重要特征继承；然后谈到了继承的终极父类 `Object`。这些知识点都相当的重要，请务必深入理解！

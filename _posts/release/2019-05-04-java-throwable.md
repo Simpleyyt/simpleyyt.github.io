@@ -7,314 +7,165 @@ tags:
     - 沉默王二
 ---
 
-![](https://upload-images.jianshu.io/upload_images/1179389-a83c3620131690fa.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### 01、
-
-你有没有这样的印象，当你想要更新一款 APP 的时候，它的更新日志里总有这么一两句描述：
-
-*   修复若干 bug
-*   杀了某程序员祭天，并成功解决掉他遗留的 bug
+再来聊聊继承，以及超类 Object。
 
 <!--more-->
 
-作为一名负责任的程序员，我们当然希望程序不会出现 bug，因为 bug 出现的越多，间接地证明了我们的编程能力越差，至少领导是这么看的。
+### 01、先有继承，后有多态
 
-事实上，领导是不会拿自己的脑袋宣言的：“我们的程序绝不存在任何一个 bug。”但当程序出现 bug 的时候，领导会毫不犹豫地选择让程序员背锅。
+利用继承，我们可以基于已存在的类构造一个新类。继承的好处在于，子类可以复用父类的非 `private` 的方法和非 `private` 成员变量。
 
-为了让自己少背锅，我们可以这样做：
+`is-a` 是继承的一个明显特征，就是说子类的对象引用类型可以是一个父类。我们可以将通用的方法和成员变量放在父类中，达到代码复用的目的；然后将特殊的方法和成员变量放在子类中，除此之外，子类还可以覆盖父类的方法。这样，子类也就焕发出了新的生命力。
 
-*   在编码阶段合理使用异常处理机制，并记录日志以备后续分析
-*   在测试阶段进行大量有效的测试，在用户发现错误之前发现错误
-
-还有一点需要做的是，在敲代码之前，学习必要的编程常识，做到兵马未动，粮草先行。
-
-### 02、
-
-在 Java 中，异常（Throwable）的层次结构大致如下。
-
-![](https://upload-images.jianshu.io/upload_images/1179389-0f8a932f9faee710.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-Error 类异常描述了 Java 运行时系统的内部错误，比如最常见的 `OutOfMemoryError` 和 `NoClassDefFoundError`。
-
-导致 `OutOfMemoryError` 的常见原因有以下几种：
-
-- 内存中加载的数据量过于庞大，如一次从数据库取出过多数据；
-- 集合中的对象引用在使用完后未清空，使得 JVM 不能回收；
-- 代码中存在死循环或循环产生过多重复的对象；
-- 启动参数中内存的设定值过小；
-
-`OutOfMemoryError` 的解决办法需要视情况而定，但问题的根源在于程序的设计不够合理，需要通过一些性能检测才能找得出引发问题的根源。
-
-导致 `NoClassDefFoundError` 的原因只有一个，Java 虚拟机在编译时能找到类，而在运行时却找不到。
-
-![](https://upload-images.jianshu.io/upload_images/1179389-0c3098c62ca6a9e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-`NoClassDefFoundError` 的解决办法，我截了一张图，如上所示。当一个项目引用了另外一个项目时，切记这一步！
-
-Exception（例外）通常可分为两类，一类是写代码的人造成的，比如访问空指针（`NullPointerException`）。应当在敲代码的时候进行检查，以杜绝这类异常的发生。
+一个对象变量可以引用多种类型的现象被称为多态。多态发生的前提条件就是继承。也就是说，先有继承，后有多态。
 
 ```java
-if (str == null || "".eqauls(str)) {
+class Wanger {
+
+	public void write() {
+		System.out.println("我为自己活着");
+	}
+	
 }
-```
 
-另外一类异常不是写代码的人造成的，要么需要抛出，要么需要捕获，比如说常见的 `IOException`。
+class Wangxiaoer extends Wanger {
+	public void write() {
+		System.out.println("我也为自己活着");
+	}
+}
 
-抛出的示例。
+class Test {
+	public static void main(String [] args) {
+		Wanger wanger;
+		wanger = new Wanger();
+		wanger = new Wangxiaoer();
 
-```java
-public static void main(String[] args) throws IOException {
-	InputStream is = new FileInputStream("沉默王二.txt");
-	int b;
-	while ((b = is.read()) != -1) {
-
+		Wangxiaoer wangxiaoer;
+		//wangxiaoer = new Wanger(); // 不可以
+		wangxiaoer = new Wangxiaoer(); // 只能这样
 	}
 }
 ```
 
-捕获的示例。
+`wanger` 这个对象变量既可以引用 `Wanger` 对象，也可以引用 `Wangxiaoer `对象。但 `wangxiaoer` 就只能引用 `Wangxiaoer` 对象，不能引用 `Wanger` 对象。根本的原因在于 `Wangxiaoer` 是 `Wanger` 的继承者。
+
+当使用 `wanger` 调用 `write()` 方法时，程序会在运行时自动识别其引用的对象类型，然后选择调用哪个方法——这种现象称为动态绑定。
+
+动态绑定有一个非常重要的特性：无需对现有的代码进行修改，就能对程序进行扩展。假如 `Wangdaer` 也继承了 `Wanger`，并且 `wanger` 引用了`Wangdaer` 的对象，那么 `wanger.write()` 仍然可以正常运行。
+
+当然了，有些类不愿意被继承，也没法被继承。谁不愿意被继承呢？比如武则天，亲手弄死自己的亲儿子。谁没法被继承呢，每朝每代最后的那位倒霉皇帝。
+
+类怎么做到不被继承呢？可以使用 `final` 关键字。`final` 关键字修饰的类不能被继承，`final` 修饰的方法不能被覆盖。
 
 ```java
-public static void main(String[] args) {
-	try {
-		InputStream is = new FileInputStream("沉默王二.txt");
-		int b;
-		while((b = is.read()) != -1) {
-			
-		}
-	} catch (IOException e) {
-		e.printStackTrace();
+final class Wanger {
+
+	public final void write() {
+		System.out.println("你们谁都别想继承我");
 	}
+	
 }
 ```
 
-### 03、
+**继承**是面向对象编程当中举足轻重的一个概念，与多态、封装共为[面向对象](http://www.itwanger.com/java/2019/11/01/oop.html)的三个基本特征。 继承可以使得子类具有父类的成员变量和方法，还可以重新定义、追加成员变量和方法等。
 
-当抛出异常的时候，剩余的代码就会终止执行，这时候一些资源就需要主动回收。Java 的解决方案就是 `finally` 子句——不管异常有没有被捕获，`finally` 子句里的代码都会执行。
+在设计继承的时候，可以将通用的方法和成员变量放在父类中。但不建议随心所欲地将成员变量以 `protected` 的形式放在父类当中；尽管允许这样做，并且子类可以在需要的时候直接访问，但这样做会破坏类的封装性（封装要求成员变量以 `private` 的形式出现，并且提供对应 `getter / setter` 用来访问）。
 
-在下面的示例当中，输入流将会被关闭，以释放资源。
+Java 是不允许多[继承](http://www.itwanger.com/java/2019/11/01/java-extends.html)的，为什么呢？
+
+如果有两个类共同继承一个有特定方法的父类，那么该方法会被两个子类重写。然后，如果你决定同时继承这两个子类，那么在你调用该重写方法时，编译器不能识别你要调用哪个子类的方法。
+
+这也正是著名的菱形问题，见下图。ClassC 同时继承了 ClassA 和 ClassB，ClassC 的对象在调用 ClassA 和 ClassB 中重载的方法时，就不知道该调用 ClassA 的方法，还是 ClassB 的方法。
+
+![](http://www.itwanger.com/assets/images/2019/11/java-extends-object-1.png)
+
+### 02、超类 Object
+
+在 Java 中，所有类都由 Object 类继承而来。Object 这个单词的英文意思是对象，是不是突然感觉顿悟了——万物皆对象？没错，Java 的设计者真是良苦用心了啊！现在，你一定明白了为什么 Java 是面向对象编程语言的原因。
+
+你可能会疑惑地反问道：“我的类明明没有继承 Object 类啊？”如果一个类没用显式地继承某一个类，那么它就会隐式地继承 Object 类。换句话说，不管是鸡生了蛋，还是蛋孵出了鸡，总有一只 Object 鸡或者一个 Object 蛋。
+
+在面试的时候，你可能会被问到这么一个问题：“Object 类包含了哪些方法呢？”
+
+1）`protected Object clone() throws CloneNotSupportedException` 创建并返回此对象的副本。
+
+不过，《阿里巴巴 Java 开发手册》上建议：慎用 Object 的 clone 方法来拷贝对象。因为 Object 的 clone 方法默认是浅拷贝，如果想实现深拷贝需要重写 clone 方法实现属性对象的拷贝。
+
+什么是浅拷贝，什么是深拷贝呢？
+
+浅拷贝是指在拷贝对象时，会对基本数据类型的变量重新复制一份，而对于引用类型的变量只拷贝了引用，并没有对引用指向的对象进行拷贝。
+
+深拷贝是指在拷贝对象时，同时对引用指向的对象进行拷贝。
+
+浅拷贝和深拷贝的区别就在于是否拷贝了对象中的引用变量所指向的对象。
+
+2）`public boolean equals(Object obj)` 判断另一对象与此对象是否「相等」。
+
+该方法使用的区分度最高的“==”操作符进行判断，所以只要两个对象不是同一个对象，那么 `equals()` 方法一定返回 `false`。
+
+《阿里巴巴 Java 开发手册》上强调：由于 Object 的 equals 方法容易抛出空指针异常，所以应该使用常量或者确定不为 null 的对象来调用 equals。
+
+正例：`"test".equals(object);`
+反例：`object.equals("test");`
+
+在正式的开发项目当中，最经常使用该方法进行判断的就是字符串。不过，建议使用`org.apache.commons.lang3.StringUtils`，不用担心出现空指针异常。具体使用情况如下所示：
 
 ```java
-public static void main(String[] args) {
-	InputStream is = null;
-	try {
-		is = new FileInputStream("沉默王二.txt");
-		int b;
-		while ((b = is.read()) != -1) {}
-	} catch (IOException e) {
-		e.printStackTrace();
-	} finally {
-		is.close();
+StringUtils.equals(null, null)   = true
+StringUtils.equals(null, "abc")  = false
+StringUtils.equals("abc", null)  = false
+StringUtils.equals("abc", "abc") = true
+StringUtils.equals("abc", "ABC") = false
+```
+
+3）`public native int hashCode()` 返回此对象的哈希码。`hashCode()` 是一个 `native` 方法，而且返回值类型是整形；实际上，该方法将对象在内存中的地址作为哈希码返回，可以保证不同对象的返回值不同。
+
+>A native method is a Java method whose implementation is provided by non-java code.<br>
+>`native` 方法是一个 `Java` 调用非 `Java` 代码的接口。该方法的实现由非 `Java` 语言实现，比如 C。这个特征并非 `Java` 所特有，其它的编程语言也有这个机制，比如 `C++`。
+
+`hashCode()` 通常在哈希表中起作用，比如 `HashMap`。
+
+向哈希表中添加 `Object` 时，首先调用 `hashCode()` 方法计算 `Object` 的哈希码，通过哈希码可以直接定位 `Object` 在哈希表中的位置。如果该位置没有对象，可以直接将 `Object` 插入该位置；如果该位置有对象，则调用 `equals()` 方法比较这个对象与 `Object` 是否相等，如果相等，则不需要保存 `Object`；如果不相等，则将该 `Object` 加入到哈希表中。
+
+4）`protected void finalize() throws Throwable` 当垃圾回收机制确定该对象不再被调用时，垃圾回收器会调用此方法。不过，`fnalize` 机制现在已经不被推荐使用，并且在 JDK 9 开始被标记为 `deprecated`（过时的）。
+
+5）`public final Class getClass()` 返回此对象的运行时类。
+
+当我们想知道一个类本身的一些信息（比如说类名），该怎么办呢？这时候就需要用到 `Class` 类，该类包含了与类有关的信息。请看以下代码：
+
+```java
+Wanger wanger = new Wanger();
+Class c1 = wanger.getClass();
+System.out.println(c1.getName());
+// 输出 Wanger
+```
+
+6）`public String toString()` 返回此对象的字符串表示形式。
+
+《阿里巴巴 Java 开发手册》强制规定：POJO 类必须重写 `toString` 方法；可以使用 Eclipse 直接生成，点击 「Source」→「Generate toString」。示例如下：
+
+```java
+class Wanger {
+	private Integer age;
+
+	@Override
+	public String toString() {
+		return "Wanger [age=" + age + "]";
 	}
+	
 }
 ```
 
-但我总觉得这样的设计有点问题，因为 `close()` 方法同样会抛出 `IOException`：
+重写 `toString()` 有什么好处呢？当方法在执行过程中抛出异常时，可以直接调用 POJO 的 `toString()` 方法打印其属性值，便于排查问题。
 
-```java
-    public void close() throws IOException {}
-```
+>POJO（Plain Ordinary Java Object）指简单的 Java 对象，也就是普通的 `JavaBeans`，包含一些成员变量及其 `getter / setter` ，没有业务逻辑。有时叫做 VO (value - object)，有时叫做 DAO （Data Transform Object）。
 
-也就是说，调用 `close()` 的 main 方法要么需要抛出 `IOException`，要么需要在 `finally` 子句里重新捕获 `IOException`。
 
-选择前一种就会让 `try catch` 略显尴尬，就像下面这样。
+### 03、总结
 
-```java
-public static void main(String[] args) throws IOException {
-	InputStream is = null;
-	try {
-		is = new FileInputStream("沉默王二.txt");
-		int b;
-		while ((b = is.read()) != -1) {}
-	} catch (IOException e) {
-		e.printStackTrace();
-	} finally {
-		is.close();
-	}
-}
-```
+本篇，我们先谈了面向对象的重要特征继承；然后谈到了继承的终极父类 `Object`。这些知识点都相当的重要，请务必深入理解！
 
-选择后一种会让代码看起来很臃肿，就像下面这样。
+上一篇：[请用面向对象的思想，谈一谈这次面试的过程](http://www.itwanger.com/java/2019/11/14/java-oo-po.html)
 
-```java
-public static void main(String[] args) {
-	InputStream is = null;
-	try {
-		is = new FileInputStream("沉默王二.txt");
-		int b;
-		while ((b = is.read()) != -1) {}
-	} catch (IOException e) {
-		e.printStackTrace();
-	} finally {
-		try {
-			is.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-}
-```
+下一篇：[Java：接口和抽象类，傻傻分不清楚？](http://www.itwanger.com/java/2019/11/14/java-interface-abstract.html)
 
-总之，我们需要另外一种更优雅的解决方案。JDK7 新增了 `Try-With-Resource` 语法：如果一个类（比如 `InputStream`）实现了 `AutoCloseable` 接口，那么就可以将该类的对象创建在 `try` 关键字后面的括号中，当 `try-catch` 代码块执行完毕后，Java 会确保该对象的 `close`方法被调用。示例如下。
-
-```java
-public static void main(String[] args) {
-	try (InputStream is = new FileInputStream("沉默王二.txt")) {
-		int b;
-		while ((b = is.read()) != -1) {
-		}
-	} catch (IOException e) {
-		e.printStackTrace();
-	}
-}
-```
-
-### 04、
-
-关于异常处理机制的使用，我这里总结了一些非常实用的建议，希望你能够采纳。
-
-**1）尽量捕获原始的异常**。
-
-实际应该捕获 `FileNotFoundException`，却捕获了泛化的 `Exception`。示例如下。
-
-```java
-InputStream is = null;
-try {
-	is = new FileInputStream("沉默王二.txt");
-} catch (Exception e) {
-	e.printStackTrace();
-}
-```
-
-这样做的坏处显而易见：假如你喊“王二”，那么我就敢答应；假如你喊“老王”，那么我还真不敢答应，万一你喊的我妹妹“王三”呢？
-
-很多初学者误以为捕获泛化的 `Exception` 更省事，但也更容易让人“丈二和尚摸不着头脑”。相反，捕获原始的异常能够让协作者更轻松地辨识异常类型，更容易找出问题的根源。
-
-**2）尽量不要打印堆栈后再抛出异常**
-
-当异常发生时打印它，然后重新抛出它，以便调用者能够适当地处理它。就像下面这段代码一样。
-
-```java
-public static void main(String[] args) throws IOException {
-	try (InputStream is = new FileInputStream("沉默王二.txt")) {
-	}catch (IOException e) {
-		e.printStackTrace();
-		throw e;
-	} 
-}
-```
-
-这似乎考虑得很周全，但是这样做的坏处是调用者可能也打印了异常，重复的打印信息会增添排查问题的难度。
-
-```java
-java.io.FileNotFoundException: 沉默王二.txt (系统找不到指定的文件。)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-	at learning.Test.main(Test.java:10)
-Exception in thread "main" java.io.FileNotFoundException: 沉默王二.txt (系统找不到指定的文件。)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-	at learning.Test.main(Test.java:10)
-```
-
-**3）千万不要用异常处理机制代替判断**
-
-我曾见过类似下面这样奇葩的代码，本来应该判 `null` 的，结果使用了异常处理机制来代替。
-
-```java
-public static void main(String[] args) {
-	try {
-		String str = null;
-		String[] strs = str.split(",");
-	} catch (NullPointerException e) {
-		e.printStackTrace();
-	}
-}
-```
-
-捕获异常相对判断花费的时间要多得多！我们可以模拟两个代码片段来对比一下。
-
-代码片段 A：
-
-```java
-long a = System.currentTimeMillis();
-for (int i = 0; i < 100000; i++) {
-	try {
-		String str = null;
-		String[] strs = str.split(",");
-	} catch (NullPointerException e) {
-	}
-}
-long b = System.currentTimeMillis();
-System.out.println(b - a);
-```
-
-代码片段 B：
-
-```java
-long a = System.currentTimeMillis();
-for (int i = 0; i < 100000; i++) {
-	String str = null;
-	if (str != null) {
-		String[] strs = str.split(",");
-	}
-}
-long b = System.currentTimeMillis();
-System.out.println(b - a);
-```
-
-100000 万次的循环，代码片段 A（异常处理机制）执行的时间大概需要 1983 毫秒；代码片段 B（正常判断）执行的时间大概只需要 1 毫秒。这样的比较虽然不够精确，但足以说明问题。
-
-**4）不要盲目地过早捕获异常**
-
-如果盲目地过早捕获异常的话，通常会导致更严重的错误和其他异常。请看下面的例子。
-
-```java
-InputStream is = null;
-try {
-	is = new FileInputStream("沉默王二.txt");
-
-} catch (FileNotFoundException e) {
-	e.printStackTrace();
-}
-
-int b;
-try {
-	while ((b = is.read()) != -1) {
-	}
-} catch (IOException e) {
-	e.printStackTrace();
-}
-
-finally {
-	try {
-		is.close();
-	} catch (IOException e) {
-		e.printStackTrace();
-	}
-}
-```
-
-假如文件没有找到的话，`InputStream` 的对象引用 is 就为 `null`，新的 `NullPointerException` 就会出现。
-
-```java
-java.io.FileNotFoundException: 沉默王二.txt (系统找不到指定的文件。)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-	at learning.Test.main(Test.java:12)
-Exception in thread "main" java.lang.NullPointerException
-	at learning.Test.main(Test.java:28)
-```
-
-`NullPointerException` 并不是程序出现问题的本因，但实际上它出现了，无形当中干扰了我们的视线。正确的做法是延迟捕获异常，让程序在第一个异常捕获后就终止执行。
-
-### 05、
-
-好了，关于异常我们就说到这。异常处理是程序开发中必不可少的操作之一，但如何正确优雅地对异常进行处理却是一门学问，好的异常处理机制可以确保程序的健壮性，提高系统的可用率。
