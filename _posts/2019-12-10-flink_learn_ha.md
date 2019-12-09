@@ -299,13 +299,13 @@ Starting taskexecutor daemon on host yejingqideMBP.lan.
 
 通过 `JPS` 命令，查看当前运行的 `Java` 进程
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink_ha_jps_process.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/ha/flink_ha_jps_process.png)
 
 红框中圈出的是属于 `Flink` 的进程，包括两个 `JobManager` 和 三个 `TaskManager`。
 
 同样，我们还可以通过界面 `UI` 查看：
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink_ha_web_ui_overview.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/ha/flink_ha_web_ui_overview.png)
 
 **左边是 `JobManager1`，端口号是 8081，在 `JobManager` 菜单中也能看到我们配置的 `Zookeeper` 信息，右边是 `JobManager2`，端口号是 8082，在 `TaskManager` 菜单可以看到启动了三个 `Worker`，以上结果符合我们在 `master` 和 `slaves` 文件上的配置~**
 
