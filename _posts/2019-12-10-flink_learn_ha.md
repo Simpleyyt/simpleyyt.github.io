@@ -166,7 +166,7 @@ tags:
 
 - **Specific Node Information: http://localhost:8042**
 
-![](http://img.sevenyuan.cn/hadoop_node_overview.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/Flink/ha/hadoop_node_overview.png)
 
 
 
