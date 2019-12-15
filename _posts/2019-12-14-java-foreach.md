@@ -35,7 +35,7 @@ for(Iterator<Option> i = options.iterator(); i.hasNext();){
 ```
 但是执行过后你会发现这段代码是有瑕疵的，出现的结果只有四组：
 
-![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2019-12/01/1.jpg) 
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2019-12/01/1.png) 
 
 那么剩下的组合去哪里了呢？
 
@@ -72,7 +72,7 @@ for(Iterator<Option> i = options.iterator(); i.hasNext();){
 }
 ```
 
-![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2019-12/01/2.jpg) 
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2019-12/01/2.png) 
 
 
 ## 二、for-each循环
@@ -92,7 +92,7 @@ for (Option option : options) {
 ```
 《Effective Java》中是这样子写for-each循环的：
 
-![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2019-12/01/3.jpg) 
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2019-12/01/3.png) 
 
 ## 三、for-each is not god
 说了for-each那么多好处，但是它也不是神，并非万能的，有那么三种情况是它需要注意的。
@@ -122,7 +122,7 @@ for (String item : list) {
 
 如果都能正确执行当然就不需要问了，所以3个都会报ConcurrentModificationException的异常；
 
-![执行结果异常](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2019-12/01/4.jpg) 
+![执行结果异常](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2019-12/01/4.png) 
 
 而出现这些情况的原因稍稍解释下就是：
 
@@ -156,7 +156,7 @@ cursor是用于标记迭代器位置的变量，该变量由0开始，每次调�
 
 因此，在《阿里巴巴Java开发手册中有这样一条规定》：
 
-![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2019-12/01/5.jpg) 
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2019-12/01/5.png) 
 
 ### 3.2、转换
 如果需要遍历列表或数组，并取代它的部分或者全部元素值，就需要使用列表迭代器或者数组索引，以便替换元素的值。
