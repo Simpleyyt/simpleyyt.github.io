@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  for循环用了那么多次，但你真的了解它么？
+categories: Java
+title: for循环用了那么多次，但你真的了解它么？
 tagline: by 淼淼之森
-categories: java
-tag: 
-    - java基础
+tags: 
+  - 淼淼之森
 ---
 
 其实我们写代码的时候一直都在使用for循环，但是偶尔还是会纠结用哪一个循环。
