@@ -58,7 +58,7 @@ HashMap 是一个非线程安全的集合操作类，如果我们的程序操作
 我们继续来看看为什么使用 JDK1.7 会出现这个问题！
 
 既然是 put 阶段造成的数据问题，我们不妨一起来看看 HashMap 的 put 过程！
-#### 2.1、HashMap 添加过程
+#### 3.1、HashMap 添加过程
 HashMap 的 put 源码实现如下：
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-collection-14/1836de18454146ed8f7b64aeeb754cfd.jpg)
@@ -83,7 +83,7 @@ HashMap 的 put 源码实现如下：
 好了，这个过程基本上没啥问题。
 
 我们再来演示一下扩容中重新计算元素 hash 的过程！
-#### 2.2、单线程下扩容元素 hash 过程
+#### 3.2、单线程下扩容元素 hash 过程
 假设在单线程环境下，我们**初始化的时候，给定的数组容量是2**，分别添加3个元素，内容如下：
 * key=3，value=A;
 * key=4，value=B;
@@ -99,7 +99,7 @@ HashMap 的 put 源码实现如下：
 
 在单线程环境下，一切看起来都很正常，扩容过程也相当顺利。接下来我们看下并发情况下的扩容。
 
-#### 2.3、多线程扩容元素 hash 过程
+#### 3.3、多线程扩容元素 hash 过程
 假设我们有两个线程，来分别添加3个元素。
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-collection-14/1e0ec8c12e534d028f5a280929713930.jpg)
