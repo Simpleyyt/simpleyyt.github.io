@@ -104,17 +104,15 @@ HashMap 的 put 源码实现如下：
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-collection-14/1e0ec8c12e534d028f5a280929713930.jpg)
 
-**线程二执行完添加任务之后，在准备将旧元素迁移到新元素的时候，突然被 CPU 挂起！线程一继续执行直到扩容完成。**
-
-**线程二执行到第57行时，被 CPU 挂起，不再往下执行！**
+**线程二执行完添加任务之后，在准备将旧元素迁移到新元素的时候，也就是准备 rehash 时，突然被 CPU 挂起，此时阻塞在如下图中的第57行，不再往下执行！而线程一继续执行直到扩容完成。**
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-collection-14/da44efa4c0cc41ea964469754c7c3a0e.jpg)
 
-**2个线程执行完成之后的结果，内容如下：**
+**2个线程此时的执行结果，内容如下：**
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-collection-14/22b7d1ed5c864caaa891620a840030fa.jpg)
 
-**接着线程一被唤醒，继续回到第57行执行。**
+**接着线程二被唤醒，继续回到第57行执行。**
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-collection-14/da44efa4c0cc41ea964469754c7c3a0e.jpg)
 

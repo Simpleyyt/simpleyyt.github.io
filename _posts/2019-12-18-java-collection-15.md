@@ -22,7 +22,7 @@ ConcurrentHashMap 是 Java 并发包中提供的一个线程安全且高效的 H
 ### 二、简介
 众所周知，在 Java 中，HashMap 是非线程安全的，如果想在多线程下安全的操作 map，主要有以下解决方法：
 
-* 第一个方法，使用`Hashtable`线程安全类；
+* 第一种方法，使用`Hashtable`线程安全类；
 * 第二种方法，使用`Collections.synchronizedMap`方法，对方法进行加同步锁；
 * 第三种方法，使用并发包中的`ConcurrentHashMap`类；
 
@@ -56,7 +56,7 @@ JDK1.8 对 HashMap 做了改造，**当冲突链表长度大于8时，会将链�
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-collection-15/d11a95b13bc6410ab536e0b7ad272bd4.jpg)
 
-JDK1.8 中 ConcurrentHashMap 类取消了 Segment 分段锁，采用 `CAS` 和 `synchronized` 来保证并发安全，数据结构跟  jdk1.8 中 HashMap 结构类似，都是**数组 + 链表（当链表长度大于8时，链表结构转为红黑二叉树**）格式。
+JDK1.8 中 ConcurrentHashMap 类取消了 Segment 分段锁，采用 `CAS` + `synchronized` 来保证并发安全，数据结构跟  jdk1.8 中 HashMap 结构类似，都是**数组 + 链表（当链表长度大于8时，链表结构转为红黑二叉树**）结构。
 
 ConcurrentHashMap 中 synchronized 只锁定当前链表或红黑二叉树的首节点，只要节点 hash 不冲突，就不会产生并发，相比 JDK1.7 的 ConcurrentHashMap 效率又提升了 N 倍！
 
@@ -103,7 +103,7 @@ ConcurrentHashMap 在存储方面是一个 Segment 数组，一个 Segment 就�
 
 从之前的文章中，我们了解到 HashMap 在多线程环境下操作可能会导致程序死循环，仔细想想你会发现，造成这个问题无非是 put 和扩容阶段发生的！
 
-那么这样我们就可以 put 方法下手了，来看看 ConcurrentHashMap 是怎么操作的？
+那么这样我们就可以从 put 方法下手了，来看看 ConcurrentHashMap 是怎么操作的？
 #### 3.1、put 操作
 ConcurrentHashMap 的 put 方法，源码如下：
 
@@ -139,7 +139,7 @@ ConcurrentHashMap 的 put 方法，源码如下：
 
 通过`scanAndLockForPut()`方法，当前线程就可以在即使获取不到`segment`锁的情况下，完成需要添加节点的实例化工作，当获取锁后，就可以直接将该节点插入链表即可。
 
-还实现了**类似于自旋锁的功能，循环式的判断对象锁是否能够被成功获取，直到获取到锁才会退出循环，防止执行 put 操作的线程频繁阻塞，这些优化都提升了 put 操作的性能。**
+这个方法还实现了**类似于自旋锁的功能，循环式的判断对象锁是否能够被成功获取，直到获取到锁才会退出循环，防止执行 put 操作的线程频繁阻塞，这些优化都提升了 put 操作的性能。**
 
 #### 3.2、get 操作
 get 方法就比较简单了，因为不涉及增、删、改操作，所以不存在并发故障问题，源码如下：
@@ -149,7 +149,7 @@ get 方法就比较简单了，因为不涉及增、删、改操作，所以不�
 由于 HashEntry 涉及到的共享变量都使用 volatile 修饰，volatile 可以保证内存可见性，所以不会读取到过期数据。
 
 #### 3.3、remove 操作
-remove 操作和 put 方法差不多，都需要获取对象锁才能操作，通过 key 找到元素所在的元素然后移除，源码如下：
+remove 操作和 put 方法差不多，都需要获取对象锁才能操作，通过 key 找到元素所在的 Segment 对象然后移除，源码如下：
 
 ![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-collection-15/8c7cdb8d60304e8396e5c6afc3f4e795.jpg)
 
@@ -263,7 +263,7 @@ replaceNode 方法，源码如下：
 
 在 JDK1.7 中，ConcurrentHashMap 采用了分段锁策略，将一个 HashMap 切割成 Segment 数组，其中 Segment 可以看成一个 HashMap， 不同点是 Segment 继承自 ReentrantLock，在操作的时候给 Segment 赋予了一个对象锁，从而保证多线程环境下并发操作安全。
 
-但是 JDK1.7 中，HashMap 容易因为冲突链表长度，造成效率差，所以在  JDK1.8 中，HashMap 引入了红黑树特性，当冲突链表长度大于8时，会将链表转化成红黑二叉树结构。
+但是 JDK1.7 中，HashMap 容易因为冲突链表过长，造成查询效率低，所以在 JDK1.8 中，HashMap 引入了红黑树特性，当冲突链表长度大于8时，会将链表转化成红黑二叉树结构。
 
 在 JDK1.8 中，与此对应的 ConcurrentHashMap 也是采用了与 HashMap 类似的存储结构，但是 JDK1.8 中 ConcurrentHashMap 并没有采用分段锁的策略，而是在元素的节点上采用 `CAS + synchronized` 操作来保证并发的安全性，源码的实现比  JDK1.7 要复杂的多。
 
