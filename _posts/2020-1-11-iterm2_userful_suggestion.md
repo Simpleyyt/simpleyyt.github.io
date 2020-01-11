@@ -217,7 +217,7 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 
 定位到 /usr/local/bin 目录
 
-下载下面地址的两个文件并放入 ：https://github.com/Vip-Augus/Vip-Augus.github.io/tree/master/assets/iterm2
+下载下面地址的两个文件并放入 : https://github.com/Vip-Augus/iterm2-tool
 
 - **添加权限**
 
