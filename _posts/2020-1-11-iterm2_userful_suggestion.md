@@ -3,14 +3,14 @@ layout: post
 title: 收集了这么多实用技巧，帮助你的 iterm2 成为最帅的那个！
 categories: tool
 tags:
-	- 惊奇
+  - 惊奇
 ---
 
 ## 1 前言
 
 **一个适合后端仔排查问题的 iterm2 终端应该是这样的：**
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/itemr2/eight_terminal.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/iterm2/eight_terminal.png)
 
 交代下为啥要开这么多个窗口，目前阿粉我们的应用是单机部署，一个服务部署在很多台 Linux 服务器上，构建分布式架构。（**实际上服务器数量比这个更多:-O**）
 
@@ -18,7 +18,7 @@ tags:
 
 当然，公司也有日志监控平台，从 UI 上查询信息也很方便，但看过《鸟哥的 Linux 私房菜》后，阿粉感觉里面的命令十分有用，所以在排查问题时，更喜欢直接在终端进行信息统计（grep、awk、sed、wc 和正则表达式来一套），而且终端查询比网页查询更快，所以决定好好改造 iterm2 这个工具！
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/itemr2/pic1.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/iterm2/pic1.jpg)
 
 ## 2 安装 zsh
 
@@ -97,7 +97,7 @@ Are you sure you want to continue connecting (yes/no)?
 
 可是每次都要进行这样重复的操作，输入 ssh 命令后还要继续输入密码，浪费了宝贵的三秒时间，于是找到了「免密登录」，输入指令后，不需要再输入密码。
 
-![](http://www.justdojava.com/assets/images/2019/java/image_yjq/itemr2/pic2.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_yjq/iterm2/pic2.jpg)
 
 ### 3.1 原理
 
