@@ -144,3 +144,9 @@ public void methodB() {
 1. 事务能够让一系列不同的操作具有原子性。（当然事务具备ACID四大特性，本文在初步介绍时强调的是原子性）
 2. 事务隔离级别定义了事务并发操作时的访问规则。
 3. 事务传播行为定义了事务方法在执行时该怎么运用事务。
+
+
+参考文章：  
+事务隔离级别：https://www.cnblogs.com/ubuntu1/p/8999403.html  
+事务传播行为：https://blog.csdn.net/weixin_39625809/article/details/80707695    
+事务传播行为：https://www.cnblogs.com/softidea/p/5962612.html
