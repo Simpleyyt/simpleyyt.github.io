@@ -56,7 +56,7 @@ Keka 功能也很强大，可以压缩成多种格式，并且可以排除 Mac �
 
 ![image-20200114234835104](http://www.justdojava.com/assets/images/2019/java/image_ziyou/mac05.png)
 
-<video src="/Users/zhuxiang/Desktop/屏幕录制2020-01-1423.55.29.mov"></video>
+<video src="http://www.justdojava.com/assets/images/2019/java/image_ziyou/mac06.mov"></video>
 
 
 #### 日历插件 Itsycal
