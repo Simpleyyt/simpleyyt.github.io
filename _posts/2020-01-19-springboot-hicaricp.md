@@ -1,7 +1,7 @@
 ---
 layout: post
-categories: java基础
-title: for循环用了那么多次，但你真的了解它么？
+categories: SpringBoot
+title: SpringBoot中的那些连接池
 tagline: by 淼淼之森
 tags: 
     - 淼淼之森
