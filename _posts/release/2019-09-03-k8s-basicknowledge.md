@@ -1,6 +1,6 @@
 ---
 layout: post  
-title: [k8s]谈谈 k8s 的本质
+title: 谈谈 k8s 的本质
 tagline: by 郑璐璐
 categories: k8s  
 tags: 
