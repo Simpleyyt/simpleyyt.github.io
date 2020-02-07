@@ -1,6 +1,6 @@
 ---
 layout: post  
-title: [Docker]关于 Docker 入门，这一篇就够了
+title: 关于 Docker 入门，这一篇就够了
 tagline: by 郑璐璐
 categories: Docker  
 tags: 

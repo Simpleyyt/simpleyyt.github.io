@@ -1,11 +1,11 @@
 ---
-layout： post
-title： 一文搞懂单链表反转
-categories： 数据结构与算法
-tags：
-	- 郑璐璐
+layout: post
+categories: 数据结构与算法
+title: 一文搞懂单链表反转
+tagline: by 郑璐璐
+tags: 
+  - 郑璐璐
 ---
-
 
 阿粉发现大家在说链表的时候，就会常说另外一个概念：数组。
 
