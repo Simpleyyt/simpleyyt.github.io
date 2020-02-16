@@ -6,6 +6,7 @@ tagline: by 小黑
 tags: 
   - 小黑
 ---
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20200216/Maven.png)
 
 ## 0x00. 前言
 
@@ -35,7 +36,7 @@ A------->Dubbo------->javassist-3.18.1.GA
 
 抛出错误这种情况还算好，还比较容易定位问题。怕就怕，不同版本同一个类内部逻辑不同，从而导致业务异常。这种问题，真的很让人抓狂，让人头秃。
 
-![tempImage1581840190944](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20200216/0082zybply1gbyaxes5fpj306n06n0sp.jpg)
+![(http://www.justdojava.com/assets/images/2019/java/image_andyxh/20200216/0082zybply1gbyaxes5fpj306n06n0sp.jpg)
 
 仔细分析依赖冲突，主要可以分为两类：
 
@@ -158,7 +159,7 @@ C 的 `scope` 为`provided`，C 将会参与 B 的编译，测试阶段，但是
 
 另外 `Maven scope` 将会影响依赖传递。
 
-![image-20200216185916932](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20200216/0082zybply1gbyg096fimj326a0bi14h.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20200216/0082zybply1gbyg096fimj326a0bi14h.jpg)
 
 > 如果依赖关系为： **A--->B--->C**,A 依赖 B，B 依赖 C。最左列代表 B 的 `scope` 属性，第一行代表 C 的 `scope` 属性
 
@@ -195,6 +196,8 @@ C 的 `scope` 为`provided`，C 将会参与 B 的编译，测试阶段，但是
 如果我们把 `NPE` 问题当做新手村普通怪物，那么依赖冲突问题就是人马这种精英怪。刚开始遇到，我们会被虐的比较惨。只有我们不断升级，学习掌握技巧，然后才能可以从容不迫解决。
 
 > ps:塞尔达中，你们第一次遇见人马，打了几次？阿粉记得那天整整从晚上九点打到凌晨两点，就是打不过啊~
+
+![](http://www.justdojava.com/assets/images/2019/java/image_andyxh/20200216/Maven.png)
 
 ## 0x04. 帮助文档
 
