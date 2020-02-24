@@ -1,7 +1,7 @@
 ---
 layout: post
-categories: SpringBoot
-title: SpringBoot中的那些连接池
+categories: java并发
+title: 诡异的并发之可见性
 tagline: by 淼淼之森
 tags: 
     - 淼淼之森
