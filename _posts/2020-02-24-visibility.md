@@ -38,7 +38,7 @@ tags:
 
 线程交叉执行多数情况是由于线程切换导致的，例如下图中的线程A在执行过程中切换到线程B执行完成后，再切换回线程A执行剩下的操作；此时线程B对变量的修改不能对线程A立即可见，这就导致了计算结果和理想结果不一致的情况。
 
-![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/3.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/4.png)
 
 ### 1.2、重排序结合线程交叉执行
 
@@ -53,7 +53,7 @@ tags:
 
 如果将行3和行4在变异的时候交换顺序，执行结果就会受到影响，因为b的值得不到预期的19；
 
-![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/4.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/5.png)
 
 由图知：由于编译时改变了执行顺序，导致结果不一致；而两个线程的交叉执行又导致线程改变后的结果也不是预期值，简直雪上加霜!
 
@@ -102,7 +102,7 @@ public class VisibilityDemo {
 ```
 运行结果是：
 
-![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/5.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/3.png)
 
 从控制台的打印结果可以看出，因为主线程对flag的修改，对计数子线程没有立即可见，所以导致了计数子线程久久不能跳出while循环，结束子线程。
 
@@ -252,6 +252,12 @@ f(){
 - C．实现同步是要很大的系统开销作为代价的，甚至可能造成死锁，所以尽量避免无谓的同步控制。
 
 以上内容就是我对并法中的可见性的一点理解与总结了，下期我们接着叙述并发中的有序性。
+
+
+
+
+
+
 
 
 参考文章：
