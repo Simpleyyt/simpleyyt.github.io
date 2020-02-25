@@ -18,7 +18,7 @@ tags:
 
 对于BigDecimal这个类我的印象中只知道它是一个小数工具类，可以完成很多与小数相关的计算。可是基本数据类型中明明已经有了float和double两个浮点数类型，为什么还要用BigDecimal呢？
 
-带着疑惑，我一边探索，一边写下了这篇文章
+带着疑惑，我一边探索，一边写下了这篇文章。
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-tssh/decimal/1.jpg)
 
