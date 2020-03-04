@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: 数据结构
-title: 红黑树是怎么实现的，看这篇就够了！
+title: 红黑树是怎么实现的，看这篇真的就够了！
 tags: 
   - 炸鸡可乐
 ---
