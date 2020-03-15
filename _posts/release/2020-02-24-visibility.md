@@ -31,14 +31,23 @@ tags:
 
 此时，两个项目经理同时查看到任务G后，各自分配给自己下属员工，那么这个任务的进度就只能掌握在各自项目经理手中了，因为所有员工的工作进度并不是汇报给同一个项目经理；那么，每个员工只能得知自己项目组员工的工作进度，并不能得知其他项目组的工作进度。所以，当多个项目经理在做同一个任务时，就可能出现任务配比不均、任务进度拖延、任务重复进行等多种问题。
 
+总结上面的例子来讲，就是因为进度的不及时更新，导致数据不是最新，导致决策失误。所以，我们隐约可以看出，内存并不直接与Cpu打交道，而是通过高速缓存与Cpu打交道。
+```
+cpu  <——> 高速缓存  <———>  内存
+```
+通过一张图片来表示就是（多核）：
+
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/10.png)
+
 下文我们的阐述，若无特殊说明，都是基于多核的。
 
 ## 一、导致共享变量在线程之间不可见的原因：
+可见性问题都是由Cpu缓存不一致为并发编程带来，而其中的主要有下面三种情况：
 ### 1.1、线程交叉执行
 
 线程交叉执行多数情况是由于线程切换导致的，例如下图中的线程A在执行过程中切换到线程B执行完成后，再切换回线程A执行剩下的操作；此时线程B对变量的修改不能对线程A立即可见，这就导致了计算结果和理想结果不一致的情况。
 
-![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/3.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/4.png)
 
 ### 1.2、重排序结合线程交叉执行
 
@@ -53,7 +62,7 @@ tags:
 
 如果将行3和行4在变异的时候交换顺序，执行结果就会受到影响，因为b的值得不到预期的19；
 
-![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/4.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/5.png)
 
 由图知：由于编译时改变了执行顺序，导致结果不一致；而两个线程的交叉执行又导致线程改变后的结果也不是预期值，简直雪上加霜!
 
@@ -102,7 +111,7 @@ public class VisibilityDemo {
 ```
 运行结果是：
 
-![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/5.png)
+![](http://www.justdojava.com/assets/images/2019/java/image-mmzsblog/2020/02-01/3.png)
 
 从控制台的打印结果可以看出，因为主线程对flag的修改，对计数子线程没有立即可见，所以导致了计数子线程久久不能跳出while循环，结束子线程。
 
@@ -254,9 +263,16 @@ f(){
 以上内容就是我对并法中的可见性的一点理解与总结了，下期我们接着叙述并发中的有序性。
 
 
+
+
+
+
+
+
 参考文章：
 - 1、极客时间的Java并发编程实战
 - 2、https://www.jianshu.com/p/89a8fa8ffe39
 - 3、https://www.cnblogs.com/xiaonantianmen/p/9970368.html
 - 4、https://www.lagou.com/lgeduarticle/78722.html
 - 5、https://blog.csdn.net/evankaka/article/details/44153709
+- 6、https://juejin.im/post/5d52abd1e51d4561e6237124
