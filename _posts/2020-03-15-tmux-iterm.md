@@ -3,6 +3,7 @@ layout: post
 categories: Java
 title: 整合神器 tmux，帮助你的 iTerm2 成为最帅的那个
 tagline: by 小黑
+published: false
 tags: 
   - 小黑
 ---
@@ -12,6 +13,8 @@ tags:
 阿粉在之前文章中教过大家如何结合 **zsh** 让 **iterm2** 发挥最佳效果。
 
 什么还没有看过？赶紧看下补一下前提知识：[收集了这么多实用技巧，帮助你的 iterm2 成为最帅的那个！](https://mp.weixin.qq.com/s/M72UK9GsYkqOReWD-nokBw)
+
+<!--more-->
 
 上篇文中，阿粉提到每次上线发布的时候，都会打开很多 iTerm 窗口，通过 tab 页拖拽方式让所有窗口可以同时显示。
 
