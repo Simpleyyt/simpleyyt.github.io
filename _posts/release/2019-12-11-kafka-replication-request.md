@@ -3,7 +3,7 @@ layout: post
 title:  kafka 副本机制和请求过程
 categories: kafka
 tags:
-	- cxuan
+  - cxuan
 
 ---
 

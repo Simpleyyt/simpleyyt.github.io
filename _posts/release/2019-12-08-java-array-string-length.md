@@ -3,7 +3,7 @@ layout: post
 title:  灵魂拷问：Java 如何获取数组和字符串的长度？length 还是 length()？
 categories: java
 tags:
-	- 沉默王二
+  - 沉默王二
 
 ---
 

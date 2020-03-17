@@ -3,7 +3,7 @@ layout: post
 title:  线程安全之synchronized关键字
 categories: 并发编程系列
 tags:
-	- 小九
+  - 小九
 ---
 
 之前我讲了关于 线程基础方面的相关知识，本篇文章将会带着大家来学习下线程安全相关的知识。

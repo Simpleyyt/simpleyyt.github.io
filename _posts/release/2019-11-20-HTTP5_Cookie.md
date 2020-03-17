@@ -3,7 +3,7 @@ layout: post
 title: 你还拿着培训班教给你的 Cookie 去面试？确定不要进来看一下 Cookie 到底是什么样子的？
 categories: HTTP
 tags:
-	- 懿
+  - 懿
 ---
 
 说实话，之前面试都是直接去背诵的面试题，关于 Cookie 的一些内容，比如说，记录浏览器端的数据信息啦， Cookie 的生命周期啦，这些内容，也从来没有研究过 Cookie 到底是怎么工作的，今天我们就来了解一下 Cookie 到底是怎么工作的。
