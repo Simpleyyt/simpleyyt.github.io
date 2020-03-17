@@ -575,7 +575,7 @@ calendar:
   orderBy: startTime
   offsetMax: 24
   offsetMin: 4
-  timeZone:
+  timeZone: Asia/Shanghai
   showDeleted: false
   singleEvents: true
   maxResults: 250
