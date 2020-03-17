@@ -11,7 +11,7 @@ tags:
 
 ![](http://www.justdojava.com/assets/images/2019/java/image-cxuan/redis/01.png)
 
-
+<!--more-->
 
 ## Redis 简介
 
