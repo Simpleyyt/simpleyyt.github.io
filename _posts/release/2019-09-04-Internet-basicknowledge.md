@@ -1,12 +1,12 @@
 ---
+categories: 计算机网络
 layout: post
 title: [计算机网络]简单聊聊套接字 Socket
 tagline: by 郑璐璐
-categories: 计算机网络  
-tags: 
-  - 郑璐璐
-
+tags:
+    - 郑璐璐
 ---
+
 
 ## Socket 由来:
 在学习一个新知识之前,要去想它为什么会出现,它的出现解决了什么问题.这样印象才会深刻一些.
