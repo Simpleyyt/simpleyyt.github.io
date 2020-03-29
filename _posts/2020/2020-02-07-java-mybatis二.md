@@ -4,7 +4,7 @@ categories: Java
 title: mybatis系列之mybatis源码讲解
 tagline: by 小九
 tags: 
-  - mybatis
+  - 小九
 ---
 
 > hello~各位读者好，我是鸭血粉丝（大家可以称呼我为「阿粉」），在这个特殊的日子里,大家要注意安全，尽量不要出门，无聊的话，就像阿粉一样，把时间愉快的花在学习上吧。

@@ -2,6 +2,7 @@
 layout: post
 title:  线程安全之synchronized关键字
 categories: 并发编程系列
+tagline: by 小九
 tags:
   - 小九
 ---

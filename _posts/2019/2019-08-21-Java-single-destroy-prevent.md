@@ -1,10 +1,10 @@
 ---
 layout: post  
 title: 怎么破坏单例模式和怎么防止单例模式被破坏
-tagline: by xiaojiu
+tagline: by 小九
 categories: 设计模式  
 tags: 
-    - xiaojiu
+    - 小九
 
 ---
 

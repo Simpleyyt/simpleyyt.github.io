@@ -1,10 +1,10 @@
 ---
 layout: post  
 title: 工厂模式详解
-tagline: by xiaojiu
+tagline: by 小九
 categories: 设计模式
 tags: 
-    - xiaojiu
+    - 小九
 
 ---
 

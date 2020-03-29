@@ -1,10 +1,10 @@
 ---
 layout: post  
 title: java设计模式之单例模式
-tagline: by xiaojiu
+tagline: by 小九
 categories: 设计模式
 tags: 
-    - xiaojiu
+    - 小九
 
 ---
 
