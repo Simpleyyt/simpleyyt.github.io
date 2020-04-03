@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: Kong
+categories: 杂谈
 title: 网传字节跳动 TNS 部门一锅端，转岗“难于上青天”
 tags:
   - 子悠
