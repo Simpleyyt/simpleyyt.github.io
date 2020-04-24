@@ -24,12 +24,10 @@ tags:
 
 这样的话，两行代码就可以搞定：
 
-​```java
-
+```java
 Arrays.sort(nums);
 return nums[nums.length >> 1];
-
-​```
+```
 
 阿粉写完程序之后，一运行一点儿毛病都没有，而且两行代码就搞定了，阿粉不由得骄傲起来
 
@@ -45,8 +43,7 @@ return nums[nums.length >> 1];
 
 阿粉：你这么一说，就把我的思路打开了，你等下，我这就去实现。
 
-​```java
-
+```java
 // 设置初始票数为 0
 int count = 0 ;
 // 先将要求的众数定义为空
@@ -62,8 +59,7 @@ Integer majorityElement = null;
     }
 // 最后返回真正的众数
 return majorityElement;
-
-​```
+```
 
 阿粉自己在内心小算盘了一下，发现这样的时间复杂度是 O(n) ，空间复杂度是 O(1) ，阿粉不由得在心里给妹子竖个大手指
 
