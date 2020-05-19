@@ -131,8 +131,6 @@ addSingletonFactory(beanName，new ObjectFactory(){
 
 同理的B和C都是这个样子的，这个时候就能完成setter注入了。
 
-### 5.Spring循环依赖处理三（作用域循环依赖）
-
 阿粉带大家看一下这个配置方式
 
 ```
@@ -152,6 +150,31 @@ addSingletonFactory(beanName，new ObjectFactory(){
 而对于 “singleton”作用域的话，他是可以通过“setAllowCircularReference（false）”这种方式来进制循环依赖的。
 
 而且也是有缺陷的，这种方式只能解决单例作用域的bean循环依赖。
+
+### 5.Spring循环依赖处理三（作用域循环依赖）
+
+**prototype** 在Spring源码解读里面是这样说的，对于"prototype"作用域bean，Spring容器无法完成依赖注入，因为Spring容器不进行缓存"prototype"作用域的bean，因此无法提前暴露一个创建中的bean。
+
+
+
+```
+
+    <bean id="ClassTestA" class="com.yldlsy.ClassTestA" scope="prototype" >
+        <property name="ClassTestB" ref="ClassTestB" />
+    </bean>
+    <bean id="ClassTestA" class="com.yldlsy.ClassTestA" scope="prototype" >
+            <property name="ClassTestB" ref="ClassTestB" />
+     </bean>
+     <bean id="ClassTestA" class="com.yldlsy.ClassTestA" scope="prototype" >
+             <property name="ClassTestB" ref="ClassTestB" />
+      </bean>
+
+``` 
+
+而如果使用这种原型的前提的话，就会和上面的阿粉所说的是一样的，创建A的时候发现需要依赖B，创建B的时候发现需要依赖C，创建C的时候发现需要依赖A，怎么着你是俄罗斯套娃么？一层套一层，面试官在问你的时候，你要这么说，头可能会被打爆呀！
+
+使用这种就会出现上面阿粉说的你可能回去百度的异常信息 BeanCurrentlyInCreationException 。
+
 
 关于面试中高频的Spring解决循环依赖你会了么？
 
