@@ -113,7 +113,7 @@ System.out.println("read all lines spend " + stopwatch.elapsed(TimeUnit.SECONDS)
 
 其实我们查看代码，其实可以发现 `FileUtils#lineIterator`，其实用的就是 `BufferReader`，感兴趣的同学可以自己查看一下源码。
 
-> 由于公号内无法插入外链，关注『Java 极客技术』，回复『20200610』 获取源码
+> 由于公号内无法插入外链，关注『Java极客技术』，回复『20200610』 获取源码
 
 ### Java8 stream
 
@@ -268,7 +268,7 @@ private static List<File> splitLargeFile(String largeFileName) throws IOExceptio
 }
 ```
 
-> 由于公号内无法插入外链，关注『Java 极客技术』，回复『20200610』 获取源码
+> 由于公号内无法插入外链，关注『Java极客技术』，回复『20200610』 获取源码
 
 上述方法，首先将一个大文件拆分成多个保存 10W 行的数据的小文件，然后再将小文件交给线程池异步处理。
 
