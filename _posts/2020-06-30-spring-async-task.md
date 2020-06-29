@@ -14,6 +14,8 @@ tags:
 
 我们可以自己创建线程池，然后执行异步任务，示例代码如下：
 
+<!--more-->
+
 ```java
 // 生产使用线程池的最佳实践，一定要自定义线程池，不要嫌麻烦，使用 Executors 创建线程池
 private ThreadPoolExecutor threadPool =
