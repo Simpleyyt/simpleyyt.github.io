@@ -9,7 +9,7 @@ tags:
 Hello 大家好，我是阿粉，最近心情不是很好，因为阿粉面试阿里三面挂掉了， 当收到下面这封邮件的时候阿粉内心是拔凉拔凉的。阿粉被 “Unfortunately”，“another candidate” 这几个词深深的伤害到了。不过伤心归伤心，该自我总结还是得自我总结的，有机会再战。
 <!--more-->
 
-![image-20200705204322656](/Users/zhuxiang/Library/Application Support/typora-user-images/image-20200705204322656.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/interview01.png)
 
 # 前言
 
