@@ -72,9 +72,9 @@ spring:
   mail:
     default-encoding: UTF-8
     #发送邮件的账户
-    username: xxxxxxx@163.com
+    username: xxxxxxx@qq.com
     # 授权码（获取方式前文已描述）
-    password: xxxxxx    
+    password: xxxxxxyyyyyy    
     # （邮箱服务器地址，获取方式前文已描述）  
     # 163 邮箱是smtp.163.com
     # qq邮箱则为smtp.qq.com
@@ -110,9 +110,9 @@ public void sendSimpleMail() {
     // 设置要发送的邮件内容
     simpleMailMessage.setText("hello!");
     // 要发送的目标邮箱
-    simpleMailMessage.setTo("mmzsblog@163.com");
+    simpleMailMessage.setTo("yyyyyyyyyy@163.com");
     // 发送者邮箱和配置文件中的邮箱一致
-    simpleMailMessage.setFrom("myqqemai@qq.com");
+    simpleMailMessage.setFrom("xxxxxxx@qq.com");
     javaMailSenderImpl.send(simpleMailMessage);
 }
 ```
@@ -132,9 +132,9 @@ public void sendMimeMail() {
         // 设置文件内容 第二个参数设置是否支持html
         mimeMessageHelper.setText("<b style='color:red'>账号激活，请点击我</b>", true);
         // 设置发送到的邮箱
-        mimeMessageHelper.setTo("mmzsblog@163.com");
+        mimeMessageHelper.setTo("yyyyyyyyyy@163.com");
         // 设置发送人和配置文件中邮箱一致
-        mimeMessageHelper.setFrom("myqqemai@qq.com");
+        mimeMessageHelper.setFrom("xxxxxxx@qq.com");
         // 上传附件
         // mimeMessageHelper.addAttachment("", new File(""));
     } catch (MessagingException e) {
