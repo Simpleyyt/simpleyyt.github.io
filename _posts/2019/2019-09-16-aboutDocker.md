@@ -104,7 +104,9 @@ docker cp 容器名称：容器目录	需要拷贝的文件或目录
 在创建容器时，将宿主机的目录与容器内的目录进行映射，这样可以通过修改宿主机某个目录的文件从而去影响容器
 创建容器 添加 -v 参数 后边为 宿主机目录：容器目录，完整命令： 
 ```
+
 docker run  -v 宿主机目录：容器目录
+
 ```
 如果共享的是多级目录，可能会出现权限不足的情况
 可以通过添加参数 --privileged=true 来解决，因为 CentOS7 中安全模块将 selinux 权限禁掉了，添加此参数，可以将问题解决。
@@ -114,7 +116,9 @@ docker inspect 容器名称(容器 ID )
 ```
 也可以直接输出 IP 地址：
 ```
-docker inspect --format='{{NetworkSetting。IPAddress}}' 容器名称(容器 ID)
+
+docker inspect --format='\{\{NetworkSetting。IPAddress\}\}' 容器名称(容器 ID)
+
 ```
 ## 删除容器
 ```
