@@ -14,7 +14,7 @@ tags:
 ### 一、摘要
 说起网络爬虫，相信大家都不陌生，又俗称**网络机器人**，指的是**程序按照一定的规则，从互联网上抓取网页，然后从中获取有价值的数据**，随便在网上搜索一下，排在前面基本都是 pyhton 教程介绍。
 
-![](http://cdn.pzblog.cn/01.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/01.jpg)
 
 的确，pyhton 在处理网页方面，有着开发简单、便捷、性能高效的优势！
 
@@ -32,15 +32,15 @@ tags:
 
 **以爬取国家省市区信息为例**，我们可以直接在百度上搜索`国家省市区`，点击进入`全国行政区划信息查询平台`。
 
-![](http://cdn.pzblog.cn/02.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/02.jpg)
 
 在`民政数据`菜单栏下，找到**最新的行政区域代码**公示栏。
 
-![](http://cdn.pzblog.cn/03.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/03.jpg)
 
 点击进去，展示结果如下！
 
-![](http://cdn.pzblog.cn/04.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/04.jpg)
 
 可以很清楚的看到，这就是我们要获取省市区代码的网页信息。
 
@@ -50,7 +50,7 @@ tags:
 
 当我们找到了目标网页之后，我们首先要做的就是对网页进行分析，打开浏览器调试器，可以很清晰的看到它是一个`table`表格组成的数据。
 
-![](http://cdn.pzblog.cn/05.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/05.jpg)
 
 熟悉 html 标签的同学，想必已经知道了它的组成原理。
 
@@ -75,23 +75,23 @@ tags:
 ```
 展示结果如下：
 
-![](http://cdn.pzblog.cn/06.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/06.jpg)
 
 了解了`table`标签之后，我们再对网页进行详细分析。
 
 首先对整个内容进行观察，很容易的看到，市级以上（包括市级），都是黑体字加粗的，区或者县级地区，都是常规！
 
-![](http://cdn.pzblog.cn/07.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/07.jpg)
 
 出现这个现象，其实是由样式标签`CSS`来控制的，点击`北京市`，找到对应的代码位置，从图中我们可以很清晰的看到，市级对应的样式`class`为`xl7030796`，区或者县级地区对应的样式`class`为`xl7130796`
 
-![](http://cdn.pzblog.cn/08.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/08.jpg)
 
-![](http://cdn.pzblog.cn/09.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/09.jpg)
 
 除此之外，我们继续来看看省和市级的区别！
 
-![](http://cdn.pzblog.cn/10.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/10.jpg)
 
 可以很清晰的看到，市级相比省级信息，多了一个`span`占位符标签。
 
@@ -208,11 +208,11 @@ public static void main(String[] args) throws IOException {
 ```
 运行程序，输出结果如下：
 
-![](http://cdn.pzblog.cn/11.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/11.jpg)
 
 json解析结果如下：
 
-![](http://cdn.pzblog.cn/12.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/12.jpg)
 
 至此，网页有效数据已经全部抓取完毕！
 
@@ -247,7 +247,7 @@ CREATE TABLE `china_regions` (
 
 * 搭建一个springboot工程，通过mybatis-plus组件，一键生成代码
 
-![](http://cdn.pzblog.cn/13.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/13.jpg)
 
 * 最后，配置好数据源，重新封装数组对象，调用批量插入方法，即可插入操作
 
@@ -257,7 +257,7 @@ chinaRegionsService.saveBatch(regionsInfoList);
 
 * 插入执行完之后，数据库结果如下
 
-![](http://cdn.pzblog.cn/14.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/14.jpg)
 
 至此，大部分工作基本已经完成！
 
@@ -265,11 +265,11 @@ chinaRegionsService.saveBatch(regionsInfoList);
 
 因此，我们还需要对这些**直辖市**类型的数据进行修复，查询出所有的**直辖市**类型的城市。
 
-![](http://cdn.pzblog.cn/15.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/15.jpg)
 
 对这些编号的城市，单独处理，中间加一层市级类型！
 
-![](http://cdn.pzblog.cn/16.jpg)
+![](http://www.justdojava.com/assets/images/2019/java/image_zjkl/java-pachong/16.jpg)
 
 至此，国家省市区编码数据字典，全部处理完毕！
 
