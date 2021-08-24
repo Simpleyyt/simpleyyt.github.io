@@ -18,7 +18,7 @@ Hello 大家好，相信大家跟阿粉一样，在成为卓越的` Java` 程序
 
 对于我们开发者来说，日常工作的项目肯定是要在稳定版本上的，但是日常的学习就可以随意发挥。通过阅读优秀的人写的代码来提高我们自己的能力，附一张 `Java` 语言发布史。
 
-![](/Users/ziyou/Library/Application Support/typora-user-images/image-20210822114320410.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/2021/0820/1.png)
 
 从这张图中我们可以看到` Java` 版本有四种类型，分别是旧版本，旧版本依旧维护，当前版本，未来版本。当前版本是` Java SE16`，未来会有 `Java SE 17` 和` Java SE 18`。而我们常用的 `Java SE 8` 和 `Java SE 11` 属于两个 LTS 虽然是旧版本但是依旧在维护。
 
@@ -26,7 +26,7 @@ Hello 大家好，相信大家跟阿粉一样，在成为卓越的` Java` 程序
 
 附上` Java SE 16` 的下载地址：https://www.oracle.com/java/technologies/javase-jdk16-downloads.html 大家可以自行选择适配的操作系统进行下载学习。
 
-![](/Users/ziyou/Library/Application Support/typora-user-images/image-20210822114918680.png)
+![](http://www.justdojava.com/assets/images/2019/java/image_ziyou/2021/0820/2.png)
 
 
 
@@ -57,7 +57,7 @@ Hello 大家好，相信大家跟阿粉一样，在成为卓越的` Java` 程序
 
 ### Serveless 架构
 
-`Serveless` 架构可能很多小伙伴还没听过，而且很多小伙伴可能在日常工作中除了写需求代码之外还会涉及到服务器的配置以及运维的工作。而在当下的云原生时代，所有的这一切都可以交给云服务器厂商，关于 `Serveless` 架构大家可以去看一下公号之前的文档，作为 Java 开发程序员，你知道什么是 Serveless 架构吗？http://www.justdojava.com/2021/06/20/serveless/
+`Serveless` 架构可能很多小伙伴还没听过，而且很多小伙伴可能在日常工作中除了写需求代码之外还会涉及到服务器的配置以及运维的工作。而在当下的云原生时代，所有的这一切都可以交给云服务器厂商，关于 `Serveless` 架构大家可以去看一下公号之前的文档，[作为 Java 开发程序员，你知道什么是 Serveless 架构吗？](https://mp.weixin.qq.com/s/lsom8niu8ClaDjy5fA2gqw)
 
 写的比较清楚，而且也有案例。
 
