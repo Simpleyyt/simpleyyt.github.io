@@ -1,9 +1,10 @@
 ---
-layout:post
+layout: post
+categories: Java
 title: 阿粉告诉你如何在前端上监听到RabbitMQ发送消息，完成数据监控呢？
-catgories: 
-tags:
-    - 懿
+tagline: by 懿
+tags: 
+  - 懿
 ---
 
 之前还记得阿粉给大家讲了关于RabbitMQ的经典实用还有整合到SpringBoot项目中的案例么？最近一段时间，阿粉的朋友问我说，公司安排他让他研究一下如何在前端实现对RabbitMQ发送消息的实时监控，而这也涉及到了阿粉的知识盲区，于是阿粉就开始了学习的道路，接下来就跟着阿粉一起来学习一下这关于如何在前端监听到RabbitMQ发送消息，以便实现自己项目中的功能吧。
