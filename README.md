@@ -1,35 +1,45 @@
-# NexT
+#  Just Do Java
 
-> 精于心，简于形
+## Java 极客技术是什么？
 
-NexT 是由 [Hexo NexT](https://github.com/iissnan/hexo-theme-next) 移植而来的 Jekyll 主题。<!--commit: f951075d9b739d26b42472431995fa68d08796aa-->
+Java 极客技术由一群热爱 Java 的技术人组建，专业输出高质量、原创的 Java 系列文章，目前已经有十几名作者加入。
 
-<a href="http://simpleyyt.github.io/jekyll-theme-next/" target="_blank">在线预览 Preview</a> | <a href="http://simpleyyt.com" target="_blank">Yitao's Blog</a> | <a href="http://theme-next.simpleyyt.com" target="_blank">NexT 使用文档</a> |  [English Documentation](README.en.md)
+仅计划招募 36 名原创作者，正式团队人数不超过 12 名，人数够了之后就会关闭加入入口。
 
-[![Join the chat at https://gitter.im/simpleyyt/jekyll-theme-next](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jekyll-theme-next/lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+现在已经有超过 50000+ 用户加入了 Java 极客技术，赶快扫码加入吧！
 
-![NexT Schemes](http://iissnan.com/nexus/next/next-schemes.jpg)
-
-
-## 浏览器支持 Browser support
-
-![Browser support](http://iissnan.com/nexus/next/browser-support.png)
+![](/assets/images/wechat-qcode.jpg)
 
 
-## 贡献 Contributing
+## 为什么要创建这个组织
 
-欢迎提交问题与需求，修复代码。
+行业内关于 Java 的技术公众号比较多，但是坚持高质量原创的很少，因此联合一批同样热爱 Java 的技术朋友，创建了这个技术社区。
 
+目标是持续的为大家推送高质量的技术文章，坚持每个工作日都有内容推送。
 
-## 开发 Development
-
-NexT 主旨在于简洁优雅且易于使用，所以首先要尽量确保 NexT 的简洁易用性。
-
-NexT is built for easily use with elegant appearance. First things first, always keep things simple.
+这个社区目前有一个网站、一个技术公众号，私密讨论的知识星球[https://t.zsxq.com/JYvrVVf](https://t.zsxq.com/JYvrVVf)。
 
 
-## 捐赠
+## 作者团队
 
-支付宝捐赠链接还是要有的，万一真的有人捐呢。
+- 纯洁的微笑，一枚从业超过十年的一线老兵，目前在技术自媒体行业折腾。
+- 郭慧权de权，马拉松上奔跑的小白，团队首席运营官。
+- 子悠，一个有点文艺有点技术宅的深漂程序员。
+- 懿，一个被打击正在努力前进的码农。
+- 炸鸡可乐，一个在一线疯狂码砖的骚年。
+- 楼下小黑哥，一名非专业的程序员，擅长摸鱼划水，第三方支付从业者。
+- 郑璐璐，一只热爱 coding 的程序媛。
 
-![支付宝扫码捐赠](http://7lryc0.com1.z0.glb.clouddn.com/a6x049034plyvjm1rvn4h28%20%281%29.png)
+## 知识星球与未来计划
+
+2019-06-06 我们开通了知识星球[https://t.zsxq.com/JYvrVVf](https://t.zsxq.com/JYvrVVf)，让大家有一个真正纯交流技术的地方；后期也许会联合作者开一些课程，大家敬请期待吧！
+
+现在才刚刚开始。。。欢迎大家跟我们一起进步，成长！
+
+## 关键节点
+
+- 2019年02月25日 发一篇文章[《Java 诞生的趣事》](https://mp.weixin.qq.com/s/bsYeKXJCKT4Vr1hNzsKxvw)
+- 2019年03月18日 招募到第一个团队成员，沉默王二发表文章：[《Java：并发不易，先学会用》](https://mp.weixin.qq.com/s/OCsAO2ydI2Nz1F5cANCXfw)
+- 2019年04月05日 用户突破一万 历时39天
+- 2019年06月06日 用户突破两万 历时100天
+- 故事还在继续...

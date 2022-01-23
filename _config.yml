@@ -4,10 +4,10 @@
 # ---------------------------------------------------------------
 
 # Site
-title: Simpleyyt
-subtitle: Yitao's Blog
-description: Too simple, sometimes naive.
-author: Simpleyyt
+title:  Just Do Java
+subtitle: Java 's Blog
+description: 一群热爱 Java 的技术人
+author: Java Geek Tech
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
@@ -76,7 +76,7 @@ plugins:
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `assets/` directory.
-favicon: /assets/images/author.jpeg
+favicon: /assets/images/java.ico
 
 # Set default keywords (Use a comma to separate)
 keywords: "Jekyll, NexT, simpleyyt, yitao"
@@ -87,7 +87,7 @@ keywords: "Jekyll, NexT, simpleyyt, yitao"
 rss:
 
 # Specify the date when the site was setup
-since: 2015
+since: 2019
 
 # icon between year and author @Footer
 authoricon: heart
@@ -118,10 +118,10 @@ index_with_subtitle: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories/
-  #about: /about/
-  archives: /archives/
+  categories: /categories/
   tags: /tags/
+  archives: /archives/
+  about: /about/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -144,15 +144,13 @@ menu_icons:
   commonweal: heartbeat
 
 
-
-
 # ---------------------------------------------------------------
 # Scheme Settings
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
-#scheme: Mist
+#scheme: Muse
+scheme: Mist
 #scheme: Pisces
 
 
@@ -210,12 +208,13 @@ font:
 # ---------------------------------------------------------------
 
 
+
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  GitHub: https://github.com/simpleyyt
-  知乎: http://www.zhihu.com/people/yaoyit
+  GitHub: https://github.com/justdojava
+  知乎: https://zhuanlan.zhihu.com/ityouknow
 
 
 # Social Links Icons
@@ -234,7 +233,7 @@ social_icons:
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
-avatar: /assets/images/author.jpeg
+avatar: /assets/images/wechat-qcode.jpg
 
 
 # Table Of Contents in the Sidebar
@@ -257,15 +256,15 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right
-  position: left
-  #position: right
+   #position: left
+  position: right
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  display: hide
+  display: always
   #display: always
   #display: hide
   #display: remove
@@ -282,11 +281,18 @@ sidebar:
 
 
 # Blog rolls
-#links_title: Links
+links_title: Links
 #links_layout: block
 #links_layout: inline
-#links:
-  #Title: http://example.com/
+links:
+  纯洁的微笑: http://ityouknow.com
+  沉默王二: http://www.itwanger.com
+  子悠: http://home.zxsilence.cn/
+  江南一点雨: http://www.javaboy.org
+  炸鸡可乐: http://pzblog.cn
+  郑璐璐: https://www.dynamic-zheng.com
+  程序通事: https://studyidea.cn
+  懿: http://chuyikeji.cn/
 
 
 # ---------------------------------------------------------------
@@ -306,7 +312,7 @@ excerpt_description: true
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
   enable: false
-  length: 150
+  length: 16
 
 # Post meta display settings
 post_meta:
@@ -323,10 +329,10 @@ post_wordcount:
   separated_meta: true
 
 # Wechat Subscriber
-#wechat_subscriber:
-  #enabled: true
-  #qcode: /path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg
-  #description: ex. subscribe to my blog by scanning my public wechat account
+wechat_subscriber:
+  enabled: true
+  qcode: /assets/images/wechat-qcode.jpg
+  description: 欢迎订阅 Java 极客技术，这里分享关于 Java 的一切。
 
 # Declare license on posts
 post_copyright:
@@ -374,15 +380,15 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-baidu_analytics: 70b7e141dfc0ea2b204682f94ab2e01a
+#baidu_analytics: 70b7e141dfc0ea2b204682f94ab2e01a
 
 # Duoshuo ShortName
 #duoshuo_shortname:
 
 # Disqus
 disqus:
-  enable: true
-  shortname: simpleyyt
+  enable: false
+  shortname: ityouknow
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
@@ -394,11 +400,11 @@ wildfire:
   # version - It's recommended to use the following versions.
   loaderVersion: 1.2.5 # https://www.npmjs.com/package/wildfire-comment
   useDev: true
-  version: 0.5.6 
+  version: 0.5.6
   # database config
   databaseProvider: firebase # or wilddog
   firebase: # your firebase config goes here ↓
-    apiKey: 
+    apiKey:
     authDomain:
     databaseURL:
     projectId:
@@ -409,8 +415,8 @@ wildfire:
   # other configs
   theme: light # or dark
   locale: en # or other locales, e.g. zh-CN
-  defaultAvatarURL: 
-# Any question? 
+  defaultAvatarURL:
+# Any question?
 # Raise an issue here: https://github.com/cheng-kang/wildfire/issues
 # </wildfire>
 
@@ -436,12 +442,12 @@ changyan:
 
 # Support for gitalk comments system.
 gitalk:
-  enable: false
-  clientID: # 54730ddf7b9420460c03
-  clientSecret: # c05684701b25ff1c19ea0c01ce4d80c125e0707d
-  repo: # colingpt.github.io
-  owner: # colingpt
-  admin: # colingpt
+  enable: true
+  clientID: a8a9e806ae8898126795
+  clientSecret: f64f78aac63236a7a9cd25a16de2c3d91613914a
+  repo: blog-comments
+  owner: ityouknow
+  admin: ityouknow
 
 # Baidu Share
 # Available value:
@@ -460,17 +466,17 @@ gitalk:
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification: hxyd6b4vb-uzYY6dVuzz4KXhScoVoEUjtiRWYSJVlrY
+google_site_verification:
 
 # Google Analytics
-google_analytics: UA-67994495-1
+google_analytics: U
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
 #yandex_site_verification:
 
 # CNZZ count
-#cnzz_siteid:
+cnzz_siteid: 1276814721
 
 # Application Insights
 # See https://azure.microsoft.com/en-us/services/application-insights/
@@ -569,7 +575,7 @@ calendar:
   orderBy: startTime
   offsetMax: 24
   offsetMin: 4
-  timeZone:
+  timeZone: Asia/Shanghai
   showDeleted: false
   singleEvents: true
   maxResults: 250
@@ -587,7 +593,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: true
+  enable: false
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
@@ -606,7 +612,7 @@ exturl: false
 #! ---------------------------------------------------------------
 
 # Motion
-use_motion: true
+use_motion: false
 
 # Fancybox
 fancybox: true
